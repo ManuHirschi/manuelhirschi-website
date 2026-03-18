@@ -400,19 +400,16 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
 <section id="angebot">
   <div class="section-inner">
 
-    <!-- Titel -->
+    <!-- ═══ BLOCK 1: Methode ═══ -->
     <h2 class="section-title reveal">Die KI-Werkstatt</h2>
 
-    <!-- Illustration — eigenständig, gross, visueller Anker -->
     <div class="reveal" style="max-width:400px;margin:2rem 0 2.5rem;">
       <dotlottie-player src="asset/lottie/02_tafel_paint.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint" role="img" aria-label="Illustration: Wandtafel mit Formeln und Netzwerk"></dotlottie-player>
     </div>
 
-    <!-- Claim + Erklärung -->
-    <p class="reveal" style="font-weight:500;max-width:520px;font-size:22px;margin-bottom:0.5rem;letter-spacing:-0.5px;">Werkzeug statt Wundermittel. Praxis statt Theorie.</p>
-    <p class="reveal" style="font-weight:300;max-width:520px;font-size:16px;margin-bottom:0;">Ein didaktisches Verfahren, das dir zeigt, wie du aus deinem eigenen Unterrichtsmaterial mit KI differenzierten Unterricht baust. Schnell, quellgebunden, mit eingebauter Qualitätskontrolle.</p>
+    <p class="large-body reveal" style="max-width:560px;">Werkzeug statt Wundermittel. Praxis statt Theorie.</p>
+    <p class="reveal" style="font-weight:300;max-width:520px;font-size:16px;margin-top:0.75rem;">Aus deinem eigenen Unterrichtsmaterial baust du mit KI differenzierten Unterricht auf drei Niveaus. In 90 Sekunden.</p>
 
-    <!-- Workflow -->
     <div class="workflow reveal" style="margin-top:2.5rem;">
       <span class="step">Eigenes Material</span>
       <span class="arrow">→</span>
@@ -427,83 +424,39 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
 
     <hr class="section-divider">
 
-    <!-- 5 Prinzipien -->
+    <!-- ═══ BLOCK 2: Drei Prinzipien ═══ -->
     <ol class="prinzip-list reveal">
       <li><span class="prinzip-num">01</span><span><strong>Eigene Quellen.</strong> KI arbeitet nur mit deinem Material. Kein Web, kein Raten.</span></li>
       <li><span class="prinzip-num">02</span><span><strong>Du bleibst im Lead.</strong> Du entscheidest, was in den Unterricht geht. Immer.</span></li>
-      <li><span class="prinzip-num">03</span><span><strong>Belegpflicht.</strong> Jede KI-Aussage braucht einen Nachweis aus der Quelle.</span></li>
-      <li><span class="prinzip-num">04</span><span><strong>Kurz-Check ohne Tool.</strong> Wer es nicht ohne KI erklären kann, hat es nicht verstanden.</span></li>
-      <li><span class="prinzip-num">05</span><span><strong>Plan B ohne Tool.</strong> Jeder Baustein ist so gebaut, dass er auch ohne KI funktioniert.</span></li>
+      <li><span class="prinzip-num">03</span><span><strong>Eingebaute Qualitätskontrolle.</strong> Jeder Output wird belegt. Jeder Baustein funktioniert auch ohne KI.</span></li>
     </ol>
 
     <hr class="section-divider">
 
-    <!-- Beispiel: Vorher/Nachher -->
-    <div class="beispiel-block reveal">
-      <div class="step-label">Beispiel: Arbeitsblatt Lehrvertrag</div>
-      <div class="beispiel-grid">
-        <div class="beispiel-vorher">
-          <h4>Vorher — 1 Niveau</h4>
-          <p class="beispiel-aufgabe">«Lesen Sie OR Art. 344–346a. Erklären Sie die Rechte und Pflichten im Lehrvertrag. Nennen Sie die Kündigungsfristen während und nach der Probezeit.»</p>
-        </div>
-        <div class="beispiel-nachher">
-          <h4>Nachher — 3 Niveaus, 90 Sekunden</h4>
-          <div class="niveau-block">
-            <span class="niveau-tag niveau-a">Niveau A · Basisverstehen</span>
-            <p>Markiere 5 Wörter, die du nicht verstehst. Schreibe in eigenen Worten, was «Probezeit» bedeutet.</p>
-          </div>
-          <div class="niveau-block">
-            <span class="niveau-tag niveau-b">Niveau B · Anwenden</span>
-            <p>Lena (17) will in der Probezeit kündigen. Welche Frist gilt? Begründe mit OR 346.</p>
-          </div>
-          <div class="niveau-block">
-            <span class="niveau-tag niveau-c">Niveau C · Transfer</span>
-            <p>Vergleiche Lehrvertrag mit Arbeitsvertrag. Wo schützt das Gesetz Lernende stärker?</p>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:1.5rem;">
-        <a href="beispiel/lehrvertrag.html" class="cta_ghost_blue" style="padding:12px 22px;">Vollständiges Beispiel ansehen →</a>
-        <p style="font-size:13px;font-weight:300;opacity:0.5;margin-top:0.75rem;">3 Niveaus + 6 NotebookLM-Zugänge + Scaffolding</p>
-      </div>
+    <!-- ═══ BLOCK 3: Beispiel (Link, kein Embed) ═══ -->
+    <div class="reveal">
+      <p style="font-weight:300;font-size:18px;max-width:480px;margin-bottom:1.25rem;">Wie sieht das konkret aus? Ein Arbeitsblatt zum Lehrvertrag — drei Niveaus, 90 Sekunden.</p>
+      <a href="beispiel/lehrvertrag.html" class="cta_ghost_blue">Beispiel ansehen →</a>
     </div>
 
     <hr class="section-divider">
 
-    <!-- Kurs-Details -->
-    <div class="kurs-layout" style="margin-top:0;">
-      <div>
-        <div class="step-label reveal">Was du mitnimmst</div>
-        <div class="kurs-meta" style="margin-top:0.5rem;">
-          <div class="step-box reveal"><div class="step-label">Dauer</div><div style="font-weight:500;">2 × 90 Min</div></div>
-          <div class="step-box reveal"><div class="step-label">Gruppe</div><div style="font-weight:500;">6–16 Personen</div></div>
-          <div class="step-box reveal"><div class="step-label">Ergebnis</div><div style="font-weight:500;">Fertiger Baustein + Promptkarten</div></div>
-          <div class="step-box reveal"><div class="step-label">Routine</div><div style="font-weight:500;">12-Min-Training für den Unterricht</div></div>
-        </div>
+    <!-- ═══ BLOCK 4: Angebot + CTA ═══ -->
+    <div class="format-row">
+      <div class="format-item reveal">
+        <div class="step-label" style="color:#01c476;">Kernformat</div>
+        <h3>KI-Werkstatt</h3>
+        <p>2 × 90 Min, Halbtag oder Ganztag. Hands-on, mit eigenem Material. Du nimmst mit: fertiger Baustein, Promptkarten, 12-Min-Routine.</p>
       </div>
-    </div>
-
-    <hr class="section-divider">
-
-    <!-- Drei Formate -->
-    <div>
-      <div class="step-label reveal">Drei Formate</div>
-      <div class="format-row">
-        <div class="format-item reveal">
-          <div class="step-label" style="color:#01c476;">Kernformat</div>
-          <h3>KI-Werkstatt</h3>
-          <p>2 × 90 Min, Halbtag oder Ganztag. Hands-on, mit eigenem Material, sofort einsetzbar.</p>
-        </div>
-        <div class="format-item reveal">
-          <div class="step-label">Begleitung</div>
-          <h3>Fachentwicklung</h3>
-          <p>1 Semester. KI-Werkstatt + Prompt-Training + Begleitung + Dokumentation.</p>
-        </div>
-        <div class="format-item reveal">
-          <div class="step-label">Einstieg</div>
-          <h3>Impuls</h3>
-          <p>60 Minuten Input an deinem Weiterbildungstag oder deiner Schulkonferenz.</p>
-        </div>
+      <div class="format-item reveal">
+        <div class="step-label">Begleitung</div>
+        <h3>Fachentwicklung</h3>
+        <p>1 Semester. KI-Werkstatt + Prompt-Training + Begleitung + Dokumentation.</p>
+      </div>
+      <div class="format-item reveal">
+        <div class="step-label">Einstieg</div>
+        <h3>Impuls</h3>
+        <p>60 Minuten Input an deinem Weiterbildungstag oder deiner Schulkonferenz.</p>
       </div>
     </div>
 
