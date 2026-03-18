@@ -11,20 +11,19 @@
 <meta property="og:url" content="https://manuelhirschi.ch/beispiel/lehrvertrag.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #F0EBE1;
-  --bg-light: #F5F1E8;
-  --ink: #1A1A1A;
-  --lilac: #B89FD4;
-  --lilac-light: #D8C8EA;
-  --coral: #E8734A;
-  --gold: #E8C840;
-  --green: #3CB97A;
-  --green-dark: #2A9D63;
-  --muted: #7A756B;
-  --dash: rgba(184,159,212,0.5);
+  --bg: #EDEAE1;
+  --bg-light: #F5F2EB;
+  --ink: #2A2A2A;
+  --blue: #3881F1;
+  --lilac: #D7BCED;
+  --orange: #F6612E;
+  --green: #01C476;
+  --green-dark: #01A866;
+  --muted: #5A5A5A;
+  --dash: #3881F1;
 }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -37,20 +36,20 @@ body {
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
-::selection { background: var(--lilac); color: var(--bg); }
+::selection { background: var(--blue); color: var(--bg); }
 
 /* Typography */
-h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 4.5vw, 2.8rem); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.5rem; }
-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.3rem, 3vw, 1.8rem); letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+h1 { font-family: Figtree, sans-serif; font-weight: 400; font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -2px; line-height: 1.1; margin-bottom: 0.5rem; }
+h2 { font-family: Figtree, sans-serif; font-weight: 400; font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: -1px; margin-bottom: 0.75rem; }
 h3 { font-family: Figtree, sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
 p { margin-bottom: 0.8rem; }
 
 /* Labels */
 .label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.5rem; display: inline-block; }
-.label-lilac { color: var(--lilac); }
+.label-blue { color: var(--blue); }
 .label-green { color: var(--green); }
-.label-coral { color: var(--coral); }
-.label-gold { color: var(--gold); }
+.label-orange { color: var(--orange); }
+.label-lilac { color: var(--lilac); }
 
 /* Back link */
 .back-link {
@@ -69,13 +68,13 @@ p { margin-bottom: 0.8rem; }
 }
 
 /* Dashed separator */
-.dash { border: none; border-top: 2px dashed var(--dash); margin: 2.5rem 0; }
+.dash { border: none; border-top: 1px dashed var(--blue); opacity: 0.35; margin: 2.5rem 0; }
 
 /* Source box */
 .source-box {
   background: var(--bg-light);
-  border: 2px dashed var(--dash);
-  border-radius: 16px;
+  border: 1px dashed var(--blue);
+  border-radius: 20px;
   padding: 1.5rem;
   margin-bottom: 0.5rem;
 }
@@ -85,7 +84,7 @@ p { margin-bottom: 0.8rem; }
   font-weight: 300;
   line-height: 1.7;
   color: var(--ink);
-  border-left: 3px solid var(--lilac);
+  border-left: 3px solid var(--blue);
   padding-left: 1rem;
   margin: 0.75rem 0;
 }
@@ -99,7 +98,7 @@ p { margin-bottom: 0.8rem; }
 }
 .workflow-strip .step-pill {
   background: var(--bg-light);
-  border: 2px dashed var(--dash);
+  border: 1px dashed var(--blue);
   border-radius: 30px;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
@@ -111,7 +110,7 @@ p { margin-bottom: 0.8rem; }
   border-color: var(--green);
   color: white;
 }
-.workflow-strip .arrow { color: var(--lilac); font-size: 1.2rem; }
+.workflow-strip .arrow { color: var(--green); font-size: 1.2rem; }
 
 /* Niveau cards */
 .niveau-grid {
@@ -129,25 +128,25 @@ p { margin-bottom: 0.8rem; }
 .niveau-card .ziel { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; font-weight: 400; }
 
 .niveau-a {
-  background: linear-gradient(135deg, rgba(60,185,122,0.08), rgba(60,185,122,0.03));
+  background: linear-gradient(135deg, rgba(1,196,118,0.08), rgba(1,196,118,0.02));
   border: 2px solid var(--green);
 }
 .niveau-a h2 { color: var(--green-dark); }
 .niveau-a .niveau-tag { background: var(--green); }
 
 .niveau-b {
-  background: linear-gradient(135deg, rgba(184,159,212,0.1), rgba(184,159,212,0.03));
-  border: 2px solid var(--lilac);
+  background: linear-gradient(135deg, rgba(56,129,241,0.08), rgba(56,129,241,0.02));
+  border: 2px solid var(--blue);
 }
-.niveau-b h2 { color: var(--lilac); }
-.niveau-b .niveau-tag { background: var(--lilac); }
+.niveau-b h2 { color: var(--blue); }
+.niveau-b .niveau-tag { background: var(--blue); }
 
 .niveau-c {
-  background: linear-gradient(135deg, rgba(232,115,74,0.08), rgba(232,115,74,0.03));
-  border: 2px solid var(--coral);
+  background: linear-gradient(135deg, rgba(246,97,46,0.08), rgba(246,97,46,0.02));
+  border: 2px solid var(--orange);
 }
-.niveau-c h2 { color: var(--coral); }
-.niveau-c .niveau-tag { background: var(--coral); }
+.niveau-c h2 { color: var(--orange); }
+.niveau-c .niveau-tag { background: var(--orange); }
 
 .niveau-tag {
   display: inline-block;
@@ -160,7 +159,7 @@ p { margin-bottom: 0.8rem; }
 /* Aufgabe inside card */
 .aufgabe {
   background: var(--bg);
-  border: 1.5px dashed var(--dash);
+  border: 1px dashed var(--blue);
   border-radius: 12px;
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -177,13 +176,13 @@ p { margin-bottom: 0.8rem; }
 
 /* Scaffold box */
 .scaffold {
-  background: rgba(232,200,64,0.12);
-  border: 1.5px dashed rgba(232,200,64,0.5);
+  background: rgba(215,188,237,0.15);
+  border: 1px dashed var(--lilac);
   border-radius: 10px;
   padding: 1rem;
   margin-top: 0.75rem;
 }
-.scaffold h4 { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; font-weight: 600; }
+.scaffold h4 { font-size: 0.8rem; color: var(--lilac); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; font-weight: 600; }
 .scaffold p, .scaffold ul { font-size: 0.85rem; margin-bottom: 0.3rem; }
 .scaffold ul { margin-left: 1.2rem; }
 
@@ -197,20 +196,20 @@ p { margin-bottom: 0.8rem; }
 }
 .access-card {
   background: var(--bg-light);
-  border: 2px dashed var(--dash);
-  border-radius: 14px;
+  border: 1px dashed var(--blue);
+  border-radius: 20px;
   padding: 1.25rem;
   text-align: center;
   transition: transform 0.2s, border-color 0.2s;
 }
-.access-card:hover { transform: translateY(-3px); border-color: var(--lilac); }
+.access-card:hover { transform: scale(1.03); border-color: var(--blue); }
 .access-icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
 .access-card h3 { font-size: 0.95rem; margin-bottom: 0.3rem; }
 .access-card p { font-size: 0.8rem; color: var(--muted); margin-bottom: 0; }
 
 /* Lilac section */
 .lilac-section {
-  background: var(--lilac);
+  background: var(--blue);
   color: white;
   border-radius: 20px;
   padding: 2.5rem 2rem;
@@ -221,7 +220,7 @@ p { margin-bottom: 0.8rem; }
 .lilac-section p { color: rgba(255,255,255,0.9); }
 .lilac-section .cta {
   display: inline-block;
-  background: white; color: var(--lilac);
+  background: white; color: var(--blue);
   font-family: Figtree, sans-serif;
   font-weight: 600; font-size: 1rem;
   padding: 0.85rem 2.2rem;
@@ -239,7 +238,7 @@ p { margin-bottom: 0.8rem; }
   font-size: 0.8rem;
   color: var(--muted);
 }
-.page-footer a { color: var(--lilac); text-decoration: none; }
+.page-footer a { color: var(--blue); text-decoration: none; }
 .page-footer a:hover { text-decoration: underline; }
 
 /* Responsive */
@@ -248,9 +247,9 @@ p { margin-bottom: 0.8rem; }
   body { padding: 3rem 2rem; }
 }
 @media (max-width: 500px) {
-  .workflow-strip .arrow { display: none; }
-  .workflow-strip { gap: 0.4rem; }
-  .workflow-strip .step-pill { font-size: 0.75rem; padding: 0.35rem 0.7rem; }
+  .workflow-strip { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .workflow-strip .arrow { display: block; transform: rotate(90deg); font-size: 1rem; margin: -0.2rem 0 -0.2rem 2rem; }
+  .workflow-strip .step-pill { font-size: 0.85rem; padding: 0.4rem 0.9rem; }
 }
 
 /* Print */
@@ -264,7 +263,7 @@ p { margin-bottom: 0.8rem; }
 .nav-mini {
   position: sticky; top: 0; z-index: 100;
   background: var(--bg);
-  border-bottom: 2px dashed var(--dash);
+  border-bottom: 1px dashed var(--blue);
   padding: 0.6rem 1.5rem;
   display: flex; align-items: center; justify-content: space-between;
   margin: -2rem -1.5rem 2rem;
@@ -316,7 +315,7 @@ p { margin-bottom: 0.8rem; }
 
 <!-- Quelle -->
 <div class="reveal">
-  <span class="label label-lilac">Schritt 1 — Eigene Quelle</span>
+  <span class="label label-blue">Schritt 1 — Eigene Quelle</span>
   <div class="source-box">
     <h3>Ausgangsmaterial</h3>
     <blockquote>Der Lehrvertrag bildet die rechtliche Grundlage des Lehrverhältnisses. Er wird im Obligationenrecht (OR Art. 344 bis 346a) geregelt. Der Vertrag muss schriftlich vorliegen und von der kantonalen Behörde genehmigt werden. Die Probezeit dauert ein bis drei Monate und kann auf maximal sechs Monate verlängert werden. Während der Probezeit beträgt die Kündigungsfrist sieben Tage. Jugendliche bis 18 Jahre dürfen maximal neun Stunden pro Tag arbeiten.</blockquote>
@@ -341,7 +340,7 @@ p { margin-bottom: 0.8rem; }
 
 <!-- Ergebnis -->
 <div class="reveal">
-  <span class="label label-coral">Schritt 2 — 3 Niveaus, generiert in 90 Sekunden</span>
+  <span class="label label-orange">Schritt 2 — 3 Niveaus, generiert in 90 Sekunden</span>
   <h2>Arbeitsblatt «Mein Lehrvertrag»</h2>
   <p style="color:var(--muted);font-size:0.9rem;">nRLP-Bezug: Aspekt Recht (5.2.6) · Schlüsselkompetenz 3.2.1 (Quellenkritik) · Differenzierung nach Sprachniveau (7.3)</p>
 </div>
@@ -423,7 +422,7 @@ p { margin-bottom: 0.8rem; }
 
 <!-- NotebookLM Zugänge -->
 <div class="notebooklm-section reveal">
-  <span class="label label-gold">Schritt 3 — Verschiedene Zugänge mit NotebookLM</span>
+  <span class="label label-lilac">Schritt 3 — Verschiedene Zugänge mit NotebookLM</span>
   <h2>Dasselbe Material, verschiedene Formate</h2>
   <p style="color:var(--muted);font-size:0.9rem;max-width:600px;">NotebookLM generiert aus derselben Quelle verschiedene Zugänge. Die LP wählt, was zur Klasse passt.</p>
 
@@ -434,7 +433,7 @@ p { margin-bottom: 0.8rem; }
       <p>Die wichtigsten Punkte des Lehrvertrags auf einer halben Seite. Für den Einstieg oder als Repetition.</p>
     </div>
     <div class="access-card reveal">
-      <span class="access-icon" aria-hidden="true" style="font-size:1.2rem;font-weight:700;color:var(--coral);">?!</span>
+      <span class="access-icon" aria-hidden="true" style="font-size:1.2rem;font-weight:700;color:var(--orange);">?!</span>
       <h3>Lernfragen</h3>
       <p>10 Verständnisfragen mit Antworten. Zum Selbsttest oder als Lernkontrolle einsetzbar.</p>
     </div>
@@ -449,7 +448,7 @@ p { margin-bottom: 0.8rem; }
       <p>NotebookLM erstellt einen gesprochenen Überblick. Lernende hören den Stoff unterwegs.</p>
     </div>
     <div class="access-card reveal">
-      <span class="access-icon" aria-hidden="true" style="font-size:1.2rem;font-weight:700;color:var(--gold);">1–5</span>
+      <span class="access-icon" aria-hidden="true" style="font-size:1.2rem;font-weight:700;color:var(--blue);">1–5</span>
       <h3>Fallsammlung</h3>
       <p>5 realistische Fälle rund um den Lehrvertrag. Für Gruppenarbeit oder Prüfungsvorbereitung.</p>
     </div>
