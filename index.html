@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manuel Hirschi — KI-Werkstatt für Lehrpersonen</title>
+<meta name="description" content="Differenzierter Unterricht in 90 Sekunden. Die KI-Werkstatt zeigt ABU-Lehrpersonen, wie sie mit KI aus eigenem Material Unterricht auf 3 Niveaus bauen.">
+<meta name="keywords" content="KI Weiterbildung Berufsschule, KI-Werkstatt, Differenzierung KI, ABU Lehrperson KI, EBA DaZ KI, NotebookLM Berufsschule, Manuel Hirschi">
+<meta name="author" content="Manuel Hirschi">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="KI-Werkstatt für Lehrpersonen — Manuel Hirschi">
+<meta property="og:description" content="Differenzierter Unterricht in 90 Sekunden. Mit deinem Material. Unter deiner Kontrolle.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://manuelhirschi.ch">
+<meta property="og:locale" content="de_CH">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<style>
+/* ═══════════════════════════════════════
+   DESIGN TOKENS — therapyin.london
+   ═══════════════════════════════════════ */
+body {
+  background-color: #edeae1;
+  margin: 70px 0 0;
+  padding: 0;
+  font-family: Figtree, sans-serif;
+  overflow: auto;
+  scroll-behavior: smooth;
+  color: #2a2a2a;
+  font-size: 16px;
+  line-height: 1.6;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+img { display: block; max-width: 100%; }
+a { cursor: pointer; font-weight: 300; text-decoration: none; font-family: Figtree, sans-serif; color: inherit; }
+h1, h2, h3, h4, h5 { letter-spacing: -1.2px; }
+::selection { background: #2a2a2a; color: #edeae1; }
+
+/* ═══════════════════════════════════════
+   NOTEBOOK LINES
+   ═══════════════════════════════════════ */
+.notebook-lines {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0; pointer-events: none;
+  display: flex; flex-direction: column; gap: 50px; padding-top: 70px;
+}
+.notebook-lines span { display: block; width: 100%; border-top: 1px dashed #3881F1; opacity: 0.35; flex-shrink: 0; }
+
+/* ═══════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════ */
+.navBar {
+  width: 100%; border-bottom: 1px dashed #3881F1; padding: 7px 30px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: fixed; top: 0; background-color: #edeae1; z-index: 999;
+  transition: opacity .3s ease-in-out;
+}
+.nav-logo {
+  display: inline-block; font-weight: 700; font-size: 1rem; text-transform: uppercase;
+  color: #2a2a2a; text-decoration: none; padding: 0.3rem 0.6rem;
+  border: 2.5px solid #01c476; border-radius: 4px; line-height: 1.2;
+  transition: background .2s, color .2s;
+}
+.nav-logo:hover { background: #01c476; color: #edeae1; }
+.nav-logo .small { font-size: 0.72em; text-transform: lowercase; font-weight: 500; }
+.nav-links { display: flex; gap: 30px; align-items: center; list-style: none; }
+.nav-links a { color: #2a2a2a; font-size: 15px; font-weight: 400; text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: #01c476; }
+.cta_shadow {
+  color: #2a2a2a; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 500;
+  border: 2px solid #2A2A2A; border-radius: 30px; padding: 10px 15px; text-align: center;
+  box-shadow: 0 3px #2a2a2a; background-color: #edeae1; display: inline-block;
+  transition: .25s; cursor: pointer;
+}
+.cta_shadow:hover { box-shadow: 0 0 #000; transform: translateY(3px); }
+.nav-hamburger {
+  display: none; background: none; border: none; cursor: pointer;
+  width: 36px; height: 36px; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+}
+.nav-hamburger span { display: block; width: 26px; height: 3px; background: #01c476; border-radius: 2px; }
+
+/* ═══════════════════════════════════════
+   SECTIONS & TYPOGRAPHY
+   ═══════════════════════════════════════ */
+section { padding: 80px 30px; position: relative; z-index: 1; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.hero-title {
+  font-family: Figtree, sans-serif; font-size: 96px; font-weight: 400;
+  letter-spacing: -4px; line-height: 1.0; color: #2a2a2a; text-align: center;
+}
+.section-title {
+  font-family: Figtree, sans-serif; font-size: 64px; font-weight: 400;
+  line-height: 1.0; letter-spacing: -3px; margin-bottom: 1rem;
+}
+.large-body { font-size: 32px; font-weight: 300; line-height: 1.4; letter-spacing: -1px; }
+.squiggly { position: relative; display: inline; }
+.squiggly::after {
+  content: ''; position: absolute; left: -4px; right: -4px; bottom: -8px; height: 16px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,9 Q10,1 20,9 Q30,17 40,9 Q50,1 60,9 Q70,17 80,9 Q90,1 100,9 Q110,17 120,9' fill='none' stroke='%2301c476' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
+  background-size: 60px 14px;
+}
+
+/* ═══════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════ */
+.cta_ghost_blue {
+  border: 2px solid #3881F1; font-weight: 500; color: #3881f1; padding: 15px 20px;
+  cursor: pointer; display: inline-block; background-color: transparent;
+  font-size: 14px; border-radius: 30px; font-family: Figtree, sans-serif;
+  transition: background .2s, color .2s;
+}
+.cta_ghost_blue:hover { background-color: #3881f1; color: #edeae1; }
+.cta_ghost_white {
+  border: 2px solid #EDEAE1; font-weight: 500; color: #edeae1; padding: 15px 20px;
+  cursor: pointer; display: inline-block; font-size: 14px; background: none;
+  border-radius: 30px; font-family: Figtree, sans-serif; transition: background .2s, color .2s;
+}
+.cta_ghost_white:hover { background-color: #edeae1; color: #3881f1; }
+.cta_green {
+  border: 2px solid #01C476; background-color: #01c476; color: #edeae1;
+  padding: 15px 20px; border-radius: 30px; display: inline-block;
+  font-size: 14px; font-weight: 500; font-family: Figtree, sans-serif;
+  cursor: pointer; transition: background .2s, color .2s;
+}
+.cta_green:hover { background-color: transparent; color: #01c476; }
+
+/* ═══════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════ */
+.hero { padding: 50px 30px 10px; text-align: center; }
+
+/* ═══════════════════════════════════════
+   BLUE SECTION (scalloped edge)
+   ═══════════════════════════════════════ */
+.blue-section {
+  background-color: #3881f1; color: #edeae1; padding: 60px 30px;
+  position: relative; z-index: 1;
+}
+.blue-section::before {
+  content: ''; position: absolute; top: -24px; left: 0; right: 0; height: 26px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='30' cy='26' rx='30' ry='26' fill='%233881f1'/%3E%3C/svg%3E") repeat-x;
+  background-size: 60px 26px;
+}
+.blue-section h2 { font-size: 48px; font-weight: 300; letter-spacing: -2px; margin-bottom: 1rem; line-height: 1.1; }
+.blue-section p { max-width: 520px; margin-bottom: 1.5rem; font-weight: 400; font-size: 18px; color: #ffffff; }
+
+/* ═══════════════════════════════════════
+   TITLE + ILLUSTRATION (therapyin.london "how to's")
+   ═══════════════════════════════════════ */
+.title-with-illust {
+  display: flex; align-items: flex-end; gap: 2rem; flex-wrap: wrap;
+}
+.title-with-illust .section-title { flex: 1; min-width: 280px; }
+.title-with-illust .illust-inline { width: 220px; flex-shrink: 0; }
+
+/* ═══════════════════════════════════════
+   STEP BOXES
+   ═══════════════════════════════════════ */
+.step-box {
+  border: 1px dashed #3881F1; border-radius: 20px; background-color: #edeae1;
+  padding: 1.5rem; margin: 0.75rem 0; transition: transform .3s ease;
+}
+.step-box:hover { transform: scale(1.03); }
+.step-box h3 { font-size: 20px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.4rem; }
+.step-box p { font-size: 15px; font-weight: 300; opacity: 0.7; }
+.step-label { font-size: 12px; font-weight: 600; color: #3881f1; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+
+/* ═══════════════════════════════════════
+   PRINZIPIEN
+   ═══════════════════════════════════════ */
+.prinzip-list { list-style: none; margin: 2.5rem 0; padding: 0; }
+.prinzip-list li {
+  font-size: 20px; font-weight: 300; padding: 1rem 0;
+  border-bottom: 1px dashed #3881F1;
+  display: flex; align-items: baseline; gap: 1rem;
+}
+.prinzip-list li:first-child { border-top: 1px dashed #3881F1; }
+.prinzip-num {
+  font-size: 14px; font-weight: 600; color: #3881f1;
+  min-width: 24px;
+}
+.prinzip-list strong { font-weight: 500; }
+
+/* ═══════════════════════════════════════
+   WORKFLOW
+   ═══════════════════════════════════════ */
+.workflow {
+  display: flex; align-items: center; gap: 0.5rem;
+  flex-wrap: wrap; margin: 2rem 0;
+  font-size: 18px; font-weight: 300;
+}
+.workflow .step {
+  background: #edeae1; border: 1px dashed #3881F1; border-radius: 30px;
+  padding: 0.6rem 1.2rem; white-space: nowrap;
+}
+.workflow .arrow { color: #01c476; font-size: 24px; font-weight: 400; }
+
+/* ═══════════════════════════════════════
+   KURS-LAYOUT
+   ═══════════════════════════════════════ */
+.kurs-layout { display: block; }
+.kurs-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.kurs-meta .step-box { margin: 0; padding: 1rem; }
+
+/* ═══════════════════════════════════════
+   PHOTO
+   ═══════════════════════════════════════ */
+.about-layout { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: start; }
+.photo-wrap { position: relative; display: inline-block; max-width: 260px; }
+.photo-frame { position: relative; transform: rotate(-2deg); }
+.photo-frame img { width: 100%; display: block; border-radius: 12px; border: 3px solid #2a2a2a; box-shadow: 6px 6px 0 #d7bced; }
+.photo-frame::before {
+  content: ''; position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(2deg);
+  width: 80px; height: 22px; background: rgba(215,188,237,0.45);
+  border: 1px solid rgba(215,188,237,0.6); border-radius: 2px; z-index: 2;
+}
+.photo-caption { font-size: 14px; color: #2a2a2a; opacity: 0.5; text-align: center; margin-top: 0.75rem; transform: rotate(-2deg); }
+
+/* ═══════════════════════════════════════
+   FORMATS (compact)
+   ═══════════════════════════════════════ */
+.format-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem; margin-top: 2rem;
+}
+.format-item { padding: 0; }
+.format-item h3 { font-size: 22px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.3rem; }
+.format-item p { font-size: 15px; font-weight: 300; opacity: 0.7; }
+.format-item .step-label { margin-bottom: 0.4rem; }
+
+/* ═══════════════════════════════════════
+   BEISPIEL (Vorher/Nachher)
+   ═══════════════════════════════════════ */
+.beispiel-block { margin: 2.5rem 0; }
+.beispiel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+.beispiel-vorher {
+  border: 1px dashed #3881F1; border-radius: 20px; padding: 1.5rem; background: #edeae1;
+}
+.beispiel-nachher {
+  border: 2px solid #01c476; border-radius: 20px; padding: 1.5rem; background: #edeae1;
+}
+.beispiel-vorher h4, .beispiel-nachher h4 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+.beispiel-vorher h4 { color: #5a5a5a; }
+.beispiel-nachher h4 { color: #01c476; }
+.beispiel-aufgabe { font-size: 15px; font-weight: 300; line-height: 1.5; }
+.niveau-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-bottom: 0.4rem; }
+.niveau-a { background: #01c476; color: #edeae1; }
+.niveau-b { background: #3881F1; color: #edeae1; }
+.niveau-c { background: #F6612E; color: #edeae1; }
+.niveau-block { margin-bottom: 1rem; }
+.niveau-block:last-child { margin-bottom: 0; }
+.niveau-block p { font-size: 14px; font-weight: 300; line-height: 1.5; opacity: 0.8; }
+@media (max-width: 700px) { .beispiel-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+.footer-blue {
+  background-color: #3881f1; color: #edeae1; padding: 60px 30px 30px;
+  position: relative; z-index: 1;
+}
+.footer-blue::before {
+  content: ''; position: absolute; top: -24px; left: 0; right: 0; height: 26px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='30' cy='26' rx='30' ry='26' fill='%233881f1'/%3E%3C/svg%3E") repeat-x;
+  background-size: 60px 26px;
+}
+.footer-claim { font-size: 64px; font-weight: 500; line-height: 1.2; letter-spacing: -3px; margin-bottom: 1.5rem; }
+.footer-claim em { font-style: italic; color: #01c476; }
+.footer-meta { font-size: 12px; font-weight: 200; opacity: 0.7; margin-top: 3rem; }
+
+/* ═══════════════════════════════════════
+   FAQ (compact, bottom of page)
+   ═══════════════════════════════════════ */
+.faq-section { padding: 60px 30px; }
+.faq-section h3 { font-family: Figtree, sans-serif; font-size: 20px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
+.faq-section .faq-item { padding: 1.5rem 0; border-bottom: 1px dashed #3881F1; }
+.faq-section .faq-item:first-of-type { border-top: 1px dashed #3881F1; }
+.faq-section .faq-item p { font-size: 15px; font-weight: 300; opacity: 0.7; max-width: 700px; }
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .5s ease-in, transform .5s ease-in; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (min-width: 768px) {
+  .about-layout { grid-template-columns: 260px 1fr; gap: 3rem; }
+  .kurs-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+}
+@media (min-width: 900px) {
+  section { padding: 80px 60px; }
+  .blue-section, .footer-blue { padding-left: 60px; padding-right: 60px; }
+  .faq-section { padding-left: 60px; padding-right: 60px; }
+}
+@media (max-width: 900px) {
+  .hero-title { font-size: 46px; letter-spacing: -3px; }
+  .hero { padding: 20px 20px 30px; }
+  .section-title { font-size: 40px; letter-spacing: -2px; }
+  .large-body { font-size: 16px; font-weight: 300; }
+  .blue-section h2 { font-size: 32px; }
+  .footer-claim { font-size: 40px; letter-spacing: -2px; }
+  section { padding: 40px 30px; }
+  .workflow .step { font-size: 15px; padding: 0.4rem 0.8rem; }
+  .prinzip-list li { font-size: 17px; }
+}
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0; background: #edeae1;
+    padding: 80px 30px; gap: 0; z-index: 998; justify-content: center;
+  }
+  .nav-links.open a { font-size: 22px; font-weight: 600; padding: 20px 0; display: block; border-top: 1px dashed #3881F1; }
+}
+@media (max-width: 500px) {
+  .kurs-meta { grid-template-columns: 1fr; }
+  .hero-title { font-size: 36px; letter-spacing: -2px; }
+  .workflow .arrow { display: none; }
+  .workflow { gap: 0.4rem; }
+  .workflow .step { font-size: 14px; padding: 0.35rem 0.7rem; }
+  .title-with-illust .illust-inline { width: 120px; }
+  .faq-section .title-with-illust .illust-inline { width: 80px; }
+}
+
+/* ═══════════════════════════════════════
+   ACCESSIBILITY
+   ═══════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .step-box:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NOTEBOOK LINES ═══ -->
+<div class="notebook-lines" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="navBar">
+  <a href="#top" class="nav-logo">KI-Werkstatt<br><span class="small">mit</span> Hirschi</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#angebot">Angebot</a>
+    <a href="#ueber">Über mich</a>
+    <a href="#kontakt" class="cta_shadow">Pilot anfragen</a>
+  </div>
+  <button class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menü">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<main>
+<section class="hero" id="top">
+  <h1 class="hero-title reveal">Differenzierter Unterricht in <span class="squiggly">90 Sekunden</span>.</h1>
+  <p class="large-body reveal" style="text-align:center;max-width:600px;margin:1.5rem auto 2rem;">Mit deinem Material. Unter deiner Kontrolle.</p>
+  <div style="text-align:center;margin-bottom:0.5rem;" class="reveal">
+    <a href="#kontakt" class="cta_green">Pilot anfragen</a>
+  </div>
+  <p class="reveal" style="text-align:center;font-size:14px;font-weight:400;opacity:0.5;margin-bottom:2.5rem;">April/Mai 2026 · 6–8 Lehrpersonen · gibb Bern</p>
+  <div class="reveal" style="max-width:700px;margin:0 auto;">
+    <dotlottie-player src="asset/lottie/00_szene_paint.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint" role="img" aria-label="Illustration: Lernecke mit Schreibtisch, Stuhl und Pflanze"></dotlottie-player>
+  </div>
+</section>
+
+<!-- ═══ BLUE SECTION ═══ -->
+<div class="blue-section">
+  <h2 class="reveal">25 Lernende, 4 Sprachniveaus, eine Lektion.</h2>
+  <p class="reveal">+19% EBA-Eintritte bis 2033. 39–50% DaZ-Anteil. Der neue Rahmenlehrplan verlangt KI-Kompetenz an sieben Stellen verbindlich verankert. Es gibt keine Weiterbildung, die ABU-Lehrpersonen gezielt auf KI-Didaktik vorbereitet. Bis jetzt.</p>
+  <a href="#kontakt" class="cta_ghost_white reveal">Pilot anfragen</a>
+</div>
+
+<!-- ═══ ANGEBOT ═══ -->
+<section id="angebot">
+  <div class="section-inner">
+
+    <!-- Titel + Illustration nebeneinander (wie therapyin.london "how to's") -->
+    <div class="title-with-illust reveal">
+      <h2 class="section-title">Die KI-Werkstatt</h2>
+      <div class="illust-inline">
+        <dotlottie-player src="asset/lottie/02_tafel_paint.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint" role="img" aria-label="Illustration: Wandtafel"></dotlottie-player>
+      </div>
+    </div>
+
+    <p class="reveal" style="font-weight:300;max-width:520px;font-size:18px;margin-bottom:0;">Werkzeug statt Wundermittel. Praxis statt Theorie. Ein didaktisches Verfahren, das dir zeigt, wie du aus deinem eigenen Unterrichtsmaterial mit KI differenzierten Unterricht baust. Schnell, quellgebunden, mit eingebauter Qualitätskontrolle.</p>
+
+    <!-- Workflow -->
+    <div class="workflow reveal">
+      <span class="step">Eigenes Material</span>
+      <span class="arrow">→</span>
+      <span class="step">In KI-Tool laden</span>
+      <span class="arrow">→</span>
+      <span class="step">3 Niveaus in 90 Sek.</span>
+      <span class="arrow">→</span>
+      <span class="step">Du prüfst</span>
+      <span class="arrow">→</span>
+      <span class="step">Unterricht</span>
+    </div>
+
+    <!-- 5 Prinzipien -->
+    <ol class="prinzip-list reveal">
+      <li><span class="prinzip-num">01</span><span><strong>Eigene Quellen.</strong> KI arbeitet nur mit deinem Material. Kein Web, kein Raten.</span></li>
+      <li><span class="prinzip-num">02</span><span><strong>Du bleibst im Lead.</strong> Du entscheidest, was in den Unterricht geht. Immer.</span></li>
+      <li><span class="prinzip-num">03</span><span><strong>Belegpflicht.</strong> Jede KI-Aussage braucht einen Nachweis aus der Quelle.</span></li>
+      <li><span class="prinzip-num">04</span><span><strong>Kurz-Check ohne Tool.</strong> Wer es nicht ohne KI erklären kann, hat es nicht verstanden.</span></li>
+      <li><span class="prinzip-num">05</span><span><strong>Plan B ohne Tool.</strong> Jeder Baustein ist so gebaut, dass er auch ohne KI funktioniert.</span></li>
+    </ol>
+
+    <!-- Beispiel: Vorher/Nachher -->
+    <div class="beispiel-block reveal">
+      <div class="step-label">Beispiel: Arbeitsblatt Lehrvertrag</div>
+      <div class="beispiel-grid">
+        <div class="beispiel-vorher">
+          <h4>Vorher — 1 Niveau</h4>
+          <p class="beispiel-aufgabe">«Lesen Sie OR Art. 344–346a. Erklären Sie die Rechte und Pflichten im Lehrvertrag. Nennen Sie die Kündigungsfristen während und nach der Probezeit.»</p>
+        </div>
+        <div class="beispiel-nachher">
+          <h4>Nachher — 3 Niveaus, 90 Sekunden</h4>
+          <div class="niveau-block">
+            <span class="niveau-tag niveau-a">Niveau A · Basisverstehen</span>
+            <p>Markiere 5 Wörter, die du nicht verstehst. Schreibe in eigenen Worten, was «Probezeit» bedeutet.</p>
+          </div>
+          <div class="niveau-block">
+            <span class="niveau-tag niveau-b">Niveau B · Anwenden</span>
+            <p>Lena (17) will in der Probezeit kündigen. Welche Frist gilt? Begründe mit OR 346.</p>
+          </div>
+          <div class="niveau-block">
+            <span class="niveau-tag niveau-c">Niveau C · Transfer</span>
+            <p>Vergleiche Lehrvertrag mit Arbeitsvertrag. Wo schützt das Gesetz Lernende stärker?</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <a href="beispiel/lehrvertrag.html" class="cta_ghost_blue" style="font-size:13px;padding:10px 18px;">Vollständiges Beispiel ansehen →</a>
+        <span style="font-size:12px;font-weight:300;opacity:0.45;">3 Niveaus + 6 NotebookLM-Zugänge + Scaffolding</span>
+      </div>
+    </div>
+
+    <!-- Kurs-Details -->
+    <div class="kurs-layout" style="margin-top:3rem;">
+      <div>
+        <div class="step-label reveal">Was du mitnimmst</div>
+        <div class="kurs-meta" style="margin-top:0.5rem;">
+          <div class="step-box reveal"><div class="step-label">Dauer</div><div style="font-weight:500;">2 × 90 Min</div></div>
+          <div class="step-box reveal"><div class="step-label">Gruppe</div><div style="font-weight:500;">6–16 Personen</div></div>
+          <div class="step-box reveal"><div class="step-label">Ergebnis</div><div style="font-weight:500;">Fertiger Baustein + Promptkarten</div></div>
+          <div class="step-box reveal"><div class="step-label">Routine</div><div style="font-weight:500;">12-Min-Training für den Unterricht</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drei Formate (kompakt, keine Cards) -->
+    <div style="margin-top:3rem;">
+      <div class="step-label reveal">Drei Formate</div>
+      <div class="format-row">
+        <div class="format-item reveal">
+          <div class="step-label" style="color:#01c476;">Kernformat</div>
+          <h3>KI-Werkstatt</h3>
+          <p>2 × 90 Min, Halbtag oder Ganztag. Hands-on, mit eigenem Material, sofort einsetzbar.</p>
+        </div>
+        <div class="format-item reveal">
+          <div class="step-label">Begleitung</div>
+          <h3>Fachentwicklung</h3>
+          <p>1 Semester. KI-Werkstatt + Prompt-Training + Begleitung + Dokumentation.</p>
+        </div>
+        <div class="format-item reveal">
+          <div class="step-label">Einstieg</div>
+          <h3>Impuls</h3>
+          <p>60 Minuten Input an deinem Weiterbildungstag oder deiner Schulkonferenz.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:2.5rem;">
+      <a href="#kontakt" class="cta_green">Pilot anfragen</a>
+      <span style="font-weight:300;font-size:14px;opacity:0.5;margin-left:1rem;">Auch als eingekaufte Weiterbildung buchbar.</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ ÜBER MICH ═══ -->
+<section id="ueber">
+  <div class="section-inner">
+
+    <h2 class="section-title reveal">Warum ich</h2>
+
+    <p class="reveal" style="font-weight:300;max-width:600px;font-size:20px;margin-bottom:2.5rem;line-height:1.5;">Ich bin der Einzige in der Deutschschweiz, der EBA-Klassen unterrichtet, Lehrpersonen an einer PH ausbildet und an einer Universität zur epistemischen Qualität von KI-Output forscht. Gleichzeitig.</p>
+
+    <div class="about-layout">
+      <div class="photo-wrap reveal">
+        <div class="photo-frame">
+          <img src="asset/manu2.png" alt="Manuel Hirschi" loading="lazy">
+        </div>
+        <div class="photo-caption">Manuel Hirschi · Bern</div>
+      </div>
+      <div>
+        <div class="step-box reveal"><h3>ABU-Lehrperson & Lernbegleitung Deutsch</h3><p>gibb Bern · EBA-Klassen, heterogene Gruppen, AVK · Fachgruppe Lernbegleitung</p></div>
+        <div class="step-box reveal"><h3>Dozent BpSt</h3><p>PH FHNW · Reflexionsseminare Primarstufe · 18 Jahre Unterrichtserfahrung</p></div>
+        <div class="step-box reveal"><h3>Doktorand</h3><p>UZH · Epistemische Qualität von KI-Output · Evaluative Judgement</p></div>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:2rem;">
+      <a href="#kontakt" class="cta_ghost_blue">Pilot anfragen</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ FAQ (kompakt, SEO-relevant) ═══ -->
+<section class="faq-section" id="faq">
+  <div class="section-inner">
+    <div class="title-with-illust reveal" style="margin-bottom:1.5rem;">
+      <h2 class="section-title" style="font-size:40px;">Häufige Fragen</h2>
+      <div class="illust-inline" style="width:140px;">
+        <dotlottie-player src="asset/lottie/lamp5.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint" role="img" aria-label="Illustration: Schreibtischlampe"></dotlottie-player>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <h3>Wer bietet KI-Weiterbildung für Berufsschulen in der Schweiz an?</h3>
+      <p>Manuel Hirschi unterrichtet selbst ABU an der gibb Bern (EBA-Klassen), bildet an der PH FHNW Lehrpersonen aus und forscht an der Universität Zürich zur epistemischen Qualität von KI-Output. Sein Angebot ist die KI-Werkstatt, eine praxiserprobte Weiterbildung für ABU-Lehrpersonen an Berufsfachschulen.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Wie kann ich als ABU-Lehrperson KI im Unterricht einsetzen?</h3>
+      <p>Mit der KI-Werkstatt lernst du, aus deinem eigenen Unterrichtsmaterial mit KI-Tools differenzierten Unterricht auf drei Niveaus zu bauen. In 90 Sekunden. Die Methode ist toolunabhängig und funktioniert mit NotebookLM, Claude oder ChatGPT.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Gibt es KI-Fortbildungen speziell für ABU-Lehrpersonen?</h3>
+      <p>Ja. Die KI-Werkstatt richtet sich gezielt an ABU-Lehrpersonen, die mit heterogenen Klassen arbeiten. Der steigende DaZ-Anteil bei EBA-Lernenden macht Differenzierung zur täglichen Herausforderung. Der Fokus liegt auf quellgebundenem Arbeiten mit KI und Material auf drei Niveaus.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Wie differenziere ich Unterricht mit KI?</h3>
+      <p>Du lädst dein eigenes Material in ein KI-Tool und lässt daraus Aufgaben auf drei Niveaus generieren. Niveau A für Basisverstehen, B für Strukturieren und Produzieren, C für Transfer und Prüfen. Die KI-Werkstatt zeigt dir den Workflow und die Qualitätskontrolle dazu.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>KI-Werkstatt für Lehrpersonen, was ist das?</h3>
+      <p>Ein Weiterbildungsformat von Manuel Hirschi. In 2 × 90 Minuten lernst du, mit KI aus deinem eigenen Material differenzierten Unterricht zu bauen. Du arbeitest mit deinem Material, baust einen fertigen Baustein und lernst Routinen für den Unterrichtsalltag.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>NotebookLM Weiterbildung Berufsschule Schweiz?</h3>
+      <p>Manuel Hirschi bietet die KI-Werkstatt an, in der auch NotebookLM als Tool zum Einsatz kommt. Die Methode ist aber toolunabhängig. NotebookLM eignet sich besonders gut, weil es quellengebunden arbeitet. Die Weiterbildung ist ab Herbst 2026 auch über die PH Bern (Weiterbildung Sek II) buchbar.</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer-blue" id="kontakt">
+  <div style="display:flex;align-items:flex-start;gap:3rem;flex-wrap:wrap;">
+    <div>
+      <div class="footer-claim reveal">Sprechen wir<br><em>darüber.</em></div>
+      <div class="reveal" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+        <a href="mailto:info@manuelhirschi.ch?subject=KI-Werkstatt%20anfragen" class="cta_ghost_white">info@manuelhirschi.ch</a>
+      </div>
+    </div>
+    <div class="reveal" style="max-width:150px;flex-shrink:0;">
+      <dotlottie-player src="asset/lottie/door.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint" role="img" aria-label="Illustration: offene Tür"></dotlottie-player>
+    </div>
+  </div>
+  <div class="footer-meta">© 2026 Manuel Hirschi · Lernbegleitung Deutsch & ABU · gibb Bern / Dozent BpSt · PH FHNW / Doktorand · UZH</div>
+</div>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '-30px 0px' });
+revealEls.forEach(el => revealObs.observe(el));
+
+// Lottie paint animations: play once when entering viewport
+const lottiePlayers = document.querySelectorAll('.lottie-paint');
+const lottieObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const player = e.target;
+      const tryPlay = () => {
+        if (player.getLottie) {
+          const lottie = player.getLottie();
+          if (lottie) {
+            lottie.loop = false;
+            lottie.goToAndStop(0, true);
+            setTimeout(() => lottie.play(), 200);
+            lottieObs.unobserve(player);
+            return;
+          }
+        }
+        setTimeout(tryPlay, 100);
+      };
+      tryPlay();
+    }
+  });
+}, { threshold: 0.3 });
+lottiePlayers.forEach(el => lottieObs.observe(el));
+
+// Smooth scroll + close mobile nav
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Manuel Hirschi",
+  "url": "https://manuelhirschi.ch",
+  "email": "info@manuelhirschi.ch",
+  "knowsAbout": ["KI-Didaktik","Differenzierung","Allgemeinbildender Unterricht (ABU)","Deutsch als Zweitsprache (DaZ)","Epistemische Qualität von KI-Output","Lernbegleitung","EBA"],
+  "worksFor": [
+    {"@type": "Organization", "name": "gibb Bern"},
+    {"@type": "Organization", "name": "PH FHNW"},
+    {"@type": "Organization", "name": "Universität Zürich"}
+  ],
+  "address": {"@type": "PostalAddress", "addressLocality": "Bern", "addressCountry": "CH"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "KI-Werkstatt",
+  "description": "Weiterbildung für Lehrpersonen an Berufsschulen. Differenzierter Unterricht mit KI aus eigenem Material.",
+  "provider": {"@type": "Person", "name": "Manuel Hirschi"},
+  "areaServed": {"@type": "Country", "name": "Schweiz"},
+  "serviceType": "Weiterbildung"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wer bietet KI-Weiterbildung für Berufsschulen in der Schweiz an?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Manuel Hirschi unterrichtet selbst ABU an der gibb Bern (EBA-Klassen), bildet an der PH FHNW Lehrpersonen aus und forscht an der Universität Zürich zur epistemischen Qualität von KI-Output. Sein Angebot ist die KI-Werkstatt für ABU-Lehrpersonen an Berufsfachschulen."}
+    },
+    {
+      "@type": "Question",
+      "name": "Wie kann ich als ABU-Lehrperson KI im Unterricht einsetzen?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Mit der KI-Werkstatt lernst du, aus deinem eigenen Unterrichtsmaterial mit KI-Tools differenzierten Unterricht auf drei Niveaus zu bauen. In 90 Sekunden. Die Methode ist toolunabhängig."}
+    },
+    {
+      "@type": "Question",
+      "name": "Gibt es KI-Fortbildungen speziell für ABU-Lehrpersonen?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Ja. Die KI-Werkstatt richtet sich gezielt an ABU-Lehrpersonen, die mit heterogenen Klassen arbeiten. Der Fokus liegt auf quellgebundenem Arbeiten mit KI und Material auf drei Niveaus."}
+    },
+    {
+      "@type": "Question",
+      "name": "Wie differenziere ich Unterricht mit KI?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Du lädst dein eigenes Material in ein KI-Tool und lässt daraus Aufgaben auf drei Niveaus generieren. Die KI-Werkstatt zeigt dir den Workflow und die Qualitätskontrolle dazu."}
+    },
+    {
+      "@type": "Question",
+      "name": "KI-Werkstatt für Lehrpersonen, was ist das?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Ein Weiterbildungsformat von Manuel Hirschi. In 2 × 90 Minuten lernst du, mit KI aus deinem eigenen Material differenzierten Unterricht zu bauen."}
+    },
+    {
+      "@type": "Question",
+      "name": "NotebookLM Weiterbildung Berufsschule Schweiz?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Manuel Hirschi bietet die KI-Werkstatt an, in der auch NotebookLM als Tool zum Einsatz kommt. Die Methode ist aber toolunabhängig. Die Weiterbildung ist ab Herbst 2026 auch über die PH Bern buchbar."}
+    }
+  ]
+}
+</script>
+</body>
+</html>

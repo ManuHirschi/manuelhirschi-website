@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <!-- Viewport Settings -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, IE=11">
+
+    <meta name="apple-mobile-web-app-title" content="Find a Therapist Near Me | Therapy in London">
+    <title>Find a Therapist Near Me | Therapy in London</title>
+    <meta name="description"
+        content="You deserve the right therapist. Start your journey to growth and real change with Therapy in London - Find a therapist near you." />
+
+    <meta name="author" content="Therapy in London">
+
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.therapyin.london" />
+    <meta property="og:image" content="https://www.therapyin.london/images/favicons/webOG.jpg" />
+    <meta property="og:title" content="Therapy in London" />
+    <meta property="og:description"
+        content="You deserve the right therapist. Start your journey to growth and real change with Therapy in London - Find a therapist near you." />
+
+    <!-- Favicon Links -->
+    <link rel="icon" href="/images/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="/images/favicons/site.webmanifest" />
+    <link rel="canonical" href="https://www.therapyin.london" />
+
+    <!-- Meta theme color for mobile browsers -->
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Preconnect to Google Fonts for better performance -->
+    
+    
+
+    <!-- Link to Google Fonts stylesheet -->
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" as="style">
+
+    <!-- Load styles only after the page has loaded -->
+    <script type="0cb5548c8e6fd626a9af8459-text/javascript">
+        window.addEventListener('load', () => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap';
+            document.head.appendChild(link);
+        });
+    </script>
+
+    <link href="data:text/css;base64,QGltcG9ydCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PUZpZ3RyZWU6aXRhbCx3Z2h0QDAsMzAwLi45MDA7MSwzMDAuLjkwMCZkaXNwbGF5PXN3YXAiOy5mcmVlcHJpdmFjeXBvbGljeS1jb20tLS1uYi1pbnRlcnN0aXRpYWwtb3ZlcmxheXtmb250LWZhbWlseToiRmlndHJlZSIsc2Fucy1zZXJpZn0uZnJlZXByaXZhY3lwb2xpY3ktY29tLS0tcGFsZXR0ZS1saWdodC5mcmVlcHJpdmFjeXBvbGljeS1jb20tLS1uYntib3JkZXI6MnB4IHNvbGlkICMzODgxZjE7Ym94LXNpemluZzpib3JkZXItYm94O2JhY2tncm91bmQtY29sb3I6I2VkZWFlMSAhaW1wb3J0YW50fS5mcmVlcHJpdmFjeXBvbGljeS1jb20tLS1uYiAuY2MtbmItdGl0bGV7Zm9udC1mYW1pbHk6IkZpZ3RyZWUiLHNhbnMtc2VyaWZ9LmZyZWVwcml2YWN5cG9saWN5LWNvbS0tLW5iIC5jYy1uYi10ZXh0e2ZvbnQtZmFtaWx5OiJGaWd0cmVlIixzYW5zLXNlcmlmfS5mcmVlcHJpdmFjeXBvbGljeS1jb20tLS1wYWxldHRlLWxpZ2h0IC5jYy1uYi1va2FncmVle2JhY2tncm91bmQtY29sb3I6IzM4ODFmMSAhaW1wb3J0YW50O2JvcmRlci1yYWRpdXM6MzBweDtmb250LWZhbWlseToiRmlndHJlZSIsc2Fucy1zZXJpZjtib3JkZXI6MnB4IHNvbGlkICMzODgxZjF9LmZyZWVwcml2YWN5cG9saWN5LWNvbS0tLXBhbGV0dGUtbGlnaHQgLmNjLW5iLW9rYWdyZWU6aG92ZXJ7YmFja2dyb3VuZC1jb2xvcjojZWRlYWUxICFpbXBvcnRhbnQ7Y29sb3I6IzM4ODFmMX0uZnJlZXByaXZhY3lwb2xpY3ktY29tLS0tcGFsZXR0ZS1saWdodCAuY2MtbmItY2hhbmdlcHtib3JkZXI6MXB4IHNvbGlkICMzODgxZjE7Ym9yZGVyLXJhZGl1czozMHB4O2JhY2tncm91bmQtY29sb3I6cmdiYSgwLDAsMCwwKTtjb2xvcjojMzg4MWYxICFpbXBvcnRhbnQ7Zm9udC1mYW1pbHk6IkZpZ3RyZWUiLHNhbnMtc2VyaWZ9LmZyZWVwcml2YWN5cG9saWN5LWNvbS0tLXBhbGV0dGUtbGlnaHQgLmNjLW5iLWNoYW5nZXA6aG92ZXJ7YmFja2dyb3VuZC1jb2xvcjojMzg4MWYxICFpbXBvcnRhbnQ7Y29sb3I6I2VkZWFlMSAhaW1wb3J0YW50fXRhYmxle3dpZHRoOjEwMCU7Ym9yZGVyLWNvbGxhcHNlOmNvbGxhcHNlO21hcmdpbjoyMHB4IDA7Zm9udC1zaXplOjE2cHg7dGV4dC1hbGlnbjpsZWZ0fXRoLHRke3BhZGRpbmc6MTJweCAxNXB4O2JvcmRlcjoxcHggc29saWQgI2RkZH10Ym9keSB0ZHt2ZXJ0aWNhbC1hbGlnbjp0b3B9QG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY4cHgpe3RhYmxle2JvcmRlcjowfXRoZWFke2Rpc3BsYXk6bm9uZX10Ym9keSB0cntkaXNwbGF5OmJsb2NrO21hcmdpbi1ib3R0b206MjBweH10Ym9keSB0ZHtkaXNwbGF5OmJsb2NrO3RleHQtYWxpZ246cmlnaHQ7Zm9udC1zaXplOjE0cHg7Ym9yZGVyLWJvdHRvbToxcHggc29saWQgI2RkZDtwb3NpdGlvbjpyZWxhdGl2ZTtwYWRkaW5nLWxlZnQ6NTAlfXRib2R5IHRkOjpiZWZvcmV7Y29udGVudDphdHRyKGRhdGEtbGFiZWwpO3Bvc2l0aW9uOmFic29sdXRlO2xlZnQ6MDt3aWR0aDo1MCU7cGFkZGluZy1sZWZ0OjE1cHg7Zm9udC13ZWlnaHQ6Ym9sZDt0ZXh0LWFsaWduOmxlZnR9fQ==" rel="stylesheet" media="screen" />
+
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Therapy in London",
+  "url": "https://www.therapyin.london",
+  "logo": "https://www.therapyin.london/images/favicons/favicon180x180.png",
+  "image": "https://www.therapyin.london/images/favicons/webOG.jpg",
+  "description": "You deserve the right therapist. Start your journey to growth and real change with Therapy in London - Find a therapist near you.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "45-55 Norvin House, Commercial St",
+    "addressLocality": "London",
+    "postalCode": "E1 6BD",
+    "addressCountry": "GB"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "London"
+  }
+}
+</script>
+
+
+
+  <script type="0cb5548c8e6fd626a9af8459-module" crossorigin src="/assets/index-D2WvD2Sn.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-kloZC9YX.css">
+</head>
+
+<body>
+    <div id="root">
+    </div>
+
+    <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
+    <script type="0cb5548c8e6fd626a9af8459-text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.2.0/cookie-consent.js" charset="UTF-8" defer></script>
+    <script type="0cb5548c8e6fd626a9af8459-text/javascript" charset="UTF-8">
+        document.addEventListener("DOMContentLoaded", function () {
+            cookieconsent.run({
+                notice_banner_type: "interstitial",
+                consent_type: "implied",
+                palette: "light",
+                language: "en",
+                page_load_consent_levels: [
+                    "strictly-necessary",
+                    "functionality",
+                    "tracking",
+                    "targeting",
+                ],
+                notice_banner_reject_button_hide: false,
+                preferences_center_close_button_hide: false,
+                page_refresh_confirmation_buttons: false,
+                website_name: "therapyin.london",
+                website_privacy_policy_url:
+                    "therapyin.london/terms/cookies-policy",
+            });
+        });
+    </script>
+
+    <!-- Google Analytics -->
+    <script type="0cb5548c8e6fd626a9af8459-text/javascript">
+        window.addEventListener('load', function () {
+            const script = document.createElement('script');
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-58373048-2';
+            script.async = true;
+            document.head.appendChild(script);
+
+            script.onload = function () {
+                window.dataLayer = window.dataLayer || [];
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+                gtag('js', new Date());
+                gtag('config', 'UA-58373048-2');
+            };
+        });
+    </script>
+    <!-- End of Google Analytics -->
+
+    <!--Affiliate Tracker-->
+
+    <script async src="https://assets.endorsely.com/endorsely.js" data-endorsely="2663f48d-7e7d-4ea9-a435-ebb82458b1c8" type="0cb5548c8e6fd626a9af8459-text/javascript"></script>
+
+    <noscript>Cookie Consent by
+        <a href="https://www.freeprivacypolicy.com/">Free Privacy Policy Generator</a></noscript>
+    <!-- End Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
+
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="0cb5548c8e6fd626a9af8459-|49" defer></script></body>
+
+</html>
