@@ -96,11 +96,6 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
 }
 .large-body { font-size: 32px; font-weight: 300; line-height: 1.4; letter-spacing: -1px; }
 .squiggly { position: relative; display: inline; }
-.squiggly::after {
-  content: ''; position: absolute; left: -4px; right: -4px; bottom: -8px; height: 16px;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,9 Q10,1 20,9 Q30,17 40,9 Q50,1 60,9 Q70,17 80,9 Q90,1 100,9 Q110,17 120,9' fill='none' stroke='%2301c476' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
-  background-size: 60px 14px;
-}
 
 /* ═══════════════════════════════════════
    BUTTONS
@@ -273,11 +268,29 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
 /* ═══════════════════════════════════════
    FAQ (compact, bottom of page)
    ═══════════════════════════════════════ */
+.section-divider { border: none; border-top: 1px dashed #3881F1; opacity: 0.35; margin: 3.5rem 0; }
+
 .faq-section { padding: 60px 30px; }
-.faq-section h3 { font-family: Figtree, sans-serif; font-size: 20px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
-.faq-section .faq-item { padding: 1.5rem 0; border-bottom: 1px dashed #3881F1; }
+.faq-section .faq-item { border-bottom: 1px dashed #3881F1; }
 .faq-section .faq-item:first-of-type { border-top: 1px dashed #3881F1; }
-.faq-section .faq-item p { font-size: 15px; font-weight: 300; opacity: 0.7; max-width: 700px; }
+.faq-question {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.5rem 0; cursor: pointer; width: 100%; background: none; border: none;
+  font-family: Figtree, sans-serif; font-size: 20px; font-weight: 500; letter-spacing: -0.5px;
+  color: #2A2A2A; text-align: left; line-height: 1.3;
+}
+.faq-question:hover { color: #3881F1; }
+.faq-question::after {
+  content: '+'; font-size: 24px; font-weight: 300; color: #3881F1;
+  transition: transform 0.3s ease; flex-shrink: 0;
+}
+.faq-item.open .faq-question::after { content: '−'; }
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 0;
+}
+.faq-item.open .faq-answer { max-height: 300px; padding: 0 0 1.5rem 0; }
+.faq-answer p { font-size: 15px; font-weight: 300; opacity: 0.7; max-width: 700px; margin: 0; }
 
 /* ═══════════════════════════════════════
    SCROLL REVEAL
@@ -301,12 +314,12 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
   .hero-title { font-size: 46px; letter-spacing: -3px; }
   .hero { padding: 20px 20px 30px; }
   .section-title { font-size: 40px; letter-spacing: -2px; }
-  .large-body { font-size: 16px; font-weight: 300; }
+  .large-body { font-size: 18px; font-weight: 300; }
   .blue-section h2 { font-size: 32px; }
   .footer-claim { font-size: 40px; letter-spacing: -2px; }
   section { padding: 40px 30px; }
   .workflow .step { font-size: 15px; padding: 0.4rem 0.8rem; }
-  .prinzip-list li { font-size: 17px; }
+  .prinzip-list li { font-size: 18px; }
 }
 @media (max-width: 960px) {
   .nav-links { display: none; }
@@ -320,10 +333,10 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
 }
 @media (max-width: 500px) {
   .kurs-meta { grid-template-columns: 1fr; }
-  .hero-title { font-size: 36px; letter-spacing: -2px; }
-  .workflow .arrow { display: none; }
-  .workflow { gap: 0.4rem; }
-  .workflow .step { font-size: 14px; padding: 0.35rem 0.7rem; }
+  .hero-title { font-size: 42px; letter-spacing: -2px; }
+  .workflow { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .workflow .arrow { display: block; transform: rotate(90deg); font-size: 18px; margin: -0.2rem 0 -0.2rem 2rem; }
+  .workflow .step { font-size: 15px; padding: 0.5rem 1rem; }
   .title-with-illust .illust-inline { width: 120px; }
   .faq-section .title-with-illust .illust-inline { width: 80px; }
 }
@@ -387,18 +400,20 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
 <section id="angebot">
   <div class="section-inner">
 
-    <!-- Titel + Illustration nebeneinander (wie therapyin.london "how to's") -->
-    <div class="title-with-illust reveal">
-      <h2 class="section-title">Die KI-Werkstatt</h2>
-      <div class="illust-inline">
-        <dotlottie-player src="asset/lottie/02_tafel_paint.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint" role="img" aria-label="Illustration: Wandtafel"></dotlottie-player>
-      </div>
+    <!-- Titel -->
+    <h2 class="section-title reveal">Die KI-Werkstatt</h2>
+
+    <!-- Illustration — eigenständig, gross, visueller Anker -->
+    <div class="reveal" style="max-width:400px;margin:2rem 0 2.5rem;">
+      <dotlottie-player src="asset/lottie/02_tafel_paint.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint" role="img" aria-label="Illustration: Wandtafel mit Formeln und Netzwerk"></dotlottie-player>
     </div>
 
-    <p class="reveal" style="font-weight:300;max-width:520px;font-size:18px;margin-bottom:0;">Werkzeug statt Wundermittel. Praxis statt Theorie. Ein didaktisches Verfahren, das dir zeigt, wie du aus deinem eigenen Unterrichtsmaterial mit KI differenzierten Unterricht baust. Schnell, quellgebunden, mit eingebauter Qualitätskontrolle.</p>
+    <!-- Claim + Erklärung -->
+    <p class="reveal" style="font-weight:500;max-width:520px;font-size:22px;margin-bottom:0.5rem;letter-spacing:-0.5px;">Werkzeug statt Wundermittel. Praxis statt Theorie.</p>
+    <p class="reveal" style="font-weight:300;max-width:520px;font-size:16px;margin-bottom:0;">Ein didaktisches Verfahren, das dir zeigt, wie du aus deinem eigenen Unterrichtsmaterial mit KI differenzierten Unterricht baust. Schnell, quellgebunden, mit eingebauter Qualitätskontrolle.</p>
 
     <!-- Workflow -->
-    <div class="workflow reveal">
+    <div class="workflow reveal" style="margin-top:2.5rem;">
       <span class="step">Eigenes Material</span>
       <span class="arrow">→</span>
       <span class="step">In KI-Tool laden</span>
@@ -410,6 +425,8 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
       <span class="step">Unterricht</span>
     </div>
 
+    <hr class="section-divider">
+
     <!-- 5 Prinzipien -->
     <ol class="prinzip-list reveal">
       <li><span class="prinzip-num">01</span><span><strong>Eigene Quellen.</strong> KI arbeitet nur mit deinem Material. Kein Web, kein Raten.</span></li>
@@ -418,6 +435,8 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
       <li><span class="prinzip-num">04</span><span><strong>Kurz-Check ohne Tool.</strong> Wer es nicht ohne KI erklären kann, hat es nicht verstanden.</span></li>
       <li><span class="prinzip-num">05</span><span><strong>Plan B ohne Tool.</strong> Jeder Baustein ist so gebaut, dass er auch ohne KI funktioniert.</span></li>
     </ol>
+
+    <hr class="section-divider">
 
     <!-- Beispiel: Vorher/Nachher -->
     <div class="beispiel-block reveal">
@@ -443,14 +462,16 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
           </div>
         </div>
       </div>
-      <div style="margin-top:1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
-        <a href="beispiel/lehrvertrag.html" class="cta_ghost_blue" style="font-size:13px;padding:10px 18px;">Vollständiges Beispiel ansehen →</a>
-        <span style="font-size:12px;font-weight:300;opacity:0.45;">3 Niveaus + 6 NotebookLM-Zugänge + Scaffolding</span>
+      <div style="margin-top:1.5rem;">
+        <a href="beispiel/lehrvertrag.html" class="cta_ghost_blue" style="padding:12px 22px;">Vollständiges Beispiel ansehen →</a>
+        <p style="font-size:13px;font-weight:300;opacity:0.5;margin-top:0.75rem;">3 Niveaus + 6 NotebookLM-Zugänge + Scaffolding</p>
       </div>
     </div>
 
+    <hr class="section-divider">
+
     <!-- Kurs-Details -->
-    <div class="kurs-layout" style="margin-top:3rem;">
+    <div class="kurs-layout" style="margin-top:0;">
       <div>
         <div class="step-label reveal">Was du mitnimmst</div>
         <div class="kurs-meta" style="margin-top:0.5rem;">
@@ -462,8 +483,10 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
       </div>
     </div>
 
-    <!-- Drei Formate (kompakt, keine Cards) -->
-    <div style="margin-top:3rem;">
+    <hr class="section-divider">
+
+    <!-- Drei Formate -->
+    <div>
       <div class="step-label reveal">Drei Formate</div>
       <div class="format-row">
         <div class="format-item reveal">
@@ -531,28 +554,28 @@ section { padding: 80px 30px; position: relative; z-index: 1; }
     </div>
 
     <div class="faq-item reveal">
-      <h3>Wer bietet KI-Weiterbildung für Berufsschulen in der Schweiz an?</h3>
-      <p>Manuel Hirschi unterrichtet selbst ABU an der gibb Bern (EBA-Klassen), bildet an der PH FHNW Lehrpersonen aus und forscht an der Universität Zürich zur epistemischen Qualität von KI-Output. Sein Angebot ist die KI-Werkstatt, eine praxiserprobte Weiterbildung für ABU-Lehrpersonen an Berufsfachschulen.</p>
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wer bietet KI-Weiterbildung für Berufsschulen in der Schweiz an?</button>
+      <div class="faq-answer"><p>Manuel Hirschi unterrichtet selbst ABU an der gibb Bern (EBA-Klassen), bildet an der PH FHNW Lehrpersonen aus und forscht an der Universität Zürich zur epistemischen Qualität von KI-Output. Sein Angebot ist die KI-Werkstatt, eine praxiserprobte Weiterbildung für ABU-Lehrpersonen an Berufsfachschulen.</p></div>
     </div>
     <div class="faq-item reveal">
-      <h3>Wie kann ich als ABU-Lehrperson KI im Unterricht einsetzen?</h3>
-      <p>Mit der KI-Werkstatt lernst du, aus deinem eigenen Unterrichtsmaterial mit KI-Tools differenzierten Unterricht auf drei Niveaus zu bauen. In 90 Sekunden. Die Methode ist toolunabhängig und funktioniert mit NotebookLM, Claude oder ChatGPT.</p>
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie kann ich als ABU-Lehrperson KI im Unterricht einsetzen?</button>
+      <div class="faq-answer"><p>Mit der KI-Werkstatt lernst du, aus deinem eigenen Unterrichtsmaterial mit KI-Tools differenzierten Unterricht auf drei Niveaus zu bauen. In 90 Sekunden. Die Methode ist toolunabhängig und funktioniert mit NotebookLM, Claude oder ChatGPT.</p></div>
     </div>
     <div class="faq-item reveal">
-      <h3>Gibt es KI-Fortbildungen speziell für ABU-Lehrpersonen?</h3>
-      <p>Ja. Die KI-Werkstatt richtet sich gezielt an ABU-Lehrpersonen, die mit heterogenen Klassen arbeiten. Der steigende DaZ-Anteil bei EBA-Lernenden macht Differenzierung zur täglichen Herausforderung. Der Fokus liegt auf quellgebundenem Arbeiten mit KI und Material auf drei Niveaus.</p>
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Gibt es KI-Fortbildungen speziell für ABU-Lehrpersonen?</button>
+      <div class="faq-answer"><p>Ja. Die KI-Werkstatt richtet sich gezielt an ABU-Lehrpersonen, die mit heterogenen Klassen arbeiten. Der steigende DaZ-Anteil bei EBA-Lernenden macht Differenzierung zur täglichen Herausforderung. Der Fokus liegt auf quellgebundenem Arbeiten mit KI und Material auf drei Niveaus.</p></div>
     </div>
     <div class="faq-item reveal">
-      <h3>Wie differenziere ich Unterricht mit KI?</h3>
-      <p>Du lädst dein eigenes Material in ein KI-Tool und lässt daraus Aufgaben auf drei Niveaus generieren. Niveau A für Basisverstehen, B für Strukturieren und Produzieren, C für Transfer und Prüfen. Die KI-Werkstatt zeigt dir den Workflow und die Qualitätskontrolle dazu.</p>
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie differenziere ich Unterricht mit KI?</button>
+      <div class="faq-answer"><p>Du lädst dein eigenes Material in ein KI-Tool und lässt daraus Aufgaben auf drei Niveaus generieren. Niveau A für Basisverstehen, B für Strukturieren und Produzieren, C für Transfer und Prüfen. Die KI-Werkstatt zeigt dir den Workflow und die Qualitätskontrolle dazu.</p></div>
     </div>
     <div class="faq-item reveal">
-      <h3>KI-Werkstatt für Lehrpersonen, was ist das?</h3>
-      <p>Ein Weiterbildungsformat von Manuel Hirschi. In 2 × 90 Minuten lernst du, mit KI aus deinem eigenen Material differenzierten Unterricht zu bauen. Du arbeitest mit deinem Material, baust einen fertigen Baustein und lernst Routinen für den Unterrichtsalltag.</p>
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">KI-Werkstatt für Lehrpersonen, was ist das?</button>
+      <div class="faq-answer"><p>Ein Weiterbildungsformat von Manuel Hirschi. In 2 × 90 Minuten lernst du, mit KI aus deinem eigenen Material differenzierten Unterricht zu bauen. Du arbeitest mit deinem Material, baust einen fertigen Baustein und lernst Routinen für den Unterrichtsalltag.</p></div>
     </div>
     <div class="faq-item reveal">
-      <h3>NotebookLM Weiterbildung Berufsschule Schweiz?</h3>
-      <p>Manuel Hirschi bietet die KI-Werkstatt an, in der auch NotebookLM als Tool zum Einsatz kommt. Die Methode ist aber toolunabhängig. NotebookLM eignet sich besonders gut, weil es quellengebunden arbeitet. Die Weiterbildung ist ab Herbst 2026 auch über die PH Bern (Weiterbildung Sek II) buchbar.</p>
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">NotebookLM Weiterbildung Berufsschule Schweiz?</button>
+      <div class="faq-answer"><p>Manuel Hirschi bietet die KI-Werkstatt an, in der auch NotebookLM als Tool zum Einsatz kommt. Die Methode ist aber toolunabhängig. NotebookLM eignet sich besonders gut, weil es quellengebunden arbeitet. Die Weiterbildung ist ab Herbst 2026 auch über die PH Bern (Weiterbildung Sek II) buchbar.</p></div>
     </div>
 
   </div>
