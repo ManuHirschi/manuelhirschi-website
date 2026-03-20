@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de-CH">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://manuelhirschi.ch">
 <meta property="og:locale" content="de_CH">
+<!-- TODO: og:image erstellen (1200x630px) und Pfad hier eintragen -->
+<!-- <meta property="og:image" content="https://manuelhirschi.ch/asset/og-image.png"> -->
+<!-- <meta property="og:image:width" content="1200"> -->
+<!-- <meta property="og:image:height" content="630"> -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KI-Werkstatt für Lehrpersonen — Manuel Hirschi">
+<meta name="twitter:description" content="Aus eigenem Material mit KI differenzierten Unterricht bauen. Weiterbildung für ABU-Lehrpersonen an Berufsfachschulen.">
+<!-- TODO: twitter:image ergänzen sobald og:image erstellt -->
 <link rel="canonical" href="https://manuelhirschi.ch">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -313,7 +321,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   position: relative;
 }
 .card-label {
-  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  font-size: 12px; font-weight: 600; text-transform: uppercase;
   letter-spacing: 0.1em; margin-bottom: 0.3rem;
 }
 .after-card:nth-child(1) .card-label { color: var(--green); }
@@ -408,7 +416,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   border: 2px solid var(--green);
 }
 .format-label {
-  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  font-size: 12px; font-weight: 600; text-transform: uppercase;
   letter-spacing: 0.1em; color: var(--blue); margin-bottom: 0.5rem;
 }
 .format-card--highlight .format-label { color: var(--green); }
@@ -573,6 +581,27 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 /* ═══════════════════════════════════════
    ACCESSIBILITY
    ═══════════════════════════════════════ */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--ink); color: var(--bg); padding: 0.75rem 1.25rem;
+  border-radius: 0 0 8px 8px; font-size: 14px; font-weight: 500;
+  z-index: 1000; text-decoration: none;
+  transition: top .2s ease;
+}
+.skip-link:focus { top: 0; }
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+.cta_green:focus-visible,
+.cta_ghost_blue:focus-visible,
+.cta_ghost_white:focus-visible,
+.cta_shadow:focus-visible {
+  outline-color: var(--ink);
+  outline-offset: 3px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition-duration: 0.01ms !important;
@@ -585,8 +614,10 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   .workflow-card:hover { transform: none; }
 }
 </style>
+<noscript><style>.reveal{opacity:1;transform:none}.spiegel blockquote{opacity:.8;transform:none}.spiegel-closing{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
+<a href="#top" class="skip-link">Zum Inhalt springen</a>
 
 <!-- ═══ NOTEBOOK LINES ═══ -->
 <div class="notebook-lines" aria-hidden="true">
@@ -599,7 +630,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 </div>
 
 <!-- ═══ NAV ═══ -->
-<nav class="navBar">
+<nav class="navBar" aria-label="Hauptnavigation">
   <a href="#top" class="nav-logo">KI-Werkstatt<br><span class="small">mit</span> Hirschi</a>
   <div class="nav-links" id="navLinks">
     <a href="#werkstatt">Werkstatt</a>
@@ -637,7 +668,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 <!-- ═══════════════════════════════════════
      AKT 2: SPIEGEL — "Ich bin nicht allein"
      ═══════════════════════════════════════ -->
-<div class="spiegel-section" id="spiegel">
+<section class="spiegel-section" id="spiegel">
   <div class="spiegel">
     <p class="spiegel-intro">Ich höre diese Sätze fast jede Woche:</p>
     <blockquote>Ich hab's einmal versucht. Hat nicht funktioniert.</blockquote>
@@ -645,12 +676,12 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     <blockquote>Ich hab keine Zeit, mich da reinzufuchsen. Ich habe zwanzig Lernende vor mir.</blockquote>
     <p class="spiegel-closing">Wenn du dich hier erkennst: gut.<br><strong>Genau dafür ist die KI-Werkstatt gemacht.</strong></p>
   </div>
-</div>
+</section>
 
 <!-- ═══════════════════════════════════════
      AKT 3: REALITÄT — "Es wird ernst"
      ═══════════════════════════════════════ -->
-<div class="blue-section">
+<section class="blue-section">
   <div class="blue-inner">
     <h2 class="reveal">Du bist nicht allein damit.<br>Aber du brauchst ein Werkzeug.</h2>
 
@@ -677,7 +708,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 
     <p class="blue-closing reveal">Es gibt keine Weiterbildung, die ABU-Lehrpersonen gezielt auf KI-Didaktik für heterogene Klassen vorbereitet. <strong>Bis jetzt.</strong></p>
   </div>
-</div>
+</section>
 
 <!-- ═══════════════════════════════════════
      AKT 4: WERKSTATT — "Es gibt einen Weg"
@@ -1076,16 +1107,34 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://manuelhirschi.ch/#person",
   "name": "Manuel Hirschi",
+  "jobTitle": "Bildungsentwickler",
+  "description": "Manuel Hirschi verbindet drei Perspektiven: Forschung zur epistemischen Qualität von KI-Output (Universität Zürich), Ausbildung von Lehrpersonen (PH FHNW), tägliche Praxis in der Lernbegleitung Deutsch an der gibb Bern.",
   "url": "https://manuelhirschi.ch",
   "email": "info@manuelhirschi.ch",
+  "image": "https://manuelhirschi.ch/asset/manu2.png",
   "knowsAbout": ["KI-Didaktik","Differenzierung","Allgemeinbildender Unterricht (ABU)","Deutsch als Zweitsprache (DaZ)","Epistemische Qualität von KI-Output","Lernbegleitung","EBA"],
   "worksFor": [
     {"@type": "Organization", "name": "gibb Bern"},
     {"@type": "Organization", "name": "PH FHNW"},
     {"@type": "Organization", "name": "Universität Zürich"}
   ],
+  "alumniOf": [
+    {"@type": "EducationalOrganization", "name": "Universität Zürich"},
+    {"@type": "EducationalOrganization", "name": "PH FHNW"}
+  ],
   "address": {"@type": "PostalAddress", "addressLocality": "Bern", "addressCountry": "CH"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Manuel Hirschi — KI-Werkstatt für Lehrpersonen",
+  "url": "https://manuelhirschi.ch",
+  "description": "Weiterbildung für ABU-Lehrpersonen an Berufsfachschulen. Differenzierter Unterricht mit KI aus eigenem Material.",
+  "author": {"@id": "https://manuelhirschi.ch/#person"}
 }
 </script>
 <script type="application/ld+json">
