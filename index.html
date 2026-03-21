@@ -13,14 +13,13 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://manuelhirschi.ch">
 <meta property="og:locale" content="de_CH">
-<!-- TODO: og:image erstellen (1200x630px) und Pfad hier eintragen -->
-<!-- <meta property="og:image" content="https://manuelhirschi.ch/asset/og-image.png"> -->
-<!-- <meta property="og:image:width" content="1200"> -->
-<!-- <meta property="og:image:height" content="630"> -->
+<meta property="og:image" content="https://manuelhirschi.ch/asset/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="KI-Werkstatt Bern — Weiterbildung für Lehrpersonen">
 <meta name="twitter:description" content="KI-Werkstatt: ABU-Lehrpersonen bauen mit eigenem Material differenzierten Unterricht für EBA und DaZ. Berufsfachschule Schweiz.">
-<!-- TODO: twitter:image ergänzen sobald og:image erstellt -->
+<meta name="twitter:image" content="https://manuelhirschi.ch/asset/og-image.png">
 <link rel="icon" type="image/svg+xml" href="asset/favicon.svg">
 <link rel="canonical" href="https://manuelhirschi.ch">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -267,7 +266,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 }
 .werkstatt-intro .illust-inline { width: clamp(160px, 20vw, 280px); }
 
-.tagline { font-weight: 300; font-size: 16px; opacity: 0.7; margin-top: 0.5rem; }
+.tagline { font-weight: 400; font-size: clamp(1.05rem, 1.5vw, 1.2rem); opacity: 1; margin-top: 0.75rem; color: var(--muted); }
 
 /* Workflow Track — Scroll-Snap on Mobile */
 .workflow-track {
@@ -888,7 +887,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
           </div>
           <div class="credential-card">
             <h3>Doktorand</h3>
-            <p>UZH &middot; Wann ist KI-Output vertrauenswürdig? Diese Forschung steckt in der Werkstatt.</p>
+            <p>UZH &middot; Epistemische Qualität von KI-generiertem Text &middot; Evaluative Judgement</p>
           </div>
         </div>
       </div>
@@ -964,7 +963,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wer bietet KI-Weiterbildung für ABU-Lehrpersonen in der Schweiz an?</button>
-      <div class="faq-answer"><p>Manuel Hirschi unterrichtet selbst ABU an der gibb Bern (EBA-Klassen), bildet an der PH FHNW Lehrpersonen aus und forscht an der Universität Zürich zur epistemischen Qualität von KI-Output. Soweit derzeit sichtbar, verbindet kaum ein anderes Angebot ABU, DaZ, EBA und KI-Didaktik so konkret in einem Format.</p></div>
+      <div class="faq-answer"><p>Die KI-Werkstatt verbindet ABU, DaZ, EBA und KI-Didaktik in einem Format — aus eigener Unterrichtspraxis an der gibb Bern, Lehrerbildung an der PH FHNW und Forschung an der Universität Zürich zur epistemischen Qualität von KI-Output.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie kann ich als ABU-Lehrperson KI im Unterricht einsetzen?</button>
@@ -1206,7 +1205,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     {
       "@type": "Question",
       "name": "Wer bietet KI-Weiterbildung für ABU-Lehrpersonen in der Schweiz an?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Manuel Hirschi unterrichtet selbst ABU an der gibb Bern (EBA-Klassen), bildet an der PH FHNW Lehrpersonen aus und forscht an der Universität Zürich zur epistemischen Qualität von KI-Output. Soweit derzeit sichtbar, verbindet kaum ein anderes Angebot ABU, DaZ, EBA und KI-Didaktik so konkret in einem Format."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Die KI-Werkstatt verbindet ABU, DaZ, EBA und KI-Didaktik in einem Format — aus eigener Unterrichtspraxis an der gibb Bern, Lehrerbildung an der PH FHNW und Forschung an der Universität Zürich zur epistemischen Qualität von KI-Output."}
     },
     {
       "@type": "Question",
