@@ -1,6 +1,6 @@
 # Manuel Hirschi
 
-> Bildungsentwickler, KI-Didaktik, Berufsfachschule Schweiz
+> KI-Didaktik für die Berufsbildung, Berufsfachschule Schweiz
 
 ## Wer
 
@@ -12,7 +12,7 @@ Die KI-Werkstatt ist ein Weiterbildungsformat für ABU-Lehrpersonen an Berufsfac
 
 ## Kernaussagen
 
-- Einziges Angebot in der Deutschschweiz, das ABU + DaZ + EBA + KI-Didaktik verbindet
+- Soweit sichtbar das einzige Angebot in der Deutschschweiz, das ABU + DaZ + EBA + KI-Didaktik verbindet
 - Dreifachprofil: gibb Bern (Praxis) + PH FHNW (Ausbildung) + UZH (Forschung)
 - Fünf Prinzipien: Eigene Quellen, LP bleibt im Lead, Belegpflicht, Kurz-Check ohne Tool, Plan B analog
 - Neuer Rahmenlehrplan ABU (seit 1.1.2026): KI an sieben Stellen verbindlich verankert
