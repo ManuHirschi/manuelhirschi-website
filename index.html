@@ -193,7 +193,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 }
 .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; align-items: center; }
 .hero-pilot {
-  font-size: 13px; font-weight: 400; opacity: 0.5; margin-top: 1rem;
+  font-size: 14px; font-weight: 400; opacity: 0.7; margin-top: 1rem;
 }
 .hero-lottie { position: relative; }
 .hero-lottie dotlottie-player { width: 100%; max-width: 520px; margin-left: auto; }
@@ -203,7 +203,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
    ═══════════════════════════════════════ */
 .spiegel-section { padding: 0 30px var(--space-section); }
 .spiegel { max-width: 560px; margin: 0 auto 0 calc((100% - var(--max-w)) / 2 + 30px); }
-.spiegel-intro { font-size: 18px; font-weight: 400; margin-bottom: 1.5rem; opacity: 0.6; }
+.spiegel-intro { font-size: 18px; font-weight: 400; margin-bottom: 1.5rem; opacity: 0.7; }
 .spiegel blockquote {
   font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight: 300; font-style: italic; line-height: 1.5;
   padding: 0.75rem 0 0.75rem 1.25rem; margin: 0 0 0.75rem;
@@ -235,7 +235,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   background-size: 60px 26px;
 }
 .blue-inner { max-width: var(--max-w); margin: 0 auto; }
-.blue-section h2 { font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 300; letter-spacing: -2px; margin-bottom: 1.5rem; line-height: 1.1; max-width: 600px; }
+.blue-section h2 { font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 300; letter-spacing: -2px; margin-bottom: 1.5rem; line-height: 1.1; max-width: 600px; color: #ffffff; }
 
 .stat-grid {
   display: grid;
@@ -247,13 +247,13 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   font-size: clamp(1.75rem, 3vw, 3rem);
   font-weight: 600;
   letter-spacing: -1px;
-  color: var(--green);
+  color: #ffffff;
   line-height: 1.1;
 }
-.stat-label { font-size: 14px; font-weight: 300; opacity: 0.8; margin-top: 0.25rem; line-height: 1.4; }
+.stat-label { font-size: 15px; font-weight: 400; color: #ffffff; margin-top: 0.25rem; line-height: 1.4; }
 
-.blue-section .blue-text { max-width: 560px; font-weight: 400; font-size: 18px; color: #ffffff; margin-bottom: 1rem; }
-.blue-closing { font-size: clamp(1.125rem, 2vw, 1.5rem); font-weight: 500; margin-top: 2rem; }
+.blue-section .blue-text { max-width: 560px; font-weight: 400; font-size: 18px; color: #ffffff; opacity: 1; margin-bottom: 1rem; }
+.blue-closing { font-size: clamp(1.125rem, 2vw, 1.5rem); font-weight: 500; margin-top: 2rem; color: #ffffff; }
 
 /* ═══════════════════════════════════════
    WERKSTATT
@@ -267,7 +267,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 }
 .werkstatt-intro .illust-inline { width: clamp(160px, 20vw, 280px); }
 
-.tagline { font-weight: 300; font-size: 16px; opacity: 0.6; margin-top: 0.5rem; }
+.tagline { font-weight: 300; font-size: 16px; opacity: 0.7; margin-top: 0.5rem; }
 
 /* Workflow Track — Scroll-Snap on Mobile */
 .workflow-track {
@@ -290,7 +290,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem;
 }
 .workflow-card h3 { font-size: 18px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.3rem; }
-.workflow-card p { font-size: 15px; font-weight: 300; opacity: 0.65; line-height: 1.5; }
+.workflow-card p { font-size: 15px; font-weight: 300; opacity: 0.7; line-height: 1.5; }
 
 .workflow-arrow {
   display: flex; align-items: center; flex-shrink: 0;
@@ -312,7 +312,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   border: 2px dashed var(--blue);
   border-radius: var(--radius);
   padding: 1.5rem;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 .before-card .card-label { color: var(--blue); }
 .beweis-arrow { display: flex; align-items: center; justify-content: center; }
@@ -330,12 +330,12 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 }
 .after-card:nth-child(1) .card-label { color: var(--green-text); }
 .after-card:nth-child(2) .card-label { color: var(--blue-text); }
-.after-card:nth-child(3) .card-label { color: var(--orange); }
+.after-card:nth-child(3) .card-label { color: #b03808; }
 .after-card:nth-child(1) { border-color: var(--green); }
 .after-card:nth-child(2) { border-color: var(--blue); }
 .after-card:nth-child(3) { border-color: var(--orange); }
 .card-title { font-size: 16px; font-weight: 400; letter-spacing: -0.3px; }
-.card-desc { font-size: 14px; font-weight: 300; opacity: 0.6; margin-top: 0.2rem; }
+.card-desc { font-size: 15px; font-weight: 400; opacity: 0.7; margin-top: 0.2rem; }
 
 .beweis-example {
   border: 2px solid var(--green); border-radius: var(--radius); padding: 1.5rem;
@@ -346,7 +346,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   font-size: 13px; font-weight: 600; text-transform: uppercase;
   letter-spacing: 0.1em; color: var(--green-text); margin-bottom: 0.5rem;
 }
-.beweis-example p { font-size: 16px; font-weight: 300; opacity: 0.75; line-height: 1.6; }
+.beweis-example p { font-size: 16px; font-weight: 400; opacity: 0.75; line-height: 1.6; }
 .beweis-example .beispiel-illust { width: 180px; flex-shrink: 0; }
 
 /* ═══════════════════════════════════════
@@ -381,7 +381,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   width: 80px; height: 22px; background: rgba(215,188,237,0.45);
   border: 1px solid rgba(215,188,237,0.6); border-radius: 2px; z-index: 2;
 }
-.photo-caption { font-size: 14px; color: var(--ink); opacity: 0.5; text-align: center; margin-top: 0.75rem; transform: rotate(-2deg); }
+.photo-caption { font-size: 14px; color: var(--ink); opacity: 0.7; text-align: center; margin-top: 0.75rem; transform: rotate(-2deg); }
 
 .credential-grid {
   display: grid;
@@ -398,7 +398,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 .credential-card:nth-child(2) { border-top-color: var(--orange); }
 .credential-card:nth-child(3) { border-top-color: var(--lilac); }
 .credential-card h3 { font-size: 18px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.3rem; }
-.credential-card p { font-size: 15px; font-weight: 300; opacity: 0.65; line-height: 1.4; }
+.credential-card p { font-size: 15px; font-weight: 400; opacity: 0.7; line-height: 1.4; }
 
 /* ═══════════════════════════════════════
    ANGEBOTE — Format Cards
@@ -425,7 +425,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 }
 .format-card--highlight .format-label { color: var(--green-text); }
 .format-card h3 { font-size: 22px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.4rem; }
-.format-card p { font-size: 15px; font-weight: 300; opacity: 0.7; line-height: 1.5; flex: 1; }
+.format-card p { font-size: 15px; font-weight: 400; opacity: 0.7; line-height: 1.5; flex: 1; }
 .format-price { font-size: 15px; font-weight: 500; color: var(--green-text); margin-top: 0.75rem; }
 
 /* ═══════════════════════════════════════
@@ -452,7 +452,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;
 }
 .faq-item.open .faq-answer { max-height: 600px; padding: 0 0 1.25rem 0; }
-.faq-answer p { font-size: 16px; font-weight: 300; opacity: 0.7; max-width: 700px; }
+.faq-answer p { font-size: 16px; font-weight: 400; opacity: 0.7; max-width: 700px; }
 
 /* ═══════════════════════════════════════
    FOOTER / KONTAKT
@@ -475,11 +475,11 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   line-height: 1.15; letter-spacing: -2.5px; margin-bottom: 1.5rem;
 }
 .footer-claim em { font-style: italic; color: var(--green); }
-.footer-sub { font-size: 18px; font-weight: 300; max-width: 480px; margin-bottom: 2rem; opacity: 0.85; }
-.footer-pilot { font-size: 14px; opacity: 0.6; margin-top: 1.25rem; }
+.footer-sub { font-size: 18px; font-weight: 400; max-width: 480px; margin-bottom: 2rem; color: #ffffff; }
+.footer-pilot { font-size: 14px; font-weight: 400; opacity: 0.7; margin-top: 1.25rem; }
 .footer-lottie { width: clamp(100px, 12vw, 160px); flex-shrink: 0; }
 .footer-meta {
-  font-size: 13px; font-weight: 300; opacity: 0.7; margin-top: 3rem;
+  font-size: 14px; font-weight: 400; opacity: 0.7; margin-top: 3rem;
   max-width: var(--max-w); margin-left: auto; margin-right: auto;
   padding-top: 1.5rem; border-top: 1px dashed rgba(237,234,225,0.2);
 }
@@ -708,7 +708,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
       </div>
     </div>
 
-    <p class="blue-text reveal">Der neue Rahmenlehrplan fordert KI-Kompetenz von den Lernenden. Das ist vor allem eine Aufgabe für dich. <strong>Wer KI-Kompetenz fördern soll, braucht zuerst selbst einen sicheren Zugang.</strong></p>
+    <p class="blue-text reveal">KI-Kompetenz fördern ist vor allem eine Aufgabe für dich. <strong>Wer das unterrichten soll, braucht zuerst selbst einen sicheren Zugang.</strong></p>
 
     <p class="blue-closing reveal">Mir ist derzeit kein Weiterbildungsangebot bekannt, das ABU-Lehrpersonen gezielt auf KI-Didaktik für heterogene Klassen vorbereitet. <strong>Das ändert sich jetzt.</strong></p>
   </div>
@@ -807,7 +807,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     <div class="beweis-example reveal">
       <div>
         <h4>Beispiel: Freies Arbeiten</h4>
-        <p>Lernende arbeiten selbstständig. Eine fragt etwas, das du gerade nicht begleiten kannst. Mit einem einfachen KI-Setup bekommt sie eine quellengebundene Antwort auf ihrem Sprachniveau, aus deinem Unterrichtsmaterial. Du schaust drüber. Du entscheidest, ob es passt.</p>
+        <p>Eine Lernende fragt etwas, das du gerade nicht begleiten kannst. Mit einem einfachen KI-Setup bekommt sie eine quellengebundene Antwort auf ihrem Sprachniveau — aus deinem Material.</p>
       </div>
       <div class="beispiel-illust">
         <dotlottie-player src="asset/lottie/06_notes_paint.json" background="transparent" speed="0.8" class="lottie-paint" role="img" aria-label="Illustration: Ein Arbeitsblatt wird zu drei differenzierten Versionen"></dotlottie-player>
@@ -940,7 +940,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 
     <div class="reveal" style="margin-top:2.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;">
       <a href="#kontakt" class="cta_green">Sollen wir kurz sprechen?</a>
-      <span style="font-weight:300;font-size:14px;opacity:0.5;">Buchung über Schulleitung oder direkt. Auch als eingekaufte Weiterbildung über Kanton oder PH buchbar.</span>
+      <span style="font-weight:400;font-size:15px;opacity:0.7;">Buchung über Schulleitung oder direkt. Auch als eingekaufte Weiterbildung über Kanton oder PH buchbar.</span>
     </div>
 
   </div>
@@ -972,11 +972,11 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Was ist NotebookLM und warum setzt ihr das ein?</button>
-      <div class="faq-answer"><p>NotebookLM ist ein KI-Tool von Google, das ausschliesslich mit den Quellen arbeitet, die du selbst hochlädst. Es erfindet nichts dazu. Das macht es besonders geeignet für den Unterricht: Du weisst, woher der Output kommt. Die KI-Werkstatt ist aber toolunabhängig.</p></div>
+      <div class="faq-answer"><p>NotebookLM ist ein KI-Tool von Google, das ausschliesslich mit den Quellen arbeitet, die du selbst hochlädst. Es erfindet nichts dazu. Das macht es besonders geeignet für den Unterricht: Du weisst, woher der Output kommt. Die KI-Werkstatt ist aber toolunabhängig — die Methode funktioniert genauso mit ChatGPT, Claude oder jedem anderen KI-Tool.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie differenziere ich Unterricht mit KI für DaZ-Lernende?</button>
-      <div class="faq-answer"><p>Du lädst dein eigenes Material in ein KI-Tool und lässt Aufgaben auf drei Niveaus generieren, mit Sprachhilfen für DaZ-Lernende auf Niveau A. Die KI-Werkstatt zeigt dir den Workflow und die Qualitätskontrolle. Du entscheidest, was in den Unterricht geht.</p></div>
+      <div class="faq-answer"><p>Du lädst dein eigenes Material in ein KI-Tool und lässt Aufgaben auf drei Niveaus generieren, mit Sprachhilfen für DaZ-Lernende auf Niveau A. Die KI-Werkstatt zeigt dir den Workflow und die Qualitätskontrolle.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Meine Lernenden nutzen ChatGPT. Wie kann ich noch sinnvoll prüfen?</button>
@@ -984,15 +984,11 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie erkenne ich, ob Lernende mit KI wirklich etwas gelernt haben?</button>
-      <div class="faq-answer"><p>Nicht über Detektoren — die funktionieren nicht zuverlässig. Sondern über den Prozess: Lernende dokumentieren ihren Weg, prüfen KI-Aussagen gegen Quellen und begründen ihre Einschätzung. Das ist lernwirksamer als jedes Verbot und lässt sich ab dem nächsten Unterrichtstag einsetzen.</p></div>
+      <div class="faq-answer"><p>Nicht über Detektoren — die funktionieren nicht zuverlässig. Sondern über den Prozess: Lernende dokumentieren ihren Weg, prüfen KI-Aussagen gegen Quellen und begründen ihre Einschätzung. Das ist lernwirksamer als jedes Verbot — und sofort im Unterricht umsetzbar.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Was nehme ich aus der KI-Werkstatt konkret mit?</button>
-      <div class="faq-answer"><p>Einen fertigen Unterrichtsbaustein aus deinem eigenen Material, Promptkarten für den ABU, eine Checkliste zum Bewerten von KI-Output und Routinen, die du ab dem nächsten Unterrichtstag einsetzen kannst. Alles als PDF, digital und druckbar.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Funktioniert das auch mit ChatGPT oder Claude?</button>
-      <div class="faq-answer"><p>Ja. Die KI-Werkstatt ist toolunabhängig. Die Methode funktioniert mit NotebookLM, ChatGPT, Claude oder jedem anderen KI-Tool. Im Workshop arbeiten wir mit NotebookLM, weil es quellengebunden arbeitet — aber die Prinzipien übertragen sich auf jedes Tool.</p></div>
+      <div class="faq-answer"><p>Einen fertigen Unterrichtsbaustein aus deinem eigenen Material, Promptkarten für den ABU, eine Checkliste zum Bewerten von KI-Output und Routinen, die sofort funktionieren. Alles als PDF, digital und druckbar.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wer bucht die KI-Werkstatt?</button>
@@ -1220,12 +1216,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     {
       "@type": "Question",
       "name": "Was ist NotebookLM und warum setzt ihr das ein?",
-      "acceptedAnswer": {"@type": "Answer", "text": "NotebookLM ist ein KI-Tool von Google, das ausschliesslich mit den Quellen arbeitet, die du selbst hochlädst. Es erfindet nichts dazu. Das macht es besonders geeignet für den Unterricht: Du weisst, woher der Output kommt. Die KI-Werkstatt ist aber toolunabhängig."}
+      "acceptedAnswer": {"@type": "Answer", "text": "NotebookLM ist ein KI-Tool von Google, das ausschliesslich mit den Quellen arbeitet, die du selbst hochlädst. Es erfindet nichts dazu. Das macht es besonders geeignet für den Unterricht: Du weisst, woher der Output kommt. Die KI-Werkstatt ist aber toolunabhängig — die Methode funktioniert genauso mit ChatGPT, Claude oder jedem anderen KI-Tool."}
     },
     {
       "@type": "Question",
       "name": "Wie differenziere ich Unterricht mit KI für DaZ-Lernende?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Du lädst dein eigenes Material in ein KI-Tool und lässt Aufgaben auf drei Niveaus generieren, mit Sprachhilfen für DaZ-Lernende auf Niveau A. Die KI-Werkstatt zeigt dir den Workflow und die Qualitätskontrolle. Du entscheidest, was in den Unterricht geht."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Du lädst dein eigenes Material in ein KI-Tool und lässt Aufgaben auf drei Niveaus generieren, mit Sprachhilfen für DaZ-Lernende auf Niveau A. Die KI-Werkstatt zeigt dir den Workflow und die Qualitätskontrolle."}
     },
     {
       "@type": "Question",
@@ -1235,17 +1231,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     {
       "@type": "Question",
       "name": "Wie erkenne ich, ob Lernende mit KI wirklich etwas gelernt haben?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Nicht über Detektoren — die funktionieren nicht zuverlässig. Sondern über den Prozess: Lernende dokumentieren ihren Weg, prüfen KI-Aussagen gegen Quellen und begründen ihre Einschätzung. Das ist lernwirksamer als jedes Verbot und lässt sich ab dem nächsten Unterrichtstag einsetzen."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Nicht über Detektoren — die funktionieren nicht zuverlässig. Sondern über den Prozess: Lernende dokumentieren ihren Weg, prüfen KI-Aussagen gegen Quellen und begründen ihre Einschätzung. Das ist lernwirksamer als jedes Verbot — und sofort im Unterricht umsetzbar."}
     },
     {
       "@type": "Question",
       "name": "Was nehme ich aus der KI-Werkstatt konkret mit?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Einen fertigen Unterrichtsbaustein aus deinem eigenen Material, Promptkarten für den ABU, eine Checkliste zum Bewerten von KI-Output und Routinen, die du ab dem nächsten Unterrichtstag einsetzen kannst. Alles als PDF, digital und druckbar."}
-    },
-    {
-      "@type": "Question",
-      "name": "Funktioniert das auch mit ChatGPT oder Claude?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Ja. Die KI-Werkstatt ist toolunabhängig. Die Methode funktioniert mit NotebookLM, ChatGPT, Claude oder jedem anderen KI-Tool. Im Workshop arbeiten wir mit NotebookLM, weil es quellengebunden arbeitet — aber die Prinzipien übertragen sich auf jedes Tool."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Einen fertigen Unterrichtsbaustein aus deinem eigenen Material, Promptkarten für den ABU, eine Checkliste zum Bewerten von KI-Output und Routinen, die sofort funktionieren. Alles als PDF, digital und druckbar."}
     },
     {
       "@type": "Question",
