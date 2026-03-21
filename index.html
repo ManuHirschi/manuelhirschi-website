@@ -41,6 +41,8 @@
   --lilac: #D7BCED;
   --orange: #F6612E;
   --muted: #5A5A5A;
+  --green-text: #007748;
+  --blue-text: #0f62e1;
   --radius: 20px;
   --space-section: clamp(48px, 8vw, 96px);
   --space-inner: clamp(24px, 4vw, 60px);
@@ -182,7 +184,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 .hero-text { max-width: 600px; }
 .hero-kicker {
   font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em;
-  color: var(--blue); margin-bottom: 1.5rem;
+  color: var(--blue-text); margin-bottom: 1.5rem;
 }
 .hero-subtitle {
   font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight: 300; line-height: 1.5;
@@ -284,7 +286,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 }
 .workflow-card:hover { transform: scale(1.02); }
 .workflow-num {
-  font-size: 12px; font-weight: 600; color: var(--blue);
+  font-size: 12px; font-weight: 600; color: var(--blue-text);
   text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem;
 }
 .workflow-card h3 { font-size: 18px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.3rem; }
@@ -326,8 +328,8 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   font-size: 12px; font-weight: 600; text-transform: uppercase;
   letter-spacing: 0.1em; margin-bottom: 0.3rem;
 }
-.after-card:nth-child(1) .card-label { color: var(--green); }
-.after-card:nth-child(2) .card-label { color: var(--blue); }
+.after-card:nth-child(1) .card-label { color: var(--green-text); }
+.after-card:nth-child(2) .card-label { color: var(--blue-text); }
 .after-card:nth-child(3) .card-label { color: var(--orange); }
 .after-card:nth-child(1) { border-color: var(--green); }
 .after-card:nth-child(2) { border-color: var(--blue); }
@@ -342,7 +344,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 }
 .beweis-example h4 {
   font-size: 13px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.5rem;
+  letter-spacing: 0.1em; color: var(--green-text); margin-bottom: 0.5rem;
 }
 .beweis-example p { font-size: 16px; font-weight: 300; opacity: 0.75; line-height: 1.6; }
 .beweis-example .beispiel-illust { width: 180px; flex-shrink: 0; }
@@ -419,12 +421,12 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 }
 .format-label {
   font-size: 12px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--blue); margin-bottom: 0.5rem;
+  letter-spacing: 0.1em; color: var(--blue-text); margin-bottom: 0.5rem;
 }
-.format-card--highlight .format-label { color: var(--green); }
+.format-card--highlight .format-label { color: var(--green-text); }
 .format-card h3 { font-size: 22px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.4rem; }
 .format-card p { font-size: 15px; font-weight: 300; opacity: 0.7; line-height: 1.5; flex: 1; }
-.format-price { font-size: 15px; font-weight: 500; color: var(--green); margin-top: 0.75rem; }
+.format-price { font-size: 15px; font-weight: 500; color: var(--green-text); margin-top: 0.75rem; }
 
 /* ═══════════════════════════════════════
    FAQ
