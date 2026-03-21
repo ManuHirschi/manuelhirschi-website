@@ -979,6 +979,22 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
       <div class="faq-answer"><p>Du lädst dein eigenes Material in ein KI-Tool und lässt Aufgaben auf drei Niveaus generieren, mit Sprachhilfen für DaZ-Lernende auf Niveau A. Die KI-Werkstatt zeigt dir den Workflow und die Qualitätskontrolle. Du entscheidest, was in den Unterricht geht.</p></div>
     </div>
     <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Meine Lernenden nutzen ChatGPT. Wie kann ich noch sinnvoll prüfen?</button>
+      <div class="faq-answer"><p>Indem du nicht gegen KI prüfst, sondern mit KI. In der KI-Werkstatt lernst du Prüfungsformate, bei denen Lernende zeigen müssen, dass sie den KI-Output verstanden haben — nicht nur kopiert. Das Prinzip: nicht die Antwort zählt, sondern ob jemand erklären kann, warum sie stimmt.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie erkenne ich, ob Lernende mit KI wirklich etwas gelernt haben?</button>
+      <div class="faq-answer"><p>Nicht über Detektoren — die funktionieren nicht zuverlässig. Sondern über den Prozess: Lernende dokumentieren ihren Weg, prüfen KI-Aussagen gegen Quellen und begründen ihre Einschätzung. Das ist lernwirksamer als jedes Verbot und lässt sich ab dem nächsten Unterrichtstag einsetzen.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Was nehme ich aus der KI-Werkstatt konkret mit?</button>
+      <div class="faq-answer"><p>Einen fertigen Unterrichtsbaustein aus deinem eigenen Material, Promptkarten für den ABU, eine Checkliste zum Bewerten von KI-Output und Routinen, die du ab dem nächsten Unterrichtstag einsetzen kannst. Alles als PDF, digital und druckbar.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Funktioniert das auch mit ChatGPT oder Claude?</button>
+      <div class="faq-answer"><p>Ja. Die KI-Werkstatt ist toolunabhängig. Die Methode funktioniert mit NotebookLM, ChatGPT, Claude oder jedem anderen KI-Tool. Im Workshop arbeiten wir mit NotebookLM, weil es quellengebunden arbeitet — aber die Prinzipien übertragen sich auf jedes Tool.</p></div>
+    </div>
+    <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wer bucht die KI-Werkstatt?</button>
       <div class="faq-answer"><p>Beides ist möglich. Inhouse-Angebote laufen in der Regel über Schulleitung oder Abteilungsleitung. Du kannst aber auch direkt anfragen und ich helfe dir, das intern weiterzugeben. Angebote sind auch über Kanton oder PH als eingekaufte Weiterbildung buchbar.</p></div>
     </div>
@@ -1188,8 +1204,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Muss ich KI schon kennen, um an der KI-Werkstatt teilzunehmen?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Nein. Die KI-Werkstatt setzt keine Vorkenntnisse voraus. Du musst KI nicht mögen. Du musst nur einmal sehen, was möglich ist, mit dem Material, das du schon hast."}
+      "name": "Muss ich KI schon kennen, um teilzunehmen?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Nein. Die KI-Werkstatt setzt keine Vorkenntnisse voraus. Du musst KI nicht mögen. Du musst nur einmal sehen, was möglich ist, mit dem Material, das du schon hast. Der Rest kommt von selbst."}
     },
     {
       "@type": "Question",
@@ -1203,18 +1219,38 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     },
     {
       "@type": "Question",
-      "name": "Was ist NotebookLM und warum wird es in der KI-Werkstatt eingesetzt?",
-      "acceptedAnswer": {"@type": "Answer", "text": "NotebookLM ist ein KI-Tool von Google, das ausschliesslich mit den Quellen arbeitet, die du selbst hochlädst. Es erfindet nichts dazu. Das macht es besonders geeignet für den Unterricht. Die KI-Werkstatt ist aber toolunabhängig."}
+      "name": "Was ist NotebookLM und warum setzt ihr das ein?",
+      "acceptedAnswer": {"@type": "Answer", "text": "NotebookLM ist ein KI-Tool von Google, das ausschliesslich mit den Quellen arbeitet, die du selbst hochlädst. Es erfindet nichts dazu. Das macht es besonders geeignet für den Unterricht: Du weisst, woher der Output kommt. Die KI-Werkstatt ist aber toolunabhängig."}
     },
     {
       "@type": "Question",
       "name": "Wie differenziere ich Unterricht mit KI für DaZ-Lernende?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Du lädst dein eigenes Material in ein KI-Tool und lässt Aufgaben auf drei Niveaus generieren, mit Sprachhilfen für DaZ-Lernende auf Niveau A. Die KI-Werkstatt zeigt dir den Workflow und die Qualitätskontrolle."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Du lädst dein eigenes Material in ein KI-Tool und lässt Aufgaben auf drei Niveaus generieren, mit Sprachhilfen für DaZ-Lernende auf Niveau A. Die KI-Werkstatt zeigt dir den Workflow und die Qualitätskontrolle. Du entscheidest, was in den Unterricht geht."}
     },
     {
       "@type": "Question",
-      "name": "Wer bucht die KI-Werkstatt — Lehrperson oder Schulleitung?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Beides ist möglich. Inhouse-Angebote laufen in der Regel über Schulleitung oder Abteilungsleitung. Direktanfragen sind ebenfalls willkommen. Angebote sind auch über Kanton oder PH als eingekaufte Weiterbildung buchbar."}
+      "name": "Meine Lernenden nutzen ChatGPT. Wie kann ich noch sinnvoll prüfen?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Indem du nicht gegen KI prüfst, sondern mit KI. In der KI-Werkstatt lernst du Prüfungsformate, bei denen Lernende zeigen müssen, dass sie den KI-Output verstanden haben — nicht nur kopiert. Das Prinzip: nicht die Antwort zählt, sondern ob jemand erklären kann, warum sie stimmt."}
+    },
+    {
+      "@type": "Question",
+      "name": "Wie erkenne ich, ob Lernende mit KI wirklich etwas gelernt haben?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Nicht über Detektoren — die funktionieren nicht zuverlässig. Sondern über den Prozess: Lernende dokumentieren ihren Weg, prüfen KI-Aussagen gegen Quellen und begründen ihre Einschätzung. Das ist lernwirksamer als jedes Verbot und lässt sich ab dem nächsten Unterrichtstag einsetzen."}
+    },
+    {
+      "@type": "Question",
+      "name": "Was nehme ich aus der KI-Werkstatt konkret mit?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Einen fertigen Unterrichtsbaustein aus deinem eigenen Material, Promptkarten für den ABU, eine Checkliste zum Bewerten von KI-Output und Routinen, die du ab dem nächsten Unterrichtstag einsetzen kannst. Alles als PDF, digital und druckbar."}
+    },
+    {
+      "@type": "Question",
+      "name": "Funktioniert das auch mit ChatGPT oder Claude?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Ja. Die KI-Werkstatt ist toolunabhängig. Die Methode funktioniert mit NotebookLM, ChatGPT, Claude oder jedem anderen KI-Tool. Im Workshop arbeiten wir mit NotebookLM, weil es quellengebunden arbeitet — aber die Prinzipien übertragen sich auf jedes Tool."}
+    },
+    {
+      "@type": "Question",
+      "name": "Wer bucht die KI-Werkstatt?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Beides ist möglich. Inhouse-Angebote laufen in der Regel über Schulleitung oder Abteilungsleitung. Du kannst aber auch direkt anfragen und ich helfe dir, das intern weiterzugeben. Angebote sind auch über Kanton oder PH als eingekaufte Weiterbildung buchbar."}
     },
     {
       "@type": "Question",
