@@ -8,7 +8,7 @@ Manuel Hirschi verbindet drei Perspektiven: Forschung zur epistemischen Qualitä
 
 ## Was
 
-Die KI-Werkstatt ist ein Weiterbildungsformat für ABU-Lehrpersonen an Berufsfachschulen in der Schweiz. Aus eigenem Unterrichtsmaterial wird mit KI differenzierter Unterricht auf drei Niveaus gebaut — in 90 Sekunden. Toolunabhängig (NotebookLM, Claude, ChatGPT).
+KIalog ist ein Weiterbildungsformat für ABU-Lehrpersonen an Berufsfachschulen in der Schweiz. Aus eigenem Unterrichtsmaterial wird mit KI differenzierter Unterricht auf drei Niveaus gebaut — in 90 Sekunden. Toolunabhängig (NotebookLM, Claude, ChatGPT).
 
 ## Kernaussagen
 
@@ -21,7 +21,7 @@ Die KI-Werkstatt ist ein Weiterbildungsformat für ABU-Lehrpersonen an Berufsfac
 ## Formate
 
 - Impuls: 60 Min, ab CHF 600
-- KI-Werkstatt: 2x90 Min, ab CHF 1500 (Kernformat)
+- KIalog Workshop: 2x90 Min, ab CHF 1500 (Kernformat)
 - KI-Literacy: Halbtag, ab CHF 1500
 - Fachentwicklung: 1 Semester, Preis auf Anfrage
 
