@@ -13,14 +13,13 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://manuelhirschi.ch">
 <meta property="og:locale" content="de_CH">
-<!-- TODO: og:image erstellen (1200x630px) und Pfad hier eintragen -->
-<!-- <meta property="og:image" content="https://manuelhirschi.ch/asset/og-image.png"> -->
-<!-- <meta property="og:image:width" content="1200"> -->
-<!-- <meta property="og:image:height" content="630"> -->
+<meta property="og:image" content="https://manuelhirschi.ch/asset/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="KIalog — Weiterbildung für Lehrpersonen">
 <meta name="twitter:description" content="KIalog: ABU-Lehrpersonen bauen mit eigenem Material differenzierten Unterricht für EBA und DaZ. Berufsfachschule Schweiz.">
-<!-- TODO: twitter:image ergänzen sobald og:image erstellt -->
+<meta name="twitter:image" content="https://manuelhirschi.ch/asset/og-image.png">
 <link rel="icon" type="image/svg+xml" href="asset/favicon.svg">
 <link rel="canonical" href="https://manuelhirschi.ch">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -247,7 +246,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   color: #80F5BF;
   line-height: 1.1;
 }
-.stat-label { font-size: 14px; font-weight: 300; opacity: 0.8; margin-top: 0.25rem; line-height: 1.4; }
+.stat-label { font-size: 14px; font-weight: 400; color: #ffffff; opacity: 0.85; margin-top: 0.25rem; line-height: 1.4; }
 
 .blue-section .blue-text { max-width: 560px; font-weight: 400; font-size: 18px; color: #ffffff; margin-bottom: 1rem; }
 .blue-closing { font-size: clamp(1.125rem, 2vw, 1.5rem); font-weight: 500; margin-top: 2rem; }
@@ -1098,7 +1097,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   "@type": "Person",
   "@id": "https://manuelhirschi.ch/#person",
   "name": "Manuel Hirschi",
-  "jobTitle": ["Lernbegleitung Deutsch, gibb Bern", "Dozent BpSt, PH FHNW", "Doktorand, Universität Zürich"],
   "description": "Manuel Hirschi verbindet drei Perspektiven: Forschung zur epistemischen Qualität von KI-Output (Universität Zürich), Ausbildung von Lehrpersonen (PH FHNW), tägliche Praxis in der Lernbegleitung Deutsch an der gibb Bern.",
   "url": "https://manuelhirschi.ch",
   "email": "info@manuelhirschi.ch",
@@ -1173,8 +1171,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Muss ich KI schon kennen, um bei KIalog teilzunehmen?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Nein. KIalog setzt keine Vorkenntnisse voraus. Du musst KI nicht mögen. Du musst nur einmal sehen, was möglich ist, mit dem Material, das du schon hast."}
+      "name": "Muss ich KI schon kennen, um teilzunehmen?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Nein. KIalog setzt keine Vorkenntnisse voraus. Du musst KI nicht mögen. Du musst nur einmal sehen, was möglich ist, mit dem Material, das du schon hast. Der Rest kommt von selbst."}
     },
     {
       "@type": "Question",
@@ -1183,13 +1181,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     },
     {
       "@type": "Question",
-      "name": "Was ist NotebookLM und warum wird es bei KIalog eingesetzt?",
-      "acceptedAnswer": {"@type": "Answer", "text": "NotebookLM ist ein KI-Tool von Google, das ausschliesslich mit den Quellen arbeitet, die du selbst hochlädst. Es erfindet nichts dazu. Das macht es besonders geeignet für den Unterricht. KIalog ist aber toolunabhängig."}
+      "name": "Was ist NotebookLM und warum setzt ihr das ein?",
+      "acceptedAnswer": {"@type": "Answer", "text": "NotebookLM ist ein KI-Tool von Google. Du lädst dein Material hoch und bekommst Antworten, die sich direkt auf deine Quellen stützen. Nichts Erfundenes, du siehst immer, woher der Output kommt. KIalog ist aber toolunabhängig und funktioniert auch mit Claude oder ChatGPT."}
     },
     {
       "@type": "Question",
-      "name": "Wer bucht KIalog — Lehrperson oder Schulleitung?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Beides ist möglich. Inhouse-Angebote laufen in der Regel über Schulleitung oder Abteilungsleitung. Direktanfragen sind ebenfalls willkommen. Angebote sind auch über Kanton oder PH als eingekaufte Weiterbildung buchbar."}
+      "name": "Wer bucht KIalog?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Beides ist möglich. Inhouse-Angebote laufen in der Regel über Schulleitung oder Abteilungsleitung. Du kannst aber auch direkt anfragen und ich helfe dir, das intern weiterzugeben. Angebote sind auch über Kanton oder PH als eingekaufte Weiterbildung buchbar."}
     },
     {
       "@type": "Question",
