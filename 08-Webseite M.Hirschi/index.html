@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KIalog — KI-Weiterbildung für Lehrpersonen</title>
-<meta name="description" content="KIalog: Weiterbildung für ABU-Lehrpersonen an Berufsfachschulen in Bern. Differenzierung mit KI für EBA und DaZ aus eigenem Material. Manuel Hirschi.">
+<meta name="description" content="KIalog ist die Weiterbildung für ABU-Lehrpersonen an Berufsfachschulen in Bern. Differenzierung mit KI für EBA und DaZ aus eigenem Material. Manuel Hirschi.">
 <meta name="keywords" content="KI Weiterbildung Berufsschule Bern, KIalog Berufsfachschule Schweiz, KI ABU Lehrpersonen, KI Differenzierung DaZ EBA, Manuel Hirschi">
 <meta name="author" content="Manuel Hirschi">
 <meta name="robots" content="index, follow">
@@ -25,7 +25,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-<link rel="preload" href="asset/lottie/00_szene_paint.json" as="fetch" crossorigin>
 <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 <style>
 /* ═══════════════════════════════════════
@@ -189,7 +188,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 }
 .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; align-items: center; }
 .hero-pilot {
-  font-size: 12px; font-weight: 400; opacity: 0.6; margin-top: 1.5rem; letter-spacing: 0.02em;
+  font-size: 13px; font-weight: 400; opacity: 0.7; margin-top: 1.5rem; letter-spacing: 0.02em;
 }
 .hero-lottie { position: relative; }
 .hero-lottie dotlottie-player { width: 100%; max-width: 520px; margin-left: auto; }
@@ -243,7 +242,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   font-size: clamp(1.75rem, 3vw, 3rem);
   font-weight: 600;
   letter-spacing: -1px;
-  color: #80F5BF;
+  color: #ffffff;
   line-height: 1.1;
 }
 .stat-label { font-size: 14px; font-weight: 400; color: #ffffff; opacity: 0.85; margin-top: 0.25rem; line-height: 1.4; }
@@ -273,15 +272,10 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   padding-bottom: 0.5rem;
 }
 .workflow-card {
-  border: 1px dashed var(--blue);
-  border-radius: var(--radius);
-  background-color: var(--bg);
   padding: 1rem;
   min-width: 0;
   flex: 1 1 0;
-  transition: transform .3s ease;
 }
-.workflow-card:hover { transform: scale(1.02); }
 .workflow-num {
   font-size: 12px; font-weight: 600; color: var(--blue-text);
   text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem;
@@ -293,6 +287,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   display: flex; align-items: center; flex-shrink: 0;
   color: var(--green); font-size: 18px; font-weight: 400;
 }
+.scroll-hint { display: none; }
 
 /* ═══════════════════════════════════════
    BEWEIS — Before/After
@@ -334,18 +329,6 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 .card-title { font-size: 16px; font-weight: 400; letter-spacing: -0.3px; }
 .card-desc { font-size: 14px; font-weight: 300; opacity: 0.6; margin-top: 0.2rem; }
 
-.beweis-example {
-  border: 2px solid var(--green); border-radius: var(--radius); padding: 1.5rem;
-  margin-top: 2rem;
-  display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
-}
-.beweis-example h4 {
-  font-size: 13px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--green-text); margin-bottom: 0.5rem;
-}
-.beweis-example p { font-size: 16px; font-weight: 300; opacity: 0.75; line-height: 1.6; }
-.beweis-example .beispiel-illust { width: 180px; flex-shrink: 0; }
-
 /* ═══════════════════════════════════════
    ABOUT / PERSON
    ═══════════════════════════════════════ */
@@ -362,23 +345,6 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   border: 1px solid rgba(215,188,237,0.6); border-radius: 2px; z-index: 2;
 }
 .photo-caption { font-size: 14px; color: var(--ink); opacity: 0.5; text-align: center; margin-top: 0.75rem; transform: rotate(-2deg); }
-
-.credential-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
-}
-.credential-card {
-  border: 1px dashed var(--blue);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  border-top: 3px solid var(--blue);
-}
-.credential-card:nth-child(2) { border-top-color: var(--orange); }
-.credential-card:nth-child(3) { border-top-color: var(--lilac); }
-.credential-card h3 { font-size: 18px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.3rem; }
-.credential-card p { font-size: 15px; font-weight: 300; opacity: 0.65; line-height: 1.4; }
 
 /* ═══════════════════════════════════════
    ANGEBOTE — Format Cards
@@ -469,6 +435,29 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 }
 
 /* ═══════════════════════════════════════
+   PRINZIPIEN
+   ═══════════════════════════════════════ */
+.prinzipien-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.prinzip-item {
+  padding: 0;
+}
+.prinzip-num {
+  font-size: 13px; font-weight: 600; color: var(--blue-text);
+  letter-spacing: 0.1em; margin-bottom: 0.5rem;
+}
+.prinzip-item h3 {
+  font-size: 20px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 0.4rem;
+}
+.prinzip-item p {
+  font-size: 16px; font-weight: 300; opacity: 0.65; line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════
    DECORATIVE ELEMENTS
    ═══════════════════════════════════════ */
 .atempause {
@@ -476,11 +465,6 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   position: relative; z-index: 1;
 }
 .atempause dotlottie-player { margin: 0 auto; }
-
-.deko-line {
-  max-width: 120px; margin: 0 auto;
-  position: relative; z-index: 1;
-}
 
 /* ═══════════════════════════════════════
    SCROLL REVEAL
@@ -530,10 +514,9 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   .werkstatt-intro .illust-inline { width: clamp(140px, 30vw, 220px); margin: 0 auto; }
   .beweis-layout { grid-template-columns: 1fr; gap: 1rem; }
   .beweis-arrow { transform: rotate(90deg); }
-  .beweis-example { grid-template-columns: 1fr; }
-  .beweis-example .beispiel-illust { width: 140px; margin: 0 auto; }
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
-  .credential-grid { grid-template-columns: 1fr; }
+  .prinzipien-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .format-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-lottie { display: none; }
 }
@@ -553,8 +536,18 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     flex-shrink: 0;
   }
   .workflow-arrow { display: none; }
+  .scroll-hint {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 0.25rem;
+  }
+  .scroll-hint span {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--blue); opacity: 0.25;
+  }
+  .scroll-hint span:first-child { opacity: 0.7; }
   .stat-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .format-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 500px) {
@@ -646,7 +639,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
         <a href="#kontakt" class="cta_green">Jetzt anfragen</a>
         <a href="#werkstatt" class="cta_ghost_blue">Wie es funktioniert &rarr;</a>
       </div>
-      <p class="hero-pilot reveal">Pilotprojekt mit der gibb Bern &middot; April/Mai 2026 &middot; 6&ndash;8 Plätze &middot; Anmeldung läuft</p>
+      <p class="hero-pilot reveal">Von Manuel Hirschi &middot; gibb Bern / PH FHNW / UZH &middot; Pilot April/Mai 2026 &middot; 6&ndash;8 Plätze</p>
     </div>
     <div class="hero-lottie reveal">
       <dotlottie-player src="asset/lottie/00_szene_paint.json" background="transparent" speed="0.8" class="lottie-paint" role="img" aria-label="Illustration: Lernecke mit Schreibtisch, Stuhl und Pflanze"></dotlottie-player>
@@ -663,7 +656,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     <blockquote>Ich hab's einmal versucht. Hat nicht funktioniert.</blockquote>
     <blockquote>Meine Klasse ist zu speziell. Zu viele Sprachen, zu viele Niveaus.</blockquote>
     <blockquote>Ich hab keine Zeit, mich da reinzufuchsen. Ich habe zwanzig Lernende vor mir.</blockquote>
-    <p class="spiegel-closing">Wenn du dich hier erkennst: gut.<br><strong>Genau dafür ist KIalog gemacht.</strong> Hier sind die Zahlen dazu &darr;</p>
+    <p class="spiegel-closing">Wenn du dich hier erkennst, gut.<br><strong>Genau dafür ist KIalog gemacht.</strong> Hier sind die Zahlen dazu &darr;</p>
   </div>
 </section>
 
@@ -737,6 +730,8 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
       </div>
     </div>
 
+    <div class="scroll-hint" aria-hidden="true"><span></span><span></span><span></span></div>
+
   </div>
 </section>
 
@@ -793,7 +788,36 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 </section>
 
 <!-- ═══════════════════════════════════════
-     AKT 6: PERSON — "Wer ist das"
+     AKT 6: PRINZIPIEN — "Kann ich dem vertrauen?"
+     ═══════════════════════════════════════ -->
+<section id="prinzipien">
+  <div class="section-inner">
+
+    <h2 class="section-title reveal" style="max-width:520px;">Drei Dinge, die du nicht vergisst.</h2>
+
+    <div class="prinzipien-grid reveal">
+      <div class="prinzip-item">
+        <div class="prinzip-num">01</div>
+        <h3>Werkzeug, kein Wundermittel.</h3>
+        <p>KI ist der Taschenrechner der Geisteswissenschaften. Nützlich, schnell. Aber du musst die Fallstricke kennen, und ich zeige sie dir.</p>
+      </div>
+      <div class="prinzip-item">
+        <div class="prinzip-num">02</div>
+        <h3>Du bleibst im Lead.</h3>
+        <p>KI liefert einen Entwurf. Deine pädagogische Einschätzung bleibt das Mass aller Dinge.</p>
+      </div>
+      <div class="prinzip-item">
+        <div class="prinzip-num">03</div>
+        <h3>Sofort einsetzbar.</h3>
+        <p>Jeder Baustein, den du in der Werkstatt baust, funktioniert ab dem nächsten Unterrichtstag. Keine Theorie, die in der Schublade bleibt.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     AKT 7: PERSON — "Wer ist das"
      ═══════════════════════════════════════ -->
 <section id="ueber">
   <div class="section-inner">
@@ -810,22 +834,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
       <div>
         <p class="reveal" style="font-weight:300;max-width:520px;font-size:18px;margin-bottom:1.5rem;line-height:1.6;">Ich unterrichte selbst EBA-Klassen mit DaZ-Lernenden an der gibb Bern. Ich weiss, wie es ist, wenn eine Lernende auf A1-Niveau sitzt und die nächste schon auf B2 schreibt. Ich weiss, wie es ist, wenn man dreissig Minuten für ein Arbeitsblatt hat.</p>
         <p class="reveal" style="font-weight:300;max-width:520px;font-size:18px;margin-bottom:2rem;line-height:1.6;">Ich bilde Lehrpersonen an der PH FHNW aus. Und ich forsche an der Universität Zürich daran, <strong>wann KI-Output vertrauenswürdig ist und wann nicht</strong>. Diese Forschung steckt in der Werkstatt.</p>
-        <p class="reveal" style="font-size:20px;font-weight:400;max-width:520px;margin-bottom:2rem;">Das sind keine drei Lebensläufe. Das ist eine Perspektive. Was ich dir zeige, funktioniert, weil ich es selbst jeden Tag anwende.</p>
-
-        <div class="credential-grid reveal">
-          <div class="credential-card">
-            <h3>Lernbegleitung Deutsch</h3>
-            <p>gibb Bern &middot; EBA-Klassen, DaZ &middot; Fachgruppe Lernbegleitung AVK</p>
-          </div>
-          <div class="credential-card">
-            <h3>Dozent BpSt</h3>
-            <p>PH FHNW &middot; Reflexionsseminare Primarstufe &middot; 18 Jahre Unterrichtserfahrung</p>
-          </div>
-          <div class="credential-card">
-            <h3>Doktorand</h3>
-            <p>UZH &middot; Epistemische Qualität von KI-Output. Wann kann man ihm vertrauen, wann nicht?</p>
-          </div>
-        </div>
+        <p class="reveal" style="font-size:20px;font-weight:400;max-width:520px;margin-bottom:2rem;">Praxis an der gibb, Ausbildung an der PH FHNW, Forschung an der UZH. Was ich dir zeige, funktioniert, weil ich es selbst jeden Tag anwende.</p>
 
       </div>
     </div>
@@ -845,7 +854,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   <div class="section-inner">
 
     <h2 class="section-title reveal">Drei Formate. Klare Preise.</h2>
-    <p class="reveal" style="font-weight:300;max-width:520px;font-size:16px;opacity:0.7;">Ein CAS «KI für Lehrpersonen» kostet CHF 9'900 pro Person. KIalog bringt dein ganzes Team für einen Bruchteil weiter. Je nach Schule und Zeitrahmen, du entscheidest, wie tief du einsteigst.</p>
+    <p class="reveal" style="font-weight:300;max-width:520px;font-size:16px;opacity:0.7;">Je nach Schule und Zeitrahmen, du entscheidest, wie tief du einsteigst.</p>
 
     <div class="format-grid">
       <div class="format-card reveal">
@@ -874,9 +883,11 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
       </div>
     </div>
 
+    <p class="price-anchor reveal">Ein CAS «KI für Lehrpersonen» kostet CHF 9'900 pro Person. KIalog bringt dein ganzes Team für einen Bruchteil weiter.</p>
+
     <div class="reveal" style="margin-top:1.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;">
       <a href="#kontakt" class="cta_green">Jetzt anfragen</a>
-      <span style="font-weight:300;font-size:14px;opacity:0.5;">Buchung über Schulleitung oder direkt. Auch als eingekaufte Weiterbildung über Kanton oder PH buchbar. Reisekosten nach Aufwand.</span>
+      <span style="font-weight:300;font-size:14px;opacity:0.5;">Schreib mir, welches Format passt. Ich helfe bei der internen Weiterleitung. Reisekosten nach Aufwand.</span>
     </div>
 
   </div>
@@ -905,6 +916,14 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Was ist NotebookLM und warum setzt ihr das ein?</button>
       <div class="faq-answer"><p>NotebookLM ist ein KI-Tool von Google. Du lädst dein Material hoch und bekommst Antworten, die sich direkt auf deine Quellen stützen. Nichts Erfundenes, du siehst immer, woher der Output kommt. KIalog ist aber toolunabhängig und funktioniert auch mit Claude oder ChatGPT.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie setze ich KI im ABU konkret ein?</button>
+      <div class="faq-answer"><p>Mit der KIalog-Methode. Du nimmst dein eigenes Material und generierst daraus differenzierte Bausteine auf drei Niveaus. Im Workshop baust du einen fertigen Baustein und lernst Routinen, die du ab dem nächsten Unterrichtstag einsetzen kannst.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie differenziere ich mit KI für DaZ-Lernende?</button>
+      <div class="faq-answer"><p>KI kann aus einem Arbeitsblatt Varianten mit vereinfachter Sprache, Wortschatzstützen und Scaffolding erzeugen. Du prüfst den Output und entscheidest, was in den Unterricht geht. Im Workshop siehst du an einem konkreten Beispiel, wie das in unter zwei Minuten funktioniert.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wer bucht KIalog?</button>
@@ -937,7 +956,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
       <div class="reveal" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
         <a href="mailto:info@manuelhirschi.ch?subject=KIalog%20anfragen" class="cta_ghost_white">info@manuelhirschi.ch</a>
       </div>
-      <p class="footer-pilot reveal">Pilotprojekt mit der gibb Bern &middot; April/Mai 2026 &middot; 6&ndash;8 Plätze &middot; Anmeldung läuft</p>
+      <p class="footer-pilot reveal">Von Manuel Hirschi &middot; gibb Bern / PH FHNW / UZH &middot; Pilot April/Mai 2026 &middot; 6&ndash;8 Plätze</p>
     </div>
     <div class="footer-lottie">
       <dotlottie-player src="asset/lottie/04_pflanze_paint.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint" role="img" aria-label="Illustration: Pflanze"></dotlottie-player>
@@ -1171,13 +1190,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     },
     {
       "@type": "Question",
+      "name": "Wie setze ich KI im ABU konkret ein?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Mit der KIalog-Methode. Du nimmst dein eigenes Material und generierst daraus differenzierte Bausteine auf drei Niveaus. Im Workshop baust du einen fertigen Baustein und lernst Routinen, die du ab dem nächsten Unterrichtstag einsetzen kannst."}
+    },
+    {
+      "@type": "Question",
+      "name": "Wie differenziere ich mit KI für DaZ-Lernende?",
+      "acceptedAnswer": {"@type": "Answer", "text": "KI kann aus einem Arbeitsblatt Varianten mit vereinfachter Sprache, Wortschatzstützen und Scaffolding erzeugen. Du prüfst den Output und entscheidest, was in den Unterricht geht. Im Workshop siehst du an einem konkreten Beispiel, wie das in unter zwei Minuten funktioniert."}
+    },
+    {
+      "@type": "Question",
       "name": "Wer bucht KIalog?",
       "acceptedAnswer": {"@type": "Answer", "text": "Beides ist möglich. Inhouse-Angebote laufen in der Regel über Schulleitung oder Abteilungsleitung. Du kannst aber auch direkt anfragen und ich helfe dir, das intern weiterzugeben. Angebote sind auch über Kanton oder PH als eingekaufte Weiterbildung buchbar."}
     },
     {
       "@type": "Question",
       "name": "KIalog für Lehrpersonen, was ist das?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Ein Weiterbildungsformat von Manuel Hirschi. In 2 × 90 Minuten lernst du, mit KI aus deinem eigenen Material differenzierten Unterricht zu bauen. Du arbeitest mit deinem Material, baust einen fertigen Baustein und lernst Routinen für den Unterrichtsalltag."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Ein Weiterbildungsformat von Manuel Hirschi. In 2 × 90 Minuten baust du mit KI aus deinem Material einen fertigen Unterrichtsbaustein und lernst Routinen für den Alltag."}
     }
   ]
 }
