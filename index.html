@@ -733,36 +733,24 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
       </div>
     </div>
 
-    <!-- Workflow — 5 Steps -->
+    <!-- Workflow — 3 Steps -->
     <div class="workflow-track reveal">
       <div class="workflow-card">
         <div class="workflow-num">Schritt 01</div>
-        <h3>Du bringst dein Material</h3>
-        <p>Ein Dossier, ein Arbeitsblatt, eine Seite aus dem Lehrmittel. Was du schon hast, reicht.</p>
+        <h3>Dein Material rein</h3>
+        <p>Dossier, Arbeitsblatt, Lehrmittelseite. Was du hast, reicht. Du lädst es in ein KI-Tool wie NotebookLM. Quellengebunden, nachvollziehbar.</p>
       </div>
       <div class="workflow-arrow" aria-hidden="true">&rarr;</div>
       <div class="workflow-card">
         <div class="workflow-num">Schritt 02</div>
-        <h3>Du lädst es in ein KI-Tool</h3>
-        <p>Zum Beispiel NotebookLM. Quellengebunden, nachvollziehbar. Kein Abo, keine Vorkenntnisse nötig.</p>
+        <h3>Drei Niveaus raus</h3>
+        <p>In 90 Sekunden: Niveau A zum Basisverstehen. Niveau B zum Anwenden. Niveau C für Transfer. Mit Sprachhilfen für DaZ.</p>
       </div>
       <div class="workflow-arrow" aria-hidden="true">&rarr;</div>
       <div class="workflow-card">
         <div class="workflow-num">Schritt 03</div>
-        <h3>3 Niveaus in 90 Sekunden</h3>
-        <p>Niveau A zum Basisverstehen. Niveau B zum Anwenden. Niveau C für Transfer. Mit Sprachhilfen für DaZ.</p>
-      </div>
-      <div class="workflow-arrow" aria-hidden="true">&rarr;</div>
-      <div class="workflow-card">
-        <div class="workflow-num">Schritt 04</div>
-        <h3>Du prüfst und entscheidest</h3>
-        <p>KI macht einen Vorschlag. Was in den Unterricht geht, bestimmst du. Immer.</p>
-      </div>
-      <div class="workflow-arrow" aria-hidden="true">&rarr;</div>
-      <div class="workflow-card">
-        <div class="workflow-num">Schritt 05</div>
-        <h3>Unterricht</h3>
-        <p>Ab dem nächsten Unterrichtstag einsetzbar. Kein Mehraufwand. Weniger Aufwand.</p>
+        <h3>Du entscheidest</h3>
+        <p>KI liefert einen Vorschlag. Was in den Unterricht geht, bestimmst du. Ab morgen einsetzbar. Kein Mehraufwand.</p>
       </div>
     </div>
 
@@ -1063,7 +1051,40 @@ const lottieObs = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.3 });
-lottiePlayers.forEach(el => lottieObs.observe(el));
+
+// Laptop + Notes: früher triggern (sobald 5% sichtbar)
+const earlyLottieObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const player = e.target;
+      let attempts = 0;
+      const tryPlay = () => {
+        if (attempts++ > 50) return;
+        if (player.getLottie) {
+          const lottie = player.getLottie();
+          if (lottie) {
+            lottie.loop = false;
+            lottie.goToAndStop(0, true);
+            setTimeout(() => lottie.play(), 100);
+            earlyLottieObs.unobserve(player);
+            return;
+          }
+        }
+        setTimeout(tryPlay, 100);
+      };
+      tryPlay();
+    }
+  });
+}, { threshold: 0.05 });
+
+lottiePlayers.forEach(el => {
+  const src = el.getAttribute('src') || '';
+  if (src.includes('03_laptop') || src.includes('06_notes')) {
+    earlyLottieObs.observe(el);
+  } else {
+    lottieObs.observe(el);
+  }
+});
 
 // ── CountUp Animation for Stats ──
 const countUpObs = new IntersectionObserver((entries) => {
