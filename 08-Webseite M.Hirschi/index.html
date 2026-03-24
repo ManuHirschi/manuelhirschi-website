@@ -1004,24 +1004,27 @@ document.querySelectorAll('.lottie-paint').forEach(player => {
 });
 
 // ── Dekorative Lotties: show last frame immediately, play draw-on on scroll ──
-// Strategy: hide player via CSS, use getLottie().goToAndStop() for reliable
-// frame-accurate seek (bypasses dotlottie-player seek() timing issues), then reveal.
+// Strategy: play at 999x speed (hidden) so animation completes instantly at last
+// frame. On scroll, seek(0) and replay at normal speed. Avoids getLottie() which
+// returns null in dotlottie-player v2.
 document.querySelectorAll('.lottie-deko').forEach(player => {
   player.style.opacity = '0';
   whenReady(player, (p) => {
     p.setLooping(false);
-    let tries = 0;
-    (function seekToEnd() {
-      const anim = p.getLottie();
-      if (anim && anim.totalFrames > 0) {
-        anim.goToAndStop(anim.totalFrames - 1, true);
-        p.style.opacity = '1';
-      } else if (tries++ < 30) {
-        requestAnimationFrame(seekToEnd);
-      } else {
-        p.style.opacity = '1'; // fallback: show even if seek failed
+    p.setSpeed(999);
+    p.addEventListener('complete', () => {
+      p.setSpeed(0.8);
+      player.style.opacity = '1';
+    }, { once: true });
+    p.play();
+    // Fallback: if complete never fires, show after 1s
+    setTimeout(() => {
+      if (player.style.opacity === '0') {
+        p.pause();
+        p.setSpeed(0.8);
+        player.style.opacity = '1';
       }
-    })();
+    }, 1000);
   });
 });
 
@@ -1030,16 +1033,9 @@ const dekoObs = new IntersectionObserver((entries) => {
     if (e.isIntersecting) {
       const p = e.target;
       dekoObs.unobserve(p);
-      const anim = p.getLottie();
-      if (anim) {
-        anim.goToAndStop(0, true);
-        p.setLooping(false);
-        requestAnimationFrame(() => p.play());
-      } else {
-        p.setLooping(false);
-        p.seek(0);
-        setTimeout(() => p.play(), 50);
-      }
+      p.setLooping(false);
+      p.seek(0);
+      setTimeout(() => { p.setSpeed(0.8); p.play(); }, 50);
     }
   });
 }, { threshold: 0.15 });

@@ -2,8 +2,7 @@
 .netlify
 
 # Unused Lottie files (keep locally, exclude from deploy)
-asset/lottie/02_tafel_paint.json
-asset/lottie/04_pflanze_paint.json
+# NOTE: 02_tafel_paint + 04_pflanze_paint ARE used on the site — do NOT add here
 asset/lottie/05_differenzierung.json
 asset/lottie/line-green.json
 asset/lottie/logo.json
