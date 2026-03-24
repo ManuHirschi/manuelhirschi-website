@@ -742,7 +742,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 
 <!-- ═══ Atempause ═══ -->
 <div class="atempause reveal">
-  <dotlottie-player src="asset/lottie/zigGreen.json" background="transparent" speed="0.8" style="width:120px;" class="lottie-deko" role="img" aria-label="Dekoratives Element"></dotlottie-player>
+  <dotlottie-player src="asset/lottie/zigGreen.json" background="transparent" speed="0.8" style="width:120px;" class="lottie-paint" role="img" aria-label="Dekoratives Element"></dotlottie-player>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -760,7 +760,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
         <div class="card-desc">Gleiches Blatt für alle. 25 Lernende, 4 Sprachen, 1 Niveau.</div>
       </div>
       <div class="beweis-arrow">
-        <dotlottie-player src="asset/lottie/arrowPurple.json" background="transparent" speed="0.8" class="lottie-deko" role="img" aria-label="Pfeil"></dotlottie-player>
+        <dotlottie-player src="asset/lottie/arrowPurple.json" background="transparent" speed="0.8" class="lottie-paint" role="img" aria-label="Pfeil"></dotlottie-player>
       </div>
       <div class="after-stack">
         <div class="after-card">
@@ -832,7 +832,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 
     <div style="margin-top:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
       <a href="#kontakt" class="cta_green reveal">Jetzt anfragen</a>
-      <dotlottie-player src="asset/lottie/smallchairplant.json" background="transparent" speed="0.8" style="width:clamp(140px, 18vw, 240px);" class="lottie-deko" role="img" aria-label="Illustration: Stuhl mit Pflanze"></dotlottie-player>
+      <dotlottie-player src="asset/lottie/smallchairplant.json" background="transparent" speed="0.8" style="width:clamp(140px, 18vw, 240px);" class="lottie-paint" role="img" aria-label="Illustration: Stuhl mit Pflanze"></dotlottie-player>
     </div>
 
   </div>
@@ -890,7 +890,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     <div class="faq-header">
       <h2 class="section-title reveal" style="font-size:clamp(1.75rem, 3.5vw, 2.5rem);">Häufige Fragen</h2>
       <div class="illust-inline">
-        <dotlottie-player src="asset/lottie/lamp5.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-deko" role="img" aria-label="Illustration: Schreibtischlampe"></dotlottie-player>
+        <dotlottie-player src="asset/lottie/lamp5.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint" role="img" aria-label="Illustration: Schreibtischlampe"></dotlottie-player>
       </div>
     </div>
 
@@ -920,7 +920,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 
 <!-- ═══ Atempause ═══ -->
 <div class="atempause">
-  <dotlottie-player src="asset/lottie/zigGreen2.json" background="transparent" speed="0.8" style="width:clamp(100px, 12vw, 160px);" class="lottie-deko" role="img" aria-label="Dekoratives Element"></dotlottie-player>
+  <dotlottie-player src="asset/lottie/zigGreen2.json" background="transparent" speed="0.8" style="width:clamp(100px, 12vw, 160px);" class="lottie-paint" role="img" aria-label="Dekoratives Element"></dotlottie-player>
 </div>
 
 </main>
@@ -968,79 +968,67 @@ const spiegelObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.2, rootMargin: '-30px 0px' });
 spiegelItems.forEach(el => spiegelObs.observe(el));
 
-// ── Lottie: dotlottie-player v2 ──
-// API: player.seek(percent 0-100), player.play(), player.stop(),
-//      player.pause(), player.setLooping(bool), player.getLottie()
-
-// Helper: wait for player to be ready, then run callback
-function whenReady(player, fn) {
-  player.addEventListener('ready', () => fn(player), { once: true });
-}
-
-// ── Paint-on Lotties: stop at frame 0, play once on scroll ──
-// Observer starts AFTER ready to avoid race condition (hero is already in viewport).
-const paintObs = new IntersectionObserver((entries) => {
+// ── Lottie Paint Animations: play once on viewport ──
+// Proven code from the working root version (460c2b9).
+// All Lotties use .lottie-paint class. getLottie() with setTimeout polling.
+const lottiePlayers = document.querySelectorAll('.lottie-paint');
+const lottieObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      const p = e.target;
-      paintObs.unobserve(p);
-      const anim = p.getLottie();
-      if (anim) {
-        anim.goToAndStop(0, true);
-        requestAnimationFrame(() => p.play());
-      } else {
-        p.seek(0);
-        setTimeout(() => p.play(), 100);
-      }
+      const player = e.target;
+      let attempts = 0;
+      const tryPlay = () => {
+        if (attempts++ > 50) return;
+        if (player.getLottie) {
+          const lottie = player.getLottie();
+          if (lottie) {
+            lottie.loop = false;
+            lottie.goToAndStop(0, true);
+            setTimeout(() => lottie.play(), 200);
+            lottieObs.unobserve(player);
+            return;
+          }
+        }
+        setTimeout(tryPlay, 100);
+      };
+      tryPlay();
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.3 });
 
-document.querySelectorAll('.lottie-paint').forEach(player => {
-  whenReady(player, (p) => {
-    p.setLooping(false);
-    p.stop();
-    paintObs.observe(p); // observe only after player is ready
-  });
-});
-
-// ── Dekorative Lotties: show last frame immediately, play draw-on on scroll ──
-// Strategy: play at 999x speed (hidden) so animation completes instantly at last
-// frame. On scroll, seek(0) and replay at normal speed. Avoids getLottie() which
-// returns null in dotlottie-player v2.
-document.querySelectorAll('.lottie-deko').forEach(player => {
-  player.style.opacity = '0';
-  whenReady(player, (p) => {
-    p.setLooping(false);
-    p.setSpeed(999);
-    p.addEventListener('complete', () => {
-      p.setSpeed(0.8);
-      player.style.opacity = '1';
-    }, { once: true });
-    p.play();
-    // Fallback: if complete never fires, show after 1s
-    setTimeout(() => {
-      if (player.style.opacity === '0') {
-        p.pause();
-        p.setSpeed(0.8);
-        player.style.opacity = '1';
-      }
-    }, 1000);
-  });
-});
-
-const dekoObs = new IntersectionObserver((entries) => {
+// Laptop + Notes: trigger earlier (5% visible)
+const earlyLottieObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      const p = e.target;
-      dekoObs.unobserve(p);
-      p.setLooping(false);
-      p.seek(0);
-      setTimeout(() => { p.setSpeed(0.8); p.play(); }, 50);
+      const player = e.target;
+      let attempts = 0;
+      const tryPlay = () => {
+        if (attempts++ > 50) return;
+        if (player.getLottie) {
+          const lottie = player.getLottie();
+          if (lottie) {
+            lottie.loop = false;
+            lottie.goToAndStop(0, true);
+            setTimeout(() => lottie.play(), 100);
+            earlyLottieObs.unobserve(player);
+            return;
+          }
+        }
+        setTimeout(tryPlay, 100);
+      };
+      tryPlay();
     }
   });
-}, { threshold: 0.15 });
-document.querySelectorAll('.lottie-deko').forEach(el => dekoObs.observe(el));
+}, { threshold: 0.05 });
+
+lottiePlayers.forEach(el => {
+  const src = el.getAttribute('src') || '';
+  if (src.includes('03_laptop') || src.includes('06_notes')) {
+    earlyLottieObs.observe(el);
+  } else {
+    lottieObs.observe(el);
+  }
+});
 
 // ── CountUp Animation for Stats ──
 const countUpObs = new IntersectionObserver((entries) => {
