@@ -1,0 +1,48 @@
+# Local Netlify folder
+.netlify
+
+# Unused Lottie files (keep locally, exclude from deploy)
+asset/lottie/02_tafel_paint.json
+asset/lottie/04_pflanze_paint.json
+asset/lottie/05_differenzierung.json
+asset/lottie/line-green.json
+asset/lottie/logo.json
+asset/lottie/room.json
+asset/lottie/side-table.json
+asset/lottie/small-plant.json
+asset/lottie/smallchair.json
+asset/lottie/sofaBlue.json
+asset/lottie/sofaGreen.json
+asset/lottie/sofaOrange.json
+asset/lottie/zigRed.json
+asset/lottie/zigRed2.json
+
+# Original uncompressed photo (WebP version is deployed)
+asset/manu2.png
+
+# Backup Lottie files
+asset/lottie/*_backup.json
+
+# Reference screenshots (not for deploy)
+asset/IMG_*.PNG
+asset/stampMaskTop.png
+
+# Illustration source files (not for deploy)
+asset2/
+
+# Development/docs files (not for deploy)
+.DS_Store
+.claude/
+CLAUDE.md
+docs/
+memory/
+Belege/
+_archiv/
+_handoff_*.md
+Expertenrolle_Website.md
+Foto Manuel.jpg
+index-v1-vollversion.html
+index-v2-reduziert.html
+logos/
+*.base
+*.canvas
