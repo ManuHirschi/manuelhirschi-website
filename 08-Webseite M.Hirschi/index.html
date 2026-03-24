@@ -978,26 +978,52 @@ function whenReady(player, fn) {
 }
 
 // ── Paint-on Lotties: stop at frame 0, play once on scroll ──
-document.querySelectorAll('.lottie-paint').forEach(player => {
-  whenReady(player, (p) => { p.setLooping(false); p.stop(); });
-});
-
+// Observer starts AFTER ready to avoid race condition (hero is already in viewport).
 const paintObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       const p = e.target;
       paintObs.unobserve(p);
-      p.setLooping(false);
-      p.seek(0);
-      setTimeout(() => p.play(), 100);
+      const anim = p.getLottie();
+      if (anim) {
+        anim.goToAndStop(0, true);
+        requestAnimationFrame(() => p.play());
+      } else {
+        p.seek(0);
+        setTimeout(() => p.play(), 100);
+      }
     }
   });
 }, { threshold: 0.15 });
-document.querySelectorAll('.lottie-paint').forEach(el => paintObs.observe(el));
 
-// ── Dekorative Lotties: show complete (seek 100%), play draw-on on scroll ──
+document.querySelectorAll('.lottie-paint').forEach(player => {
+  whenReady(player, (p) => {
+    p.setLooping(false);
+    p.stop();
+    paintObs.observe(p); // observe only after player is ready
+  });
+});
+
+// ── Dekorative Lotties: show last frame immediately, play draw-on on scroll ──
+// Strategy: hide player via CSS, use getLottie().goToAndStop() for reliable
+// frame-accurate seek (bypasses dotlottie-player seek() timing issues), then reveal.
 document.querySelectorAll('.lottie-deko').forEach(player => {
-  whenReady(player, (p) => { p.setLooping(false); p.seek(100); });
+  player.style.opacity = '0';
+  whenReady(player, (p) => {
+    p.setLooping(false);
+    let tries = 0;
+    (function seekToEnd() {
+      const anim = p.getLottie();
+      if (anim && anim.totalFrames > 0) {
+        anim.goToAndStop(anim.totalFrames - 1, true);
+        p.style.opacity = '1';
+      } else if (tries++ < 30) {
+        requestAnimationFrame(seekToEnd);
+      } else {
+        p.style.opacity = '1'; // fallback: show even if seek failed
+      }
+    })();
+  });
 });
 
 const dekoObs = new IntersectionObserver((entries) => {
@@ -1005,9 +1031,16 @@ const dekoObs = new IntersectionObserver((entries) => {
     if (e.isIntersecting) {
       const p = e.target;
       dekoObs.unobserve(p);
-      p.setLooping(false);
-      p.seek(0);
-      setTimeout(() => p.play(), 50);
+      const anim = p.getLottie();
+      if (anim) {
+        anim.goToAndStop(0, true);
+        p.setLooping(false);
+        requestAnimationFrame(() => p.play());
+      } else {
+        p.setLooping(false);
+        p.seek(0);
+        setTimeout(() => p.play(), 50);
+      }
     }
   });
 }, { threshold: 0.15 });
