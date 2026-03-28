@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /todo.html
 
 Sitemap: https://kialog.ch/sitemap.xml
