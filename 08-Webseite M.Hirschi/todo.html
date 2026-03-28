@@ -2,151 +2,269 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="TODO">
+<meta name="robots" content="noindex, nofollow">
 <title>TODO</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #fafaf9;
+    --text: #1c1917;
+    --text-soft: #a8a29e;
+    --border: #e7e5e4;
+    --surface: #ffffff;
+  }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: transparent;
-    font-family: 'Figtree', sans-serif;
-    font-size: 17px;
-    color: #2d2d2d;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding: 0;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
   }
 
-  .postit {
-    background: #fef9c3;
-    width: 100%;
-    max-width: 380px;
-    min-height: 100vh;
-    padding: 28px 24px 20px;
-    box-shadow:
-      2px 4px 12px rgba(0,0,0,0.12),
-      inset 0 -2px 6px rgba(0,0,0,0.04);
-    position: relative;
+  .container {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
   }
 
-  .postit::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 36px;
-    background: linear-gradient(180deg, #e8d44d88 0%, transparent 100%);
-    border-radius: 0;
+  header {
+    margin-bottom: 36px;
   }
 
   h1 {
-    font-family: 'Figtree', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    letter-spacing: -1px;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #d4c84a55;
-    position: relative;
-    z-index: 1;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  li {
-    padding: 6px 0 6px 28px;
-    position: relative;
-    line-height: 1.4;
-    border-bottom: 1px dashed #d4c84a44;
-  }
-
-  li:last-child { border-bottom: none; }
-
-  li::before {
-    content: '○';
-    position: absolute;
-    left: 4px;
-    top: 6px;
-    font-size: 16px;
-    color: #b8a930;
-  }
-
-  li.done {
-    text-decoration: line-through;
-    opacity: 0.45;
-  }
-
-  li.done::before {
-    content: '●';
-    color: #7a9e3a;
-  }
-
-  .category {
+    font-size: 13px;
     font-weight: 600;
-    font-size: 15px;
-    font-family: 'Figtree', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #a09030;
-    margin-top: 18px;
-    margin-bottom: 4px;
-    padding-left: 4px;
+    letter-spacing: 2px;
+    color: var(--text-soft);
+    margin-bottom: 2px;
   }
 
-  .category:first-of-type { margin-top: 0; }
+  .count {
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: -2px;
+    line-height: 1.1;
+  }
 
-  .updated {
-    font-family: 'Figtree', sans-serif;
+  .count span {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--text-soft);
+    margin-left: 2px;
+  }
+
+  /* ── Kategorien ── */
+
+  .cat {
+    margin-bottom: 28px;
+  }
+
+  .cat-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .cat-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .cat-name {
     font-size: 11px;
-    color: #b8a93088;
-    text-align: right;
-    margin-top: 20px;
-    padding-top: 8px;
-    border-top: 1px solid #d4c84a33;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-soft);
+    flex: 1;
+  }
+
+  .cat-n {
+    font-size: 11px;
+    color: var(--text-soft);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Items ── */
+
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 9px 12px;
+    margin-bottom: 2px;
+    border-radius: 8px;
+    font-size: 14.5px;
+    line-height: 1.4;
+    background: var(--surface);
+  }
+
+  .item:last-child { margin-bottom: 0; }
+
+  .chk {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #d6d3d1;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .item.done { background: transparent; }
+
+  .item.done .chk {
+    background: #d6d3d1;
+    border-color: #d6d3d1;
+    position: relative;
+  }
+
+  .item.done .chk::after {
+    content: '✓';
+    position: absolute;
+    top: -2px;
+    left: 1.5px;
+    font-size: 12px;
+    color: white;
+    font-weight: 700;
+  }
+
+  .item.done .txt {
+    text-decoration: line-through;
+    color: var(--text-soft);
+    opacity: 0.5;
+  }
+
+  .txt { flex: 1; }
+
+  .dl {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #c2410c;
+    background: #fff7ed;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 4px;
+    white-space: nowrap;
+    vertical-align: 1px;
+  }
+
+  /* ── Erledigt ── */
+
+  .done-section { margin-top: 16px; }
+
+  /* ── Footer ── */
+
+  .foot {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-soft);
+    margin-top: 40px;
+    opacity: 0.5;
+  }
+
+  /* ── Dark Mode ── */
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --text: #fafaf9;
+      --text-soft: #78716c;
+      --border: #292524;
+      --surface: #1c1917;
+    }
+    .chk { border-color: #44403c; }
+    .item.done .chk { background: #44403c; border-color: #44403c; }
+    .dl { background: #1c1917; color: #fb923c; }
   }
 </style>
 </head>
 <body>
-<div class="postit">
-  <h1>TODO</h1>
+<div class="container">
 
-  <div class="category">KIalog</div>
-  <ul>
-    <li class="done">Produktname entschieden: KIalog</li>
-    <li>Domain kialog.ch sichern</li>
-    <li>Workflow-Dokument an Lüscher zeigen</li>
-    <li>dipFund-Skizze mit EJ-Framing (Deadline 26.4.)</li>
-    <li>Nebenbeschäftigung melden (gibb + PH FHNW)</li>
-  </ul>
+  <header>
+    <h1>Offen</h1>
+    <div class="count">11 <span>Aufgaben</span></div>
+  </header>
 
-  <div class="category">Exposé</div>
-  <ul>
-    <li>rock2026: Primärstudie suchen (Metakognition → EJ)</li>
-    <li>3 Textstellen, 5 Quellen — PDFs laden</li>
-    <li>Josh das Exposé zeigen</li>
-  </ul>
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-dot" style="background:#b45309"></div>
+      <div class="cat-name">KIalog</div>
+      <div class="cat-n">4</div>
+    </div>
+    <div class="item"><div class="chk"></div><div class="txt">Domain kialog.ch sichern</div></div>
+    <div class="item"><div class="chk"></div><div class="txt">Workflow-Dokument an Lüscher zeigen</div></div>
+    <div class="item"><div class="chk"></div><div class="txt">dipFund-Skizze mit EJ-Framing <span class="dl">26.4.</span></div></div>
+    <div class="item"><div class="chk"></div><div class="txt">Nebenbeschäftigung melden (gibb + PH FHNW)</div></div>
+  </div>
 
-  <div class="category">Webseite</div>
-  <ul>
-    <li>Kontrastprüfung Schrift auf Mobile</li>
-  </ul>
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-dot" style="background:#1d4ed8"></div>
+      <div class="cat-name">Exposé</div>
+      <div class="cat-n">3</div>
+    </div>
+    <div class="item"><div class="chk"></div><div class="txt">rock2026 Primärstudie suchen (Metakognition → EJ)</div></div>
+    <div class="item"><div class="chk"></div><div class="txt">3 Textstellen, 5 Quellen — PDFs laden</div></div>
+    <div class="item"><div class="chk"></div><div class="txt">Josh das Exposé zeigen</div></div>
+  </div>
 
-  <div class="category">Security</div>
-  <ul>
-    <li>Snyk-Konto erstellen + Skills scannen</li>
-  </ul>
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-dot" style="background:#059669"></div>
+      <div class="cat-name">Webseite</div>
+      <div class="cat-n">1</div>
+    </div>
+    <div class="item"><div class="chk"></div><div class="txt">Kontrastprüfung Schrift auf Mobile</div></div>
+  </div>
 
-  <div class="category">Aufräumen</div>
-  <ul>
-    <li>Website-Duplikate im Root diffen + löschen</li>
-    <li>Screenshots auf Desktop aufräumen</li>
-  </ul>
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-dot" style="background:#dc2626"></div>
+      <div class="cat-name">Security</div>
+      <div class="cat-n">1</div>
+    </div>
+    <div class="item"><div class="chk"></div><div class="txt">Snyk-Konto erstellen + Skills scannen</div></div>
+  </div>
 
-  <div class="updated">Stand: 28.03.2026</div>
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-dot" style="background:#78716c"></div>
+      <div class="cat-name">Aufräumen</div>
+      <div class="cat-n">2</div>
+    </div>
+    <div class="item"><div class="chk"></div><div class="txt">Website-Duplikate im Root diffen + löschen</div></div>
+    <div class="item"><div class="chk"></div><div class="txt">Screenshots auf Desktop aufräumen</div></div>
+  </div>
+
+  <div class="done-section">
+    <div class="cat">
+      <div class="cat-head">
+        <div class="cat-dot" style="background:#d6d3d1"></div>
+        <div class="cat-name">Erledigt</div>
+      </div>
+      <div class="item done"><div class="chk"></div><div class="txt">Produktname entschieden: KIalog</div></div>
+      <div class="item done"><div class="chk"></div><div class="txt">WhatsApp-Story-Kampagne Silbenfall</div></div>
+      <div class="item done"><div class="chk"></div><div class="txt">AInauten KW13 analysiert + Erkenntnisse</div></div>
+    </div>
+  </div>
+
+  <div class="foot">28. März 2026</div>
+
 </div>
 </body>
 </html>
