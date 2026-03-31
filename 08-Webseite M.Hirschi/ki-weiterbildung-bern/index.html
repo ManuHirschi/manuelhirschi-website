@@ -13,7 +13,11 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kialog.ch/ki-weiterbildung-bern/">
 <meta property="og:locale" content="de_CH">
+<meta property="og:image" content="https://kialog.ch/asset/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kialog.ch/asset/og-image.png">
 <meta name="twitter:title" content="KI-Weiterbildung für Lehrpersonen in Bern">
 <meta name="twitter:description" content="KIalog: ABU-spezifisch, DaZ-differenziert, forschungsbasiert. Hands-on mit eigenem Material.">
 <link rel="icon" type="image/svg+xml" href="../asset/favicon.svg">
@@ -135,13 +139,24 @@ h1, h2, h3, h4, h5 { letter-spacing: -1.2px; }
   backdrop-filter: blur(10px);
 }
 .nav-logo {
-  display: inline-block; font-weight: 700; font-size: 1rem; text-transform: uppercase;
-  color: var(--ink); text-decoration: none; padding: 0.3rem 0.6rem;
-  border: 2.5px solid var(--green); border-radius: 4px; line-height: 1.2;
-  transition: background .2s, color .2s;
+  display: inline-flex; align-items: center; text-decoration: none; padding: 0.3rem 0;
 }
-.nav-logo:hover { background: var(--green); color: var(--bg); }
-.nav-logo .small { font-size: 0.72em; text-transform: lowercase; font-weight: 500; }
+.nav-logo img { display: block; height: 48px; width: auto; }
+.nav-logo:hover { opacity: 0.7; }
+.nav-links { display: flex; gap: 30px; align-items: center; list-style: none; margin: 0; padding: 0; }
+.nav-links li { display: flex; align-items: center; }
+.nav-links a { color: var(--ink); font-size: 16px; font-weight: 400; text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: var(--green); }
+.cta_green_sm {
+  color: #fff; background: var(--green); font-size: 14px; font-weight: 500;
+  border-radius: 30px; padding: 8px 16px; text-decoration: none; transition: .2s;
+}
+.cta_green_sm:hover { opacity: 0.85; }
+.nav-hamburger {
+  display: none; background: none; border: none; cursor: pointer;
+  width: 44px; height: 44px; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+}
+.nav-hamburger span { display: block; width: 26px; height: 3px; background: var(--green); border-radius: 2px; }
 
 /* SECTIONS */
 section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
@@ -316,6 +331,18 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0; background: var(--bg);
+    padding: 80px 30px; gap: 0; z-index: 998; justify-content: center;
+  }
+  .nav-links.open li { display: block; }
+  .nav-links.open a {
+    font-size: 22px; font-weight: 600; padding: 20px 0; display: block;
+    border-top: 1px dashed var(--blue);
+  }
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
   .workflow-track { flex-direction: column; }
   .workflow-arrow { transform: rotate(90deg); justify-content: center; }
@@ -353,7 +380,15 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 
 <!-- NAV -->
 <nav class="navBar" aria-label="Hauptnavigation">
-  <a href="https://kialog.ch" class="nav-logo">Manuel<br><span class="small">Hirschi</span></a>
+  <a href="https://kialog.ch" class="nav-logo"><img src="../asset/logo/kialog-final-blau.svg" alt="KIalog Hirschi" height="48"></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="https://kialog.ch">Startseite</a></li>
+    <li><a href="https://kialog.ch#angebote">Angebote</a></li>
+    <li><a href="mailto:info@kialog.ch" class="cta_green_sm">Anfragen</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- MAIN -->
@@ -577,6 +612,14 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   </div>
 </footer>
 
+<script>
+const navToggle = document.querySelector('.nav-hamburger');
+const navLinks = document.getElementById('navLinks');
+function closeNav() { navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false'); navToggle.setAttribute('aria-label','Menü öffnen'); }
+function openNav() { navLinks.classList.add('open'); navToggle.setAttribute('aria-expanded','true'); navToggle.setAttribute('aria-label','Menü schliessen'); }
+navToggle.addEventListener('click', () => { navLinks.classList.contains('open') ? closeNav() : openNav(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && navLinks.classList.contains('open')) closeNav(); });
+</script>
 <noscript>
   <style>.notebook-lines { display: none; }</style>
 </noscript>
