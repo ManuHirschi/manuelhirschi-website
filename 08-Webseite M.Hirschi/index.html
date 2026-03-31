@@ -51,7 +51,7 @@
    RESET & BASE
    ═══════════════════════════════════════ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   background-color: var(--bg);
   margin: 0; padding: 0;
@@ -494,7 +494,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
   .nav-links.open {
     display: flex; flex-direction: column; position: fixed;
     top: 0; left: 0; right: 0; bottom: 0; background: var(--bg);
-    padding: 80px 30px; gap: 0; z-index: 998; justify-content: center;
+    padding: 120px 30px 40px; gap: 0; z-index: 998;
   }
   .nav-links.open li { display: block; }
   .nav-links.open a {
@@ -617,7 +617,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 
 <!-- ═══ NAV ═══ -->
 <nav class="navBar" aria-label="Hauptnavigation">
-  <a href="#top" class="nav-logo"><img src="asset/logo/kialog-final-blau.svg" alt="KIalog Hirschi" height="64"></a>
+  <a href="#top" class="nav-logo" aria-label="KIalog — zur Startseite"><img src="asset/logo/kialog-final-blau.svg" alt="KIalog Hirschi" height="64"></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#werkstatt">Werkstatt</a></li>
     <li><a href="#angebote">Angebote</a></li>
