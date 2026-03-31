@@ -58,7 +58,7 @@
    DESIGN TOKENS
    ═══════════════════════════════════════ */
 :root {
-  --bg: #EDEAE1;
+  --bg: #F3F1EB;
   --ink: #2A2A2A;
   --blue: #3881F1;
   --blue-section: #3474d4;
@@ -118,8 +118,8 @@ h1, h2, h3, h4, h5 { letter-spacing: -1.2px; }
 .navBar {
   width: 100%; border-bottom: 1px dashed var(--blue); padding: 7px 30px;
   display: flex; align-items: center; justify-content: space-between;
-  position: sticky; top: 0; background-color: var(--bg); z-index: 999;
-  backdrop-filter: blur(10px);
+  position: sticky; top: 0; background-color: rgba(243,241,235,0.92); z-index: 999;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 }
 .nav-logo {
   display: inline-flex; align-items: center; text-decoration: none; padding: 0.3rem 0;
@@ -257,25 +257,25 @@ p:last-child { margin-bottom: 0; }
 
 /* Scalloped Edge */
 .scallop-top {
-  position: absolute; top: -19px; left: 0; right: 0; height: 20px;
-  background: radial-gradient(circle 10px at 10px 20px, transparent 10px, var(--blue-section) 10.5px);
-  background-size: 20px 20px;
-  background-position: 0 0;
+  position: absolute; top: -24px; left: 0; right: 0; height: 26px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='30' cy='26' rx='30' ry='26' fill='%233474d4'/%3E%3C/svg%3E") repeat-x;
+  background-size: 60px 26px;
 }
 
 /* ═══════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════ */
-footer {
-  padding: 2rem 30px;
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--muted);
-  position: relative;
-  z-index: 1;
+.footer {
+  background-color: var(--blue-section); color: var(--bg); padding: 40px 30px;
+  position: relative; z-index: 1; text-align: center;
 }
-footer a { color: var(--blue-text); text-decoration: underline; font-weight: 400; }
-footer a:hover { color: var(--green); }
+.footer::before {
+  content: ''; position: absolute; top: -24px; left: 0; right: 0; height: 26px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='30' cy='26' rx='30' ry='26' fill='%233474d4'/%3E%3C/svg%3E") repeat-x;
+  background-size: 60px 26px;
+}
+.footer a { color: var(--bg); text-decoration: underline; text-underline-offset: 3px; }
+.footer-small { font-size: 13px; opacity: 0.6; margin-top: 0.75rem; }
 
 /* ═══════════════════════════════════════
    LIST STYLES
@@ -478,12 +478,14 @@ ul.challenge-list li::before {
 </main>
 
 <!-- FOOTER -->
-<footer>
-  <p><strong>Manuel Hirschi</strong></p>
-  <p>Lernbegleitung Deutsch · gibb Bern · Dozent BpSt · PH FHNW · Doktorand · UZH</p>
-  <p>18 Jahre Unterrichtserfahrung · CAS Heilpädagogik (PHBern)</p>
-  <p style="margin-top: 1rem;"><a href="https://kialog.ch">kialog.ch</a> · <a href="mailto:info@kialog.ch">info@kialog.ch</a></p>
-  <p style="font-size: 13px; opacity: 0.6; margin-top: 0.5rem;">&copy; 2026 Manuel Hirschi</p>
+<footer class="footer">
+  <div style="max-width: var(--max-w); margin: 0 auto;">
+    <p style="font-weight: 400;">Manuel Hirschi</p>
+    <p style="font-size: 14px; font-weight: 300; opacity: 0.8;">Lernbegleitung Deutsch &middot; gibb Bern &nbsp;|&nbsp; Dozent BpSt &middot; PH FHNW &nbsp;|&nbsp; Doktorand &middot; UZH</p>
+    <p class="footer-small"><a href="mailto:info@kialog.ch">info@kialog.ch</a> &nbsp;|&nbsp; <a href="https://kialog.ch">kialog.ch</a></p>
+    <p class="footer-small">&copy; 2026 Manuel Hirschi &middot; Bern, Schweiz</p>
+    <p class="footer-small" style="opacity: 0.4;">Es werden keine personenbezogenen Daten erhoben. Kein Tracking, keine Cookies.</p>
+  </div>
 </footer>
 
 <script>

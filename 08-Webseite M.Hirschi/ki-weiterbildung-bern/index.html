@@ -91,7 +91,7 @@
    DESIGN TOKENS
    ═══════════════════════════════════════ */
 :root {
-  --bg: #EDEAE1;
+  --bg: #F3F1EB;
   --ink: #2A2A2A;
   --blue: #3881F1;
   --blue-section: #3474d4;
@@ -135,8 +135,8 @@ h1, h2, h3, h4, h5 { letter-spacing: -1.2px; }
 .navBar {
   width: 100%; border-bottom: 1px dashed var(--blue); padding: 7px 30px;
   display: flex; align-items: center; justify-content: space-between;
-  position: sticky; top: 0; background-color: var(--bg); z-index: 999;
-  backdrop-filter: blur(10px);
+  position: sticky; top: 0; background-color: rgba(243,241,235,0.92); z-index: 999;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 }
 .nav-logo {
   display: inline-flex; align-items: center; text-decoration: none; padding: 0.3rem 0;
@@ -608,7 +608,8 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     <p style="font-weight: 400;">Manuel Hirschi</p>
     <p style="font-size: 14px; font-weight: 300; opacity: 0.8;">Lernbegleitung Deutsch &middot; gibb Bern &nbsp;|&nbsp; Dozent BpSt &middot; PH FHNW &nbsp;|&nbsp; Doktorand &middot; UZH</p>
     <p class="footer-small"><a href="mailto:info@kialog.ch">info@kialog.ch</a> &nbsp;|&nbsp; <a href="https://kialog.ch">kialog.ch</a></p>
-    <p class="footer-small">&copy; 2026 Manuel Hirschi</p>
+    <p class="footer-small">&copy; 2026 Manuel Hirschi &middot; Bern, Schweiz</p>
+    <p class="footer-small" style="opacity: 0.4;">Es werden keine personenbezogenen Daten erhoben. Kein Tracking, keine Cookies.</p>
   </div>
 </footer>
 
