@@ -995,7 +995,11 @@ spiegelItems.forEach(el => spiegelObs.observe(el));
 // ── Hero Lottie: load after first paint, don't block LCP ──
 const heroLottie = document.querySelector('.lottie-hero');
 if (heroLottie && heroLottie.dataset.src) {
-  const loadHero = () => { heroLottie.setAttribute('src', heroLottie.dataset.src); };
+  const loadHero = () => {
+    const src = heroLottie.dataset.src;
+    heroLottie.setAttribute('src', src);
+    if (typeof heroLottie.load === 'function') heroLottie.load(src);
+  };
   if ('requestIdleCallback' in window) { requestIdleCallback(loadHero); }
   else { setTimeout(loadHero, 100); }
 }
