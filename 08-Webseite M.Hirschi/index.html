@@ -1025,9 +1025,14 @@ const lottieObs = new IntersectionObserver((entries, obs) => {
     if (e.isIntersecting) {
       const player = e.target;
       obs.unobserve(player);
-      // Lazy load: set src from data-src if not already loaded
+      // Lazy load: replace placeholder with fresh player (setAttribute doesn't trigger load)
       if (!player.getAttribute('src') && player.dataset.src) {
-        player.setAttribute('src', player.dataset.src);
+        const src = player.dataset.src;
+        player.setAttribute('src', src);
+        // Force reload if component already initialized
+        if (typeof player.load === 'function') {
+          player.load(src);
+        }
       }
       makePlayOnce(player, 200);
     }
@@ -1035,7 +1040,6 @@ const lottieObs = new IntersectionObserver((entries, obs) => {
 }, { threshold: 0, rootMargin: '300px 0px' });
 
 lottiePlayers.forEach(el => {
-  // Hero already loaded via requestIdleCallback, skip it
   if (el.classList.contains('lottie-hero')) return;
   lottieObs.observe(el);
 });
