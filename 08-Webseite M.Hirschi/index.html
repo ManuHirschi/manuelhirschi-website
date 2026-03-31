@@ -22,6 +22,7 @@
 <meta name="twitter:image" content="https://kialog.ch/asset/og-image.png">
 <link rel="icon" type="image/svg+xml" href="asset/favicon.svg">
 <link rel="canonical" href="https://kialog.ch">
+<link rel="preload" href="asset/lottie/00_szene_paint.json" as="fetch" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -37,7 +38,7 @@
   --blue-section: #3474d4;
   --green: #01C476;
   --lilac: #D7BCED;
-  --orange: #B83812;
+  --orange: #F6612E;
   --muted: #5A5A5A;
   --green-text: #007748;
   --blue-text: #0f62e1;
@@ -82,8 +83,8 @@ h1, h2, h3, h4, h5 { letter-spacing: -1.2px; }
 .navBar {
   width: 100%; border-bottom: 1px dashed var(--blue); padding: 7px 30px;
   display: flex; align-items: center; justify-content: space-between;
-  position: sticky; top: 0; background-color: var(--bg); z-index: 999;
-  backdrop-filter: blur(10px);
+  position: sticky; top: 0; background-color: rgba(237,234,225,0.92); z-index: 999;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 }
 .nav-logo {
   display: inline-flex; align-items: center; text-decoration: none;
@@ -91,7 +92,8 @@ h1, h2, h3, h4, h5 { letter-spacing: -1.2px; }
 }
 .nav-logo img { display: block; height: 64px; width: auto; }
 .nav-logo:hover { opacity: 0.7; }
-.nav-links { display: flex; gap: 30px; align-items: center; list-style: none; }
+.nav-links { display: flex; gap: 30px; align-items: center; list-style: none; margin: 0; padding: 0; }
+.nav-links li { display: flex; align-items: center; }
 .nav-links a { color: var(--ink); font-size: 16px; font-weight: 400; text-decoration: none; transition: color .2s; }
 .nav-links a:hover { color: var(--green); }
 .cta_shadow {
@@ -494,6 +496,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     top: 0; left: 0; right: 0; bottom: 0; background: var(--bg);
     padding: 80px 30px; gap: 0; z-index: 998; justify-content: center;
   }
+  .nav-links.open li { display: block; }
   .nav-links.open a {
     font-size: 22px; font-weight: 600; padding: 20px 0; display: block;
     border-top: 1px dashed var(--blue);
@@ -615,13 +618,13 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 <!-- ═══ NAV ═══ -->
 <nav class="navBar" aria-label="Hauptnavigation">
   <a href="#top" class="nav-logo"><img src="asset/logo/kialog-final-blau.svg" alt="KIalog Hirschi" height="64"></a>
-  <div class="nav-links" id="navLinks">
-    <a href="#werkstatt">Werkstatt</a>
-    <a href="#angebote">Angebote</a>
-    <a href="#ueber">Warum ich</a>
-    <a href="#kontakt" class="cta_shadow">Jetzt anfragen</a>
-  </div>
-  <button class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menü öffnen">
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#werkstatt">Werkstatt</a></li>
+    <li><a href="#angebote">Angebote</a></li>
+    <li><a href="#ueber">Warum ich</a></li>
+    <li><a href="#kontakt" class="cta_shadow">Jetzt anfragen</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -707,7 +710,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
         <p class="tagline">Werkzeug statt Wundermittel. Praxis statt Theorie.</p>
       </div>
       <div class="illust-inline">
-        <dotlottie-player src="asset/lottie/03_laptop_paint.json" background="transparent" speed="0.8" class="lottie-paint" role="img" aria-label="Illustration: Laptop mit Stift"></dotlottie-player>
+        <dotlottie-player data-src="asset/lottie/03_laptop_paint.json" background="transparent" speed="0.8" class="lottie-paint lottie-lazy" role="img" aria-label="Illustration: Laptop mit Stift"></dotlottie-player>
       </div>
     </div>
 
@@ -739,7 +742,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 
 <!-- ═══ Atempause ═══ -->
 <div class="atempause reveal">
-  <dotlottie-player src="asset/lottie/zigGreen.json" background="transparent" speed="0.8" style="width:120px;" class="lottie-paint" role="img" aria-label="Dekoratives Element"></dotlottie-player>
+  <dotlottie-player data-src="asset/lottie/zigGreen.json" background="transparent" speed="0.8" style="width:120px;" class="lottie-paint lottie-lazy" role="img" aria-label="Dekoratives Element"></dotlottie-player>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -757,7 +760,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
         <div class="card-desc">Gleiches Blatt für alle. 25 Lernende, 4 Sprachen, 1 Niveau.</div>
       </div>
       <div class="beweis-arrow">
-        <dotlottie-player src="asset/lottie/arrowPurple.json" background="transparent" speed="0.8" class="lottie-paint" role="img" aria-label="Pfeil"></dotlottie-player>
+        <dotlottie-player data-src="asset/lottie/arrowPurple.json" background="transparent" speed="0.8" class="lottie-paint lottie-lazy" role="img" aria-label="Pfeil"></dotlottie-player>
       </div>
       <div class="after-stack">
         <div class="after-card">
@@ -783,7 +786,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
         <a href="#kontakt" class="cta_green reveal">Das will ich für meine Klasse</a>
         <a href="beispiel/lehrvertrag.html" class="cta_ghost_blue reveal">Vollständiges Beispiel ansehen &rarr;</a>
       </div>
-      <dotlottie-player src="asset/lottie/02_tafel_paint.json" background="transparent" speed="0.8" style="width:clamp(160px, 20vw, 300px);" class="lottie-paint illust-cta-center" role="img" aria-label="Illustration: Tafel mit Kreide"></dotlottie-player>
+      <dotlottie-player data-src="asset/lottie/02_tafel_paint.json" background="transparent" speed="0.8" style="width:clamp(160px, 20vw, 300px);" class="lottie-paint lottie-lazy illust-cta-center" role="img" aria-label="Illustration: Tafel mit Kreide"></dotlottie-player>
     </div>
 
   </div>
@@ -843,7 +846,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 
     <div style="margin-top:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
       <a href="#kontakt" class="cta_green reveal">Jetzt anfragen</a>
-      <dotlottie-player src="asset/lottie/smallchairplant.json" background="transparent" speed="0.8" style="width:clamp(140px, 18vw, 240px);" class="lottie-paint illust-cta" role="img" aria-label="Illustration: Stuhl mit Pflanze"></dotlottie-player>
+      <dotlottie-player data-src="asset/lottie/smallchairplant.json" background="transparent" speed="0.8" style="width:clamp(140px, 18vw, 240px);" class="lottie-paint lottie-lazy illust-cta" role="img" aria-label="Illustration: Stuhl mit Pflanze"></dotlottie-player>
     </div>
 
   </div>
@@ -903,7 +906,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     <div class="faq-header">
       <h2 class="section-title reveal" style="font-size:clamp(1.75rem, 3.5vw, 2.5rem);">Häufige Fragen</h2>
       <div class="illust-inline">
-        <dotlottie-player src="asset/lottie/lamp5.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint" role="img" aria-label="Illustration: Schreibtischlampe"></dotlottie-player>
+        <dotlottie-player data-src="asset/lottie/lamp5.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint lottie-lazy" role="img" aria-label="Illustration: Schreibtischlampe"></dotlottie-player>
       </div>
     </div>
 
@@ -941,7 +944,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 
 <!-- ═══ Atempause ═══ -->
 <div class="atempause">
-  <dotlottie-player src="asset/lottie/zigGreen2.json" background="transparent" speed="0.8" style="width:clamp(100px, 12vw, 160px);" class="lottie-paint" role="img" aria-label="Dekoratives Element"></dotlottie-player>
+  <dotlottie-player data-src="asset/lottie/zigGreen2.json" background="transparent" speed="0.8" style="width:clamp(100px, 12vw, 160px);" class="lottie-paint lottie-lazy" role="img" aria-label="Dekoratives Element"></dotlottie-player>
 </div>
 
 </main>
@@ -960,7 +963,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
       </div>
     </div>
     <div class="footer-lottie">
-      <dotlottie-player src="asset/lottie/04_pflanze_paint.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint" role="img" aria-label="Illustration: Pflanze"></dotlottie-player>
+      <dotlottie-player data-src="asset/lottie/04_pflanze_paint.json" background="transparent" speed="0.8" style="width:100%;" class="lottie-paint lottie-lazy" role="img" aria-label="Illustration: Pflanze"></dotlottie-player>
     </div>
   </div>
   <div class="footer-meta">&copy; 2026 Manuel Hirschi &middot; Lernbegleitung Deutsch &middot; gibb Bern / Dozent BpSt &middot; PH FHNW / Doktorand &middot; UZH</div>
@@ -988,61 +991,57 @@ const spiegelObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.2, rootMargin: '-30px 0px' });
 spiegelItems.forEach(el => spiegelObs.observe(el));
 
-// ── Lottie Paint Animations: play once on viewport ──
-// Proven code from the working root version (460c2b9).
-// All Lotties use .lottie-paint class. getLottie() with setTimeout polling.
-const lottiePlayers = document.querySelectorAll('.lottie-paint');
-const lottieObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const player = e.target;
-      let attempts = 0;
-      const tryPlay = () => {
-        if (attempts++ > 50) return;
-        if (player.getLottie) {
-          const lottie = player.getLottie();
-          if (lottie) {
-            lottie.loop = false;
-            lottie.goToAndStop(0, true);
-            setTimeout(() => lottie.play(), 200);
-            lottieObs.unobserve(player);
-            return;
-          }
-        }
-        setTimeout(tryPlay, 100);
-      };
-      tryPlay();
+// ── Lottie Paint Animations: lazy load + play once on viewport ──
+// Non-hero Lotties use data-src (lazy). Hero has src directly.
+function makePlayOnce(player, delay) {
+  let attempts = 0;
+  function tryPlay() {
+    if (attempts++ > 50) return;
+    if (player.getLottie) {
+      const lottie = player.getLottie();
+      if (lottie) {
+        lottie.loop = false;
+        lottie.goToAndStop(0, true);
+        setTimeout(() => lottie.play(), delay);
+        return;
+      }
     }
-  });
-}, { threshold: 0.3 });
+    setTimeout(tryPlay, 100);
+  }
+  tryPlay();
+}
 
-// Laptop + Notes: trigger earlier (5% visible)
-const earlyLottieObs = new IntersectionObserver((entries) => {
+const lottiePlayers = document.querySelectorAll('.lottie-paint');
+const lottieObs = new IntersectionObserver((entries, obs) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       const player = e.target;
-      let attempts = 0;
-      const tryPlay = () => {
-        if (attempts++ > 50) return;
-        if (player.getLottie) {
-          const lottie = player.getLottie();
-          if (lottie) {
-            lottie.loop = false;
-            lottie.goToAndStop(0, true);
-            setTimeout(() => lottie.play(), 100);
-            earlyLottieObs.unobserve(player);
-            return;
-          }
-        }
-        setTimeout(tryPlay, 100);
-      };
-      tryPlay();
+      obs.unobserve(player);
+      // Lazy load: set src from data-src if not already loaded
+      if (!player.getAttribute('src') && player.dataset.src) {
+        player.setAttribute('src', player.dataset.src);
+      }
+      makePlayOnce(player, 200);
     }
   });
-}, { threshold: 0.05 });
+}, { threshold: 0.3, rootMargin: '200px 0px' });
+
+// Laptop: trigger earlier (5% visible, larger preload margin)
+const earlyLottieObs = new IntersectionObserver((entries, obs) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const player = e.target;
+      obs.unobserve(player);
+      if (!player.getAttribute('src') && player.dataset.src) {
+        player.setAttribute('src', player.dataset.src);
+      }
+      makePlayOnce(player, 100);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '400px 0px' });
 
 lottiePlayers.forEach(el => {
-  const src = el.getAttribute('src') || '';
+  const src = el.getAttribute('src') || el.dataset.src || '';
   if (src.includes('03_laptop') || src.includes('06_notes')) {
     earlyLottieObs.observe(el);
   } else {
@@ -1084,13 +1083,33 @@ const countUpObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.stat-num[data-target]').forEach(el => countUpObs.observe(el));
 
+// ── Mobile Nav: Toggle, Escape, aria-expanded ──
+const navToggle = document.querySelector('.nav-hamburger');
+const navLinks = document.getElementById('navLinks');
+function closeNav() {
+  navLinks.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.setAttribute('aria-label', 'Menü öffnen');
+}
+function openNav() {
+  navLinks.classList.add('open');
+  navToggle.setAttribute('aria-expanded', 'true');
+  navToggle.setAttribute('aria-label', 'Menü schliessen');
+}
+navToggle.addEventListener('click', () => {
+  navLinks.classList.contains('open') ? closeNav() : openNav();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && navLinks.classList.contains('open')) closeNav();
+});
+
 // ── Smooth Scroll + Close Mobile Nav ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
     const t = document.querySelector(a.getAttribute('href'));
     if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    document.getElementById('navLinks').classList.remove('open');
+    closeNav();
   });
 });
 </script>
@@ -1135,7 +1154,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   "@type": "Service",
   "name": "KIalog",
   "description": "Weiterbildung für ABU-Lehrpersonen an Berufsfachschulen. Differenzierter Unterricht mit KI aus eigenem Material, auf drei Niveaus.",
-  "provider": {"@type": "Person", "name": "Manuel Hirschi"},
+  "provider": {"@id": "https://kialog.ch/#person"},
   "areaServed": {"@type": "Country", "name": "Schweiz"},
   "serviceType": "Weiterbildung"
 }
@@ -1146,7 +1165,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   "@type": "EducationalEvent",
   "name": "KIalog: Differenzierter Unterricht mit KI",
   "description": "Weiterbildung für ABU-Lehrpersonen. In 2 × 90 Minuten lernst du, mit KI aus eigenem Material differenzierten Unterricht auf drei Niveaus zu bauen.",
-  "startDate": "2026-04",
+  "startDate": "2026-04-01",
   "location": {
     "@type": "Place",
     "name": "gibb Bern",
