@@ -29,9 +29,10 @@ KIalog ist ein Weiterbildungsformat für ABU-Lehrpersonen an Berufsfachschulen i
 - https://kialog.ch/beispiel/lehrvertrag.html: Vorher/Nachher-Beispiel — Arbeitsblatt «Lehrvertrag» auf drei Niveaus differenziert
 - https://kialog.ch/ki-im-abu/: KI im ABU — Hintergrund und Kontext
 - https://kialog.ch/ki-weiterbildung-bern/: KI-Weiterbildung in Bern — Formate und Preise
+- https://kialog.ch/llms-full.txt: Vollständiger Seiteninhalt aller Seiten (für LLMs)
 
 ## Kontakt
 
 - E-Mail: info@kialog.ch
 - Website: https://kialog.ch
-- Standort: Bern, Schweiz
+- Adresse: Moserstrasse 27, 3014 Bern, Schweiz
