@@ -192,6 +192,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   font-size: 13px; font-weight: 400; opacity: 0.7; margin-top: 1.5rem; letter-spacing: 0.02em;
 }
 .hero-lottie { position: relative; }
+dotlottie-player.lottie-lazy { min-height: 80px; }
 .hero-lottie dotlottie-player { width: 100%; max-width: 520px; margin-left: auto; }
 
 /* ═══════════════════════════════════════
@@ -1031,29 +1032,12 @@ const lottieObs = new IntersectionObserver((entries, obs) => {
       makePlayOnce(player, 200);
     }
   });
-}, { threshold: 0.3, rootMargin: '200px 0px' });
-
-// Laptop: trigger earlier (5% visible, larger preload margin)
-const earlyLottieObs = new IntersectionObserver((entries, obs) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const player = e.target;
-      obs.unobserve(player);
-      if (!player.getAttribute('src') && player.dataset.src) {
-        player.setAttribute('src', player.dataset.src);
-      }
-      makePlayOnce(player, 100);
-    }
-  });
-}, { threshold: 0.05, rootMargin: '400px 0px' });
+}, { threshold: 0, rootMargin: '300px 0px' });
 
 lottiePlayers.forEach(el => {
-  const src = el.getAttribute('src') || el.dataset.src || '';
-  if (src.includes('03_laptop') || src.includes('06_notes')) {
-    earlyLottieObs.observe(el);
-  } else {
-    lottieObs.observe(el);
-  }
+  // Hero already loaded via requestIdleCallback, skip it
+  if (el.classList.contains('lottie-hero')) return;
+  lottieObs.observe(el);
 });
 
 // ── CountUp Animation for Stats ──
