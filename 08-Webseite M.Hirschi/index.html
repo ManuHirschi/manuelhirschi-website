@@ -22,7 +22,6 @@
 <meta name="twitter:image" content="https://kialog.ch/asset/og-image.png">
 <link rel="icon" type="image/svg+xml" href="asset/favicon.svg">
 <link rel="canonical" href="https://kialog.ch">
-<link rel="preload" href="asset/lottie/00_szene_paint.json" as="fetch" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -647,7 +646,7 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
       <p class="hero-pilot reveal">Von Manuel Hirschi &middot; gibb Bern / PH FHNW / UZH &middot; Pilot April/Mai 2026 &middot; 6&ndash;8 Plätze</p>
     </div>
     <div class="hero-lottie reveal">
-      <dotlottie-player src="asset/lottie/00_szene_paint.json" background="transparent" speed="0.8" class="lottie-paint" role="img" aria-label="Illustration: Lernecke mit Schreibtisch, Stuhl und Pflanze"></dotlottie-player>
+      <dotlottie-player data-src="asset/lottie/00_szene_paint.json" background="transparent" speed="0.8" class="lottie-paint lottie-hero" role="img" aria-label="Illustration: Lernecke mit Schreibtisch, Stuhl und Pflanze"></dotlottie-player>
     </div>
   </div>
 </section>
@@ -991,8 +990,15 @@ const spiegelObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.2, rootMargin: '-30px 0px' });
 spiegelItems.forEach(el => spiegelObs.observe(el));
 
+// ── Hero Lottie: load after first paint, don't block LCP ──
+const heroLottie = document.querySelector('.lottie-hero');
+if (heroLottie && heroLottie.dataset.src) {
+  const loadHero = () => { heroLottie.setAttribute('src', heroLottie.dataset.src); };
+  if ('requestIdleCallback' in window) { requestIdleCallback(loadHero); }
+  else { setTimeout(loadHero, 100); }
+}
+
 // ── Lottie Paint Animations: lazy load + play once on viewport ──
-// Non-hero Lotties use data-src (lazy). Hero has src directly.
 function makePlayOnce(player, delay) {
   let attempts = 0;
   function tryPlay() {
