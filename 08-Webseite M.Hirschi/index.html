@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIalog — KI-Weiterbildung für Lehrpersonen</title>
-<meta name="description" content="KIalog ist die Weiterbildung für Lehrpersonen an Berufsfachschulen, die KI-Output beurteilen statt blind übernehmen wollen. Differenzierung für EBA und DaZ aus eigenem Material. Manuel Hirschi.">
-<meta name="keywords" content="KI Weiterbildung Lehrpersonen Schweiz, KIalog, KI-Urteilskompetenz Schule, KI Differenzierung DaZ EBA, Evaluative Judgement Bildung, KI Weiterbildung Berufsschule Bern, Manuel Hirschi">
+<title>KIalog — KI-Didaktik für Lehrpersonen und Dozierende</title>
+<meta name="description" content="KIalog ist praxisorientierte KI-Didaktik für Lehrpersonen und Dozierende. Wissenschaftlich fundiert, sofort einsetzbar. Für Berufsfachschulen, Gymnasien und Hochschulen. Manuel Hirschi.">
+<meta name="keywords" content="KI-Didaktik Lehrpersonen Schweiz, KIalog, KI-Urteilskompetenz Schule, Evaluative Judgement Bildung, KI Weiterbildung Sek II, KI Weiterbildung PH, SCHILW KI, Manuel Hirschi">
 <meta name="author" content="Manuel Hirschi">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="KIalog — KI-Weiterbildung für Berufsfachschulen">
-<meta property="og:description" content="Lehrpersonen an Berufsfachschulen lernen mit KIalog, KI-Output zu beurteilen statt blind zu übernehmen. Differenzierung für EBA und DaZ aus eigenem Material.">
+<meta property="og:title" content="KIalog — KI-Didaktik, wissenschaftlich fundiert, praxisorientiert">
+<meta property="og:description" content="Praxisorientierte KI-Didaktik für Lehrpersonen und Dozierende an Sek II und Hochschulen. Eigenes Material, sofort einsetzbar. Manuel Hirschi.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kialog.ch">
 <meta property="og:locale" content="de_CH">
@@ -17,8 +17,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="KIalog — Weiterbildung für Lehrpersonen">
-<meta name="twitter:description" content="KIalog: ABU-Lehrpersonen bauen mit eigenem Material differenzierten Unterricht für EBA und DaZ. Berufsfachschule Schweiz.">
+<meta name="twitter:title" content="KIalog — KI-Didaktik für Lehrpersonen und Dozierende">
+<meta name="twitter:description" content="Praxisorientierte KI-Didaktik für Lehrpersonen und Dozierende. Wissenschaftlich fundiert, sofort einsetzbar. Für Sek II und Hochschulen.">
 <meta name="twitter:image" content="https://kialog.ch/asset/og-image.png">
 <link rel="icon" type="image/svg+xml" href="asset/favicon.svg">
 <link rel="canonical" href="https://kialog.ch">
@@ -188,12 +188,14 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   margin-top: 2.5rem; max-width: 480px; opacity: 0.7;
 }
 .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; align-items: center; }
+.hero-cta-row .cta_green,
+.hero-cta-row .cta_ghost_blue { min-width: 200px; text-align: center; }
 .hero-pilot {
   font-size: 13px; font-weight: 400; opacity: 0.7; margin-top: 1.5rem; letter-spacing: 0.02em;
 }
 .hero-lottie { position: relative; }
 dotlottie-player.lottie-lazy { min-height: 80px; }
-.hero-lottie dotlottie-player { width: 100%; max-width: 520px; margin-left: auto; }
+.hero-lottie dotlottie-player, .hero-lottie img { width: 100%; max-width: 580px; margin-left: auto; }
 
 /* ═══════════════════════════════════════
    SPIEGEL — Eigenständige Sektion
@@ -558,6 +560,9 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 @media (max-width: 500px) {
   .hero-title { letter-spacing: -2px; }
   .stat-grid { grid-template-columns: 1fr; }
+  .hero-cta-row { flex-direction: column; align-items: center; }
+  .hero-cta-row .cta_green,
+  .hero-cta-row .cta_ghost_blue { width: 100%; max-width: 280px; min-width: 0; }
 }
 
 @media (max-width: 767px) {
@@ -636,18 +641,18 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 <section class="hero" id="top">
   <div class="hero-layout">
     <div class="hero-text">
-      <p style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--blue-text);margin-bottom:1.5rem;" class="reveal">Weiterbildung für Lehrpersonen an Berufsfachschulen</p>
-      <p class="hero-kicker reveal">Vier Sprachen. Ein Klassenzimmer. Null Zeit.</p>
-      <h1 class="hero-title reveal"><em>Dein Material.<br>Alle Niveaus.</em></h1>
-      <p class="hero-subtitle reveal">Der Rahmenlehrplan verlangt KI-Kompetenz. KIalog ist die Weiterbildung für Lehrpersonen an Berufsfachschulen, die dort anfängt, wo du wirklich stehst.</p>
+      <p style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--blue-text);margin-bottom:1.5rem;" class="reveal">KI-Didaktik für Lehrpersonen und Dozierende</p>
+      <p class="hero-kicker reveal">KI ist da. Die Frage ist nicht ob, sondern wie.</p>
+      <h1 class="hero-title reveal"><em>Dein Material.<br>Dein Urteil.<br>Mit KI.</em></h1>
+      <p class="hero-subtitle reveal">KI liefert Vorschläge. Du entscheidest, was in den Unterricht geht. KIalog zeigt dir, wie du KI-Output in 60 Sekunden prüfst. Praxisorientiert, keine Theorie. Für Berufsfachschulen, Gymnasien und Hochschulen.</p>
       <div class="hero-cta-row reveal">
         <a href="#kontakt" class="cta_green">Jetzt anfragen</a>
         <a href="#werkstatt" class="cta_ghost_blue">Wie es funktioniert &rarr;</a>
       </div>
-      <p class="hero-pilot reveal">Von Manuel Hirschi &middot; gibb Bern / PH FHNW / UZH &middot; Pilot April/Mai 2026 &middot; 6&ndash;8 Plätze</p>
+      <p class="hero-pilot reveal">Von Manuel Hirschi &middot; gibb Bern / PH FHNW / UZH &middot; 18 Jahre Unterrichtserfahrung, alle Stufen</p>
     </div>
     <div class="hero-lottie reveal">
-      <dotlottie-player data-src="asset/lottie/00_szene_paint.json" background="transparent" speed="0.8" class="lottie-paint lottie-hero" role="img" aria-label="Illustration: Lernecke mit Schreibtisch, Stuhl und Pflanze"></dotlottie-player>
+      <img src="asset/hero-desk.png" alt="Illustration: Schreibtisch mit Laptop, KI-Output mit Prüfzeichen, Kaffeetasse und Pflanze" loading="eager" style="width:100%;">
     </div>
   </div>
 </section>
@@ -658,9 +663,9 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 <section class="spiegel-section" id="spiegel">
   <div class="spiegel">
     <p class="spiegel-intro">Kommt dir das bekannt vor?</p>
-    <blockquote>Ich hab's einmal versucht. Hat nicht funktioniert.</blockquote>
-    <blockquote>Meine Klasse ist zu speziell. Zu viele Sprachen, zu viele Niveaus.</blockquote>
-    <blockquote>Ich hab keine Zeit, mich da reinzufuchsen. Ich habe zwanzig Lernende vor mir.</blockquote>
+    <blockquote>Meine Lernenden nutzen ChatGPT. Ich weiss nicht, wie ich damit umgehen soll.</blockquote>
+    <blockquote>Ich will KI einsetzen, aber ich weiss nicht wo anfangen.</blockquote>
+    <blockquote>Wie soll ich prüfen, wenn alles mit KI geschrieben werden kann?</blockquote>
     <p class="spiegel-closing">Wenn du dich hier erkennst, gut.<br><strong>Genau dafür ist KIalog gemacht.</strong> Hier sind die Zahlen dazu &darr;</p>
   </div>
 </section>
@@ -674,26 +679,26 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 
     <div class="stat-grid reveal">
       <div>
-        <div class="stat-num" data-target="19" data-prefix="+" data-suffix="%">+19%</div>
-        <div class="stat-label">mehr EBA-Eintritte bis 2033 (BFS Bildungsperspektiven). Heterogene Klassen werden nicht weniger.</div>
+        <div class="stat-num" data-target="75" data-suffix="%">75%</div>
+        <div class="stat-label">der Lehrpersonen fühlen sich auf KI im Unterricht nicht vorbereitet (TALIS 2024).</div>
       </div>
       <div>
-        <div class="stat-num">39&ndash;50%</div>
-        <div class="stat-label">DaZ-Anteil in EBA-Klassen (BFS / kantonale Erhebungen). Differenzierung ist Alltag.</div>
+        <div class="stat-num">+48% / &minus;17%</div>
+        <div class="stat-label">KI steigert die sichtbare Aufgabenleistung. Aber ohne pädagogische Begleitung verschlechtert sie das nachhaltige Lernen (OECD 2026).</div>
       </div>
       <div>
         <div class="stat-num" data-target="7" data-suffix="×">7&times;</div>
-        <div class="stat-label">KI im neuen Rahmenlehrplan ABU verbindlich verankert (SBFI, seit 1.1.2026).</div>
+        <div class="stat-label">KI im neuen Rahmenlehrplan ABU verbindlich verankert (SBFI, seit 1.1.2026). Weitere Lehrpläne folgen.</div>
       </div>
       <div>
         <div class="stat-num" data-target="0">0</div>
-        <div class="stat-label">Weiterbildungen, die ABU-LP gezielt auf KI-Didaktik vorbereiten (Stand März 2026).</div>
+        <div class="stat-label">Weiterbildungen, die Schulpraxis, Hochschullehre und Forschung in einem Format verbinden (Stand April 2026).</div>
       </div>
     </div>
 
-    <p class="blue-text reveal">Der neue Rahmenlehrplan fordert KI-Kompetenz von den Lernenden. Das ist vor allem eine Aufgabe für dich. Ich kenne diese Zahlen nicht aus Studien, sondern aus meinem Klassenzimmer an der gibb Bern. <strong>Wer KI-Kompetenz fördern soll, braucht zuerst selbst einen sicheren Zugang.</strong></p>
+    <p class="blue-text reveal">KI verändert den Unterricht auf allen Stufen. Die Fragen sind überall dieselben: Wie prüfe ich, wenn Lernende KI nutzen? Wie differenziere ich sinnvoll? Welche Tools darf ich einsetzen? <strong>Wer KI-Kompetenz fördern soll, braucht zuerst selbst einen sicheren Zugang.</strong></p>
 
-    <p class="blue-closing reveal">Kein Angebot am Markt verbindet ABU, DaZ und KI-Didaktik für heterogene Klassen. <strong>KIalog schliesst diese Lücke.</strong></p>
+    <p class="blue-closing reveal">Es gibt KI-Tool-Schulungen und es gibt teure CAS-Programme. Was fehlt, ist praxisorientierte KI-Didaktik, die am nächsten Tag funktioniert. <strong>KIalog schliesst diese Lücke.</strong></p>
   </div>
 </section>
 
@@ -725,7 +730,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
       <div class="workflow-card">
         <div class="workflow-num">Schritt 02</div>
         <h3>Drei Niveaus raus</h3>
-        <p>Niveau A zum Basisverstehen. Niveau B zum Anwenden. Niveau C für Transfer. Mit Sprachhilfen für DaZ.</p>
+        <p>Differenziertes Material, Prüfungsvarianten, Scaffolding, Zusammenfassungen. Du bestimmst, was du brauchst.</p>
       </div>
       <div class="workflow-arrow" aria-hidden="true">&rarr;</div>
       <div class="workflow-card">
@@ -751,13 +756,13 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 <section class="beweis-section">
   <div class="section-inner">
 
-    <h2 class="section-title reveal" style="max-width:560px;">90 Sekunden. Ein Arbeitsblatt. Drei Niveaus.</h2>
+    <h2 class="section-title reveal" style="max-width:560px;">60 Sekunden. Ein Arbeitsblatt. Drei Varianten.</h2>
 
     <div class="beweis-layout reveal">
       <div class="before-card">
         <div class="card-label">Vorher</div>
         <div class="card-title">Arbeitsblatt «Lehrvertrag»</div>
-        <div class="card-desc">Gleiches Blatt für alle. 25 Lernende, 4 Sprachen, 1 Niveau.</div>
+        <div class="card-desc">Gleiches Blatt für alle. 25 Lernende, unterschiedliche Voraussetzungen, ein Niveau.</div>
       </div>
       <div class="beweis-arrow">
         <dotlottie-player data-src="asset/lottie/arrowPurple.json" background="transparent" speed="0.8" class="lottie-paint lottie-lazy" role="img" aria-label="Pfeil"></dotlottie-player>
@@ -766,7 +771,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
         <div class="after-card">
           <div class="card-label">Niveau A &middot; Basis</div>
           <div class="card-title">Verstehen und Zuordnen</div>
-          <div class="card-desc">Einfache Sprache, Wortschatzstützen, DaZ-Scaffolding</div>
+          <div class="card-desc">Einfache Sprache, Wortschatzstützen, Scaffolding</div>
         </div>
         <div class="after-card">
           <div class="card-label">Niveau B &middot; Erweitert</div>
@@ -837,9 +842,9 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
         <div class="photo-caption">Manuel Hirschi &middot; Bern</div>
       </div>
       <div>
-        <p class="reveal" style="font-weight:300;max-width:520px;font-size:18px;margin-bottom:1.5rem;line-height:1.6;">Ich unterrichte selbst EBA-Klassen mit DaZ-Lernenden an der gibb Bern. Ich weiss, wie es ist, wenn eine Lernende auf A1-Niveau sitzt und die nächste schon auf B2 schreibt. Ich weiss, wie es ist, wenn man dreissig Minuten für ein Arbeitsblatt hat.</p>
-        <p class="reveal" style="font-weight:300;max-width:520px;font-size:18px;margin-bottom:2rem;line-height:1.6;">Ich bilde Lehrpersonen an der PH FHNW aus. Und ich forsche an der Universität Zürich daran, <strong>wann KI-Output vertrauenswürdig ist und wann nicht</strong>. Diese Forschung steckt in der Werkstatt.</p>
-        <p class="reveal" style="font-size:20px;font-weight:400;max-width:520px;margin-bottom:2rem;">Praxis an der gibb, Ausbildung an der PH FHNW, Forschung an der UZH. Was ich dir zeige, funktioniert, weil ich es selbst jeden Tag anwende.</p>
+        <p class="reveal" style="font-weight:300;max-width:520px;font-size:18px;margin-bottom:1.5rem;line-height:1.6;">Ich habe auf jeder Stufe unterrichtet, von der Primarschule bis zur Universität. 18 Jahre, alle Kontexte. Aktuell unterrichte ich an der gibb Bern, bilde Lehrpersonen an der PH FHNW aus und forsche an der Universität Zürich daran, <strong>wann KI-Output vertrauenswürdig ist und wann nicht</strong>.</p>
+        <p class="reveal" style="font-weight:300;max-width:520px;font-size:18px;margin-bottom:2rem;line-height:1.6;">Diese Forschung steckt in der Werkstatt. Was ich dir zeige, funktioniert, weil ich es selbst jeden Tag anwende.</p>
+        <p class="reveal" style="font-size:20px;font-weight:400;max-width:520px;margin-bottom:2rem;">Praxis an der gibb, Ausbildung an der PH FHNW, Forschung an der UZH. Drei Perspektiven, ein Format.</p>
 
       </div>
     </div>
@@ -873,7 +878,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
       <div class="format-card format-card--highlight reveal">
         <div class="format-label">Empfohlen &middot; Die meisten Schulen starten hier</div>
         <h3>KIalog Workshop</h3>
-        <p>Halbtag (3.5h) oder Ganztag (7h) &middot; Inhouse, 6–16 Teilnehmende. Du arbeitest mit deinem Material und nimmst einen fertigen Unterrichtsbaustein mit, Promptkarten ABU und eine Checkliste zum Bewerten von KI-Output.</p>
+        <p>Halbtag (3.5h) oder Ganztag (7h) &middot; Inhouse, 6–16 Teilnehmende. Du arbeitest mit deinem Material und nimmst fertige Unterrichtsbausteine mit, Promptkarten und eine Checkliste zum Bewerten von KI-Output.</p>
         <div class="format-price">CHF 1'800 <span style="font-size:14px;font-weight:400;opacity:0.6;">Halbtag</span></div>
         <div class="format-detail">CHF 3'000 Ganztag (inkl. KI-Literacy)</div>
         <div class="format-includes">Inkl. Vorbereitung, alle Materialien (digital + print), Durchführung</div>
@@ -881,7 +886,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
       <div class="format-card reveal">
         <div class="format-label">Begleitung</div>
         <h3>Fachentwicklung</h3>
-        <p>1 Semester &middot; Workshop, Prompt-Training, laufende Begleitung und Dokumentation. Für Schulen, die KI-Didaktik nachhaltig verankern wollen. Alles auf Moodle.</p>
+        <p>1 Semester &middot; Workshop, Prompt-Training, laufende Begleitung und Dokumentation. Für Schulen und Hochschulen, die KI-Didaktik nachhaltig verankern wollen.</p>
         <div class="format-price">CHF 9'000</div>
         <div class="format-detail">Ganze Fachgruppe oder Abteilung, ein Semester lang</div>
         <div class="format-includes">Inkl. Workshop + Training + Begleitung + alle Materialien</div>
@@ -917,36 +922,32 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
       <div class="faq-answer"><p>Nein. KIalog setzt keine Vorkenntnisse voraus. Du musst KI nicht mögen. Du musst nur einmal sehen, was möglich ist, mit dem Material, das du schon hast. Der Rest kommt von selbst.</p></div>
     </div>
     <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wer bietet KI-Weiterbildung für ABU-Lehrpersonen in der Schweiz an?</button>
-      <div class="faq-answer"><p>Manuel Hirschi unterrichtet selbst ABU an der gibb Bern (EBA-Klassen), bildet an der PH FHNW Lehrpersonen aus und forscht an der Universität Zürich zur epistemischen Qualität von KI-Output. Soweit derzeit sichtbar, verbindet kaum ein anderes Angebot ABU, DaZ, EBA und KI-Didaktik so konkret in einem Format.</p></div>
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Für welche Stufen ist KIalog geeignet?</button>
+      <div class="faq-answer"><p>Für die gesamte Sek II (Berufsfachschulen, Gymnasien, FMS, Brückenangebote) und für Pädagogische Hochschulen. Die Beispiele im Workshop passen wir an deine Stufe und dein Fach an.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Was ist NotebookLM und warum setzt ihr das ein?</button>
       <div class="faq-answer"><p>NotebookLM ist ein KI-Tool von Google. Du lädst dein Material hoch und bekommst Antworten, die sich direkt auf deine Quellen stützen. Nichts Erfundenes, du siehst immer, woher der Output kommt. KIalog ist aber toolunabhängig und funktioniert auch mit Claude oder ChatGPT.</p></div>
     </div>
     <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie setze ich KI im ABU konkret ein?</button>
-      <div class="faq-answer"><p>Mit der KIalog-Methode. Du nimmst dein eigenes Material und generierst daraus differenzierte Bausteine auf drei Niveaus. Im Workshop baust du einen fertigen Baustein und lernst Routinen, die du ab dem nächsten Unterrichtstag einsetzen kannst.</p></div>
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie setze ich KI im Unterricht konkret ein?</button>
+      <div class="faq-answer"><p>Mit der KIalog-Methode. Du nimmst dein eigenes Material und generierst daraus differenzierte Bausteine. Im Workshop baust du einen fertigen Baustein und lernst Routinen, die du ab dem nächsten Tag einsetzen kannst.</p></div>
     </div>
     <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie differenziere ich mit KI für DaZ-Lernende?</button>
-      <div class="faq-answer"><p>KI kann aus einem Arbeitsblatt Varianten mit vereinfachter Sprache, Wortschatzstützen und Scaffolding erzeugen. Du prüfst den Output und entscheidest, was in den Unterricht geht. Im Workshop siehst du an einem konkreten Beispiel, wie das in unter zwei Minuten funktioniert.</p></div>
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Woher weiss ich, ob der KI-Output stimmt?</button>
+      <div class="faq-answer"><p>Genau das ist der Kern von KIalog. KI-Output klingt oft professionell, ist aber nicht immer korrekt. In der Werkstatt lernst du, den Output in 60 Sekunden zu prüfen: Passt das Niveau? Stimmen die Fakten? Taugt das für deine Klasse? Dein Fachurteil bleibt der Massstab, nicht die KI.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wer bucht KIalog?</button>
       <div class="faq-answer"><p>Beides ist möglich. Inhouse-Angebote laufen in der Regel über Schulleitung oder Abteilungsleitung. Du kannst aber auch direkt anfragen und ich helfe dir, das intern weiterzugeben. Angebote sind auch über Kanton oder PH als eingekaufte Weiterbildung buchbar.</p></div>
     </div>
     <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">KIalog für Lehrpersonen, was ist das?</button>
-      <div class="faq-answer"><p>Ein Weiterbildungsformat von Manuel Hirschi. In 2 &times; 90 Minuten baust du mit KI aus deinem Material einen fertigen Unterrichtsbaustein und lernst Routinen für den Alltag.</p></div>
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wer steckt hinter KIalog?</button>
+      <div class="faq-answer"><p>Manuel Hirschi, Bildungswissenschaftler. 18 Jahre Unterrichtserfahrung von der Primarschule bis zur Hochschule. Aktuell Lernbegleitung Deutsch (gibb Bern), Dozent (PH FHNW), Doktorand (Universität Zürich).</p></div>
     </div>
     <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Ist KIalog auch für Volksschulen geeignet?</button>
-      <div class="faq-answer"><p>Ja. Das Grundprinzip, eigenes Material rein, differenzierter Unterricht raus und den KI-Output bewusst prüfen, funktioniert stufenunabhängig. Die Beispiele im Workshop passen wir an deine Stufe an. Ob Primar, Sek I oder Berufsschule, der Workflow bleibt derselbe.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Woher weiss ich, ob der KI-Output stimmt?</button>
-      <div class="faq-answer"><p>Genau das ist der Kern von KIalog. KI-Output klingt oft professionell, ist aber nicht immer korrekt. In der Werkstatt lernst du, den Output in 60 Sekunden zu prüfen: Passt das Niveau? Stimmen die Fakten? Taugt das für deine Klasse? Dein Fachurteil bleibt der Massstab, nicht die KI.</p></div>
+      <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie erstelle ich KI-gerechte Prüfungen?</button>
+      <div class="faq-answer"><p>Eine KI-gerechte Prüfung verlangt Dinge, die KI nicht zuverlässig leisten kann: Bezug auf persönliche Erfahrung, lokale Kontexte, eigene Begründungen, mündliche Erklärung. In der Werkstatt lernst du, solche Aufgaben zu formulieren.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Kann ich KIalog als schulinterne Weiterbildung (SCHILW) buchen?</button>
@@ -974,6 +975,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
       <p class="footer-sub reveal">Kein Formular. Keine Verpflichtung. Sag mir, was dich beschäftigt. Ich antworte persönlich innert 48 Stunden. Auch wenn du noch nicht weisst, ob das etwas für deine Schule ist.</p>
       <div class="reveal" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
         <a href="mailto:info@kialog.ch?subject=KIalog%20anfragen" class="cta_ghost_white">info@kialog.ch</a>
+        <a href="https://wa.me/41763862207?text=Hallo%20Manuel%2C%20ich%20interessiere%20mich%20f%C3%BCr%20KIalog." class="cta_ghost_white" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
       </div>
     </div>
     <div class="footer-lottie">
@@ -1140,7 +1142,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   "url": "https://kialog.ch",
   "email": "info@kialog.ch",
   "image": "https://kialog.ch/asset/manu2.webp",
-  "knowsAbout": ["KI-Didaktik","Differenzierung","Allgemeinbildender Unterricht (ABU)","Deutsch als Zweitsprache (DaZ)","Epistemische Qualität von KI-Output","Lernbegleitung","EBA"],
+  "knowsAbout": ["KI-Didaktik","Evaluative Judgement","Differenzierung","Sek II","Pädagogische Hochschule","Epistemische Qualität von KI-Output","Lernbegleitung","ABU","DaZ"],
   "worksFor": [
     {"@type": "Organization", "name": "gibb Bern"},
     {"@type": "Organization", "name": "PH FHNW"},
@@ -1157,9 +1159,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Manuel Hirschi — KIalog für Lehrpersonen",
+  "name": "KIalog — KI-Didaktik für Lehrpersonen und Dozierende",
   "url": "https://kialog.ch",
-  "description": "Weiterbildung für ABU-Lehrpersonen an Berufsfachschulen. Differenzierter Unterricht mit KI aus eigenem Material.",
+  "description": "Praxisorientierte KI-Didaktik für Lehrpersonen und Dozierende an Sek II und Hochschulen. Wissenschaftlich fundiert, sofort einsetzbar.",
   "author": {"@id": "https://kialog.ch/#person"}
 }
 </script>
@@ -1168,7 +1170,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "KIalog",
-  "description": "Weiterbildung für ABU-Lehrpersonen an Berufsfachschulen. Differenzierter Unterricht mit KI aus eigenem Material, auf drei Niveaus.",
+  "description": "Praxisorientierte KI-Didaktik für Lehrpersonen und Dozierende. Eigenes Material, sofort einsetzbar. Für Berufsfachschulen, Gymnasien und Hochschulen.",
   "provider": {"@id": "https://kialog.ch/#person"},
   "areaServed": {"@type": "Country", "name": "Schweiz"},
   "serviceType": "Weiterbildung"
@@ -1178,8 +1180,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 {
   "@context": "https://schema.org",
   "@type": "EducationalEvent",
-  "name": "KIalog: Differenzierter Unterricht mit KI",
-  "description": "Weiterbildung für ABU-Lehrpersonen. In 2 × 90 Minuten lernst du, mit KI aus eigenem Material differenzierten Unterricht auf drei Niveaus zu bauen.",
+  "name": "KIalog: KI-Didaktik für Lehrpersonen und Dozierende",
+  "description": "Praxisorientierte KI-Didaktik. Eigenes Material rein, fertiger Unterricht raus. Für Sek II und Hochschulen.",
   "startDate": "2026-04-01",
   "location": {
     "@type": "Place",
@@ -1215,8 +1217,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     },
     {
       "@type": "Question",
-      "name": "Wer bietet KI-Weiterbildung für ABU-Lehrpersonen in der Schweiz an?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Manuel Hirschi unterrichtet selbst ABU an der gibb Bern (EBA-Klassen), bildet an der PH FHNW Lehrpersonen aus und forscht an der Universität Zürich zur epistemischen Qualität von KI-Output. Soweit derzeit sichtbar, verbindet kaum ein anderes Angebot ABU, DaZ, EBA und KI-Didaktik so konkret in einem Format."}
+      "name": "Für welche Stufen ist KIalog geeignet?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Für die gesamte Sek II (Berufsfachschulen, Gymnasien, FMS, Brückenangebote) und für Pädagogische Hochschulen. Die Beispiele im Workshop passen wir an deine Stufe und dein Fach an."}
     },
     {
       "@type": "Question",
@@ -1225,13 +1227,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     },
     {
       "@type": "Question",
-      "name": "Wie setze ich KI im ABU konkret ein?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Mit der KIalog-Methode. Du nimmst dein eigenes Material und generierst daraus differenzierte Bausteine auf drei Niveaus. Im Workshop baust du einen fertigen Baustein und lernst Routinen, die du ab dem nächsten Unterrichtstag einsetzen kannst."}
+      "name": "Wie setze ich KI im Unterricht konkret ein?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Mit der KIalog-Methode. Du nimmst dein eigenes Material und generierst daraus differenzierte Bausteine. Im Workshop baust du einen fertigen Baustein und lernst Routinen, die du ab dem nächsten Tag einsetzen kannst."}
     },
     {
       "@type": "Question",
-      "name": "Wie differenziere ich mit KI für DaZ-Lernende?",
-      "acceptedAnswer": {"@type": "Answer", "text": "KI kann aus einem Arbeitsblatt Varianten mit vereinfachter Sprache, Wortschatzstützen und Scaffolding erzeugen. Du prüfst den Output und entscheidest, was in den Unterricht geht. Im Workshop siehst du an einem konkreten Beispiel, wie das in unter zwei Minuten funktioniert."}
+      "name": "Woher weiss ich, ob der KI-Output stimmt?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Genau das ist der Kern von KIalog. KI-Output klingt oft professionell, ist aber nicht immer korrekt. In der Werkstatt lernst du, den Output in 60 Sekunden zu prüfen. Dein Fachurteil bleibt der Massstab, nicht die KI."}
     },
     {
       "@type": "Question",
@@ -1240,8 +1242,18 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     },
     {
       "@type": "Question",
-      "name": "KIalog für Lehrpersonen, was ist das?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Ein Weiterbildungsformat von Manuel Hirschi. In 2 × 90 Minuten baust du mit KI aus deinem Material einen fertigen Unterrichtsbaustein und lernst Routinen für den Alltag."}
+      "name": "Wer steckt hinter KIalog?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Manuel Hirschi, Bildungswissenschaftler. 18 Jahre Unterrichtserfahrung von der Primarschule bis zur Hochschule. Aktuell Lernbegleitung Deutsch (gibb Bern), Dozent (PH FHNW), Doktorand (Universität Zürich)."}
+    },
+    {
+      "@type": "Question",
+      "name": "Wie erstelle ich KI-gerechte Prüfungen?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Eine KI-gerechte Prüfung verlangt Dinge, die KI nicht zuverlässig leisten kann: Bezug auf persönliche Erfahrung, lokale Kontexte, eigene Begründungen, mündliche Erklärung. In der Werkstatt lernst du, solche Aufgaben zu formulieren."}
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich KIalog als schulinterne Weiterbildung (SCHILW) buchen?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Ja, alle Formate sind als SCHILW buchbar. Ich komme an deine Schule, ihr arbeitet mit eurem Material. Im Kanton Bern können Schulen Kosten für schulinterne Weiterbildung über die BKD rückerstatten lassen."}
     }
   ]
 }

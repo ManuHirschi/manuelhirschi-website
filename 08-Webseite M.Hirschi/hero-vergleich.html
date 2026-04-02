@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero-Vergleich: Lottie vs. SVG Prototyp</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<style>
+  :root { --bg: #F3F1EB; --ink: #2A2A2A; --blue: #3881F1; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Figtree, sans-serif; background: var(--bg); color: var(--ink); }
+  .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+  h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue); margin-bottom: 0.5rem; }
+  .meta { font-size: 13px; color: #888; margin-bottom: 2rem; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+  @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: white; border-radius: 16px; padding: 2rem; border: 1px solid rgba(0,0,0,0.06); }
+  .card h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .card .size { font-size: 12px; color: #888; margin-bottom: 1rem; }
+  .card img, .card dotlottie-player { width: 100%; max-width: 520px; }
+  .verdict { margin-top: 3rem; padding: 2rem; background: white; border-radius: 16px; border: 2px dashed var(--blue); }
+  .verdict h2 { margin-bottom: 1rem; }
+  .verdict li { margin-bottom: 0.5rem; font-size: 15px; }
+  .reload-btn { margin-top: 1rem; padding: 10px 20px; border: 2px solid var(--ink); border-radius: 30px; background: none; cursor: pointer; font-family: Figtree; font-size: 14px; font-weight: 500; }
+  .reload-btn:hover { background: var(--ink); color: var(--bg); }
+</style>
+</head>
+<body>
+<div class="container">
+  <p class="label">Hero-Illustration Vergleich</p>
+  <h1>Original Lottie vs. SVG Prototyp</h1>
+  <p class="meta">Gleicher Kontext: Hero-Sektion kialog.ch. Frage: Passt die Illustration zum neuen Narrativ «Dein Material. Dein Urteil. Mit KI.»?</p>
+
+  <div class="grid" style="grid-template-columns: 1fr 1fr 1fr;">
+    <div class="card">
+      <h2>A — Original Lottie</h2>
+      <p class="size">3.5 MB · Lernecke mit Schreibtisch, Stuhl, Pflanze, Sofa</p>
+      <dotlottie-player src="asset/lottie/00_szene_paint.json" background="transparent" speed="0.8" style="width:100%;"></dotlottie-player>
+      <button class="reload-btn" onclick="this.previousElementSibling.load()">Animation neu abspielen</button>
+    </div>
+    <div class="card">
+      <h2>B — SVG v1 (geometrisch)</h2>
+      <p class="size">~4 KB · Erste Version, clean shapes</p>
+      <img src="asset/hero-prototype.svg" alt="Prototyp v1">
+      <button class="reload-btn" onclick="this.previousElementSibling.src='asset/hero-prototype.svg?t='+Date.now()">Animation neu abspielen</button>
+    </div>
+    <div class="card" style="border-color: var(--blue);">
+      <h2>C — SVG v2 (Lineart)</h2>
+      <p class="size">~8 KB · Handgezeichnet, Watercolor, Szene auf Schreibtisch</p>
+      <img src="asset/hero-v2-lineart.svg" alt="Prototyp v2 Lineart">
+      <button class="reload-btn" onclick="this.previousElementSibling.src='asset/hero-v2-lineart.svg?t='+Date.now()">Animation neu abspielen</button>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <h2>Was der Prototyp zeigt</h2>
+    <ul>
+      <li><strong>Narrativ:</strong> Laptop mit KI-Text → Grüne Häkchen (akzeptiert) + Orange Fragezeichen/X (abgelehnt) + Roter Stift = «Du beurteilst»</li>
+      <li><strong>Stil:</strong> Sketchy Striche, gleiche Farbpalette (Blau, Grün, Orange, Lilac), Paint-On-Animation</li>
+      <li><strong>Performance:</strong> ~4 KB SVG vs. 3.5 MB Lottie JSON = 875× kleiner</li>
+      <li><strong>Editierbar:</strong> Farben, Formen, Timing direkt im Code änderbar</li>
+    </ul>
+    <p style="margin-top:1rem;font-size:14px;color:#888;">Dies ist ein Rohprototyp. Die Strichqualität des Originals (echte Handzeichnung mit Druckvarianz) erreicht ein SVG nicht 1:1. Aber die semantische Passung ist stärker.</p>
+  </div>
+</div>
+</body>
+</html>
