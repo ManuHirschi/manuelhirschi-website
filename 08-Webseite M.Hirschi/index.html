@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KIalog — KI-Didaktik für Lehrpersonen und Dozierende</title>
-<meta name="description" content="KIalog ist praxisorientierte KI-Didaktik für Lehrpersonen und Dozierende. Wissenschaftlich fundiert, sofort einsetzbar. Für Berufsfachschulen, Gymnasien und Hochschulen. Manuel Hirschi.">
+<meta name="description" content="KIalog: praxisorientierte KI-Didaktik für Lehrpersonen und Dozierende. Wissenschaftlich fundiert, sofort einsetzbar. Für Sek II und Hochschulen.">
 <meta name="keywords" content="KI-Didaktik Lehrpersonen Schweiz, KIalog, KI-Urteilskompetenz Schule, Evaluative Judgement Bildung, KI Weiterbildung Sek II, KI Weiterbildung PH, SCHILW KI, Manuel Hirschi">
 <meta name="author" content="Manuel Hirschi">
 <meta name="robots" content="index, follow">
@@ -41,6 +41,7 @@
   --muted: #5A5A5A;
   --green-text: #007748;
   --blue-text: #0f62e1;
+  --orange-text: #B8461A;
   --radius: 20px;
   --space-section: clamp(48px, 8vw, 96px);
   --space-inner: clamp(24px, 4vw, 60px);
@@ -256,7 +257,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
   color: #ffffff;
   line-height: 1;
 }
-.stat-label { font-size: 13px; font-weight: 300; color: #ffffff; opacity: 0.7; margin-top: 0.75rem; line-height: 1.5; }
+.stat-label { font-size: 13px; font-weight: 400; color: #ffffff; opacity: 0.7; margin-top: 0.75rem; line-height: 1.5; }
 .stat-source { font-size: 11px; font-weight: 400; color: #ffffff; opacity: 0.35; margin-top: 0.25rem; }
 
 .blue-section .blue-text { max-width: 560px; font-weight: 400; font-size: 18px; color: #ffffff; margin-bottom: 1rem; }
@@ -301,45 +302,40 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 }
 .scroll-hint { display: none; }
 
+/* Framework Accordion */
+.framework-accordion.open .framework-detail { max-height: 900px !important; }
+.framework-accordion.open .framework-chevron { transform: rotate(180deg); }
+.framework-toggle:hover { background: rgba(56,129,241,0.04) !important; }
+
 /* ═══════════════════════════════════════
-   BEWEIS — Before/After
+   BEWEIS — Drei Szenarien
    ═══════════════════════════════════════ */
 .beweis-section { background: var(--bg); }
-.beweis-layout {
+.szenarien-grid {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 1.5rem;
-  align-items: center;
-  margin: 2.5rem 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
 }
-.before-card {
-  border: 2px dashed var(--blue);
+.szenario-card {
+  border: 1px dashed var(--blue);
   border-radius: var(--radius);
   padding: 1.5rem;
-  opacity: 0.70;
 }
-.before-card .card-label { color: var(--blue-text); }
-.beweis-arrow { display: flex; align-items: center; justify-content: center; }
-.beweis-arrow dotlottie-player { width: 60px; }
-.after-stack { display: flex; flex-direction: column; gap: 0.75rem; }
-.after-card {
-  border: 2px solid var(--green);
-  border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-  position: relative;
-}
-.card-label {
+.szenario-label {
   font-size: 12px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.1em; margin-bottom: 0.3rem;
+  letter-spacing: 0.1em; margin-bottom: 0.5rem;
 }
-.after-card:nth-child(1) .card-label { color: var(--green-text); }
-.after-card:nth-child(2) .card-label { color: var(--blue-text); }
-.after-card:nth-child(3) .card-label { color: var(--orange); }
-.after-card:nth-child(1) { border-color: var(--green); }
-.after-card:nth-child(2) { border-color: var(--blue); }
-.after-card:nth-child(3) { border-color: var(--orange); }
-.card-title { font-size: 16px; font-weight: 400; letter-spacing: -0.3px; }
-.card-desc { font-size: 14px; font-weight: 400; opacity: 0.70; margin-top: 0.2rem; }
+.szenario-card h3 { font-size: 20px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
+.szenario-situation { font-size: 15px; font-weight: 400; opacity: 0.6; line-height: 1.5; margin-bottom: 1rem; font-style: italic; }
+.szenario-methode { font-size: 14px; font-weight: 400; opacity: 0.75; line-height: 1.8; }
+.step-tag {
+  display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--blue-text); margin-right: 0.25rem;
+}
+.step-tag::before { content: ''; display: block; }
+.szenario-card:nth-child(1) { border-top: 3px solid var(--green); }
+.szenario-card:nth-child(2) { border-top: 3px solid var(--blue); }
+.szenario-card:nth-child(3) { border-top: 3px solid var(--orange); }
 
 /* ═══════════════════════════════════════
    ABOUT / PERSON
@@ -387,7 +383,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 .format-card p { font-size: 15px; font-weight: 400; opacity: 0.7; line-height: 1.5; flex: 1; }
 .format-price { font-size: 20px; font-weight: 600; color: var(--green-text); margin-top: 0.75rem; letter-spacing: -0.5px; }
 .format-detail { font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 0.25rem; }
-.format-includes { font-size: 13px; font-weight: 300; color: var(--muted); margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed var(--blue); opacity: 0.6; }
+.format-includes { font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed var(--blue); opacity: 0.6; }
 .price-anchor { font-size: 14px; font-weight: 400; color: var(--muted); max-width: 520px; margin-top: 1.5rem; line-height: 1.5; }
 
 /* ═══════════════════════════════════════
@@ -441,7 +437,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 .footer-pilot { font-size: 14px; opacity: 0.7; margin-top: 1.25rem; }
 .footer-lottie { width: clamp(200px, 25vw, 360px); flex-shrink: 0; }
 .footer-meta {
-  font-size: 13px; font-weight: 300; opacity: 0.7; margin-top: 3rem;
+  font-size: 13px; font-weight: 400; opacity: 0.7; margin-top: 3rem;
   max-width: var(--max-w); margin-left: auto; margin-right: auto;
   padding-top: 1.5rem; border-top: 1px dashed rgba(237,234,225,0.2);
 }
@@ -477,6 +473,9 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
   position: relative; z-index: 1;
 }
 .atempause dotlottie-player { margin: 0 auto; }
+.atempause svg.zig-fallback { margin: 0 auto; display: none; }
+.atempause.lottie-failed dotlottie-player { display: none; }
+.atempause.lottie-failed svg.zig-fallback { display: block; }
 
 /* ═══════════════════════════════════════
    SCROLL REVEAL
@@ -525,8 +524,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
   .spiegel { margin-left: auto; margin-right: auto; }
   .werkstatt-intro { grid-template-columns: 1fr; }
   .werkstatt-intro .illust-inline { width: clamp(140px, 30vw, 220px); margin: 0 auto; }
-  .beweis-layout { grid-template-columns: 1fr; gap: 1rem; }
-  .beweis-arrow { transform: rotate(90deg); }
+  .szenarien-grid { grid-template-columns: 1fr; gap: 1rem; }
   .stat-grid { flex-wrap: wrap; }
   .stat-item { flex: 1 1 45%; padding: 1rem; }
   .prinzipien-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -618,7 +616,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 <noscript><style>.reveal{opacity:1;transform:none}.spiegel blockquote{opacity:.8;transform:none}.spiegel-closing{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
-<a href="#top" class="skip-link">Zum Inhalt springen</a>
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
 
 <!-- ═══ NOTEBOOK LINES ═══ -->
 <div class="notebook-lines" aria-hidden="true">
@@ -635,6 +633,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
   <a href="#top" class="nav-logo" aria-label="KIalog — zur Startseite"><img src="asset/logo/kialog-final-blau.svg" alt="KIalog Hirschi" height="64"></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#werkstatt">Werkstatt</a></li>
+    <li><a href="#praxis">Praxis</a></li>
     <li><a href="#angebote">Angebote</a></li>
     <li><a href="#ueber">Warum ich</a></li>
     <li><a href="#kontakt" class="cta_shadow">Kontakt</a></li>
@@ -647,14 +646,14 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 <!-- ═══════════════════════════════════════
      AKT 1: HERO — "Das bin ich"
      ═══════════════════════════════════════ -->
-<main>
+<main id="main">
 <section class="hero" id="top">
   <div class="hero-layout">
     <div class="hero-text">
       <p style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--blue-text);margin-bottom:1.5rem;" class="reveal">KI-Didaktik für Lehrpersonen und Dozierende</p>
       <p class="hero-kicker reveal">KI ist da. Die Frage ist nicht ob, sondern wie.</p>
       <h1 class="hero-title reveal"><em>Dein Material.<br>Dein Urteil.<br>Mit KI.</em></h1>
-      <p class="hero-subtitle reveal">KI liefert Vorschläge. Du entscheidest, was in den Unterricht geht. KIalog zeigt dir, wie du KI-Output in 60 Sekunden prüfst. Praxisorientiert, keine Theorie. Für Berufsfachschulen, Gymnasien und Hochschulen.</p>
+      <p class="hero-subtitle reveal">KI liefert Vorschläge. Du entscheidest, was in den Unterricht geht. In drei Schritten wird aus dem KI-Output dein Material. Für Berufsfachschulen, Gymnasien und Hochschulen.</p>
       <div class="hero-cta-row reveal">
         <a href="#kontakt" class="cta_green">Jetzt anfragen</a>
         <a href="#werkstatt" class="cta_ghost_blue">Wie es funktioniert &rarr;</a>
@@ -662,7 +661,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
       <p class="hero-pilot reveal">Von Manuel Hirschi &middot; gibb Bern / PH FHNW / UZH &middot; 18 Jahre Unterrichtserfahrung, alle Stufen</p>
     </div>
     <div class="hero-lottie reveal">
-      <img src="asset/hero-desk.png" alt="Illustration: Schreibtisch mit Laptop, KI-Output mit Prüfzeichen, Kaffeetasse und Pflanze" loading="eager" style="width:100%;">
+      <img src="asset/hero-desk.png" alt="Illustration: Schreibtisch mit Laptop, KI-Output mit Prüfzeichen, Kaffeetasse und Pflanze" loading="eager" style="width:100%;filter:brightness(1.15) saturate(1.1);">
     </div>
   </div>
 </section>
@@ -699,20 +698,18 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
         <div class="stat-source">OECD 2026</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num" data-target="7" data-suffix="×">7&times;</div>
-        <div class="stat-label">im Rahmenlehrplan verankert</div>
-        <div class="stat-source">SBFI 2026</div>
+        <div class="stat-num" data-target="6" data-suffix="">6</div>
+        <div class="stat-label">Rahmenwerke fordern KI-Urteilskompetenz</div>
+        <div class="stat-source">nRLP ABU bis EU AI Act</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num" data-target="0">0</div>
-        <div class="stat-label">verbinden Praxis, Lehre und Forschung</div>
-        <div class="stat-source">Stand 2026</div>
+        <div class="stat-num">3×</div>
+        <div class="stat-label">Perspektiven: Schulpraxis, Lehre, Forschung</div>
+        <div class="stat-source">gibb Bern · PH FHNW · UZH</div>
       </div>
     </div>
 
-    <p class="blue-text reveal" style="font-weight:300;opacity:0.85;">Wie prüfe ich, wenn Lernende KI nutzen? Wie differenziere ich sinnvoll? Welche Tools darf ich einsetzen? Wer KI-Kompetenz fördern soll, braucht zuerst selbst einen sicheren Zugang.</p>
-
-    <p class="blue-closing reveal" style="font-weight:300;opacity:0.9;">Es gibt Tool-Schulungen. Es gibt teure CAS-Programme. Was fehlt, ist KI-Didaktik, die am nächsten Tag funktioniert. KIalog schliesst diese Lücke.</p>
+    <p class="blue-text reveal" style="font-weight:300;opacity:0.85;">Wer KI-Kompetenz fördern soll, braucht zuerst selbst eine Methode. Es gibt Tool-Schulungen und teure CAS-Programme. Was fehlt, ist KI-Didaktik, die am nächsten Tag funktioniert.</p>
   </div>
 </section>
 
@@ -725,36 +722,86 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
     <div class="werkstatt-intro reveal">
       <div>
         <h2 class="section-title"><span style="color: var(--blue); font-weight: 700;">KI</span>alog Methode</h2>
-        <p class="large-body" style="max-width:480px;">Eigenes Material rein. Fertiger Unterricht raus.</p>
-        <p class="tagline">Werkzeug statt Wundermittel. Praxis statt Theorie.</p>
+        <p class="large-body" style="max-width:520px;">Drei Schritte. Dein Urteil.</p>
+        <p class="tagline">KI generiert. Du entscheidest. KIalog zeigt dir wie.</p>
       </div>
       <div class="illust-inline">
-        <img src="asset/illust-laptop.png" alt="Illustration: Laptop mit Stift" loading="lazy" style="width:100%;max-width:260px;filter:saturate(1.2);">
+        <img src="asset/illust-laptop.png" alt="Illustration: Laptop mit Prüfzeichen" loading="lazy" style="width:100%;max-width:260px;filter:saturate(1.2);">
       </div>
     </div>
 
-    <!-- Workflow — 3 Steps -->
+    <div class="reveal" style="background:var(--bg-light,#F8F6F1);border:1px dashed var(--blue);border-radius:var(--radius);padding:1.25rem 1.5rem;max-width:560px;margin-bottom:2.5rem;">
+      <p style="font-size:15px;font-weight:400;line-height:1.7;opacity:0.75;margin:0;">ChatGPT macht dir Material für drei Niveaus. Scaffolding, Aufgaben, alles da. Sieht gut aus. Aber «Berufsbildner» steht als «Chef» drin. Die Sprachstützen fehlen. Und die Transferfrage ist reines Reproduzieren.</p>
+      <p style="font-size:16px;font-weight:500;margin:0.75rem 0 0;"><strong>Hier setzt die Methode ein.</strong></p>
+    </div>
+
+    <!-- Workflow — 3 Steps: Prüfen → Urteilen → Belegen -->
     <div class="workflow-track reveal">
       <div class="workflow-card">
         <div class="workflow-num">Schritt 01</div>
-        <h3>Dein Material rein</h3>
-        <p>Arbeitsblatt, Lehrmittelseite, Prüfung. Was du hast, reicht. Die KI arbeitet nur aus deinem Material.</p>
+        <h3>Prüfen</h3>
+        <p>Stimmt das fachlich? Fehlt etwas? Wo hat die KI zu stark vereinfacht? Du vergleichst den Output mit deiner Quelle.</p>
       </div>
       <div class="workflow-arrow" aria-hidden="true">&rarr;</div>
       <div class="workflow-card">
         <div class="workflow-num">Schritt 02</div>
-        <h3>Drei Niveaus raus</h3>
-        <p>Differenziertes Material, Prüfungsvarianten, Scaffolding, Zusammenfassungen. Du bestimmst, was du brauchst.</p>
+        <h3>Urteilen</h3>
+        <p>Du entscheidest. Übernehmen, anpassen, verwerfen. Nicht die KI bestimmt die Qualität, sondern dein Fachurteil.</p>
       </div>
       <div class="workflow-arrow" aria-hidden="true">&rarr;</div>
       <div class="workflow-card">
         <div class="workflow-num">Schritt 03</div>
-        <h3>Du beurteilst</h3>
-        <p>Passt das Niveau? Stimmen die Fakten? Taugt das für deine Klasse? 60 Sekunden. Dein Urteil zählt.</p>
+        <h3>Belegen</h3>
+        <p>Sichtbar machen, warum. Was hast du geändert und aus welchem Grund? Dein Denkprozess wird nachvollziehbar.</p>
       </div>
     </div>
 
+    <p class="reveal" style="text-align:center;font-size:16px;font-weight:400;opacity:0.6;margin-top:0.5rem;">In drei Schritten wird aus dem KI-Output dein Material. Von EBA bis Hochschule.</p>
+
+    <p class="reveal" style="text-align:center;font-size:12px;font-weight:400;opacity:0.70;margin-top:1.5rem;letter-spacing:0.02em;">Verankert in nRLP ABU · Lehrplan 21 · OECD AI Literacy · UNESCO · EU AI Act · LCH</p>
+
     <div class="scroll-hint" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <!-- Nahtloser Übergang: Methode → Praxis -->
+    <div id="praxis" style="margin-top:var(--space-section);">
+      <h2 class="section-title reveal" style="max-width:600px;">Und so sieht das aus.</h2>
+      <p class="reveal" style="font-weight:300;max-width:520px;font-size:16px;opacity:0.7;margin-bottom:1rem;">Dieselben drei Schritte, egal ob du differenzierst, Feedback einordnest oder Prüfungen gestaltest.</p>
+      <p class="reveal" style="font-size:14px;font-weight:400;opacity:0.45;margin-bottom:2.5rem;">Aktuell mit Schwerpunkt Sprache. Weitere Fächer folgen.</p>
+    </div>
+
+    <div class="szenarien-grid reveal">
+
+      <a href="beispiel/prototyp-praxis.html#wt-berufsschule" class="szenario-card" style="text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 20px rgba(42,42,42,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <img src="asset/illust-niveaus.png" alt="" loading="lazy" style="width:80px;height:auto;margin-bottom:0.75rem;filter:saturate(1.15);">
+        <div class="szenario-label" style="color:var(--green-text);">Berufsfachschule</div>
+        <h3>Arbeitsblatt auf 3 Niveaus</h3>
+        <p class="szenario-situation">Du hast eine EBA-Klasse mit hohem DaZ-Anteil. KI differenziert dein Arbeitsblatt in drei Niveaus. Du prüfst, was stimmt und was nicht.</p>
+        <p style="font-size:14px;font-weight:500;color:var(--blue);margin-top:auto;">Beispiel ansehen &rarr;</p>
+      </a>
+
+      <a href="beispiel/prototyp-praxis.html#wt-hochschule" class="szenario-card" style="text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 20px rgba(42,42,42,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <img src="asset/illust-pruefen.png" alt="" loading="lazy" style="width:80px;height:auto;margin-bottom:0.75rem;filter:saturate(1.15);">
+        <div class="szenario-label" style="color:var(--blue-text);">Hochschule / PH</div>
+        <h3>KI-Feedback auf Fallanalyse</h3>
+        <p class="szenario-situation">Deine Studierenden lassen sich von ChatGPT Feedback geben. Du zeigst ihnen, wie sie das Feedback prüfen und einordnen.</p>
+        <p style="font-size:14px;font-weight:500;color:var(--blue);margin-top:auto;">Beispiel ansehen &rarr;</p>
+      </a>
+
+      <a href="beispiel/prototyp-praxis.html#wt-gymnasium" class="szenario-card" style="text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 20px rgba(42,42,42,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <img src="asset/illust-vergleich.png" alt="" loading="lazy" style="width:80px;height:auto;margin-bottom:0.75rem;filter:saturate(1.15);">
+        <div class="szenario-label" style="color:var(--orange-text);">Gymnasium / FMS</div>
+        <h3>Prüfung mit Prozessfokus</h3>
+        <p class="szenario-situation">Du baust eine LZK, bei der deine Lernenden zwei Texte vergleichen und ihr Urteil begründen. Der Denkprozess zählt, nicht das Produkt.</p>
+        <p style="font-size:14px;font-weight:500;color:var(--blue);margin-top:auto;">Beispiel ansehen &rarr;</p>
+      </a>
+
+    </div>
+
+    <p class="reveal" style="text-align:center;font-size:15px;font-weight:400;opacity:0.5;margin-top:2rem;">Im Workshop durchläufst du alle drei Szenarien mit deinem eigenen Material.</p>
+
+    <div style="margin-top:2rem;text-align:center;">
+      <a href="#kontakt" class="cta_green reveal">Das will ich für mein Team</a>
+    </div>
 
   </div>
 </section>
@@ -762,50 +809,8 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 <!-- ═══ Atempause ═══ -->
 <div class="atempause reveal">
   <dotlottie-player data-src="asset/lottie/zigGreen.json" background="transparent" speed="0.8" style="width:120px;" class="lottie-paint lottie-lazy" role="img" aria-label="Dekoratives Element"></dotlottie-player>
+  <svg class="zig-fallback" width="120" height="24" viewBox="0 0 120 24" aria-hidden="true"><path d="M0 12 L15 4 L30 20 L45 4 L60 20 L75 4 L90 20 L105 4 L120 12" stroke="#01C476" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/></svg>
 </div>
-
-<!-- ═══════════════════════════════════════
-     AKT 5: BEWEIS — "Zeig mir wie"
-     ═══════════════════════════════════════ -->
-<section class="beweis-section">
-  <div class="section-inner">
-
-    <h2 class="section-title reveal" style="max-width:560px;">60 Sekunden. Ein Arbeitsblatt. Drei Varianten.</h2>
-
-    <div class="beweis-layout reveal">
-      <div class="before-card">
-        <div class="card-label">Vorher</div>
-        <div class="card-title">Ein Arbeitsblatt</div>
-        <div class="card-desc">Gleiches Blatt für alle. Unterschiedliche Voraussetzungen, ein Niveau.</div>
-      </div>
-      <div class="beweis-arrow">
-        <dotlottie-player data-src="asset/lottie/arrowPurple.json" background="transparent" speed="0.8" class="lottie-paint lottie-lazy" role="img" aria-label="Pfeil"></dotlottie-player>
-      </div>
-      <div class="after-stack">
-        <div class="after-card">
-          <div class="card-label">Variante A</div>
-          <div class="card-title">Verstehen</div>
-          <div class="card-desc">Einfache Sprache, Scaffolding</div>
-        </div>
-        <div class="after-card">
-          <div class="card-label">Variante B</div>
-          <div class="card-title">Anwenden</div>
-          <div class="card-desc">Transferaufgaben, eigene Formulierungen</div>
-        </div>
-        <div class="after-card">
-          <div class="card-label">Variante C</div>
-          <div class="card-title">Beurteilen</div>
-          <div class="card-desc">Kritisches Denken, Quellenvergleich</div>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:2.5rem;">
-      <a href="#kontakt" class="cta_green reveal">Das will ich für meine Klasse</a>
-    </div>
-
-  </div>
-</section>
 
 <!-- ═══════════════════════════════════════
      AKT 6: PRINZIPIEN — "Kann ich dem vertrauen?"
@@ -818,18 +823,18 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
     <div class="prinzipien-grid reveal">
       <div class="prinzip-item">
         <div class="prinzip-num">01</div>
-        <h3>Werkzeug, kein Wundermittel.</h3>
-        <p>KI schreibt überzeugend. Aber überzeugend ist nicht dasselbe wie richtig.</p>
+        <h3>Fundiert.</h3>
+        <p>Forschungsbasiert, in internationalen Rahmenwerken verankert. Basierend auf Evaluative Judgement (Tai et al., 2018) und Feedback Literacy (Carless &amp; Boud, 2018).</p>
       </div>
       <div class="prinzip-item">
         <div class="prinzip-num">02</div>
-        <h3>Du bleibst im Lead.</h3>
-        <p>KI liefert einen Entwurf. Deine pädagogische Einschätzung bleibt das Mass aller Dinge.</p>
+        <h3>Dein Material.</h3>
+        <p>Du arbeitest mit deinen echten Unterlagen, nicht mit fremden Beispielen. Was du im Workshop baust, kannst du am nächsten Tag einsetzen.</p>
       </div>
       <div class="prinzip-item">
         <div class="prinzip-num">03</div>
         <h3>Sofort einsetzbar.</h3>
-        <p>Was du in der Werkstatt baust, funktioniert am nächsten Tag. Keine Theorie für die Schublade.</p>
+        <p>Eigenes Material, am nächsten Tag im Unterricht. Keine Theorie für die Schublade.</p>
       </div>
     </div>
 
@@ -837,7 +842,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 </section>
 
 <!-- ═══════════════════════════════════════
-     AKT 7: PERSON — "Wer ist das"
+     AKT 7: PERSON — "Wer steckt dahinter"
      ═══════════════════════════════════════ -->
 <section id="ueber">
   <div class="section-inner">
@@ -852,8 +857,8 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
         <div class="photo-caption">Manuel Hirschi &middot; Bern</div>
       </div>
       <div>
-        <p class="reveal" style="font-weight:300;max-width:520px;font-size:18px;margin-bottom:1.5rem;line-height:1.6;">18 Jahre Unterricht, Primarschule bis Universität. Aktuell Lernbegleitung an der gibb Bern, Dozent an der PH FHNW, Doktorand an der UZH. Meine Forschung fragt: <strong>Wann ist KI-Output vertrauenswürdig und wann nicht?</strong></p>
-        <p class="reveal" style="font-size:20px;font-weight:400;max-width:520px;margin-bottom:2rem;">Diese Forschung steckt in der Werkstatt. Was ich zeige, wende ich selbst an.</p>
+        <p class="reveal" style="font-weight:300;max-width:520px;font-size:18px;margin-bottom:1.5rem;line-height:1.6;">Montags unterrichte ich an der Berufsschule, dienstags bilde ich an der PH aus, am Wochenende forsche ich an der UZH. 18 Jahre Unterricht, alle Stufen. Meine Forschung gilt einer Frage. <strong>Wann ist KI-Output vertrauenswürdig und wann nicht?</strong></p>
+        <p class="reveal" style="font-size:20px;font-weight:400;max-width:520px;margin-bottom:2rem;">Was ich erforsche, steckt am nächsten Tag in meinem Unterricht. Und dann in deinem.</p>
 
       </div>
     </div>
@@ -867,27 +872,28 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 </section>
 
 <!-- ═══════════════════════════════════════
-     AKT 7: ANGEBOTE — "Was passt für mich"
+     AKT 8: ANGEBOTE — "Was passt für mich"
      ═══════════════════════════════════════ -->
 <section id="angebote">
   <div class="section-inner">
 
     <h2 class="section-title reveal">Drei Formate. Klare Preise.</h2>
-    <p class="reveal" style="font-weight:300;max-width:520px;font-size:16px;opacity:0.7;">Je nach Schule und Zeitrahmen, du entscheidest, wie tief du einsteigst.</p>
+    <p class="reveal" style="font-weight:300;max-width:520px;font-size:16px;opacity:0.7;">Je nach Bedarf und Zeitrahmen, du entscheidest, wie tief du einsteigst.</p>
 
     <div class="format-grid">
       <div class="format-card reveal">
         <div class="format-label">Einstieg</div>
         <h3>Impuls</h3>
-        <p>60–90 Minuten &middot; Weiterbildungstag oder Schulkonferenz. Eine Demonstration mit echtem Unterrichtsmaterial. Kein Theorievortrag.</p>
+        <p>60–90 Minuten &middot; Weiterbildungstag, Konferenz oder Teamtag. Eine Demonstration mit echtem Material. Kein Theorievortrag.</p>
         <div class="format-price">CHF 800</div>
-        <div class="format-detail">Dein ganzes Kollegium kann dabei sein</div>
+        <div class="format-detail">Dein ganzes Team kann dabei sein</div>
         <div class="format-includes">Inkl. Vorbereitung, Durchführung, Folien</div>
       </div>
       <div class="format-card format-card--highlight reveal">
-        <div class="format-label">Empfohlen &middot; Die meisten Schulen starten hier</div>
+        <div class="format-label">Empfohlen &middot; Die meisten Teams starten hier</div>
         <h3>KIalog Workshop</h3>
-        <p>Halbtag oder Ganztag &middot; Inhouse, 6–16 Teilnehmende. Du arbeitest mit deinem Material. Du gehst mit fertigen Bausteinen und einer Checkliste zum Bewerten von KI-Output.</p>
+        <p>Halbtag oder Ganztag &middot; Inhouse, 6–16 Teilnehmende. Du arbeitest mit deinem Material.</p>
+        <p style="font-size:13px;opacity:0.6;margin-top:0.5rem;line-height:1.6;">Block 1: Material mit KI generieren, live an deinen Unterlagen. Block 2: Prüfen, urteilen, belegen. Du gehst mit fertigen Bausteinen und einer Checkliste.</p>
         <div class="format-price">CHF 1'800 <span style="font-size:14px;font-weight:400;opacity:0.6;">Halbtag</span></div>
         <div class="format-detail">CHF 3'000 Ganztag (inkl. KI-Literacy)</div>
         <div class="format-includes">Inkl. Vorbereitung, alle Materialien (digital + print), Durchführung</div>
@@ -895,7 +901,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
       <div class="format-card reveal">
         <div class="format-label">Begleitung</div>
         <h3>Fachentwicklung</h3>
-        <p>1 Semester &middot; Workshop, Training, Begleitung. Für Schulen und Hochschulen, die KI-Didaktik nachhaltig verankern wollen.</p>
+        <p>1 Semester &middot; Workshop, Training, Begleitung. Für Teams, die KI-Didaktik nachhaltig verankern wollen.</p>
         <div class="format-price">CHF 9'000</div>
         <div class="format-detail">Ganze Fachgruppe oder Abteilung, ein Semester lang</div>
         <div class="format-includes">Inkl. Workshop + Training + Begleitung + alle Materialien</div>
@@ -904,12 +910,14 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
 
     <p class="price-anchor reveal">Ein CAS «KI für Lehrpersonen» kostet CHF 9'900 pro Person (<a href="https://www.phbern.ch/weiterbildung/weiterbildungslehrgaenge/cas-kuenstliche-intelligenz-ki-fuer-lehrpersonen" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">PHBern, 16 ECTS</a>). KIalog bringt dein ganzes Team für einen Bruchteil weiter.</p>
 
-    <p class="reveal" style="font-weight:300;font-size:15px;opacity:0.6;margin-top:1rem;max-width:520px;">Auch als Keynote (45–60 Min) für Tagungen, Konferenzen und Schulkonvente buchbar. Schreib mir.</p>
+    <p class="reveal" style="font-weight:300;font-size:15px;opacity:0.6;margin-top:1rem;max-width:520px;">Auch als Keynote (45–60 Min) für Tagungen und Konferenzen buchbar. Schreib mir.</p>
 
     <div class="reveal" style="margin-top:1.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;">
       <a href="#kontakt" class="cta_green">Jetzt anfragen</a>
       <span style="font-weight:400;font-size:14px;color:var(--muted);">Alle Formate als schulinterne Weiterbildung (SCHILW) buchbar. Ich helfe bei der internen Weiterleitung. Reisekosten nach Aufwand.</span>
     </div>
+
+    <p class="reveal" style="font-size:13px;font-weight:400;opacity:0.4;margin-top:1.5rem;">Pilot: gibb Bern, Frühjahr 2026. Konzept Pädagogische Hochschule in Vorbereitung.</p>
 
   </div>
 </section>
@@ -940,11 +948,11 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wie setze ich KI im Unterricht konkret ein?</button>
-      <div class="faq-answer"><p>Mit der KIalog-Methode. Du nimmst dein eigenes Material und generierst daraus differenzierte Bausteine. Im Workshop baust du einen fertigen Baustein und lernst Routinen, die du ab dem nächsten Tag einsetzen kannst.</p></div>
+      <div class="faq-answer"><p>Mit der KIalog-Methode. KI liefert einen Entwurf, dann wird geprüft, beurteilt und dokumentiert. <a href="#praxis" style="color:var(--blue);text-decoration:underline;text-underline-offset:3px;">Drei konkrete Walkthroughs</a> zeigen dir Schritt für Schritt, wie das aussieht. Im Workshop machst du es mit deinem eigenen Material.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Woher weiss ich, ob der KI-Output stimmt?</button>
-      <div class="faq-answer"><p>Genau das ist der Kern von KIalog. KI-Output klingt oft professionell, ist aber nicht immer korrekt. In der Werkstatt lernst du, den Output in 60 Sekunden zu prüfen: Passt das Niveau? Stimmen die Fakten? Taugt das für deine Klasse? Dein Fachurteil bleibt der Massstab, nicht die KI.</p></div>
+      <div class="faq-answer"><p>Genau das ist der Kern von KIalog. KI-Output klingt oft professionell, ist aber nicht immer korrekt. Die Methode gibt dir drei Schritte, mit denen du und deine Lernenden jeden Output systematisch prüfen, beurteilen und dokumentieren. Dein Fachurteil bleibt der Massstab, nicht die KI.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Wer bucht KIalog?</button>
@@ -960,7 +968,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false" onclick="this.parentElement.classList.toggle('open'); this.setAttribute('aria-expanded', this.parentElement.classList.contains('open'))">Kann ich KIalog als schulinterne Weiterbildung (SCHILW) buchen?</button>
-      <div class="faq-answer"><p>Ja, alle Formate sind als SCHILW buchbar. Ich komme an deine Schule, ihr arbeitet mit eurem Material. Im Kanton Bern können Schulen Kosten für schulinterne Weiterbildung über die BKD rückerstatten lassen. Ich helfe bei der internen Weiterleitung.</p></div>
+      <div class="faq-answer"><p>Ja, alle Formate sind als SCHILW buchbar. Ich komme zu euch, ihr arbeitet mit eurem Material. Im Kanton Bern können Schulen Kosten für schulinterne Weiterbildung über die BKD rückerstatten lassen. Ich helfe bei der internen Weiterleitung.</p></div>
     </div>
 
   </div>
@@ -981,7 +989,7 @@ dotlottie-player.lottie-lazy { min-height: 80px; }
   <div class="footer-inner">
     <div>
       <div class="footer-claim reveal">Neugierig?<br><em>Schreib mir.</em></div>
-      <p class="footer-sub reveal">Kein Formular. Keine Verpflichtung. Sag mir, was dich beschäftigt. Ich antworte persönlich innert 48 Stunden. Auch wenn du noch nicht weisst, ob das etwas für deine Schule ist.</p>
+      <p class="footer-sub reveal">Kein Formular. Keine Verpflichtung. Sag mir, was dich beschäftigt. Ich antworte persönlich innert 48 Stunden. Auch wenn du noch nicht weisst, ob das etwas für dich ist.</p>
       <div class="reveal" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
         <a href="mailto:info@kialog.ch?subject=KIalog%20anfragen" class="cta_ghost_white">info@kialog.ch</a>
         <a href="https://wa.me/41763862207?text=Hallo%20Manuel%2C%20ich%20interessiere%20mich%20f%C3%BCr%20KIalog." class="cta_ghost_white" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
@@ -1074,6 +1082,16 @@ lottiePlayers.forEach(el => {
   if (el.classList.contains('lottie-hero')) return;
   lottieObs.observe(el);
 });
+
+// ── Lottie fallback: hide broken players, show SVG ──
+setTimeout(() => {
+  document.querySelectorAll('.atempause dotlottie-player').forEach(player => {
+    const ready = player.shadowRoot && player.shadowRoot.querySelector('canvas, svg');
+    if (!ready) {
+      player.closest('.atempause').classList.add('lottie-failed');
+    }
+  });
+}, 3000);
 
 // ── CountUp Animation for Stats ──
 const countUpObs = new IntersectionObserver((entries) => {
@@ -1237,17 +1255,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     {
       "@type": "Question",
       "name": "Wie setze ich KI im Unterricht konkret ein?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Mit der KIalog-Methode. Du nimmst dein eigenes Material und generierst daraus differenzierte Bausteine. Im Workshop baust du einen fertigen Baustein und lernst Routinen, die du ab dem nächsten Tag einsetzen kannst."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Mit der KIalog-Methode. KI liefert einen Entwurf, dann wird geprüft, beurteilt und dokumentiert. Drei konkrete Walkthroughs zeigen dir Schritt für Schritt, wie das aussieht. Im Workshop machst du es mit deinem eigenen Material."}
     },
     {
       "@type": "Question",
       "name": "Woher weiss ich, ob der KI-Output stimmt?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Genau das ist der Kern von KIalog. KI-Output klingt oft professionell, ist aber nicht immer korrekt. In der Werkstatt lernst du, den Output in 60 Sekunden zu prüfen. Dein Fachurteil bleibt der Massstab, nicht die KI."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Genau das ist der Kern von KIalog. KI-Output klingt oft professionell, ist aber nicht immer korrekt. Die Methode gibt dir drei Schritte, mit denen du und deine Lernenden jeden Output systematisch prüfen, beurteilen und dokumentieren. Dein Fachurteil bleibt der Massstab, nicht die KI."}
     },
     {
       "@type": "Question",
       "name": "Wer bucht KIalog?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Beides ist möglich. Inhouse-Angebote laufen in der Regel über Schulleitung oder Abteilungsleitung. Du kannst aber auch direkt anfragen und ich helfe dir, das intern weiterzugeben. Angebote sind auch über Kanton oder PH als eingekaufte Weiterbildung buchbar."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Schulleitung, Abteilungsleitung oder du direkt. Ich helfe bei der internen Weiterleitung. Auch über Kanton oder PH als eingekaufte Weiterbildung buchbar."}
     },
     {
       "@type": "Question",
@@ -1262,7 +1280,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     {
       "@type": "Question",
       "name": "Kann ich KIalog als schulinterne Weiterbildung (SCHILW) buchen?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Ja, alle Formate sind als SCHILW buchbar. Ich komme an deine Schule, ihr arbeitet mit eurem Material. Im Kanton Bern können Schulen Kosten für schulinterne Weiterbildung über die BKD rückerstatten lassen."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Ja, alle Formate sind als SCHILW buchbar. Ich komme zu euch, ihr arbeitet mit eurem Material. Im Kanton Bern können Schulen Kosten für schulinterne Weiterbildung über die BKD rückerstatten lassen. Ich helfe bei der internen Weiterleitung."}
     }
   ]
 }

@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aus der Praxis — KIalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<style>
+/* ═══ DESIGN TOKENS (kialog.ch) ═══ */
+:root {
+  --bg: #F3F1EB;
+  --bg-light: #F8F6F1;
+  --ink: #2A2A2A;
+  --blue: #3881F1;
+  --blue-section: #3474d4;
+  --green: #01C476;
+  --green-dark: #01A866;
+  --green-text: #007748;
+  --lilac: #D7BCED;
+  --orange: #F6612E;
+  --orange-text: #B8461A;
+  --muted: #5A5A5A;
+  --blue-text: #0f62e1;
+  --radius: 20px;
+  --max-w: 1200px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  font-family: Figtree, sans-serif;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+}
+::selection { background: var(--ink); color: var(--bg); }
+
+/* ═══ NOTEBOOK LINES ═══ */
+.notebook-lines {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0; pointer-events: none;
+  display: flex; flex-direction: column; gap: 50px; padding-top: 60px;
+}
+.notebook-lines span { display: block; width: 100%; border-top: 1px dashed var(--blue); opacity: 0.15; flex-shrink: 0; }
+
+/* ═══ NAV ═══ */
+.nav-mini {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(243,241,235,0.92);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px dashed var(--blue);
+  padding: 0.6rem clamp(1rem, 3vw, 2rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-mini-logo { display: inline-flex; align-items: center; text-decoration: none; padding: 0.3rem 0; transition: opacity 0.2s; }
+.nav-mini-logo img { display: block; height: 48px; width: auto; }
+.nav-mini-logo:hover { opacity: 0.7; }
+.nav-mini-cta {
+  font-family: Figtree, sans-serif; font-size: 0.8rem; font-weight: 600;
+  color: var(--ink); text-decoration: none;
+  border: 2px solid var(--ink); border-radius: 30px;
+  padding: 0.4rem 1rem; transition: background 0.2s, color 0.2s;
+}
+.nav-mini-cta:hover { background: var(--ink); color: var(--bg); }
+
+/* ═══ HERO ═══ */
+.page-hero {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem) 2rem;
+  position: relative; z-index: 1;
+}
+.page-hero .kicker {
+  font-size: 13px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.15em; color: var(--blue-text); margin-bottom: 1.5rem;
+}
+.page-hero h1 {
+  font-family: Figtree, sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400; letter-spacing: -2px; line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.page-hero h1 em { font-style: italic; }
+.page-hero .subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 300;
+  max-width: 560px; opacity: 0.7; line-height: 1.5;
+}
+
+/* ═══ STUFEN-TABS ═══ */
+.tab-nav {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+  display: flex; gap: 0.5rem;
+  position: relative; z-index: 1;
+  border-bottom: 1px dashed var(--blue);
+  padding-bottom: 0;
+  overflow-x: auto;
+}
+.tab-btn {
+  font-family: Figtree, sans-serif; font-size: 14px; font-weight: 500;
+  padding: 0.75rem 1.25rem; border: none; background: none;
+  color: var(--muted); cursor: pointer; white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  position: relative; bottom: -1px;
+}
+.tab-btn:hover { color: var(--ink); }
+.tab-btn.active { color: var(--ink); font-weight: 600; }
+.tab-btn[data-tab="berufsschule"].active { border-bottom-color: var(--green); }
+.tab-btn[data-tab="hochschule"].active { border-bottom-color: var(--blue); }
+.tab-btn[data-tab="gymnasium"].active { border-bottom-color: var(--orange); }
+
+.tab-emoji { margin-right: 0.35rem; }
+
+/* ═══ WALKTHROUGH ═══ */
+.walkthrough {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+  position: relative; z-index: 1;
+}
+.walkthrough[hidden] { display: none; }
+
+/* Situation Card */
+.situation-card {
+  display: grid; grid-template-columns: 1fr auto; gap: 2rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+.situation-label {
+  font-size: 12px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.12em; margin-bottom: 0.75rem;
+}
+.situation-card h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 400;
+  letter-spacing: -1px; line-height: 1.15; margin-bottom: 0.75rem;
+}
+.situation-card p {
+  font-size: 16px; font-weight: 300; opacity: 0.7;
+  max-width: 520px; line-height: 1.6;
+}
+
+/* Illustration */
+.illust-scene {
+  width: clamp(140px, 18vw, 220px); flex-shrink: 0;
+}
+.illust-scene img {
+  width: 100%; height: auto;
+  filter: saturate(1.15) brightness(1.05);
+}
+
+/* Steps */
+.step {
+  margin-bottom: 2rem;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.step.visible { opacity: 1; transform: translateY(0); }
+
+.step-header {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.step-badge {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: white; flex-shrink: 0;
+}
+.step-badge.green { background: var(--green); }
+.step-badge.blue { background: var(--blue); }
+.step-badge.orange { background: var(--orange); }
+.step-badge.ink { background: var(--ink); }
+
+.step-title {
+  font-size: 13px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.step-title.green { color: var(--green-text); }
+.step-title.blue { color: var(--blue-text); }
+.step-title.orange { color: var(--orange-text); }
+
+/* Content blocks inside steps */
+.output-box {
+  background: var(--bg-light);
+  border: 1px dashed var(--blue);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  font-size: 15px; line-height: 1.7;
+  position: relative;
+}
+.output-box .source-tag {
+  position: absolute; top: -10px; left: 1rem;
+  background: var(--bg); padding: 0 0.5rem;
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--muted);
+}
+
+/* Highlights */
+.hl-ok {
+  background: rgba(1,196,118,0.12);
+  border-left: 3px solid var(--green);
+  padding: 0.1rem 0.5rem; margin: 0.3rem 0;
+  display: block; border-radius: 0 6px 6px 0;
+}
+.hl-problem {
+  background: rgba(246,97,46,0.10);
+  border-left: 3px solid var(--orange);
+  padding: 0.1rem 0.5rem; margin: 0.3rem 0;
+  display: block; border-radius: 0 6px 6px 0;
+}
+.hl-anmerkung {
+  font-size: 13px; font-weight: 500; margin-left: 0.5rem;
+}
+.hl-anmerkung.green { color: var(--green-text); }
+.hl-anmerkung.orange { color: var(--orange-text); }
+
+/* Decision card */
+.decision-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(42,42,42,0.06);
+}
+.decision-row {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(56,129,241,0.15);
+}
+.decision-row:last-child { border-bottom: none; }
+.decision-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+.decision-text { font-size: 15px; font-weight: 400; line-height: 1.5; }
+.decision-reason { font-size: 13px; color: var(--muted); margin-top: 0.2rem; }
+
+/* Beleg quote */
+.beleg-box {
+  background: rgba(215,188,237,0.12);
+  border-left: 3px solid var(--lilac);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 15px; font-style: italic;
+  line-height: 1.6; color: var(--ink);
+}
+.beleg-box .beleg-author {
+  font-style: normal; font-size: 13px; font-weight: 500;
+  color: var(--muted); margin-top: 0.5rem; display: block;
+}
+
+/* Result card */
+.result-card {
+  background: var(--green);
+  color: var(--ink);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  display: flex; align-items: center; gap: 1.5rem;
+}
+.result-card h3 {
+  font-size: 20px; font-weight: 500; letter-spacing: -0.5px;
+  margin-bottom: 0.25rem;
+}
+.result-card p { font-size: 15px; opacity: 0.8; }
+.result-card .result-link {
+  display: inline-block; margin-top: 0.75rem;
+  font-weight: 600; font-size: 14px; color: var(--ink);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.result-check {
+  width: 56px; height: 56px; flex-shrink: 0;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+}
+
+/* Timeline connector */
+.connector {
+  width: 2px; height: 24px;
+  background: linear-gradient(to bottom, var(--blue) 0%, transparent 100%);
+  margin: 0 0 0 17px;
+  opacity: 0.2;
+}
+
+/* ═══ OVERVIEW CARDS (Sektion für index.html) ═══ */
+.overview-section {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem);
+  position: relative; z-index: 1;
+  border-top: 1px dashed var(--blue);
+}
+.overview-section h2 {
+  font-size: clamp(2rem, 5vw, 3rem); font-weight: 400;
+  letter-spacing: -2px; line-height: 1.05; margin-bottom: 0.5rem;
+}
+.overview-section .tagline {
+  font-size: 16px; font-weight: 300; opacity: 0.6;
+  margin-bottom: 2.5rem; max-width: 480px;
+}
+
+.praxis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.praxis-card {
+  border: 1px dashed var(--blue);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex; flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer; text-decoration: none; color: inherit;
+}
+.praxis-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(42,42,42,0.08); }
+.praxis-card:nth-child(1) { border-top: 3px solid var(--green); }
+.praxis-card:nth-child(2) { border-top: 3px solid var(--blue); }
+.praxis-card:nth-child(3) { border-top: 3px solid var(--orange); }
+
+.praxis-card .card-icon {
+  width: 64px; height: 64px; margin-bottom: 1rem;
+}
+.praxis-label {
+  font-size: 12px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.12em; margin-bottom: 0.5rem;
+}
+.praxis-label.green { color: var(--green-text); }
+.praxis-label.blue { color: var(--blue-text); }
+.praxis-label.orange { color: var(--orange-text); }
+
+.praxis-card h3 {
+  font-size: 20px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.5rem;
+}
+.praxis-card p {
+  font-size: 15px; font-weight: 300; opacity: 0.6; line-height: 1.5; flex: 1;
+}
+.praxis-card .card-footer {
+  font-size: 13px; font-weight: 500; color: var(--blue);
+  margin-top: 1rem; display: flex; align-items: center; gap: 0.3rem;
+}
+
+/* ═══ FOOTER CTA ═══ */
+.page-cta {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 2rem clamp(1rem, 3vw, 2rem) clamp(3rem, 6vw, 4rem);
+  text-align: center;
+  position: relative; z-index: 1;
+}
+.cta_green {
+  border: 2px solid var(--green); background: var(--green); color: var(--ink);
+  padding: 15px 28px; border-radius: 30px; display: inline-block;
+  font-size: 16px; font-weight: 500; font-family: Figtree, sans-serif;
+  cursor: pointer; transition: background .2s, color .2s; text-decoration: none;
+}
+.cta_green:hover { background: transparent; color: var(--green); }
+
+/* ═══ FOOTER ═══ */
+.page-footer {
+  text-align: center; padding: 2rem 0 1rem;
+  font-size: 0.8rem; color: var(--muted);
+  position: relative; z-index: 1;
+}
+.page-footer a { color: var(--blue); text-decoration: none; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 900px) {
+  .situation-card { grid-template-columns: 1fr; }
+  .illust-scene { width: 160px; margin: 0 auto; order: -1; }
+  .praxis-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .tab-btn { font-size: 13px; padding: 0.6rem 0.75rem; }
+}
+
+/* ═══ A11Y ═══ */
+@media (prefers-reduced-motion: reduce) {
+  .step { opacity: 1; transform: none; transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NOTEBOOK LINES ═══ -->
+<div class="notebook-lines" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav-mini">
+  <a href="../" class="nav-mini-logo"><img src="../asset/logo/kialog-final-blau.svg" alt="KIalog Hirschi" height="48"></a>
+  <a href="../#kontakt" class="nav-mini-cta">Kontakt</a>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     VARIANTE A: Übersichtskarten (für index.html)
+     ═══════════════════════════════════════ -->
+<div class="overview-section">
+  <h2>Aus der Praxis.</h2>
+  <p class="tagline">Drei Stufen. Drei Situationen. Dieselbe Methode. Aktuell mit Schwerpunkt Sprache. Weitere Fächer folgen.</p>
+
+  <div class="praxis-grid">
+
+    <!-- Karte 1: Berufsschule -->
+    <a class="praxis-card" href="#" onclick="switchTab('berufsschule');return false;">
+      <img class="card-icon" src="../asset/illust-niveaus.png" alt="Drei Niveaus" style="width:72px;height:auto;filter:saturate(1.15);">
+      <div class="praxis-label green">Berufsfachschule</div>
+      <h3>Arbeitsblatt auf 3 Niveaus</h3>
+      <p>Du hast eine EBA-Klasse mit hohem DaZ-Anteil. KI differenziert dein Arbeitsblatt in drei Niveaus. Du prüfst, was stimmt und was nicht.</p>
+      <span class="card-footer">Walkthrough ansehen &rarr;</span>
+    </a>
+
+    <!-- Karte 2: Hochschule -->
+    <a class="praxis-card" href="#" onclick="switchTab('hochschule');return false;">
+      <img class="card-icon" src="../asset/illust-pruefen.png" alt="KI-Feedback prüfen" style="width:72px;height:auto;filter:saturate(1.15);">
+      <div class="praxis-label blue">Hochschule / PH</div>
+      <h3>KI-Feedback auf Fallanalyse</h3>
+      <p>Deine Studierenden lassen sich von ChatGPT Feedback geben. Du zeigst ihnen, wie sie es prüfen und einordnen.</p>
+      <span class="card-footer">Walkthrough ansehen &rarr;</span>
+    </a>
+
+    <!-- Karte 3: Gymnasium -->
+    <a class="praxis-card" href="#" onclick="switchTab('gymnasium');return false;">
+      <img class="card-icon" src="../asset/illust-vergleich.png" alt="Texte vergleichen" style="width:72px;height:auto;filter:saturate(1.15);">
+      <div class="praxis-label orange">Gymnasium / FMS</div>
+      <h3>Prüfung mit Prozessfokus</h3>
+      <p>Du baust eine LZK, bei der deine Lernenden zwei Texte vergleichen und ihr Urteil begründen. Der Denkprozess zählt.</p>
+      <span class="card-footer">Walkthrough ansehen &rarr;</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     VARIANTE B: Walkthrough-Detail (Tabs)
+     ═══════════════════════════════════════ -->
+<div class="page-hero" id="walkthroughs">
+  <p class="kicker">Walkthrough</p>
+  <h1>So sieht <em>KIalog</em> in der Praxis aus.</h1>
+  <p class="subtitle">Drei echte Situationen. Dieselbe Methode. Schritt für Schritt, von der KI-Ausgabe bis zum fertigen Ergebnis.</p>
+</div>
+
+<nav class="tab-nav" aria-label="Stufe wählen">
+  <button class="tab-btn active" data-tab="berufsschule" onclick="switchTab('berufsschule')">
+    <span class="tab-emoji">🔧</span> Berufsfachschule
+  </button>
+  <button class="tab-btn" data-tab="hochschule" onclick="switchTab('hochschule')">
+    <span class="tab-emoji">🎓</span> Hochschule
+  </button>
+  <button class="tab-btn" data-tab="gymnasium" onclick="switchTab('gymnasium')">
+    <span class="tab-emoji">📋</span> Gymnasium
+  </button>
+</nav>
+
+<!-- ─────────────────────────────────────
+     TAB 1: BERUFSFACHSCHULE
+     ───────────────────────────────────── -->
+<div class="walkthrough" id="wt-berufsschule">
+
+  <div class="situation-card">
+    <div>
+      <div class="situation-label" style="color:var(--green-text);">Situation</div>
+      <h2>Du brauchst ein Arbeitsblatt zum Lehrvertrag. Auf drei Niveaus. Bis morgen.</h2>
+      <p>EBA-Klasse, 14 Lernende, davon 8 mit DaZ-Hintergrund. Der Lehrplan verlangt «Rechte und Pflichten im Lehrverhältnis». Du hast einen Quellentext aus dem Lehrmittel. Wie bringst du das auf drei Niveaus, mit Sprachstützen für DaZ?</p>
+    </div>
+    <div class="illust-scene">
+      <img src="../asset/illust-niveaus.png" alt="Drei farbige Niveaus: grün, blau, orange" loading="lazy">
+    </div>
+  </div>
+
+  <!-- SCHRITT: KI generiert -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge ink">KI</div>
+      <div class="step-title">NotebookLM generiert drei Niveaus</div>
+    </div>
+    <div class="output-box">
+      <span class="source-tag">KI-Output (NotebookLM)</span>
+      <p style="margin-top:0.5rem;"><strong>Niveau A (EBA/DaZ):</strong><br>
+      «Der Lehrvertrag ist ein Vertrag. Er wird von drei Personen unterschrieben. Das sind: Du, dein Chef und deine Eltern. Im Lehrvertrag steht, wie lange die Lehre dauert...»</p>
+      <p style="margin-top:1rem;"><strong>Niveau B (EFZ):</strong><br>
+      «Der Lehrvertrag ist ein befristeter Arbeitsvertrag, der zwischen der lernenden Person, dem Lehrbetrieb und der gesetzlichen Vertretung geschlossen wird...»</p>
+      <p style="margin-top:1rem;"><strong>Niveau C (erweitert):</strong><br>
+      «Analysieren Sie die Regelungen in OR Art. 344–346a und vergleichen Sie diese mit dem vorliegenden Lehrvertrag...»</p>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- SCHRITT 1: Prüfen -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge green">1</div>
+      <div class="step-title green">Prüfen</div>
+    </div>
+    <div class="output-box">
+      <span class="source-tag">Meine Prüfung</span>
+      <span class="hl-ok">Niveau A: Sprachniveau passt für A2/B1. Satzlänge angemessen. <span class="hl-anmerkung green">✓ stimmt</span></span>
+      <span class="hl-problem">Niveau A: «Chef» ist umgangssprachlich. Korrekt wäre «Berufsbildner:in». <span class="hl-anmerkung orange">✗ anpassen</span></span>
+      <span class="hl-ok">Niveau B: Fachbegriffe korrekt. Quelle OR 344 stimmt. <span class="hl-anmerkung green">✓ stimmt</span></span>
+      <span class="hl-problem">Niveau B: Aufgabe zu reproduktiv. Kein Transfer. <span class="hl-anmerkung orange">✗ anpassen</span></span>
+      <span class="hl-problem">Niveau A: Keine Sprachstützen für DaZ. Muss ich ergänzen. <span class="hl-anmerkung orange">✗ fehlt</span></span>
+      <span class="hl-ok">Niveau C: Gute Analysefrage, fordert Vergleich mit Originaltext. <span class="hl-anmerkung green">✓ stimmt</span></span>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- SCHRITT 2: Urteilen -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge blue">2</div>
+      <div class="step-title blue">Urteilen</div>
+    </div>
+    <div class="decision-card">
+      <div class="decision-row">
+        <span class="decision-icon">✅</span>
+        <div>
+          <div class="decision-text">Niveau A Grundstruktur <strong>übernehmen</strong></div>
+          <div class="decision-reason">Sprachniveau passt, Satzlänge angemessen für EBA</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-icon">🔄</span>
+        <div>
+          <div class="decision-text">«Chef» → «Berufsbildner:in» <strong>anpassen</strong></div>
+          <div class="decision-reason">Fachbegriff gemäss Lehrmittel, DaZ-Lernende müssen korrekten Begriff lernen</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-icon">➕</span>
+        <div>
+          <div class="decision-text">Sprachstützen für Niveau A <strong>ergänzen</strong></div>
+          <div class="decision-reason">Wortschatzbox und Satzanfänge für DaZ, fehlt im KI-Output komplett</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-icon">🔄</span>
+        <div>
+          <div class="decision-text">Niveau B Aufgabe <strong>umschreiben</strong></div>
+          <div class="decision-reason">Transferfrage statt Reproduktion: «Vergleiche mit deinem eigenen Lehrvertrag»</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-icon">✅</span>
+        <div>
+          <div class="decision-text">Niveau C <strong>übernehmen</strong></div>
+          <div class="decision-reason">Analysefrage gut formuliert, erfordert eigene Argumentation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- SCHRITT 3: Belegen -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge orange">3</div>
+      <div class="step-title orange">Belegen</div>
+    </div>
+    <div class="beleg-box">
+      «KI-generierte Grundstruktur übernommen. Fachbegriff korrigiert (Chef → Berufsbildner:in), Sprachstützen für DaZ ergänzt (Wortschatzbox, Satzanfänge), Niveau B um Transferfrage erweitert. Prüfung gegen Lehrmittel Brennpunkt und OR Art. 344. Zeitaufwand: 8 Minuten statt geschätzt 45 Minuten manuell.»
+      <span class="beleg-author">— Dokumentation zur Materialerstellung, 15. März 2026</span>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ERGEBNIS -->
+  <div class="step" data-step>
+    <div class="result-card">
+      <div class="result-check">✓</div>
+      <div>
+        <h3>Fertig. Drei Niveaus, geprüft und dokumentiert.</h3>
+        <p>Von 1 Quellentext zu 3 differenzierten Arbeitsblättern mit Sprachstützen. In 8 Minuten.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────────────
+     TAB 2: HOCHSCHULE
+     ───────────────────────────────────── -->
+<div class="walkthrough" id="wt-hochschule" hidden>
+
+  <div class="situation-card">
+    <div>
+      <div class="situation-label" style="color:var(--blue-text);">Situation</div>
+      <h2>Deine Studierenden lassen sich von ChatGPT Feedback auf ihre Fallanalyse geben.</h2>
+      <p>Reflexionsseminar, PH-Basisphase. 13 Studierende schreiben an ihrer Fallanalyse. Eine Studentin lässt ChatGPT ihr Kapitel «Interpretation» gegenlesen. Das Feedback klingt gut. Aber stimmt es auch?</p>
+    </div>
+    <div class="illust-scene">
+      <img src="../asset/illust-pruefen.png" alt="Laptop mit Häkchen und Fragezeichen" loading="lazy">
+    </div>
+  </div>
+
+  <!-- KI generiert -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge ink">KI</div>
+      <div class="step-title">ChatGPT gibt Feedback auf die Interpretation</div>
+    </div>
+    <div class="output-box">
+      <span class="source-tag">KI-Feedback (ChatGPT)</span>
+      <p style="margin-top:0.5rem;">«Deine Interpretation zeigt ein gutes Verständnis der Situation. Du könntest <strong>noch stärker auf die Perspektive der Schülerin eingehen</strong> und die emotionale Dimension der Interaktion berücksichtigen. Ausserdem wäre es hilfreich, <strong>Fachbegriffe wie "Classroom Management" einzubauen</strong>, um die Analyse wissenschaftlicher zu gestalten. Insgesamt ein solider Text mit Potenzial zur Vertiefung.»</p>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- Prüfen -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge green">1</div>
+      <div class="step-title green">Prüfen</div>
+    </div>
+    <div class="output-box">
+      <span class="source-tag">Abgleich mit Bewertungskriterien</span>
+      <span class="hl-ok">«Perspektive der Schülerin» passt zum Kriterium «Mehrperspektivität». <span class="hl-anmerkung green">✓ relevant</span></span>
+      <span class="hl-problem">«Classroom Management» passt nicht. Der Fall handelt von Beziehungsgestaltung, nicht von Klassenführung. <span class="hl-anmerkung orange">✗ falsche Kategorie</span></span>
+      <span class="hl-problem">«solider Text mit Potenzial» ist eine Floskel. Kein konkreter Bezug zum Bewertungsraster. <span class="hl-anmerkung orange">✗ generisch</span></span>
+      <span class="hl-problem">Kein Hinweis auf fehlende Quellenarbeit. Die Interpretation referenziert keine Fachliteratur. <span class="hl-anmerkung orange">✗ übersehen</span></span>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- Urteilen -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge blue">2</div>
+      <div class="step-title blue">Urteilen</div>
+    </div>
+    <div class="decision-card">
+      <div class="decision-row">
+        <span class="decision-icon">✅</span>
+        <div>
+          <div class="decision-text">Hinweis Mehrperspektivität <strong>übernehmen</strong></div>
+          <div class="decision-reason">Deckt sich mit Bewertungskriterium c) «Interpretation aus mehreren Perspektiven»</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-icon">❌</span>
+        <div>
+          <div class="decision-text">«Classroom Management» <strong>verwerfen</strong></div>
+          <div class="decision-reason">Kategorienfehler. Der Fall handelt von Beziehung, nicht von Klassenführung.</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-icon">❌</span>
+        <div>
+          <div class="decision-text">«solider Text mit Potenzial» <strong>verwerfen</strong></div>
+          <div class="decision-reason">Leere Bestätigung. Kein Lerneffekt, kein Bezug zu den Kriterien.</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-icon">➕</span>
+        <div>
+          <div class="decision-text">Fehlende Quellenarbeit <strong>selbst ergänzen</strong></div>
+          <div class="decision-reason">KI hat übersehen, dass keine Fachliteratur referenziert wird. Zentral für Kriterium d).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- Belegen -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge orange">3</div>
+      <div class="step-title orange">Belegen</div>
+    </div>
+    <div class="beleg-box">
+      «Von 4 KI-Feedbackpunkten 1 übernommen (Mehrperspektivität), 2 verworfen (thematisch falsch bzw. generisch), 1 kritischen Punkt selbst ergänzt (Quellenarbeit fehlt). Geprüft gegen das Bewertungsraster der Fallanalyse, Kriterien a–e.»
+      <span class="beleg-author">— Studentin M.K., Reflexionsseminar RS4, 27. März 2026</span>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- Ergebnis -->
+  <div class="step" data-step>
+    <div class="result-card" style="background:var(--blue);">
+      <div class="result-check">✓</div>
+      <div>
+        <h3 style="color:white;">KI-Feedback eingeordnet. Eigenes Urteil gestärkt.</h3>
+        <p style="color:rgba(255,255,255,0.85);">Die Studentin weiss jetzt, was sie aus dem Feedback mitnimmt und was nicht. Und warum.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────────────
+     TAB 3: GYMNASIUM
+     ───────────────────────────────────── -->
+<div class="walkthrough" id="wt-gymnasium" hidden>
+
+  <div class="situation-card">
+    <div>
+      <div class="situation-label" style="color:var(--orange-text);">Situation</div>
+      <h2>Du brauchst eine Lernzielkontrolle, die nicht einfach von ChatGPT gelöst werden kann.</h2>
+      <p>Deutsch, 2. Klasse Gymnasium. Thema: Argumentierendes Schreiben. Jede klassische Erörterung kann ChatGPT besser schreiben als die meisten Lernenden. Du brauchst ein Prüfungsformat, bei dem der Denkprozess zählt, nicht das Produkt.</p>
+    </div>
+    <div class="illust-scene">
+      <img src="../asset/illust-vergleich.png" alt="Zwei Dokumente mit Lupe" loading="lazy">
+    </div>
+  </div>
+
+  <!-- KI generiert -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge ink">KI</div>
+      <div class="step-title">KI generiert zwei Textvarianten zum selben Thema</div>
+    </div>
+    <div class="output-box">
+      <span class="source-tag">Aufgabenstellung (neu)</span>
+      <p style="margin-top:0.5rem;"><strong>Aufgabe:</strong> Lies die beiden Stellungnahmen zum Thema «Soll an Gymnasien eine Handyfreie Zone gelten?». Beide Texte wurden mit KI erstellt.</p>
+      <p style="margin-top:0.75rem;"><strong>Text A</strong> argumentiert sauber, nutzt drei Belege (JAMES-Studie, WHO, Schulordnung). Aber: Alle Argumente sind erwartbar, kein persönlicher Bezug, keine Gegenposition.</p>
+      <p style="margin-top:0.5rem;"><strong>Text B</strong> hat einen holprigen Einstieg, aber bringt ein unerwartetes Argument (Pausenkultur als sozialer Lernraum) und setzt sich mit der Gegenposition auseinander.</p>
+      <p style="margin-top:0.75rem;font-weight:500;">Deine Aufgabe (3 Teile):</p>
+      <p>1. Welcher Text überzeugt dich mehr? Begründe mit mindestens zwei Kriterien.<br>
+      2. Markiere in Text A eine Stelle, die ChatGPT typisch ist. Erkläre, warum.<br>
+      3. Schreibe den schwächsten Absatz von Text B so um, dass er besser wird. Begründe deine Änderungen.</p>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- Prüfen -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge green">1</div>
+      <div class="step-title green">Prüfen</div>
+    </div>
+    <div class="output-box">
+      <span class="source-tag">KI-Resistenz-Test</span>
+      <span class="hl-ok">Aufgabe 1 (Vergleich + Begründung) erfordert eigenes Urteil. ChatGPT kann keine authentische Präferenz formulieren. <span class="hl-anmerkung green">✓ KI-resistent</span></span>
+      <span class="hl-ok">Aufgabe 2 (KI-Muster erkennen) setzt Meta-Wissen über KI-Texte voraus. <span class="hl-anmerkung green">✓ KI-resistent</span></span>
+      <span class="hl-problem">Aufgabe 3 (Umschreiben) könnte theoretisch von KI gelöst werden. Aber: Die Begründung der Änderungen macht den Unterschied. <span class="hl-anmerkung orange">⚠ teilweise</span></span>
+      <span class="hl-ok">Gesamtformat: Kein «richtiges» Ergebnis, sondern Qualität der Argumentation zählt. <span class="hl-anmerkung green">✓ prozessorientiert</span></span>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- Urteilen -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge blue">2</div>
+      <div class="step-title blue">Urteilen</div>
+    </div>
+    <div class="decision-card">
+      <div class="decision-row">
+        <span class="decision-icon">✅</span>
+        <div>
+          <div class="decision-text">Vergleichsformat <strong>übernehmen</strong></div>
+          <div class="decision-reason">Verlangt begründetes Urteil, nicht reproduzierbares Wissen</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-icon">✅</span>
+        <div>
+          <div class="decision-text">KI-Muster-Erkennung <strong>übernehmen</strong></div>
+          <div class="decision-reason">Lernende lernen, KI-Output kritisch zu lesen, nicht nur zu konsumieren</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-icon">🔄</span>
+        <div>
+          <div class="decision-text">Aufgabe 3 <strong>anpassen</strong></div>
+          <div class="decision-reason">Zusatz: «Erkläre, was deine Version besser macht als das Original und als ein möglicher KI-Vorschlag.» So wird der Reflexionsanteil explizit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- Belegen -->
+  <div class="step" data-step>
+    <div class="step-header">
+      <div class="step-badge orange">3</div>
+      <div class="step-title orange">Belegen</div>
+    </div>
+    <div class="beleg-box">
+      «LZK-Format: Textvergleich + Reflexion statt klassische Erörterung. Alle drei Aufgaben auf KI-Resistenz getestet. Aufgabe 3 um expliziten Reflexionsauftrag ergänzt. Bewertung erfolgt über Argumentationsqualität (Kriterienraster), nicht über Textlänge oder formale Korrektheit.»
+      <span class="beleg-author">— Dokumentation zur Prüfungsgestaltung, Deutschunterricht Gym 2. Klasse</span>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- Ergebnis -->
+  <div class="step" data-step>
+    <div class="result-card" style="background:var(--orange);">
+      <div class="result-check" style="background:rgba(255,255,255,0.25);">✓</div>
+      <div>
+        <h3 style="color:white;">Eine Prüfung, die Denken prüft. Nicht Formulieren.</h3>
+        <p style="color:rgba(255,255,255,0.85);">Lernende vergleichen, urteilen, begründen. ChatGPT kann das nicht ersetzen. Der Prozess ist die Leistung.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ FOOTER CTA ═══ -->
+<div class="page-cta">
+  <p style="font-size:18px;font-weight:300;opacity:0.6;margin-bottom:1.25rem;">Im Workshop durchläufst du alle drei Szenarien mit deinem eigenen Material.</p>
+  <a href="../#kontakt" class="cta_green">KIalog Workshop anfragen</a>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="page-footer">
+  <p>&copy; 2026 Manuel Hirschi &middot; <a href="../">kialog.ch</a></p>
+</footer>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tab === tab);
+  });
+  document.querySelectorAll('.walkthrough').forEach(wt => {
+    wt.hidden = wt.id !== 'wt-' + tab;
+  });
+  document.getElementById('walkthroughs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  history.replaceState(null, '', '#wt-' + tab);
+  setTimeout(() => observeSteps(), 100);
+}
+
+function observeSteps() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.step:not(.visible)').forEach(step => observer.observe(step));
+}
+
+// Handle URL fragment on load (e.g. #wt-hochschule)
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.replace('#wt-', '');
+  if (['berufsschule', 'hochschule', 'gymnasium'].includes(hash)) {
+    switchTab(hash);
+  }
+  observeSteps();
+});
+</script>
+</body>
+</html>
