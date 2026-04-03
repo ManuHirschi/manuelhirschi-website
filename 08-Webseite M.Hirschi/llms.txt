@@ -1,38 +1,39 @@
 # Manuel Hirschi — KIalog
 
-> Weiterbildung für Lehrpersonen: KI-Output beurteilen statt blind übernehmen.
+> KI-Didaktik für Lehrpersonen und Dozierende. Drei Schritte zum eigenen Urteil.
 
 ## Wer
 
-Manuel Hirschi verbindet drei Perspektiven: Forschung zur epistemischen Qualität von KI-Output (Universität Zürich, Evaluative Judgement), Ausbildung von Lehrpersonen (Dozent BpSt, PH FHNW), tägliche Praxis in der Lernbegleitung Deutsch an der gibb Bern und als ABU-Lehrperson an einer weiteren Berufsfachschule. 18 Jahre Unterrichtserfahrung, Primar bis Hochschule.
+Manuel Hirschi. Lehrperson, Dozent und Forscher. 18 Jahre Unterrichtserfahrung, alle Stufen.
+- Schulpraxis: Berufsfachschule gibb Bern (Allgemeinbildung, Deutsch, Lernbegleitung)
+- Lehre: PH FHNW, Berufspraktische Studien (Reflexionsseminare, Partnerschulmoderation)
+- Forschung: Doktorand UZH (Evaluative Judgement bei KI-generiertem Feedback)
 
 ## Was
 
-KIalog ist ein Weiterbildungsformat für Lehrpersonen an Berufsfachschulen, Volksschulen und Pädagogischen Hochschulen in der Schweiz. Kernidee: Aus eigenem Unterrichtsmaterial wird mit KI differenzierter Unterricht auf drei Niveaus gebaut — und in 60 Sekunden geprüft, ob der Output für die eigene Klasse taugt. Toolunabhängig (NotebookLM, Claude, ChatGPT).
+KIalog ist KI-Didaktik für Sek II und Hochschulen in der Schweiz. Methode: Prüfen → Urteilen → Belegen. Du lernst es zuerst selbst, dann gibst du es weiter. Toolunabhängig (NotebookLM, Claude, ChatGPT).
 
 ## Kernaussagen
 
-- Evaluative Judgement (Urteilskompetenz auf KI-Output) als Grundprinzip — eingebaut in jeden Workflow, nicht als Theorie
-- Soweit sichtbar das einzige Angebot in der Deutschschweiz, das ABU + DaZ + EBA + KI-Didaktik + Forschungsbasis verbindet
-- Dreifachprofil: gibb Bern (Praxis) + PH FHNW (Ausbildung) + UZH (Forschung)
-- Drei Prinzipien: Werkzeug, kein Wundermittel / Du bleibst im Lead / Sofort einsetzbar
-- Neuer Rahmenlehrplan ABU (seit 1.1.2026): KI an sieben Stellen verbindlich verankert
-- EU AI Act Art. 4 (AI Literacy Obligation) gilt seit Februar 2025 für alle Organisationen
-- Stufenübergreifend: Das Verfahren funktioniert von der Primarschule bis zur Hochschule
+- Drei Schritte: Prüfen, Urteilen, Belegen. Der Mechanismus funktioniert von EBA bis Hochschule.
+- Drei Prinzipien: Fundiert / Deine Unterlagen / Sofort einsetzbar
+- Drei Szenarien: Material differenzieren / KI-Feedback beurteilen / KI-gerecht prüfen
+- Forschungsbasiert: Evaluative Judgement (Tai et al., 2018), Feedback Literacy (Carless & Boud, 2018)
+- 93% der Schweizer Jugendlichen haben KI-Tools ausprobiert (Latzer & Festic 2024, UZH)
+- >23% der Sätze in KI-Feedback sind nicht durch den Text gedeckt (Jia et al. 2024)
+- 6 Lehrpläne, Frameworks und Gesetze fordern KI-Urteilskompetenz
 
 ## Formate
 
 - Impuls: 60–90 Min, CHF 800
 - KIalog Workshop: Halbtag CHF 1'800 / Ganztag CHF 3'000 (Kernformat, als SCHILW buchbar)
-- Fachentwicklung: 1 Semester, CHF 9'000
-- Keynote: 45–60 Min, auf Anfrage
+- Fachbegleitung: 1 Semester, CHF 9'000
 
 ## Weitere Seiten
 
-- https://kialog.ch/beispiel/lehrvertrag.html: Vorher/Nachher-Beispiel — Arbeitsblatt «Lehrvertrag» auf drei Niveaus differenziert
-- https://kialog.ch/ki-im-abu/: KI im ABU — Hintergrund und Kontext
-- https://kialog.ch/ki-weiterbildung-bern/: KI-Weiterbildung in Bern — Formate und Preise
-- https://kialog.ch/llms-full.txt: Vollständiger Seiteninhalt aller Seiten (für LLMs)
+- https://kialog.ch/beispiel/prototyp-praxis.html — Walkthroughs (3 Stufen, 3 Situationen)
+- https://kialog.ch/beispiel/lehrvertrag.html — Beispiel Lehrvertrag auf 3 Niveaus
+- https://kialog.ch/llms-full.txt — Vollständiger Seiteninhalt
 
 ## Kontakt
 
