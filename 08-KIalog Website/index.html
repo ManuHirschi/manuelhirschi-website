@@ -324,10 +324,12 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
 }
 .praxis-panel { display: none; }
 .praxis-panel.active {
-  display: grid;
-  grid-template-columns: clamp(140px, 20vw, 220px) 1fr;
-  gap: 2rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.praxis-panel img {
+  max-width: 280px;
 }
 .praxis-panel h3 { font-size: 20px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
 .praxis-panel .praxis-desc { font-size: 16px; font-weight: 400; opacity: 0.75; line-height: 1.6; margin-bottom: 1rem; }
@@ -535,7 +537,6 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   .hero-subtitle, .hero-cta-row { text-align: center; }
   .hero-cta-row { justify-content: center; }
   .hero-subtitle { margin-left: auto; margin-right: auto; }
-  .praxis-panel.active { grid-template-columns: 1fr; }
   .format-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
 }
@@ -730,29 +731,30 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
     </div>
 
     <div class="praxis-panel active reveal" id="tab-bfs" role="tabpanel" aria-labelledby="tab-btn-bfs">
-      <img src="asset/illust-arbeitsblatt.png" alt="Illustration: Arbeitsblatt auf drei Niveaus" loading="lazy" style="width:100%;border-radius:12px;">
+      <img src="asset/illust-arbeitsblatt.png" alt="Illustration: Arbeitsblatt auf drei Niveaus" loading="lazy">
       <div>
         <h3>Arbeitsblatt auf 3 Niveaus</h3>
         <p class="praxis-desc">Du hast eine EBA-Klasse mit DaZ-Anteil. KI differenziert dein Arbeitsblatt auf drei Niveaus. Du prüfst. Was stimmt sprachlich? Was fehlt fachlich? Was übernimmst du?</p>
-        <a href="beispiel/prototyp-praxis.html#wt-berufsschule" class="cta_ghost_blue" style="padding:10px 20px;font-size:14px;">Beispiel ansehen &rarr;</a>
+        <p class="praxis-desc" style="font-weight:500;opacity:0.9;">KI schreibt «Chef» statt «Berufsbildner:in» und vergisst Sprachstützen für DaZ-Lernende. Du weisst das sofort. Du korrigierst es in 8 Minuten.</p>
+        <a href="beispiel/prototyp-praxis.html#wt-berufsschule" class="cta_blue_fill" style="margin-top:0.5rem;">Walkthrough ansehen &rarr;</a>
       </div>
     </div>
 
     <div class="praxis-panel" id="tab-gym" role="tabpanel" aria-labelledby="tab-btn-gym">
-      <img src="asset/illust-vergleich.png" alt="Illustration: Zwei Dokumente im Vergleich" loading="lazy" style="width:100%;border-radius:12px;">
+      <img src="asset/illust-vergleich.png" alt="Illustration: Zwei Dokumente im Vergleich" loading="lazy">
       <div>
         <h3>Prüfung mit Prozessfokus</h3>
-        <p class="praxis-desc">Du baust eine Prüfung, bei der zwei Texte verglichen werden. Lernende begründen ihr Urteil. Das Produkt ist zweitrangig. Der Denkprozess zählt.</p>
-        <a href="beispiel/prototyp-praxis.html#wt-gymnasium" class="cta_ghost_blue" style="padding:10px 20px;font-size:14px;">Beispiel ansehen &rarr;</a>
+        <p class="praxis-desc">KI-generierte Texte als Prüfungsgrundlage. Lernende vergleichen, urteilen, begründen. ChatGPT kann die Aufgabe nicht lösen, weil das eigene Urteil verlangt ist.</p>
+        <a href="beispiel/prototyp-praxis.html#wt-gymnasium" class="cta_blue_fill" style="margin-top:0.5rem;">Walkthrough ansehen &rarr;</a>
       </div>
     </div>
 
     <div class="praxis-panel" id="tab-ph" role="tabpanel" aria-labelledby="tab-btn-ph">
-      <img src="asset/illust-laptop-feedback.png" alt="Illustration: KI-Feedback wird aktiv bearbeitet" loading="lazy" style="width:100%;border-radius:12px;">
+      <img src="asset/illust-laptop-feedback.png" alt="Illustration: KI-Feedback wird aktiv bearbeitet" loading="lazy">
       <div>
         <h3>KI-Feedback auf Fallanalyse</h3>
-        <p class="praxis-desc">Studierende lassen sich von ChatGPT Feedback geben. Du zeigst, wie sie dieses Feedback prüfen, einordnen und daraus lernen.</p>
-        <a href="beispiel/prototyp-praxis.html#wt-hochschule" class="cta_ghost_blue" style="padding:10px 20px;font-size:14px;">Beispiel ansehen &rarr;</a>
+        <p class="praxis-desc">Von 4 KI-Feedbackpunkten: 1 übernommen, 2 verworfen, 1 selbst ergänzt. Das ist KI-Urteilskompetenz. Nicht Misstrauen, sondern Einordnung.</p>
+        <a href="beispiel/prototyp-praxis.html#wt-hochschule" class="cta_blue_fill" style="margin-top:0.5rem;">Walkthrough ansehen &rarr;</a>
       </div>
     </div>
   </div>
