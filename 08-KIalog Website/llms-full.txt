@@ -21,104 +21,98 @@ Drei Perspektiven:
 
 ### Hero
 
-KI-Didaktik für Lehrpersonen und Dozierende.
+KI ist im Unterricht. Was jetzt?
 
-KI ist da. Die Frage ist nicht ob, sondern wie.
+Lernende nutzen sie. Lehrpersonen auch. Was fehlt, ist die Methode — nicht ein weiteres Tool.
 
-Dein Unterricht. Dein Urteil. Mit KI.
+Zwei Einstiege: Lehrpersonen und Schulleitungen.
 
-KI liefert Vorschläge. Du entscheidest, was in den Unterricht geht. In drei Schritten wird aus dem KI-Output dein Material. Für Berufsfachschulen, Gymnasien und Hochschulen.
+### Realität
 
-### Spiegel
+KI verbieten? Das ist nicht mehr die Frage.
 
-Kommt dir das bekannt vor?
-
-- "Meine Lernenden nutzen ChatGPT. Ich habe keine Antwort darauf."
-- "Ich will KI einsetzen, aber wo anfangen?"
-- "Wie prüfe ich, wenn alles mit KI geschrieben werden kann?"
-
-Genau dafür ist KIalog gemacht.
-
-### Zahlen
+Lernende generieren Texte in Sekunden. Lehrpersonen differenzieren Material, entwerfen Prüfungen, bereiten Lektionen vor — schneller als je zuvor. Das ist nicht das Problem. Das Problem ist: Wer prüft, was zurückkommt?
 
 - 93% der Schweizer Jugendlichen haben KI-Tools ausprobiert (Latzer & Festic 2024, UZH)
-- >23% der Sätze in KI-Feedback sind nicht durch den Text gedeckt (Jia et al. 2024, EDM)
-- 6 Lehrpläne, Frameworks und Gesetze fordern KI-Urteilskompetenz (nRLP ABU · LP21 · OECD · UNESCO · EU AI Act · LCH)
-- 3× Perspektiven: Schulpraxis, Lehre, Forschung (gibb Bern · PH FHNW · UZH)
+- >23% der Aussagen in KI-generierten Texten sind fachlich nicht gedeckt (Jia et al. 2024, EDM)
 
-Es gibt Tool-Schulungen. Es gibt teure CAS-Programme. Was es nicht gibt: KI-Didaktik, die am nächsten Tag funktioniert.
+### Methode — Du kennst dein Material. Das ist dein Vorteil.
 
-### KIalog Methode — Drei Schritte. Dein Urteil.
+KIalog ist kein Kurs über KI. Es ist eine Methode, die mit dem anfängt, was du schon hast. Du lädst dein Unterrichtsmaterial. KI skaliert, differenziert, entwirft. Du weisst, was darin steht — und merkst sofort, wenn etwas nicht stimmt. Genau das ist KI-Urteilskompetenz. Und genau das fordern sechs Rahmenwerke heute schon.
 
-KI generiert. Du entscheidest. Du lernst es zuerst selbst. Dann gibst du es weiter.
+**Schritt 1: Prüfen.** Stimmt das fachlich? Fehlt etwas? Wo hat die KI vereinfacht, was nicht vereinfacht werden darf?
 
-**Schritt 1: Prüfen.** Stimmt das fachlich? Fehlt etwas? Wo hat die KI zu stark vereinfacht? Du vergleichst den Output mit deiner Quelle.
+**Schritt 2: Urteilen.** Übernehmen, anpassen oder verwerfen. Nicht die KI entscheidet über Qualität. Du entscheidest.
 
-**Schritt 2: Urteilen.** Du entscheidest. Übernehmen, anpassen, verwerfen. Nicht die KI bestimmt die Qualität, sondern dein Fachurteil.
+**Schritt 3: Belegen.** Warum hast du was geändert? Dein Denkprozess wird sichtbar — für dich, für deine Lernenden, für dein Team.
 
-**Schritt 3: Belegen.** Sichtbar machen, warum. Was hast du geändert und aus welchem Grund? Dein Denkprozess wird nachvollziehbar.
+Dieselbe Methode. Egal ob Arbeitsblatt, Prüfung oder Feedback.
 
-Derselbe Mechanismus, egal ob Berufsschule, Gymnasium oder Hochschule.
+### Praxis — So sieht das aus.
 
-### 3 Szenarien
+Kein Theoriebeispiel. Echtes Material, echte Entscheidung.
 
-1. **Berufsfachschule — Arbeitsblatt auf 3 Niveaus.** EBA-Klasse mit hohem DaZ-Anteil. KI differenziert dein Arbeitsblatt in drei Niveaus. Du prüfst, was stimmt und was nicht. → Walkthrough: https://kialog.ch/beispiel/prototyp-praxis.html#wt-berufsschule
+1. **Berufsfachschule — Arbeitsblatt auf 3 Niveaus.** Du hast eine EBA-Klasse mit DaZ-Anteil. KI differenziert dein Arbeitsblatt auf drei Niveaus. Du prüfst: Was stimmt sprachlich? Was fehlt fachlich? Was übernimmst du? → Walkthrough: https://kialog.ch/beispiel/prototyp-praxis.html#wt-berufsschule
 
-2. **Hochschule / PH — KI-Feedback auf Fallanalyse.** Studierende lassen sich von ChatGPT Feedback geben. Du zeigst ihnen, wie sie das Feedback prüfen und einordnen. → Walkthrough: https://kialog.ch/beispiel/prototyp-praxis.html#wt-hochschule
+2. **Gymnasium / FMS — Prüfung mit Prozessfokus.** Du baust eine Prüfung, bei der zwei Texte verglichen werden. Lernende begründen ihr Urteil. Das Produkt ist zweitrangig. Der Denkprozess zählt. → Walkthrough: https://kialog.ch/beispiel/prototyp-praxis.html#wt-gymnasium
 
-3. **Gymnasium / FMS — Prüfung mit Prozessfokus.** Du baust eine LZK, bei der Lernende zwei Texte vergleichen und ihr Urteil begründen. Der Denkprozess zählt, nicht das Produkt. → Walkthrough: https://kialog.ch/beispiel/prototyp-praxis.html#wt-gymnasium
+3. **PH / Hochschule — KI-Feedback auf Fallanalyse.** Studierende lassen sich von ChatGPT Feedback geben. Du zeigst, wie sie dieses Feedback prüfen, einordnen und daraus lernen. → Walkthrough: https://kialog.ch/beispiel/prototyp-praxis.html#wt-hochschule
 
-### 3 Prinzipien
+### Für Schulleitungen und Abteilungsleitungen
 
-1. **Fundiert.** Forschungsbasiert, in internationalen Rahmenwerken verankert. Basierend auf Evaluative Judgement (Tai et al., 2018) und Feedback Literacy (Carless & Boud, 2018).
+KI-Urteilskompetenz ist in sechs Rahmenwerken verbindlich verankert — vom nRLP bis zum EU AI Act. KIalog macht das für Ihr Team greifbar: praxisnah, an Ihrem Material, an einem halben Tag. Alle Formate sind als SCHILW buchbar. Im Kanton Bern können Kosten über die BKD rückerstattet werden.
 
-2. **Deine Unterlagen.** Du bringst mit, was du hast. Kein fremdes Beispielmaterial. Was du im Workshop baust, gehört dir.
+Was Ihr Team nach einem Halbtag hat: Eine gemeinsame Methode. Fertige Bausteine für den nächsten Unterrichtstag. Das Wissen, welche Tools an Ihrer Schule datenschutzkonform funktionieren.
 
-3. **Sofort einsetzbar.** Was du im Workshop erarbeitest, kannst du am nächsten Tag einsetzen. Keine Theorie für die Schublade.
+### Warum ich — Ich unterrichte das, was ich erforsche.
 
-### Warum ich
+An der gibb Bern begleite ich Lernende in Allgemeinbildung und Deutsch — täglich, mit KI. An der PH FHNW doziere ich in den Berufspraktischen Studien. An der UZH forsche ich zu einer Frage: Wie lernt man, KI-Output selbst zu beurteilen?
 
-An der Berufsfachschule gibb Bern unterrichte und begleite ich Lernende in Allgemeinbildung und Deutsch. An der PH FHNW doziere ich in den Berufspraktischen Studien und begleite Studierende in der Schulpraxis. An der UZH forsche ich zu einer Frage: Wie lernt man, KI-Output selbst zu beurteilen?
+18 Jahre Unterricht, von der Primarschule bis zur Hochschule. Was ich erforsche, unterrichte ich. Was ich unterrichte, funktioniert.
 
-Was ich erforsche, steckt am nächsten Tag in meinem Unterricht. Und dann in deinem.
+Wer mit KI arbeitet, führt einen Dialog. KIalog zeigt, wie man ihn gewinnt.
 
 ### Drei Formate. Klare Preise.
 
-**Impuls** — 60–90 Minuten · Weiterbildungstag, Konferenz oder Teamtag. Eine Demonstration mit echtem Material. Kein Theorievortrag. CHF 800. Funktioniert auch als Keynote für Tagungen und Konferenzen.
+**Impuls** — 60–90 Minuten · Weiterbildungstag, Konferenz oder Teamtag. Kein Vortrag. Eine Demonstration mit echtem Material. CHF 800.
 
-**KIalog Workshop (empfohlen)** — Halbtag oder Ganztag · Inhouse, 6–16 Teilnehmende. Du arbeitest mit deinem Material. Block 1: Prompt Engineering für den Unterricht. Block 2: Prüfen, urteilen, belegen. CHF 1'800 Halbtag / CHF 3'000 Ganztag (inkl. KI-Literacy + rechtlicher Rahmen).
+**KIalog Workshop (empfohlen)** — Halbtag oder Ganztag · Inhouse, 6–16 Teilnehmende. Du arbeitest mit deinem Material. Du gehst mit fertigen Bausteinen und einer Checkliste raus. CHF 1'800 Halbtag / CHF 3'000 Ganztag.
 
 **Fachbegleitung** — 1 Semester · Workshop, Training, Begleitung. Für Teams, die wollen, dass es bleibt. CHF 9'000. Ganze Fachgruppe oder Abteilung.
 
 Alle Formate als schulinterne Weiterbildung (SCHILW) buchbar. Reisekosten nach Aufwand.
 
-Ein CAS «KI für Lehrpersonen» kostet CHF 9'900 pro Person (PHBern, 16 ECTS). KIalog bringt euch für einen Bruchteil weiter.
+### FAQ — Für Lehrpersonen
 
-### FAQ
+**Muss ich KI schon kennen?** Nein. Du musst nicht mal KI mögen. Du musst einmal sehen, was mit deinem eigenen Material möglich ist. Der Rest kommt von selbst.
 
-**Muss ich KI schon kennen, um teilzunehmen?** Nein. KIalog setzt keine Vorkenntnisse voraus.
+**Für welche Stufen ist KIalog geeignet?** Gesamte Sek II — Berufsfachschulen, Gymnasien, FMS, Brückenangebote — und Pädagogische Hochschulen.
 
-**Für welche Stufen ist KIalog geeignet?** Für die gesamte Sek II (Berufsfachschulen, Gymnasien, FMS, Brückenangebote) und für Pädagogische Hochschulen.
+**Ich unterrichte kein Deutsch. Ist das trotzdem relevant?** Ja. Überall wo Texte entstehen, gelesen oder beurteilt werden, braucht es KI-Urteilskompetenz. Das betrifft fast jedes Fach.
 
-**Was ist NotebookLM und warum setzt ihr das ein?** NotebookLM ist ein KI-Tool von Google. Du lädst dein Material hoch und bekommst Antworten, die sich direkt auf deine Quellen stützen. KIalog ist aber toolunabhängig und funktioniert auch mit Claude oder ChatGPT.
+**Was ist NotebookLM und warum setzt du das ein?** NotebookLM ist ein KI-Tool von Google. Du lädst dein eigenes Material hoch und bekommst Antworten, die sich direkt auf deine Quellen stützen. KIalog funktioniert aber auch mit Claude oder ChatGPT.
 
-**Wie setze ich KI im Unterricht konkret ein?** Mit der KIalog-Methode. KI liefert einen Entwurf. Dann prüfst du, urteilst und belegst.
+**Was ist mit Datenschutz?** Daten von Lernenden kommen nie in KI-Tools. Wir arbeiten mit deinem eigenen Material oder anonymisierten Beispielen. Auf Wunsch zeige ich lokale Lösungen, die komplett offline funktionieren.
 
-**Woher weiss ich, ob der KI-Output stimmt?** Die Methode zeigt dir, wie du jeden Output prüfst. Nicht die KI sagt, was gut ist. Du sagst es.
+**Wie erstelle ich Prüfungen, die mit KI funktionieren?** Eine gute Prüfung verlangt, was KI nicht zuverlässig kann: persönlichen Bezug, lokalen Kontext, mündliche Begründung, Prozessdokumentation.
 
-**Wer bucht KIalog?** Schulleitung, Abteilungsleitung oder du direkt. Auch über Kanton oder PH als eingekaufte Weiterbildung buchbar.
+### FAQ — Für Schulleitungen
 
-**Wer steckt hinter KIalog?** Manuel Hirschi. Lehrperson, Dozent und Forscher. 18 Jahre Unterrichtserfahrung von der Primarschule bis zur Hochschule. Aktuell Lernbegleitung Deutsch (gibb Bern), Dozent (PH FHNW), Doktorand (Universität Zürich).
+**Was kostet KIalog und was bekommt mein Team dafür?** Einstieg ab CHF 800 für einen Impuls-Slot. Halbtag CHF 1'800. Ein Semester Begleitung CHF 9'000. Nach einem Halbtag hat Ihr Team eine gemeinsame Methode und fertige Bausteine.
 
-**Wie erstelle ich KI-gerechte Prüfungen?** KI kann keine persönliche Erfahrung erfinden und keinen lokalen Kontext kennen. Da setzt du an. Im Workshop lernst du, solche Aufgaben zu formulieren.
+**Kann ich das über den Kanton abrechnen?** Im Kanton Bern können Schulen Kosten über die BKD rückerstatten lassen. Alle Formate sind als SCHILW buchbar.
 
-**Kann ich KIalog als SCHILW buchen?** Ja, alle Formate sind als SCHILW buchbar. Im Kanton Bern können Schulen Kosten über die BKD rückerstatten lassen.
+**Warum ist das lehrplankonform?** KI-Urteilskompetenz ist in sechs Rahmenwerken verbindlich verankert — nRLP ABU, LP21, OECD, UNESCO, EU AI Act, LCH.
 
-**Was ist mit Datenschutz?** Daten von Lernenden kommen nie in KI-Tools. Wir arbeiten mit anonymisierten oder eigenen Materialien. Institutionen mit eigenen Richtlinien berate ich vorab.
+**Was unterscheidet KIalog von anderen KI-Kursen?** Andere Kurse schulen Tools. KIalog schult das Urteil — mit dem Material, das Ihre Lehrpersonen schon haben.
+
+**Wie viel Zeit braucht mein Team?** Impuls: 60–90 Minuten. Workshop: ein halber oder ganzer Tag. Danach keine Pflicht zur Weiterarbeit.
+
+**Wer steckt hinter KIalog?** Manuel Hirschi. Lehrperson, Dozent und Forscher. 18 Jahre Unterrichtserfahrung. Aktuell Lernbegleitung Deutsch (gibb Bern), Dozent BpSt (PH FHNW), Doktorand (Universität Zürich).
 
 ### Kontakt
 
-Kein Formular. Keine Verpflichtung. Ich antworte persönlich innert 48 Stunden.
+Ein Satz reicht. Ich antworte persönlich innert 48 Stunden — auch wenn du noch nicht weisst, ob das etwas für dich ist.
 
 - E-Mail: info@kialog.ch
 - WhatsApp: https://wa.me/41763862207
