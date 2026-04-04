@@ -550,8 +550,33 @@ section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
   .workflow-track { flex-direction: column; gap: 1rem; }
   .workflow-arrow { display: none; }
   .realitaet-stats { flex-direction: column; gap: 1.5rem; }
-  .praxis-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .praxis-tab { white-space: nowrap; flex-shrink: 0; }
+  .praxis-tabs {
+    flex-direction: column;
+    gap: 8px;
+    border-bottom: none;
+  }
+  .praxis-tab {
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: none;
+    border-radius: 8px;
+    margin-bottom: 0;
+  }
+  .praxis-tab.active {
+    border-radius: 8px;
+  }
+  .praxis-panel.active {
+    flex-direction: column;
+  }
+  .praxis-panel img {
+    order: 3;
+    max-width: 120px;
+    margin: 16px auto 0;
+  }
+  .praxis-panel h3 { order: 1; }
+  .praxis-panel .praxis-desc { order: 1; }
+  .praxis-panel .cta_blue_fill { order: 2; }
 }
 
 @media (max-width: 767px) {
