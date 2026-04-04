@@ -369,6 +369,49 @@ body {
   .tab-btn { font-size: 13px; padding: 0.6rem 0.75rem; }
 }
 
+/* ═══ BEFORE/AFTER VISUAL ═══ */
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: start;
+  background: #EDEAE1;
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 40px;
+}
+.before-after .label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5A5A5A;
+  display: block;
+  margin-bottom: 12px;
+}
+.before-after ul { list-style: none; padding: 0; margin: 0; line-height: 1.8; }
+.before-after .before ul { color: #5A5A5A; }
+.before-after .after ul { color: #2A2A2A; font-weight: 500; }
+.before-after .pfeil {
+  font-size: 24px;
+  color: #3881F1;
+  padding-top: 32px;
+}
+.before-after .kernzahl {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3881F1;
+  padding-top: 16px;
+  border-top: 1px solid #D9D6CD;
+  margin-top: 8px;
+}
+@media (max-width: 640px) {
+  .before-after { grid-template-columns: 1fr; padding: 24px; }
+  .before-after .pfeil { display: none; }
+}
+
 /* ═══ A11Y ═══ */
 @media (prefers-reduced-motion: reduce) {
   .step { opacity: 1; transform: none; transition: none; }
@@ -454,6 +497,27 @@ body {
      TAB 1: BERUFSFACHSCHULE
      ───────────────────────────────────── -->
 <div class="walkthrough" id="wt-berufsschule">
+
+  <div class="before-after">
+    <div class="before">
+      <span class="label">KI schreibt</span>
+      <ul>
+        <li>«Chef»</li>
+        <li>«Eltern»</li>
+        <li>Keine Sprachstützen</li>
+      </ul>
+    </div>
+    <div class="pfeil">&rarr;</div>
+    <div class="after">
+      <span class="label">Du korrigierst</span>
+      <ul>
+        <li>«Berufsbildner:in»</li>
+        <li>«gesetzliche Vertretung»</li>
+        <li>Wortschatzbox ergänzt</li>
+      </ul>
+    </div>
+    <div class="kernzahl">8 Minuten. Statt 45.</div>
+  </div>
 
   <div class="situation-card">
     <div>
@@ -584,6 +648,29 @@ body {
      ───────────────────────────────────── -->
 <div class="walkthrough" id="wt-hochschule" hidden>
 
+  <div class="before-after">
+    <div class="before">
+      <span class="label">KI-Feedback</span>
+      <ul>
+        <li>«Classroom Management» ✗</li>
+        <li>«solider Text» ✗</li>
+        <li>Quellenarbeit übersehen ✗</li>
+        <li>Mehrperspektivität ✓</li>
+      </ul>
+    </div>
+    <div class="pfeil">&rarr;</div>
+    <div class="after">
+      <span class="label">Dein Urteil</span>
+      <ul>
+        <li>Verworfen</li>
+        <li>Verworfen</li>
+        <li>Selbst ergänzt</li>
+        <li>Übernommen</li>
+      </ul>
+    </div>
+    <div class="kernzahl">1 übernommen. 2 verworfen. 1 selbst ergänzt.</div>
+  </div>
+
   <div class="situation-card">
     <div>
       <div class="situation-label" style="color:var(--blue-text);">Situation</div>
@@ -697,6 +784,27 @@ body {
      TAB 3: GYMNASIUM
      ───────────────────────────────────── -->
 <div class="walkthrough" id="wt-gymnasium" hidden>
+
+  <div class="before-after">
+    <div class="before">
+      <span class="label">Klassische Erörterung</span>
+      <ul>
+        <li>ChatGPT löst sie besser</li>
+        <li>Produkt zählt</li>
+        <li>Kein Eigenurteil nötig</li>
+      </ul>
+    </div>
+    <div class="pfeil">&rarr;</div>
+    <div class="after">
+      <span class="label">KIalog-Prüfung</span>
+      <ul>
+        <li>KI-resistent</li>
+        <li>Prozess zählt</li>
+        <li>Begründetes Urteil nötig</li>
+      </ul>
+    </div>
+    <div class="kernzahl">ChatGPT kann die Aufgabe nicht lösen.</div>
+  </div>
 
   <div class="situation-card">
     <div>
