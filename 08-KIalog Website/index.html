@@ -24,18 +24,22 @@
 <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="canonical" href="https://kialog.ch">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<link rel="preload" href="asset/fonts/figtree-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="asset/fonts/figtree-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Figtree';font-style:normal;font-weight:300 900;font-display:swap;src:url('asset/fonts/figtree-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:300 900;font-display:swap;src:url('asset/fonts/figtree-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Figtree';font-style:italic;font-weight:300 900;font-display:swap;src:url('asset/fonts/figtree-italic-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Figtree';font-style:italic;font-weight:300 900;font-display:swap;src:url('asset/fonts/figtree-italic-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
 <script>document.documentElement.classList.remove('no-js');</script>
 <style>
 :root {
   --farbe-beige:#EDEAE1;--farbe-beige-dunkel:#D9D6CD;
-  --farbe-text:#2A2A2A;--farbe-text-muted:#4A4A4A;--farbe-text-sehr-muted:#5A5A5A;--farbe-text-weiss:#FFFFFF;
+  --farbe-text:#2A2A2A;--farbe-text-muted:#4A4A4A;--farbe-text-weiss:#FFFFFF;
   --farbe-blau:#3881F1;--farbe-blau-hover:#2563D4;--farbe-blau-pastell:#DBE4FF;
-  --farbe-orange:#F6612E;--farbe-orange-pastell:#FFD8A8;
-  --farbe-gruen:#01C476;
-  --border-radius:12px;--border-radius-klein:8px;--border-radius-gross:20px;
+  --farbe-orange:#F6612E;
+  --border-radius:12px;--border-radius-klein:8px;
   --transition:300ms ease;--max-w:1100px;--content-w:760px;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -127,7 +131,7 @@ section{padding:clamp(48px,6vw,80px) clamp(24px,4vw,40px);position:relative}
 .sl-section p{font-size:18px;font-weight:400;max-width:600px;line-height:1.6;opacity:.9}
 .sl-section p+p{margin-top:1rem}
 .sl-benefits{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.2)}
-.sl-benefits h3{font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;opacity:.8}
+.sl-benefits h3{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem;opacity:.9}
 .sl-benefits p{font-size:16px;opacity:.85}
 .sl-roi{font-weight:700;font-size:1.1rem;border-left:4px solid rgba(255,255,255,.4);padding-left:16px;margin:24px 0;max-width:600px}
 .sl-hint{font-size:13px;opacity:.6;margin-top:.5rem}
@@ -135,7 +139,7 @@ section{padding:clamp(48px,6vw,80px) clamp(24px,4vw,40px);position:relative}
 .about-layout{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:start}
 .photo-wrap{max-width:260px}
 .photo-frame{position:relative;transform:rotate(-2deg)}
-.photo-frame img{width:100%;border-radius:12px;border:3px solid var(--farbe-text);box-shadow:6px 6px 0 rgba(56,129,241,.25)}
+.photo-frame img{width:100%;border-radius:var(--border-radius);border:3px solid var(--farbe-text);box-shadow:6px 6px 0 rgba(56,129,241,.25)}
 .photo-frame::before{content:'';position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(2deg);width:80px;height:22px;background:rgba(56,129,241,.45);border:1px solid rgba(56,129,241,.6);border-radius:2px;z-index:2}
 .photo-caption{font-size:14px;color:var(--farbe-text-muted);text-align:center;margin-top:.75rem;transform:rotate(-2deg)}
 .argument-satz{font-style:italic;font-size:1.15rem;max-width:var(--content-w);margin-bottom:2rem;line-height:1.6}
@@ -153,7 +157,7 @@ section{padding:clamp(48px,6vw,80px) clamp(24px,4vw,40px);position:relative}
 .format-detail{font-size:13px;font-weight:400;color:var(--farbe-text-muted);margin-top:.25rem}
 .format-includes{font-size:13px;font-weight:400;color:var(--farbe-text-muted);margin-top:.5rem;padding-top:.5rem;border-top:1px dashed var(--farbe-blau);opacity:.75}
 .angebote-cta{margin-top:2.5rem;text-align:center}
-.faq-group-title{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--farbe-blau);margin:1.5rem 0 1rem}
+.faq-group-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--farbe-blau);margin:1.5rem 0 1rem}
 .faq-separator{border:none;border-top:2px solid var(--farbe-blau);margin:3rem 0 0;opacity:.3}
 .faq-item{border-bottom:1px solid rgba(56,129,241,.15)}
 .faq-group-title+.faq-item{border-top:1px solid rgba(56,129,241,.15)}
@@ -173,7 +177,7 @@ details.faq-item summary:hover{color:var(--farbe-blau)}
 .footer-sub{font-size:18px;font-weight:300;max-width:480px;margin-bottom:2rem;opacity:.85}
 .footer-contacts{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
 .footer-illustration{max-width:200px;width:100%;flex-shrink:0}
-.footer-bottom{max-width:var(--max-w);margin:3rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(245,243,237,.2)}
+.footer-bottom{max-width:var(--max-w);margin:3rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(237,234,225,.2)}
 .footer-brand{font-size:15px;font-weight:500;opacity:.9}
 .footer-nav{margin:.75rem 0}
 .footer-nav a{color:var(--farbe-beige);opacity:.7;font-size:14px;transition:opacity .2s}
@@ -183,8 +187,8 @@ details.faq-item summary:hover{color:var(--farbe-blau)}
 .footer-copyright{font-size:13px;font-weight:400;color:var(--farbe-beige);opacity:.5}
 @media(min-width:768px){.about-layout{grid-template-columns:260px 1fr;gap:3rem}}
 @media(max-width:960px){.nav-links{display:none}.nav-hamburger{display:flex;z-index:10001;position:relative}.nav.menu-open{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:var(--farbe-beige)}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--farbe-beige);padding:120px 30px 40px;gap:0;z-index:10000;overflow-y:auto}.nav-links.open li{display:block}.nav-links.open a{font-size:22px;font-weight:600;padding:20px 0;display:block;border-top:1px solid rgba(56,129,241,.2)}}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2rem}.hero{min-height:auto;padding-top:clamp(2rem,5vw,4rem)}.hero-visual{order:1}.hero-text{text-align:center;max-width:none}.hero-schmerz,.hero-subline{margin-left:auto;margin-right:auto}.hero-buttons{justify-content:center}.hero-profil{justify-content:center}.format-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr}}
-@media(max-width:640px){h1{letter-spacing:-1px}h2{letter-spacing:-.8px}h3{letter-spacing:-.3px}.hero h1{font-size:clamp(2.2rem,8vw,3.5rem)}.hero-buttons{flex-direction:column;align-items:stretch}.hero-buttons .btn-primary,.hero-buttons .btn-outline{width:100%;min-width:0}.methode-grid{grid-template-columns:1fr}.methode-box p{font-size:1rem}.methode-diagramm{display:none}.methode-mobile-only{display:grid}.underline-deko{bottom:-6px}.realitaet-stats{flex-direction:column;gap:1.5rem}.tabs-nav{flex-direction:column;gap:8px;border-bottom:none}.tab-btn{width:100%;text-align:left;padding:12px 16px;border:2px solid var(--farbe-beige-dunkel);border-radius:var(--border-radius-klein);margin-bottom:0}.tab-btn[aria-selected="true"]{border-color:var(--farbe-blau);background:var(--farbe-blau-pastell)}.tab-panel.active{grid-template-columns:1fr}.tab-panel img{max-width:120px;order:2;margin:0 auto}.footer-illustration{display:none}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2rem}.hero{min-height:auto;padding-top:clamp(2rem,5vw,4rem)}.hero-visual{order:1}.hero-text{text-align:center;max-width:none}.hero-schmerz,.hero-subline{margin-left:auto;margin-right:auto}.hero-buttons{justify-content:center}.hero-profil{justify-content:center}.format-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr}.methode-diagramm{display:none}.methode-mobile-only{display:block}}
+@media(max-width:640px){h1{letter-spacing:-1px}h2{letter-spacing:-.8px}h3{letter-spacing:-.3px}.hero h1{font-size:clamp(2.2rem,8vw,3.5rem)}.hero-buttons{flex-direction:column;align-items:stretch}.hero-buttons .btn-primary,.hero-buttons .btn-outline{width:100%;min-width:0}.underline-deko{bottom:-6px}.realitaet-stats{flex-direction:column;gap:1.5rem}.tabs-nav{flex-direction:column;gap:8px;border-bottom:none}.tab-btn{width:100%;text-align:left;padding:12px 16px;border:2px solid var(--farbe-beige-dunkel);border-radius:var(--border-radius-klein);margin-bottom:0}.tab-btn[aria-selected="true"]{border-color:var(--farbe-blau);background:var(--farbe-blau-pastell)}.tab-panel.active{grid-template-columns:1fr;gap:1.5rem}.tab-panel img{max-width:200px;width:60%;order:-1;margin:0 auto;display:block;filter:drop-shadow(0 3px 10px rgba(0,0,0,.12))}.tab-panel.active>div{text-align:center}.tab-panel.active .btn-primary{display:inline-block;width:auto}.section-inner>h2{text-align:center}.section-inner>p{text-align:center}.footer-illustration{display:block;max-width:160px;margin:2rem auto 0}}
 @media(max-width:767px){.about-layout{justify-items:center}}
 </style>
 </head>
@@ -246,10 +250,8 @@ details.faq-item summary:hover{color:var(--farbe-blau)}
     <p class="reveal content-w" style="margin-top:1rem">KI skaliert, differenziert, entwirft. Du weisst, was darin steht — und merkst sofort, wenn etwas nicht stimmt. Das ist keine neue Fähigkeit. Das ist deine Fachkompetenz, angewendet auf KI-Output.</p>
     <p class="reveal content-w" style="margin-top:1rem">Genau das nennt die Forschung evaluative judgement (Tai et al., 2018). Und genau das fordern sechs Rahmenwerke heute schon.</p>
     <div class="methode-diagramm reveal"><img src="asset/illust-methode.svg" alt="Diagramm: KIalog-Methode in drei Schritten — Prüfen, Urteilen, Belegen" loading="lazy"></div>
-    <div class="methode-grid methode-mobile-only reveal">
-      <div class="methode-box"><div class="schritt-label">Schritt 1</div><h3>Prüfen</h3><p>Stimmt das fachlich? Fehlt etwas? Wo hat die KI vereinfacht, was nicht vereinfacht werden darf?</p></div>
-      <div class="methode-box"><div class="schritt-label">Schritt 2</div><h3>Urteilen</h3><p>Übernehmen, anpassen oder verwerfen. Nicht die KI entscheidet über Qualität. Du entscheidest.</p></div>
-      <div class="methode-box"><div class="schritt-label">Schritt 3</div><h3>Belegen</h3><p>Warum hast du was geändert? Dein Denkprozess wird sichtbar — für dich, für deine Lernenden, für dein Team.</p></div>
+    <div class="methode-mobile-only reveal" style="margin:2rem auto;max-width:320px">
+      <img src="asset/illust-methode-mobile.svg" alt="KIalog Methode: Prüfen, Urteilen, Belegen — drei Schritte" style="width:100%;height:auto;display:block">
     </div>
     <p class="methode-closing reveal">Dieselbe Methode. Egal ob Arbeitsblatt, Prüfung oder Feedback.</p>
   </div>
@@ -269,11 +271,11 @@ details.faq-item summary:hover{color:var(--farbe-blau)}
       <div><h3>Arbeitsblatt auf 3 Niveaus</h3><p class="tab-teaser">KI schreibt «Chef» statt «Berufsbildner:in» und vergisst Sprachstützen für DaZ-Lernende. Du weisst das sofort. Du korrigierst es in 8 Minuten.</p><p class="tab-desc">Du hast eine EBA-Klasse mit DaZ-Anteil. KI differenziert dein Arbeitsblatt auf drei Niveaus. Du prüfst. Was stimmt sprachlich? Was fehlt fachlich? Was übernimmst du?</p><a href="beispiel/prototyp-praxis.html#wt-berufsschule" class="btn-primary">Walkthrough ansehen &rarr;</a></div>
     </div>
     <div class="tab-panel" id="tab-gym" role="tabpanel" aria-labelledby="tab-btn-gym">
-      <img src="asset/illust-vergleich.webp" alt="Illustration: Zwei Dokumente im Vergleich" loading="lazy">
+      <img src="asset/illust-vergleich.webp" alt="Illustration: Zwei Dokumente im Vergleich" loading="eager">
       <div><h3>Prüfung mit Prozessfokus</h3><p class="tab-teaser">Eine Prüfung die ChatGPT nicht lösen kann — weil eigenes Urteil verlangt ist. Der Denkprozess zählt, nicht das Produkt.</p><p class="tab-desc">Du baust eine Prüfung, bei der zwei Texte verglichen werden. Lernende begründen ihr Urteil. Das Produkt ist zweitrangig. Der Denkprozess zählt.</p><a href="beispiel/prototyp-praxis.html#wt-gymnasium" class="btn-primary">Walkthrough ansehen &rarr;</a></div>
     </div>
     <div class="tab-panel" id="tab-ph" role="tabpanel" aria-labelledby="tab-btn-ph">
-      <img src="asset/illust-laptop-feedback.webp" alt="Illustration: KI-Feedback wird aktiv bearbeitet" loading="lazy">
+      <img src="asset/illust-laptop-feedback.webp" alt="Illustration: KI-Feedback wird aktiv bearbeitet" loading="eager">
       <div><h3>KI-Feedback auf Fallanalyse</h3><p class="tab-teaser">Von 4 KI-Feedbackpunkten 1 übernommen, 2 verworfen, 1 selbst ergänzt. Das ist KI-Urteilskompetenz.</p><p class="tab-desc">Studierende lassen sich von ChatGPT Feedback geben. Du zeigst, wie sie dieses Feedback prüfen, einordnen und daraus lernen.</p><a href="beispiel/prototyp-praxis.html#wt-hochschule" class="btn-primary">Walkthrough ansehen &rarr;</a></div>
     </div>
     <div class="bruecke reveal"><p>Überzeugt? Zeig das deiner Schulleitung.</p><a href="#schulleitungen" class="btn-outline">Infos für Schulleitungen &rarr;</a></div>
@@ -290,8 +292,8 @@ details.faq-item summary:hover{color:var(--farbe-blau)}
       <p style="margin-top:.75rem">Geeignet für Fachgruppen und Abteilungen von 6 bis 16 Personen.</p>
     </div>
     <p class="sl-roi reveal">Ein CAS-Programm kostet CHF 9'900 pro Person. KIalog bringt Ihr ganzes Team für einen Bruchteil weiter — an einem halben Tag, mit Ihrem Material.</p>
-    <a href="asset/KIalog_Starter_Dossier_Schulleitungen.pdf" class="btn-ghost-weiss reveal" style="margin-top:1.5rem" download>Starter-Dossier herunterladen (PDF)</a>
-    <p class="sl-hint reveal">Kostenlos. Kein Formular. Direkt nützlich.</p>
+    <a href="#kontakt" class="btn-ghost-weiss reveal" style="margin-top:1.5rem">Starter-Dossier anfordern</a>
+    <p class="sl-hint reveal">Kostenlos. Ich schicke es direkt zu.</p>
     <p class="sl-nachklick reveal" style="margin-top:1.5rem"><a href="#kontakt" style="color:var(--farbe-beige);text-decoration:underline">Jetzt anfragen</a> — ich melde mich innert 48 Stunden mit einem unverbindlichen Vorschlag.</p>
   </div>
 </section>
@@ -358,7 +360,7 @@ details.faq-item summary:hover{color:var(--farbe-blau)}
         <p class="footer-sub reveal">Sag mir, was dich beschäftigt. Ich antworte persönlich innert 48 Stunden. Auch wenn du noch nicht weisst, ob das etwas für dich ist.</p>
         <div class="footer-contacts reveal">
           <a href="mailto:info@kialog.ch?subject=KIalog%20anfragen" class="btn-ghost-weiss">info@kialog.ch</a>
-          <a href="https://wa.me/41763862207?text=Hallo%20Manuel%2C%20ich%20interessiere%20mich%20f%C3%BCr%20KIalog." class="btn-ghost-weiss" target="_blank" rel="noopener" style="gap:8px"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+          <a href="https://wa.me/41763862207?text=Hallo%20Manuel%2C%20ich%20interessiere%20mich%20f%C3%BCr%20KIalog." class="btn-ghost-weiss" target="_blank" rel="noopener noreferrer" style="gap:8px"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
         </div>
       </div>
       <img src="asset/illust-smartphone.webp" alt="Illustration: Hand tippt Nachricht auf Smartphone" loading="lazy" class="footer-illustration reveal">

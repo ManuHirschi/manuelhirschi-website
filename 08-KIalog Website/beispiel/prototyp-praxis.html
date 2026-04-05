@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="de-CH">
+<html lang="de-CH" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aus der Praxis — KIalog</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<link rel="preload" href="../asset/fonts/figtree-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../asset/fonts/figtree-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Figtree';font-style:normal;font-weight:300 900;font-display:swap;src:url('../asset/fonts/figtree-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:300 900;font-display:swap;src:url('../asset/fonts/figtree-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Figtree';font-style:italic;font-weight:300 900;font-display:swap;src:url('../asset/fonts/figtree-italic-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Figtree';font-style:italic;font-weight:300 900;font-display:swap;src:url('../asset/fonts/figtree-italic-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
+<script>document.documentElement.classList.remove('no-js');</script>
 <style>
 /* ═══ DESIGN TOKENS (kialog.ch) ═══ */
 :root {
-  --bg: #F3F1EB;
-  --bg-light: #F8F6F1;
+  --bg: #EDEAE1;
+  --bg-light: #F5F2EA;
   --ink: #2A2A2A;
   --blue: #3881F1;
   --blue-section: #3474d4;
@@ -28,15 +34,22 @@
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   background: var(--bg);
-  font-family: Figtree, sans-serif;
+  font-family: Figtree, system-ui, sans-serif;
   color: var(--ink);
   font-size: 16px;
   line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 ::selection { background: var(--ink); color: var(--bg); }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.skip-link { position: absolute; top: -100%; left: 1rem; z-index: 1100; background: var(--ink); color: var(--bg); padding: .75rem 1.25rem; border-radius: 0 0 8px 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: top .2s ease; }
+.skip-link:focus { top: 0; }
+.no-js .step { opacity: 1; transform: none; }
 
 /* ═══ NOTEBOOK LINES ═══ */
 .notebook-lines {
@@ -48,11 +61,11 @@ body {
 
 /* ═══ NAV ═══ */
 .nav-mini {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(243,241,235,0.92);
+  position: sticky; top: 0; z-index: 999;
+  background: rgba(237,234,225,0.92);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px dashed var(--blue);
-  padding: 0.6rem clamp(1rem, 3vw, 2rem);
+  border-bottom: 1px solid rgba(56,129,241,0.2);
+  padding: 0.5rem clamp(1rem, 3vw, 2rem);
   display: flex; align-items: center; justify-content: space-between;
 }
 .nav-mini-logo { display: inline-flex; align-items: center; text-decoration: none; padding: 0.3rem 0; transition: opacity 0.2s; }
@@ -419,6 +432,7 @@ body {
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
 
 <!-- ═══ NOTEBOOK LINES ═══ -->
 <div class="notebook-lines" aria-hidden="true">
@@ -436,7 +450,7 @@ body {
 <!-- ═══════════════════════════════════════
      VARIANTE A: Übersichtskarten (für index.html)
      ═══════════════════════════════════════ -->
-<div class="overview-section">
+<div class="overview-section" id="main">
   <h2>Aus der Praxis.</h2>
   <p class="tagline">Drei Stufen. Drei Situationen. Dieselbe Methode. Aktuell mit Schwerpunkt Sprache. Weitere Fächer folgen.</p>
 
@@ -444,7 +458,7 @@ body {
 
     <!-- Karte 1: Berufsschule -->
     <a class="praxis-card" href="#" onclick="switchTab('berufsschule');return false;">
-      <img class="card-icon" src="../asset/illust-arbeitsblatt.png" alt="Drei Niveaus" style="width:72px;height:auto;filter:saturate(1.15);">
+      <img class="card-icon" src="../asset/illust-arbeitsblatt.png" alt="Drei Niveaus" style="width:80px;height:80px;object-fit:contain;filter:saturate(1.15);">
       <div class="praxis-label green">Berufsfachschule</div>
       <h3>Arbeitsblatt auf 3 Niveaus</h3>
       <p>Du hast eine EBA-Klasse mit hohem DaZ-Anteil. KI differenziert dein Arbeitsblatt in drei Niveaus. Du prüfst, was stimmt und was nicht.</p>
@@ -453,7 +467,7 @@ body {
 
     <!-- Karte 2: Hochschule -->
     <a class="praxis-card" href="#" onclick="switchTab('hochschule');return false;">
-      <img class="card-icon" src="../asset/illust-laptop-feedback.png" alt="KI-Feedback prüfen" style="width:72px;height:auto;filter:saturate(1.15);">
+      <img class="card-icon" src="../asset/illust-laptop-feedback.png" alt="KI-Feedback prüfen" style="width:80px;height:80px;object-fit:contain;filter:saturate(1.15);">
       <div class="praxis-label blue">Hochschule / PH</div>
       <h3>KI-Feedback auf Fallanalyse</h3>
       <p>Deine Studierenden lassen sich von ChatGPT Feedback geben. Du zeigst ihnen, wie sie es prüfen und einordnen.</p>
@@ -462,7 +476,7 @@ body {
 
     <!-- Karte 3: Gymnasium -->
     <a class="praxis-card" href="#" onclick="switchTab('gymnasium');return false;">
-      <img class="card-icon" src="../asset/illust-vergleich.png" alt="Texte vergleichen" style="width:72px;height:auto;filter:saturate(1.15);">
+      <img class="card-icon" src="../asset/illust-vergleich.png" alt="Texte vergleichen" style="width:80px;height:80px;object-fit:contain;filter:saturate(1.15);">
       <div class="praxis-label orange">Gymnasium / FMS</div>
       <h3>Prüfung mit Prozessfokus</h3>
       <p>Du baust eine LZK, bei der deine Lernenden zwei Texte vergleichen und ihr Urteil begründen. Der Denkprozess zählt.</p>
