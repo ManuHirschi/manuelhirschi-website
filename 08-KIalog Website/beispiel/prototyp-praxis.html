@@ -953,6 +953,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const hash = location.hash.replace('#wt-', '');
   if (['berufsschule', 'hochschule', 'gymnasium'].includes(hash)) {
     switchTab(hash);
+    setTimeout(() => {
+      document.getElementById('walkthroughs').scrollIntoView({ behavior: 'instant', block: 'start' });
+    }, 200);
   }
   observeSteps();
 });
