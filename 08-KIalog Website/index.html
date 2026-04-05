@@ -89,7 +89,7 @@ section{padding:clamp(48px,6vw,80px) clamp(24px,4vw,40px);position:relative}
 .hero-grid{display:grid;grid-template-columns:60% 40%;gap:40px;align-items:center;max-width:var(--max-w);margin:0 auto;width:100%}
 .hero-text{max-width:600px}
 .hero-schmerz{font-size:clamp(1rem,1.5vw,1.2rem);font-weight:400;line-height:1.6;margin-top:1.5rem;max-width:480px}
-.hero-subline{font-size:clamp(1rem,2vw,1.2rem);font-weight:400;line-height:1.6;margin-top:1rem;max-width:480px;opacity:.75}
+.hero-subline{font-size:clamp(1rem,2vw,1.2rem);font-weight:400;line-height:1.6;margin-top:1rem;max-width:480px;opacity:.85}
 .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem}
 .hero-buttons .btn-primary,.hero-buttons .btn-outline{min-width:200px;text-align:center}
 .hero-profil{display:flex;align-items:center;gap:14px;margin-top:2rem}
@@ -253,6 +253,11 @@ details.faq-item summary:hover{color:var(--farbe-blau)}
     <div class="methode-mobile-only reveal" style="margin:2rem auto;max-width:320px">
       <img src="asset/illust-methode-mobile.svg" alt="KIalog Methode: Prüfen, Urteilen, Belegen — drei Schritte" style="width:100%;height:auto;display:block">
     </div>
+    <div class="methode-grid reveal">
+      <div class="methode-box"><div class="schritt-label">Schritt 1</div><h3>Prüfen</h3><p>Stimmt das fachlich? Fehlt etwas? Wo hat die KI vereinfacht, was nicht vereinfacht werden darf?</p></div>
+      <div class="methode-box"><div class="schritt-label">Schritt 2</div><h3>Urteilen</h3><p>Übernehmen, anpassen oder verwerfen. Nicht die KI entscheidet über Qualität. Du entscheidest.</p></div>
+      <div class="methode-box"><div class="schritt-label">Schritt 3</div><h3>Belegen</h3><p>Warum hast du was geändert? Dein Denkprozess wird sichtbar — für dich, für deine Lernenden, für dein Team.</p></div>
+    </div>
     <p class="methode-closing reveal">Dieselbe Methode. Egal ob Arbeitsblatt, Prüfung oder Feedback.</p>
   </div>
 </section>
@@ -260,7 +265,7 @@ details.faq-item summary:hover{color:var(--farbe-blau)}
   <div class="section-inner">
     <h2 class="reveal">So sieht das aus.</h2>
     <p class="reveal content-w" style="margin-bottom:1rem">Kein Theoriebeispiel. Echtes Material, echte Entscheidung.</p>
-    <p class="praxis-anchor reveal">Ein Arbeitsblatt differenzieren, eine Prüfung umbauen, ein KI-Feedback einordnen. Mit der KIalog-Methode dauert das Minuten, nicht Stunden.</p>
+    <p class="praxis-anchor reveal">EBA-Klasse, Lehrvertrag, DaZ-Anteil. Ein differenziertes Arbeitsblatt auf drei Niveaus. Mit KI und der KIalog-Methode. 8 Minuten statt 45.</p>
     <div class="tabs-nav reveal" role="tablist">
       <button role="tab" class="tab-btn" aria-selected="true" data-tab="bfs" id="tab-btn-bfs" aria-controls="tab-bfs">Berufsfachschule</button>
       <button role="tab" class="tab-btn" aria-selected="false" data-tab="gym" id="tab-btn-gym" aria-controls="tab-gym">Gymnasium / FMS</button>
@@ -292,9 +297,10 @@ details.faq-item summary:hover{color:var(--farbe-blau)}
       <p style="margin-top:.75rem">Geeignet für Fachgruppen und Abteilungen von 6 bis 16 Personen.</p>
     </div>
     <p class="sl-roi reveal">Ein CAS-Programm kostet CHF 9'900 pro Person. KIalog bringt Ihr ganzes Team für einen Bruchteil weiter — an einem halben Tag, mit Ihrem Material.</p>
-    <a href="#kontakt" class="btn-ghost-weiss reveal" style="margin-top:1.5rem">Starter-Dossier anfordern</a>
-    <p class="sl-hint reveal">Kostenlos. Ich schicke es direkt zu.</p>
-    <p class="sl-nachklick reveal" style="margin-top:1.5rem"><a href="#kontakt" style="color:var(--farbe-beige);text-decoration:underline">Jetzt anfragen</a> — ich melde mich innert 48 Stunden mit einem unverbindlichen Vorschlag.</p>
+    <a href="asset/KIalog_Starter_Dossier_Schulleitungen.pdf" class="btn-ghost-weiss reveal" style="margin-top:1.5rem" download>Starter-Dossier herunterladen (PDF)</a>
+    <p class="sl-hint reveal">Kostenlos. Kein Formular. Direkt nützlich.</p>
+    <a href="#kontakt" class="btn-weiss reveal" style="margin-top:1.5rem">Jetzt anfragen</a>
+    <p class="sl-nachklick reveal">Ich melde mich innert 48 Stunden mit einem unverbindlichen Vorschlag.</p>
   </div>
 </section>
 <section id="ueber">
@@ -307,7 +313,7 @@ details.faq-item summary:hover{color:var(--farbe-blau)}
         <div class="photo-caption">Manuel Hirschi &middot; Bern</div>
       </div>
       <div>
-        <p class="reveal" style="font-weight:300;max-width:520px;margin-bottom:1.5rem;line-height:1.75">An der gibb Bern begleite ich Lernende in Allgemeinbildung und Deutsch — täglich, mit KI. An der PH FHNW doziere ich in den Berufspraktischen Studien. An der UZH forsche ich zu einer Frage. <strong>Wie lernt man, KI-Output selbst zu beurteilen?</strong></p>
+        <p class="reveal" style="font-weight:300;max-width:520px;margin-bottom:1.5rem;line-height:1.75">An der gibb Bern begleite ich Lernende in Allgemeinbildung und Deutsch — täglich, mit KI. An der PH FHNW doziere ich in den Berufspraktischen Studien. An der UZH forsche ich zu einer Frage — <strong>wie lernt man, KI-Output selbst zu beurteilen?</strong></p>
         <p class="reveal" style="max-width:520px;margin-bottom:1rem;line-height:1.75">18 Jahre Unterricht, von der Primarschule bis zur Hochschule. Was ich erforsche, unterrichte ich. Was ich unterrichte, funktioniert.</p>
         <p class="markensatz reveal">Wer mit KI arbeitet, führt einen Dialog. <br>KIalog zeigt, wie man ihn gewinnt.</p>
         <div class="referenz-slot reveal" style="display:none"><blockquote>&laquo;...&raquo;</blockquote><cite>— Lehrperson, gibb Bern (Pilot Frühjahr 2026)</cite></div>
