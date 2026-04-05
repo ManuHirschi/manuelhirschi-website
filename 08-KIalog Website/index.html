@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="de-CH">
+<html lang="de-CH" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIalog — Lerne, KI-Output zu beurteilen | Manuel Hirschi</title>
-<meta name="description" content="KI ist im Unterricht. KIalog zeigt Lehrpersonen, wie sie KI-Output prüfen, urteilen und belegen. Praxisnah, forschungsbasiert, sofort einsetzbar.">
+<title>KIalog — KI-Urteilskompetenz für Lehrpersonen | Manuel Hirschi</title>
+<meta name="description" content="KIalog ist eine Methode die Lehrpersonen befähigt, KI-Output zu beurteilen — mit dem eigenen Material, in drei Schritten. Für Schulen in der Deutschschweiz.">
 <meta name="keywords" content="KI-Didaktik Lehrpersonen Schweiz, KIalog, KI-Urteilskompetenz Schule, Evaluative Judgement Bildung, KI Weiterbildung Sek II, KI Weiterbildung PH, SCHILW KI, Manuel Hirschi">
 <meta name="author" content="Manuel Hirschi">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="KIalog — Lerne, KI-Output zu beurteilen | Manuel Hirschi">
-<meta property="og:description" content="KI ist im Unterricht. KIalog zeigt Lehrpersonen, wie sie KI-Output prüfen, urteilen und belegen. Praxisnah, forschungsbasiert, sofort einsetzbar.">
+<meta property="og:title" content="KIalog — KI-Urteilskompetenz für Lehrpersonen">
+<meta property="og:description" content="Eine Methode die mit dem anfängt, was du schon hast.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kialog.ch">
 <meta property="og:locale" content="de_CH">
@@ -17,8 +17,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="KIalog — Lerne, KI-Output zu beurteilen | Manuel Hirschi">
-<meta name="twitter:description" content="KI ist im Unterricht. KIalog zeigt Lehrpersonen, wie sie KI-Output prüfen, urteilen und belegen. Praxisnah, forschungsbasiert, sofort einsetzbar.">
+<meta name="twitter:title" content="KIalog — KI-Urteilskompetenz für Lehrpersonen | Manuel Hirschi">
+<meta name="twitter:description" content="KIalog ist eine Methode die Lehrpersonen befähigt, KI-Output zu beurteilen — mit dem eigenen Material, in drei Schritten.">
 <meta name="twitter:image" content="https://kialog.ch/asset/og-image.png">
 <link rel="icon" type="image/svg+xml" href="asset/favicon.svg">
 <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
@@ -26,1107 +26,363 @@
 <link rel="canonical" href="https://kialog.ch">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.remove('no-js');</script>
 <style>
-/* ═══════════════════════════════════════
-   DESIGN TOKENS
-   ═══════════════════════════════════════ */
 :root {
-  --bg: #F5F3ED;
-  --ink: #2A2A2A;
-  --blue: #3881F1;
-  --lilac: #D7BCED;
-  --orange: #F6612E;
-  --muted: #5A5A5A;
-  --blue-text: #0f62e1;
-  --radius: 20px;
-  --space-section: clamp(48px, 8vw, 96px);
-  --space-inner: clamp(24px, 4vw, 60px);
-  --max-w: 1200px;
-}
-
-/* ═══════════════════════════════════════
-   RESET & BASE
-   ═══════════════════════════════════════ */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
-body {
-  background-color: var(--bg);
-  margin: 0; padding: 0;
-  font-family: Figtree, sans-serif;
-  color: var(--ink);
-  font-size: 16px;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-img { display: block; max-width: 100%; }
-a { cursor: pointer; font-weight: 400; text-decoration: none; font-family: Figtree, sans-serif; color: inherit; }
-h1, h2, h3, h4, h5 { letter-spacing: -1.2px; }
-::selection { background: var(--ink); color: var(--bg); }
-
-/* ═══════════════════════════════════════
-   NOTEBOOK LINES
-   ═══════════════════════════════════════ */
-.notebook-lines {
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 0; pointer-events: none;
-  display: flex; flex-direction: column; gap: 50px; padding-top: 60px;
-}
-.notebook-lines span { display: block; width: 100%; border-top: 1px dashed var(--blue); opacity: 0.2; flex-shrink: 0; }
-
-/* ═══════════════════════════════════════
-   NAV  [A3: solid border]
-   ═══════════════════════════════════════ */
-.navBar {
-  width: 100%; border-bottom: 1px solid rgba(56,129,241,0.2); padding: 7px 30px;
-  display: flex; align-items: center; justify-content: space-between;
-  position: sticky; top: 0; background-color: rgba(243,241,235,0.92); z-index: 999;
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-}
-.nav-logo {
-  display: inline-flex; align-items: center; text-decoration: none;
-  padding: 0.3rem 0;
-}
-.nav-logo img { display: block; height: 64px; width: auto; }
-.nav-logo:hover { opacity: 0.7; }
-.nav-links { display: flex; gap: 30px; align-items: center; list-style: none; margin: 0; padding: 0; }
-.nav-links li { display: flex; align-items: center; }
-.nav-links a { color: var(--ink); font-size: 16px; font-weight: 400; text-decoration: none; transition: color .2s; min-height: 44px; display: flex; align-items: center; }
-.nav-links a:hover { color: var(--blue); }
-.cta_shadow {
-  color: var(--ink); font-family: Figtree, sans-serif; font-size: 15px; font-weight: 500;
-  border: 2px solid var(--ink); border-radius: 30px; padding: 10px 15px; text-align: center;
-  box-shadow: 0 3px var(--ink); background-color: var(--bg); display: inline-block;
-  transition: .25s; cursor: pointer; min-height: 44px;
-}
-.cta_shadow:hover { box-shadow: 0 0 var(--ink); transform: translateY(3px); }
-.nav-hamburger {
-  display: none; background: none; border: none; cursor: pointer;
-  width: 44px; height: 44px; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
-}
-.nav-hamburger span { display: block; width: 26px; height: 3px; background: var(--blue); border-radius: 2px; }
-
-/* ═══════════════════════════════════════
-   SECTIONS & TYPOGRAPHY
-   ═══════════════════════════════════════ */
-section { padding: var(--space-section) 30px; position: relative; z-index: 1; }
-.section-inner { max-width: var(--max-w); margin: 0 auto; }
-
-.hero-title {
-  font-family: Figtree, sans-serif;
-  font-size: clamp(2rem, 5vw, 4.25rem);
-  font-weight: 400;
-  letter-spacing: -3px;
-  line-height: 1.0;
-  color: var(--ink);
-}
-.hero-title em { font-style: italic; }
-
-.section-title {
-  font-family: Figtree, sans-serif;
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -2.5px;
-  margin-bottom: 1rem;
-}
-
-/* ═══════════════════════════════════════
-   BUTTONS  [C2: blue fill primary, E1: 44px touch]
-   ═══════════════════════════════════════ */
-.cta_blue_fill {
-  border: 2px solid var(--blue); background-color: var(--blue); color: #ffffff;
-  padding: 15px 24px; border-radius: 30px; display: inline-flex; align-items: center; justify-content: center;
-  font-size: 15px; font-weight: 500; font-family: Figtree, sans-serif;
-  cursor: pointer; transition: background .2s, color .2s; min-height: 44px;
-}
-.cta_blue_fill:hover { background-color: transparent; color: var(--blue); }
-
-.cta_ghost_blue {
-  border: 2px solid var(--blue); font-weight: 500; color: var(--blue); padding: 15px 24px;
-  cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
-  background-color: transparent;
-  font-size: 15px; border-radius: 30px; font-family: Figtree, sans-serif;
-  transition: background .2s, color .2s; min-height: 44px;
-}
-.cta_ghost_blue:hover { background-color: var(--blue); color: #ffffff; }
-
-.cta_green {
-  border: 2px solid var(--blue); background-color: var(--blue); color: #ffffff;
-  padding: 15px 24px; border-radius: 30px; display: inline-flex; align-items: center; justify-content: center;
-  font-size: 15px; font-weight: 500; font-family: Figtree, sans-serif;
-  cursor: pointer; transition: background .2s, color .2s; min-height: 44px;
-}
-.cta_green:hover { background-color: transparent; color: var(--blue); }
-
-.cta_white_fill {
-  border: 2px solid #ffffff; background-color: #ffffff; color: var(--blue);
-  padding: 15px 24px; border-radius: 30px; display: inline-flex; align-items: center; justify-content: center;
-  font-size: 15px; font-weight: 500; font-family: Figtree, sans-serif;
-  cursor: pointer; transition: background .2s, color .2s; min-height: 44px;
-}
-.cta_white_fill:hover { background-color: transparent; color: #ffffff; }
-
-.cta_ghost_white {
-  border: 2px solid var(--bg); font-weight: 500; color: var(--bg); padding: 15px 24px;
-  cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
-  font-size: 15px; background: none;
-  border-radius: 30px; font-family: Figtree, sans-serif; transition: background .2s, color .2s; min-height: 44px;
-}
-.cta_ghost_white:hover { background-color: var(--bg); color: var(--blue); }
-
-/* ═══════════════════════════════════════
-   ILLUSTRATION PLACEHOLDER  [B]
-   ═══════════════════════════════════════ */
-.illustration-placeholder {
-  border: 2px dashed #3881F1;
-  background: #EDEAE1;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #5A5A5A;
-  font-family: Figtree, sans-serif;
-  font-size: 14px;
-  padding: 40px;
-  text-align: center;
-}
-
-/* ═══════════════════════════════════════
-   HERO  [C2: blue fill + ghost blue]
-   ═══════════════════════════════════════ */
-.hero { padding: var(--space-section) 30px; min-height: calc(100vh - 60px); display: flex; align-items: center; }
-.hero-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: center;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  width: 100%;
-}
-.hero-text { max-width: 600px; }
-.hero-subtitle {
-  font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight: 400; line-height: 1.5;
-  margin-top: 2rem; max-width: 480px; opacity: 0.7;
-}
-.hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; align-items: center; }
-.hero-cta-row .cta_blue_fill,
-.hero-cta-row .cta_ghost_blue { min-width: 200px; text-align: center; }
-.hero-visual { position: relative; }
-
-/* ═══════════════════════════════════════
-   REALITÄT — Inline Stats  [A3: no dashed, A4: inline]
-   ═══════════════════════════════════════ */
-.realitaet-problem {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  font-weight: 500;
-  letter-spacing: -0.5px;
-  margin-top: 1.5rem;
-  max-width: 560px;
-}
-.realitaet-stats {
-  display: flex;
-  gap: 2.5rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-.realitaet-stat {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--muted);
-  line-height: 1.5;
-  max-width: 280px;
-}
-.realitaet-stat strong {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--blue);
-  display: block;
-  margin-bottom: 0.15rem;
-  letter-spacing: -0.5px;
-}
-.realitaet-stat cite {
-  font-style: normal;
-  font-size: 12px;
-  opacity: 0.65;
-  display: block;
-  margin-top: 0.15rem;
-}
-
-/* ═══════════════════════════════════════
-   METHODE — Workflow Steps + Diagramm [G]
-   ═══════════════════════════════════════ */
-.methode-diagramm {
-  width: 100%;
-  max-width: 760px;
-  margin: 2rem auto;
-}
-.methode-diagramm svg {
-  width: 100%;
-  height: auto;
-}
-.workflow-track {
-  display: flex;
-  gap: 0.5rem;
-  margin: 2.5rem 0;
-  padding-bottom: 0.5rem;
-}
-.workflow-card {
-  padding: 1rem;
-  min-width: 0;
-  flex: 1 1 0;
-}
-.workflow-num {
-  font-family: 'Caveat', cursive; font-size: 20px; font-weight: 700; color: #e06028;
-  letter-spacing: 0; margin-bottom: 0.2rem;
-}
-.workflow-card h3 { font-size: 18px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.3rem; }
-.workflow-card p { font-size: 15px; font-weight: 400; opacity: 0.70; line-height: 1.5; }
-.workflow-arrow {
-  display: flex; align-items: center; flex-shrink: 0;
-  color: var(--blue); font-size: 18px; font-weight: 400;
-}
-.workflow-closing {
-  font-size: 16px; font-weight: 400; opacity: 0.7; max-width: 520px; margin-top: 1rem;
-}
-
-/* ═══════════════════════════════════════
-   PRAXIS — Tabs  [A3: solid, E2: active blue bg]
-   ═══════════════════════════════════════ */
-.praxis-tabs {
-  display: flex;
-  gap: 0;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(56,129,241,0.2);
-}
-.praxis-tab {
-  padding: 0.75rem 1.25rem;
-  cursor: pointer;
-  font-family: Figtree, sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: -0.3px;
-  border: none;
-  background: none;
-  color: var(--muted);
-  border-bottom: 3px solid transparent;
-  margin-bottom: -1px;
-  transition: all 0.2s;
-  min-height: 44px;
-  border-radius: 8px 8px 0 0;
-}
-.praxis-tab:hover { color: var(--ink); }
-.praxis-tab.active {
-  color: #ffffff;
-  background-color: var(--blue);
-  border-bottom-color: var(--blue);
-}
-.praxis-panel { display: none; }
-.praxis-panel.active {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.praxis-panel img {
-  max-width: 280px;
-}
-.praxis-panel h3 { font-size: 20px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
-.praxis-panel .praxis-desc { font-size: 16px; font-weight: 400; opacity: 0.75; line-height: 1.6; margin-bottom: 1rem; }
-.praxis-link { font-size: 15px; font-weight: 500; color: var(--blue); min-height: 44px; display: inline-flex; align-items: center; }
-.praxis-link:hover { text-decoration: underline; text-underline-offset: 3px; }
-
-/* ═══════════════════════════════════════
-   SCHULLEITUNGEN  [A2: no scalloped, C1: #3881F1]
-   ═══════════════════════════════════════ */
-.sl-section {
-  background-color: var(--blue); color: #ffffff;
-  padding: 60px 30px;
-  position: relative; z-index: 1;
-}
-.sl-inner { max-width: var(--max-w); margin: 0 auto; }
-.sl-section h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 300;
-  letter-spacing: -1.5px; margin-bottom: 1.5rem; line-height: 1.2; max-width: 600px;
-}
-.sl-section p { font-size: 18px; font-weight: 400; max-width: 600px; line-height: 1.6; opacity: 0.9; }
-.sl-section p + p { margin-top: 1rem; }
-.sl-benefits {
-  margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);
-}
-.sl-benefits h3 { font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; opacity: 0.8; }
-.sl-benefits p { font-size: 16px; opacity: 0.85; }
-.sl-section .cta_white_fill { margin-top: 2rem; }
-
-/* ═══════════════════════════════════════
-   ABOUT / PERSON  [A3: solid referenz-slot]
-   ═══════════════════════════════════════ */
-.about-layout { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: start; }
-.photo-wrap { position: relative; display: inline-block; max-width: 260px; }
-.photo-frame { position: relative; transform: rotate(-2deg); }
-.photo-frame img {
-  width: 100%; display: block; border-radius: 12px;
-  border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--lilac);
-}
-.photo-frame::before {
-  content: ''; position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(2deg);
-  width: 80px; height: 22px; background: rgba(215,188,237,0.45);
-  border: 1px solid rgba(215,188,237,0.6); border-radius: 2px; z-index: 2;
-}
-.photo-caption { font-size: 14px; color: var(--muted); text-align: center; margin-top: 0.75rem; transform: rotate(-2deg); }
-.markensatz {
-  font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 500; font-style: italic;
-  color: var(--blue); max-width: 520px; margin-top: 2rem;
-}
-.referenz-slot {
-  margin-top: 2.5rem; padding: 1.25rem 1.5rem;
-  border: 1px solid rgba(56,129,241,0.2); border-radius: var(--radius);
-  opacity: 0.5;
-}
-.referenz-slot blockquote {
-  font-size: 16px; font-style: italic; line-height: 1.5; margin-bottom: 0.5rem;
-}
-.referenz-slot cite { font-size: 14px; font-style: normal; opacity: 0.7; }
-
-/* ═══════════════════════════════════════
-   ANGEBOTE  [A3: dashed borders KEPT here]
-   ═══════════════════════════════════════ */
-.format-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
-}
-.format-card {
-  border: 1px dashed var(--blue);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-.format-card--highlight { border-top: 3px solid var(--blue); }
-.format-label {
-  font-size: 12px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--blue-text); margin-bottom: 0.5rem;
-}
-.format-card--highlight .format-label { color: var(--blue); }
-.format-card h3 { font-size: 22px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 0.4rem; }
-.format-card p { font-size: 15px; font-weight: 400; opacity: 0.7; line-height: 1.5; flex: 1; }
-.format-price { font-size: 20px; font-weight: 600; color: var(--blue); margin-top: 0.75rem; letter-spacing: -0.5px; }
-.format-detail { font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 0.25rem; }
-.format-includes { font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed var(--blue); opacity: 0.75; }
-
-/* ═══════════════════════════════════════
-   FAQ  [A3: solid borders, C3: separator]
-   ═══════════════════════════════════════ */
-.faq-section { padding: var(--space-section) 30px; }
-.faq-group-title {
-  font-size: 14px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--blue); margin: 1.5rem 0 1rem;
-}
-.faq-separator {
-  border: none;
-  border-top: 2px solid var(--blue);
-  margin: 3rem 0 0;
-  opacity: 0.3;
-}
-.faq-item { border-bottom: 1px solid rgba(56,129,241,0.15); }
-.faq-group-title + .faq-item { border-top: 1px solid rgba(56,129,241,0.15); }
-.faq-question {
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  padding: 1.25rem 0; cursor: pointer; width: 100%; background: none; border: none;
-  font-family: Figtree, sans-serif; font-size: 18px; font-weight: 500; letter-spacing: -0.5px;
-  color: var(--ink); text-align: left; line-height: 1.3; min-height: 44px;
-  -webkit-text-fill-color: var(--ink);
-}
-.faq-question:hover { color: var(--blue); -webkit-text-fill-color: var(--blue); }
-.faq-question::after {
-  content: '+'; font-size: 24px; font-weight: 300; color: var(--blue);
-  transition: transform 0.3s ease; flex-shrink: 0;
-}
-.faq-item.open .faq-question::after { content: '\2212'; }
-.faq-answer {
-  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;
-}
-.faq-item.open .faq-answer { max-height: 600px; padding: 0 0 1.25rem 0; }
-.faq-answer p { font-size: 16px; font-weight: 400; opacity: 0.7; max-width: 700px; }
-
-/* ═══════════════════════════════════════
-   FOOTER  [A2: scalloped kept, D1+D2: restructured]
-   ═══════════════════════════════════════ */
-.footer-blue {
-  background-color: var(--blue); color: var(--bg); padding: 60px 30px 30px;
-  position: relative; z-index: 1;
-}
-.footer-blue::before {
-  content: ''; position: absolute; top: -24px; left: 0; right: 0; height: 26px;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='30' cy='26' rx='30' ry='26' fill='%233881F1'/%3E%3C/svg%3E") repeat-x;
-  background-size: 60px 26px;
-}
-.footer-inner {
-  max-width: var(--max-w); margin: 0 auto;
-  display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start;
-}
-.footer-claim {
-  font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 500;
-  line-height: 1.15; letter-spacing: -2.5px; margin-bottom: 1.5rem;
-}
-.footer-claim em { font-style: italic; color: #ffffff; }
-.footer-sub { font-size: 18px; font-weight: 300; max-width: 480px; margin-bottom: 2rem; opacity: 0.85; }
-.footer-bottom {
-  max-width: var(--max-w); margin: 3rem auto 0;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(245,243,237,0.2);
-}
-.footer-nav { margin: 0.75rem 0; }
-.footer-nav a { color: var(--bg); opacity: 0.7; font-size: 14px; transition: opacity .2s; }
-.footer-nav a:hover { opacity: 1; }
-.footer-privacy {
-  font-size: 14px; font-weight: 400; color: var(--bg); opacity: 0.85;
-  margin: 1rem 0 0.5rem;
-}
-.footer-copyright {
-  font-size: 13px; font-weight: 400; color: var(--bg); opacity: 0.5;
-}
-
-/* ═══════════════════════════════════════
-   SCROLL REVEAL
-   ═══════════════════════════════════════ */
-.reveal {
-  opacity: 0; transform: translateY(16px);
-  transition: opacity .5s ease, transform .5s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ═══════════════════════════════════════
-   RESPONSIVE  [E3: mobile font sizes]
-   ═══════════════════════════════════════ */
-@media (min-width: 768px) {
-  .about-layout { grid-template-columns: 260px 1fr; gap: 3rem; }
-  section { padding-left: var(--space-inner); padding-right: var(--space-inner); }
-  .sl-section, .footer-blue { padding-left: var(--space-inner); padding-right: var(--space-inner); }
-  .faq-section { padding-left: var(--space-inner); padding-right: var(--space-inner); }
-}
-
-@media (max-width: 960px) {
-  .nav-links { display: none; }
-  .nav-hamburger { display: flex; z-index: 10001; position: relative; }
-  .navBar.menu-open { backdrop-filter: none; -webkit-backdrop-filter: none; background-color: #F5F3ED; }
-  .nav-links.open {
-    display: flex; flex-direction: column; position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #F5F3ED;
-    padding: 120px 30px 40px; gap: 0; z-index: 10000;
-    overflow-y: auto;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-  .nav-links.open li { display: block; }
-  .nav-links.open a {
-    font-size: 22px; font-weight: 600; padding: 20px 0; display: block;
-    border-top: 1px solid rgba(56,129,241,0.2);
-  }
-}
-
-@media (max-width: 900px) {
-  .hero-layout { grid-template-columns: 1fr; gap: 2rem; }
-  .hero { min-height: auto; padding-top: clamp(2rem, 5vw, 4rem); }
-  .hero-visual { order: -1; }
-  .hero-title { text-align: center; }
-  .hero-subtitle, .hero-cta-row { text-align: center; }
-  .hero-cta-row { justify-content: center; }
-  .hero-subtitle { margin-left: auto; margin-right: auto; }
-  .format-grid { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 640px) {
-  .hero-title { font-size: 2rem; letter-spacing: -2px; }
-  .hero-subtitle { font-size: 1rem; }
-  .hero-cta-row { flex-direction: column; align-items: stretch; }
-  .hero-cta-row .cta_blue_fill,
-  .hero-cta-row .cta_ghost_blue { width: 100%; min-width: 0; }
-  .workflow-track { flex-direction: column; gap: 1rem; }
-  .workflow-arrow { display: none; }
-  .realitaet-stats { flex-direction: column; gap: 1.5rem; }
-  .praxis-tabs {
-    flex-direction: column;
-    gap: 8px;
-    border-bottom: none;
-  }
-  .praxis-tab {
-    width: 100%;
-    text-align: left;
-    padding: 12px 16px;
-    border-bottom: none;
-    border-radius: 8px;
-    margin-bottom: 0;
-  }
-  .praxis-tab.active {
-    border-radius: 8px;
-  }
-  .praxis-panel.active {
-    flex-direction: column;
-  }
-  .praxis-panel img {
-    order: 3;
-    max-width: 120px;
-    margin: 16px auto 0;
-  }
-  .praxis-panel h3 { order: 1; }
-  .praxis-panel .praxis-desc { order: 1; }
-  .praxis-panel .cta_blue_fill { order: 2; }
-}
-
-@media (max-width: 767px) {
-  .about-layout { justify-items: center; }
-}
-
-/* ═══════════════════════════════════════
-   ACCESSIBILITY
-   ═══════════════════════════════════════ */
-.skip-link {
-  position: absolute; top: -100%; left: 1rem;
-  background: var(--ink); color: var(--bg); padding: 0.75rem 1.25rem;
-  border-radius: 0 0 8px 8px; font-size: 14px; font-weight: 500;
-  z-index: 1000; text-decoration: none;
-  transition: top .2s ease;
-}
-.skip-link:focus { top: 0; }
-
-:focus-visible {
-  outline: 3px solid var(--blue);
-  outline-offset: 2px;
-}
-.cta_blue_fill:focus-visible,
-.cta_green:focus-visible,
-.cta_ghost_blue:focus-visible,
-.cta_ghost_white:focus-visible,
-.cta_white_fill:focus-visible,
-.cta_shadow:focus-visible {
-  outline-color: var(--ink);
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-  }
-  html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; }
-}
+  --farbe-beige:#EDEAE1;--farbe-beige-dunkel:#D9D6CD;
+  --farbe-text:#2A2A2A;--farbe-text-muted:#4A4A4A;--farbe-text-sehr-muted:#5A5A5A;--farbe-text-weiss:#FFFFFF;
+  --farbe-blau:#3881F1;--farbe-blau-hover:#2563D4;--farbe-blau-pastell:#DBE4FF;
+  --farbe-orange:#F6612E;--farbe-orange-pastell:#FFD8A8;
+  --farbe-gruen:#01C476;
+  --border-radius:12px;--border-radius-klein:8px;--border-radius-gross:20px;
+  --transition:300ms ease;--max-w:1100px;--content-w:760px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background-color:var(--farbe-beige);font-family:Figtree,system-ui,sans-serif;color:var(--farbe-text);font-size:1.05rem;line-height:1.75;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none;cursor:pointer}
+h1,h2,h3{text-wrap:balance}
+h1{font-size:clamp(2.8rem,7vw,5.5rem);font-weight:600;font-style:italic;letter-spacing:-2px;line-height:1.05}
+h2{font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:500;letter-spacing:-1.5px;line-height:1.15}
+h3{font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:600;letter-spacing:-0.5px}
+::selection{background:var(--farbe-text);color:var(--farbe-beige)}
+:focus-visible{outline:3px solid var(--farbe-blau);outline-offset:3px}
+.skip-link{position:absolute;top:-100%;left:1rem;z-index:1100;background:var(--farbe-text);color:var(--farbe-beige);padding:.75rem 1.25rem;border-radius:0 0 8px 8px;font-size:14px;font-weight:500;text-decoration:none;transition:top .2s ease}
+.skip-link:focus{top:0}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.no-js .reveal{opacity:1;transform:none}
+section{padding:clamp(48px,6vw,80px) clamp(24px,4vw,40px);position:relative}
+.section-inner{max-width:var(--max-w);margin:0 auto}
+.content-w{max-width:var(--content-w)}
+.nav{position:sticky;top:0;z-index:999;width:100%;padding:7px 30px;display:flex;align-items:center;justify-content:space-between;background-color:rgba(237,234,225,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(56,129,241,.2)}
+.nav-logo{display:inline-flex;align-items:center;padding:.3rem 0}
+.nav-logo img{height:64px;width:auto}
+.nav-logo:hover{opacity:.7}
+.nav-links{display:flex;gap:30px;align-items:center;list-style:none}
+.nav-links a{color:var(--farbe-text);font-size:16px;font-weight:400;min-height:44px;display:flex;align-items:center;transition:color .2s}
+.nav-links a:hover{color:var(--farbe-blau)}
+.nav-cta{color:var(--farbe-text);font-size:15px;font-weight:500;border:2px solid var(--farbe-text);border-radius:30px;padding:10px 15px;background-color:var(--farbe-beige);box-shadow:0 3px var(--farbe-text);transition:.25s;min-height:44px;display:inline-flex;align-items:center}
+.nav-cta:hover{box-shadow:0 0 var(--farbe-text);transform:translateY(3px)}
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;width:44px;height:44px;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.nav-hamburger span{display:block;width:26px;height:3px;background:var(--farbe-blau);border-radius:2px}
+.btn-primary{background-color:var(--farbe-blau);color:var(--farbe-text-weiss);border:2px solid var(--farbe-blau);border-radius:50px;padding:14px 28px;font-size:1rem;font-weight:600;font-family:inherit;cursor:pointer;transition:var(--transition);min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center}
+.btn-primary:hover{background-color:var(--farbe-blau-hover);border-color:var(--farbe-blau-hover);transform:translateY(-2px);box-shadow:0 4px 12px rgba(56,129,241,.3)}
+.btn-outline{background-color:transparent;color:var(--farbe-blau);border:2px solid var(--farbe-blau);border-radius:50px;padding:14px 28px;font-size:1rem;font-weight:600;font-family:inherit;cursor:pointer;transition:var(--transition);min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+.btn-outline:hover{background-color:var(--farbe-blau);color:var(--farbe-text-weiss)}
+.btn-weiss{background-color:var(--farbe-text-weiss);color:var(--farbe-blau);border:2px solid var(--farbe-text-weiss);border-radius:50px;padding:14px 28px;font-size:1rem;font-weight:600;font-family:inherit;cursor:pointer;transition:var(--transition);min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+.btn-weiss:hover{background-color:transparent;color:var(--farbe-text-weiss)}
+.btn-ghost-weiss{background:none;color:var(--farbe-beige);border:2px solid var(--farbe-beige);border-radius:50px;padding:14px 28px;font-size:1rem;font-weight:600;font-family:inherit;cursor:pointer;transition:var(--transition);min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+.btn-ghost-weiss:hover{background-color:var(--farbe-beige);color:var(--farbe-blau)}
+.subline{font-size:clamp(1rem,2vw,1.2rem);font-weight:400}
+.meta{font-size:.85rem;line-height:1.5;color:var(--farbe-text-muted)}
+.mit-underline{position:relative;display:inline-block}
+.underline-deko{position:absolute;bottom:-8px;left:0;width:100%;height:auto;pointer-events:none}
+.hero{padding:clamp(48px,6vw,80px) clamp(24px,4vw,40px);min-height:auto;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:60% 40%;gap:40px;align-items:center;max-width:var(--max-w);margin:0 auto;width:100%}
+.hero-text{max-width:600px}
+.hero-schmerz{font-size:clamp(1rem,1.5vw,1.2rem);font-weight:400;line-height:1.6;margin-top:1.5rem;max-width:480px}
+.hero-subline{font-size:clamp(1rem,2vw,1.2rem);font-weight:400;line-height:1.6;margin-top:1rem;max-width:480px;opacity:.75}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem}
+.hero-buttons .btn-primary,.hero-buttons .btn-outline{min-width:200px;text-align:center}
+.hero-profil{display:flex;align-items:center;gap:14px;margin-top:2rem}
+.hero-profil img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid rgba(56,129,241,.15)}
+.hero-profil-name{font-size:15px;font-weight:600;line-height:1.3}
+.hero-profil-sub{font-size:13px;font-weight:400;opacity:.6}
+.hero-visual img{width:100%;height:auto}
+.realitaet-problem{font-size:clamp(1.25rem,2.5vw,1.75rem);font-weight:500;letter-spacing:-.5px;margin-top:1.5rem;max-width:560px}
+.realitaet-stats{display:flex;gap:2.5rem;margin-top:2rem;flex-wrap:wrap}
+.realitaet-stat{font-size:14px;font-weight:400;color:var(--farbe-text-muted);line-height:1.5;max-width:280px}
+.realitaet-stat strong{font-size:18px;font-weight:600;color:var(--farbe-blau);display:block;margin-bottom:.15rem;letter-spacing:-.5px}
+.realitaet-stat cite{font-style:normal;font-size:12px;opacity:.65;display:block;margin-top:.15rem}
+.wendepunkt{font-size:clamp(1.1rem,2vw,1.3rem);font-weight:600;margin-top:2.5rem;max-width:560px;line-height:1.5}
+.methode-diagramm{width:100%;max-width:var(--max-w);margin:2.5rem auto}
+.methode-diagramm img{width:100%;height:auto}
+.methode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:32px 0}
+.methode-box{background:var(--farbe-blau-pastell);border:2px solid var(--farbe-blau);border-radius:var(--border-radius);padding:24px}
+.methode-box .schritt-label{color:var(--farbe-orange);font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.methode-box h3{color:var(--farbe-blau);font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.methode-box p{font-size:.95rem;font-weight:400;opacity:.75;line-height:1.6}
+.methode-closing{text-align:center;margin-top:1.5rem;color:var(--farbe-text-muted)}
+.praxis-anchor{font-weight:600;max-width:var(--content-w);margin-bottom:2rem;line-height:1.6}
+.tabs-nav{display:flex;gap:4px;border-bottom:2px solid var(--farbe-beige-dunkel);margin-bottom:32px}
+.tab-btn{padding:12px 20px;font-weight:600;font-family:inherit;font-size:15px;color:var(--farbe-text-muted);background:transparent;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;transition:var(--transition);min-height:44px;letter-spacing:-.3px}
+.tab-btn:hover{color:var(--farbe-text)}
+.tab-btn[aria-selected="true"]{color:var(--farbe-blau);border-bottom-color:var(--farbe-blau)}
+.tab-panel{display:none}
+.tab-panel.active{display:grid;grid-template-columns:160px 1fr;gap:32px;align-items:start}
+.tab-panel img{width:160px;height:160px;object-fit:contain;flex-shrink:0}
+.tab-panel h3{font-size:20px;font-weight:600;letter-spacing:-.5px;margin-bottom:.5rem}
+.tab-teaser{font-weight:600;color:var(--farbe-blau);line-height:1.5;margin-bottom:.75rem}
+.tab-desc{font-size:16px;font-weight:400;opacity:.75;line-height:1.6;margin-bottom:1rem}
+.bruecke{margin-top:3rem;text-align:center}
+.bruecke p{font-size:18px;font-weight:400;opacity:.8}
+.bruecke .btn-outline{margin-top:1rem}
+.sl-section{background-color:var(--farbe-blau);color:var(--farbe-text-weiss);padding:clamp(48px,6vw,80px) clamp(24px,4vw,40px)}
+.sl-section h2,.sl-section h3,.sl-section p{color:var(--farbe-text-weiss)}
+.sl-section p{font-size:18px;font-weight:400;max-width:600px;line-height:1.6;opacity:.9}
+.sl-section p+p{margin-top:1rem}
+.sl-benefits{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.2)}
+.sl-benefits h3{font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;opacity:.8}
+.sl-benefits p{font-size:16px;opacity:.85}
+.sl-roi{font-weight:700;font-size:1.1rem;border-left:4px solid rgba(255,255,255,.4);padding-left:16px;margin:24px 0;max-width:600px}
+.sl-hint{font-size:13px;opacity:.6;margin-top:.5rem}
+.sl-nachklick{font-size:13px;opacity:.6;margin-top:.75rem}
+.about-layout{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:start}
+.photo-wrap{max-width:260px}
+.photo-frame{position:relative;transform:rotate(-2deg)}
+.photo-frame img{width:100%;border-radius:12px;border:3px solid var(--farbe-text);box-shadow:6px 6px 0 rgba(56,129,241,.25)}
+.photo-frame::before{content:'';position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(2deg);width:80px;height:22px;background:rgba(56,129,241,.45);border:1px solid rgba(56,129,241,.6);border-radius:2px;z-index:2}
+.photo-caption{font-size:14px;color:var(--farbe-text-muted);text-align:center;margin-top:.75rem;transform:rotate(-2deg)}
+.argument-satz{font-style:italic;font-size:1.15rem;max-width:var(--content-w);margin-bottom:2rem;line-height:1.6}
+.markensatz{font-size:clamp(1.1rem,2vw,1.35rem);font-weight:500;font-style:italic;color:var(--farbe-blau);max-width:520px;margin-top:2rem}
+.referenz-slot{margin-top:2.5rem;padding:1.25rem 1.5rem;border:1px solid rgba(56,129,241,.2);border-radius:var(--border-radius);opacity:.5}
+.referenz-slot blockquote{font-size:16px;font-style:italic;line-height:1.5;margin-bottom:.5rem}
+.referenz-slot cite{font-size:14px;font-style:normal;opacity:.7}
+.format-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:2rem}
+.format-card{border:1px dashed var(--farbe-blau);border-radius:var(--border-radius);padding:1.25rem;display:flex;flex-direction:column}
+.format-card--highlight{border-top:3px solid var(--farbe-blau)}
+.format-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--farbe-blau);margin-bottom:.5rem}
+.format-card h3{font-size:22px;font-weight:600;letter-spacing:-.5px;margin-bottom:.4rem}
+.format-card p{font-size:15px;font-weight:400;opacity:.7;line-height:1.5;flex:1}
+.format-price{font-size:20px;font-weight:600;color:var(--farbe-blau);margin-top:.75rem;letter-spacing:-.5px}
+.format-detail{font-size:13px;font-weight:400;color:var(--farbe-text-muted);margin-top:.25rem}
+.format-includes{font-size:13px;font-weight:400;color:var(--farbe-text-muted);margin-top:.5rem;padding-top:.5rem;border-top:1px dashed var(--farbe-blau);opacity:.75}
+.angebote-cta{margin-top:2.5rem;text-align:center}
+.faq-group-title{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--farbe-blau);margin:1.5rem 0 1rem}
+.faq-separator{border:none;border-top:2px solid var(--farbe-blau);margin:3rem 0 0;opacity:.3}
+.faq-item{border-bottom:1px solid rgba(56,129,241,.15)}
+.faq-group-title+.faq-item{border-top:1px solid rgba(56,129,241,.15)}
+details.faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 0;cursor:pointer;list-style:none;font-family:inherit;font-size:18px;font-weight:500;letter-spacing:-.5px;color:var(--farbe-text);line-height:1.3;min-height:44px}
+details.faq-item summary::-webkit-details-marker{display:none}
+details.faq-item summary::after{content:'+';font-size:24px;font-weight:300;color:var(--farbe-blau);transition:transform .3s ease;flex-shrink:0}
+details.faq-item[open] summary::after{content:'\2212'}
+details.faq-item summary:hover{color:var(--farbe-blau)}
+.faq-answer{padding:0 0 1.25rem}
+.faq-answer p{font-size:16px;font-weight:400;opacity:.7;max-width:700px}
+.footer-blue{background-color:var(--farbe-blau);color:var(--farbe-beige);padding:60px 30px 30px;position:relative}
+.footer-blue::before{content:'';position:absolute;top:-24px;left:0;right:0;height:26px;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 60 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='30' cy='26' rx='30' ry='26' fill='%233881F1'/%3E%3C/svg%3E") repeat-x;background-size:60px 26px}
+.footer-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+.footer-claim{font-size:clamp(2.5rem,5vw,4rem);font-weight:500;line-height:1.15;letter-spacing:-2.5px;margin-bottom:1.5rem}
+.footer-claim em{font-style:italic;color:var(--farbe-text-weiss)}
+.footer-sub{font-size:18px;font-weight:300;max-width:480px;margin-bottom:2rem;opacity:.85}
+.footer-contacts{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.footer-illustration{max-width:200px;width:100%;flex-shrink:0}
+.footer-bottom{max-width:var(--max-w);margin:3rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(245,243,237,.2)}
+.footer-brand{font-size:15px;font-weight:500;opacity:.9}
+.footer-nav{margin:.75rem 0}
+.footer-nav a{color:var(--farbe-beige);opacity:.7;font-size:14px;transition:opacity .2s}
+.footer-nav a:hover{opacity:1}
+.footer-address{font-size:13px;opacity:.6;margin-top:.5rem}
+.footer-privacy{font-size:14px;font-weight:400;color:var(--farbe-beige);opacity:.85;margin:1rem 0 .5rem}
+.footer-copyright{font-size:13px;font-weight:400;color:var(--farbe-beige);opacity:.5}
+@media(min-width:768px){.about-layout{grid-template-columns:260px 1fr;gap:3rem}}
+@media(max-width:960px){.nav-links{display:none}.nav-hamburger{display:flex;z-index:10001;position:relative}.nav.menu-open{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:var(--farbe-beige)}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--farbe-beige);padding:120px 30px 40px;gap:0;z-index:10000;overflow-y:auto}.nav-links.open li{display:block}.nav-links.open a{font-size:22px;font-weight:600;padding:20px 0;display:block;border-top:1px solid rgba(56,129,241,.2)}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2rem}.hero{min-height:auto;padding-top:clamp(2rem,5vw,4rem)}.hero-visual{order:1}.hero-text{text-align:center;max-width:none}.hero-schmerz,.hero-subline{margin-left:auto;margin-right:auto}.hero-buttons{justify-content:center}.hero-profil{justify-content:center}.format-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr}}
+@media(max-width:640px){h1{letter-spacing:-1px}h2{letter-spacing:-.8px}h3{letter-spacing:-.3px}.hero h1{font-size:clamp(2.2rem,8vw,3.5rem)}.hero-buttons{flex-direction:column;align-items:stretch}.hero-buttons .btn-primary,.hero-buttons .btn-outline{width:100%;min-width:0}.methode-grid{grid-template-columns:1fr}.methode-box p{font-size:1rem}.underline-deko{bottom:-6px}.realitaet-stats{flex-direction:column;gap:1.5rem}.tabs-nav{flex-direction:column;gap:8px;border-bottom:none}.tab-btn{width:100%;text-align:left;padding:12px 16px;border:2px solid var(--farbe-beige-dunkel);border-radius:var(--border-radius-klein);margin-bottom:0}.tab-btn[aria-selected="true"]{border-color:var(--farbe-blau);background:var(--farbe-blau-pastell)}.tab-panel.active{grid-template-columns:1fr}.tab-panel img{max-width:120px;order:2;margin:0 auto}.footer-illustration{display:none}}
+@media(max-width:767px){.about-layout{justify-items:center}}
 </style>
-<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
 <a href="#main" class="skip-link">Zum Inhalt springen</a>
-
-<!-- ═══ NOTEBOOK LINES ═══ -->
-<div class="notebook-lines" aria-hidden="true">
-  <span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span>
-</div>
-
-<!-- ═══ NAV ═══ -->
-<nav class="navBar" aria-label="Hauptnavigation">
-  <a href="#top" class="nav-logo" aria-label="KIalog — zur Startseite"><img src="asset/logo/kialog-final-blau.svg" alt="KIalog Hirschi" height="64"></a>
+<nav class="nav" aria-label="Hauptnavigation">
+  <a href="#top" class="nav-logo" aria-label="KIalog — zur Startseite"><img src="asset/logo/kialog-final-blau.svg" alt="KIalog" height="64"></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#werkstatt">Methode</a></li>
     <li><a href="#praxis">Praxis</a></li>
     <li><a href="#angebote">Angebote</a></li>
     <li><a href="#ueber">Warum ich</a></li>
-    <li><a href="#kontakt" class="cta_shadow">Kontakt</a></li>
+    <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
   </ul>
-  <button class="nav-hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
 </nav>
-
 <main id="main">
-
-<!-- ═══════════════════════════════════════
-     1. HERO  [C2: blue fill + ghost blue buttons]
-     ═══════════════════════════════════════ -->
 <section class="hero" id="top">
-  <div class="hero-layout">
+  <div class="hero-grid">
     <div class="hero-text">
-      <h1 class="hero-title reveal"><em>KI ist im Unterricht.<br>Was jetzt?</em></h1>
-      <p class="hero-subtitle reveal">Lernende nutzen sie. Lehrpersonen auch.<br>Was fehlt, ist die Methode. Nicht ein weiteres Tool.</p>
-      <div class="hero-cta-row reveal">
-        <a href="#lehrpersonen" class="cta_blue_fill">Ich bin Lehrperson</a>
-        <a href="#schulleitungen" class="cta_ghost_blue">Ich leite eine Schule</a>
+      <h1 class="reveal">KI ist im Unterricht. <br>Was jetzt?</h1>
+      <p class="hero-schmerz reveal">Deine Lernenden schreiben Texte mit KI. <br>Du weisst nicht wie du den Output beurteilen sollst.</p>
+      <p class="hero-subline reveal">Das ist kein Tool-Problem. Das ist eine Kompetenzfrage. <br>KIalog gibt dir die <span class="mit-underline">Methode.<img src="asset/underline.svg" alt="" class="underline-deko" aria-hidden="true"></span></p>
+      <div class="hero-buttons reveal">
+        <a href="#lehrpersonen" class="btn-primary">Ich bin Lehrperson</a>
+        <a href="#schulleitungen" class="btn-outline">Ich leite eine Schule</a>
       </div>
-      <div class="reveal" style="display:flex;align-items:center;gap:14px;margin-top:2rem;">
-        <img src="asset/manu2.webp" alt="Manuel Hirschi" loading="eager" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid rgba(56,129,241,0.15);">
+      <div class="hero-profil reveal">
+        <img src="asset/manu2.webp" alt="Manuel Hirschi" loading="eager">
         <div>
-          <p style="font-size:15px;font-weight:600;margin:0;line-height:1.3;">Manuel Hirschi</p>
-          <p style="font-size:13px;font-weight:400;margin:0;opacity:0.6;">gibb Bern &middot; PH FHNW &middot; UZH</p>
+          <p class="hero-profil-name">Manuel Hirschi</p>
+          <p class="hero-profil-sub">gibb Bern &middot; PH FHNW &middot; UZH</p>
         </div>
       </div>
     </div>
     <div class="hero-visual reveal">
-      <img src="asset/hero-lehrperson.png" alt="Illustration: Lehrperson prüft KI-Output am Laptop" loading="eager" style="width:100%;max-width:560px;margin-left:auto;">
+      <img src="asset/hero-lehrperson.webp" alt="Illustration: Lehrperson prüft KI-Output am Laptop" loading="eager">
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════════
-     2. REALITÄT  [A3: no dashed, A4: stats inline]
-     ═══════════════════════════════════════ -->
 <section id="lehrpersonen">
   <div class="section-inner">
-    <h2 class="section-title reveal">KI verbieten?<br>Das ist nicht mehr die Frage.</h2>
-    <p class="reveal" style="font-size:18px;font-weight:400;max-width:560px;line-height:1.6;opacity:0.8;">Lernende generieren Texte in Sekunden. Lehrpersonen differenzieren Material, entwerfen Prüfungen, bereiten Lektionen vor. Schneller als je zuvor.</p>
-    <p class="reveal" style="font-size:16px;font-weight:400;max-width:560px;margin-top:1rem;opacity:0.7;">Das ist nicht das Problem.</p>
+    <h2 class="reveal">KI verbieten? <br>Das ist nicht mehr die Frage.</h2>
+    <p class="reveal content-w">Lernende generieren Texte in Sekunden. Lehrpersonen differenzieren Material, entwerfen Prüfungen, bereiten Lektionen vor. Schneller als je zuvor.</p>
+    <p class="reveal content-w" style="margin-top:1rem">Das ist nicht das Problem.</p>
     <p class="realitaet-problem reveal">Aber wer prüft, was zurückkommt?</p>
-
     <div class="realitaet-stats reveal">
-      <div class="realitaet-stat">
-        <strong>93%</strong>
-        der Schweizer Jugendlichen haben KI-Tools ausprobiert.
-        <cite>Latzer &amp; Festic 2024, UZH</cite>
-      </div>
-      <div class="realitaet-stat">
-        <strong>&gt;23%</strong>
-        der Aussagen in KI-generierten Texten sind fachlich nicht gedeckt.
-        <cite>Jia et al. 2024, EDM</cite>
-      </div>
+      <div class="realitaet-stat"><strong class="stat-counter" data-target="93">0 %</strong>der Schweizer Jugendlichen haben KI-Tools ausprobiert.<cite>Latzer &amp; Festic 2024, UZH</cite></div>
+      <div class="realitaet-stat"><strong class="stat-counter" data-target="23" data-prefix="&gt; ">0 %</strong>der Aussagen in KI-generierten Texten sind fachlich nicht gedeckt.<cite>Jia et al. 2024, EDM</cite></div>
     </div>
+    <p class="wendepunkt reveal">Sechs Rahmenwerke fordern KI-Urteilskompetenz heute schon. <br>Die Frage ist nicht ob — sondern wie.</p>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════════
-     3. METHODE  [B: diagramm placeholder, G: Excalidraw later]
-     ═══════════════════════════════════════ -->
 <section id="werkstatt">
   <div class="section-inner">
-    <h2 class="section-title reveal">Du kennst dein Material.<br>Das ist dein Vorteil.</h2>
-    <p class="reveal" style="font-size:18px;font-weight:400;max-width:560px;line-height:1.6;opacity:0.8;">KIalog ist kein Kurs über KI. Es ist eine Methode, die mit dem anfängt, was du schon hast.</p>
-    <p class="reveal" style="font-size:16px;font-weight:400;max-width:560px;margin-top:1rem;opacity:0.75;line-height:1.6;">Du lädst dein Unterrichtsmaterial. KI skaliert, differenziert, entwirft. Du weisst, was darin steht. Und merkst sofort, wenn etwas nicht stimmt.</p>
-    <p class="reveal" style="font-size:16px;font-weight:400;max-width:560px;margin-top:1rem;opacity:0.75;line-height:1.6;">Genau das ist KI-Urteilskompetenz. Und genau das fordern sechs Rahmenwerke heute schon.</p>
-
-    <!-- KIalog Methode — 3-Schritt-Diagramm -->
-    <div class="methode-diagramm reveal">
-      <img src="asset/illust-methode.png" alt="Diagramm, drei Schritte der KIalog-Methode. Prüfen, Urteilen, Belegen" loading="lazy" style="width:100%;">
-    </div>
-
-    <!-- 3-Schritt-Beschreibungen -->
-    <div class="workflow-track reveal">
-      <div class="workflow-card">
-        <div class="workflow-num">Schritt 1</div>
-        <h3>Prüfen</h3>
-        <p>Stimmt das fachlich? Fehlt etwas? Wo hat die KI vereinfacht, was nicht vereinfacht werden darf?</p>
-      </div>
-      <div class="workflow-arrow" aria-hidden="true"><svg width="28" height="16" viewBox="0 0 28 16"><path d="M2 8 C8 7, 14 9, 20 8" stroke="#417ac2" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M18 3 L24 8 L18 13" stroke="#417ac2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="workflow-card">
-        <div class="workflow-num">Schritt 2</div>
-        <h3>Urteilen</h3>
-        <p>Übernehmen, anpassen oder verwerfen. Nicht die KI entscheidet über Qualität. Du entscheidest.</p>
-      </div>
-      <div class="workflow-arrow" aria-hidden="true"><svg width="28" height="16" viewBox="0 0 28 16"><path d="M2 8 C8 7, 14 9, 20 8" stroke="#417ac2" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M18 3 L24 8 L18 13" stroke="#417ac2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="workflow-card">
-        <div class="workflow-num">Schritt 3</div>
-        <h3>Belegen</h3>
-        <p>Warum hast du was geändert? Dein Denkprozess wird sichtbar. Für dich, für deine Lernenden, für dein Team.</p>
-      </div>
-    </div>
-
-    <p class="workflow-closing reveal">Dieselbe Methode. Egal ob Arbeitsblatt, Prüfung oder Feedback.</p>
+    <h2 class="reveal">Du kennst dein Material. <br>Das ist dein <span class="mit-underline">Vorteil.<img src="asset/underline-blau.svg" alt="" class="underline-deko" aria-hidden="true"></span></h2>
+    <p class="reveal content-w">KIalog ist kein Kurs über KI.</p>
+    <p class="reveal content-w" style="margin-top:1rem">Es ist eine Methode die mit dem anfängt, was du schon hast. Dein Unterrichtsmaterial. Deine Fachkompetenz. Dein Urteil.</p>
+    <p class="reveal content-w" style="margin-top:1rem">KI skaliert, differenziert, entwirft. Du weisst, was darin steht — und merkst sofort, wenn etwas nicht stimmt. Das ist keine neue Fähigkeit. Das ist deine Fachkompetenz, angewendet auf KI-Output.</p>
+    <p class="reveal content-w" style="margin-top:1rem">Genau das nennt die Forschung evaluative judgement (Tai et al., 2018). Und genau das fordern sechs Rahmenwerke heute schon.</p>
+    <div class="methode-diagramm reveal"><img src="asset/illust-methode.svg" alt="Diagramm: KIalog-Methode in drei Schritten — Prüfen, Urteilen, Belegen" loading="lazy"></div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════════
-     4. PRAXIS — Tabs  [B: illustration placeholders]
-     ═══════════════════════════════════════ -->
-<section id="praxis" style="padding-top:0;">
+<section id="praxis">
   <div class="section-inner">
-    <h2 class="section-title reveal">So sieht das aus.</h2>
-    <p class="reveal" style="font-size:16px;font-weight:400;max-width:520px;opacity:0.7;margin-bottom:2rem;">Kein Theoriebeispiel. Echtes Material, echte Entscheidung.</p>
-
-    <div class="praxis-tabs reveal" role="tablist">
-      <button role="tab" class="praxis-tab active" aria-selected="true" data-tab="bfs" id="tab-btn-bfs" aria-controls="tab-bfs">Berufsfachschule</button>
-      <button role="tab" class="praxis-tab" aria-selected="false" data-tab="gym" id="tab-btn-gym" aria-controls="tab-gym">Gymnasium / FMS</button>
-      <button role="tab" class="praxis-tab" aria-selected="false" data-tab="ph" id="tab-btn-ph" aria-controls="tab-ph">PH / Hochschule</button>
+    <h2 class="reveal">So sieht das aus.</h2>
+    <p class="reveal content-w" style="margin-bottom:1rem">Kein Theoriebeispiel. Echtes Material, echte Entscheidung.</p>
+    <p class="praxis-anchor reveal">Ein Arbeitsblatt differenzieren, eine Prüfung umbauen, ein KI-Feedback einordnen. Mit der KIalog-Methode dauert das Minuten, nicht Stunden.</p>
+    <div class="tabs-nav reveal" role="tablist">
+      <button role="tab" class="tab-btn" aria-selected="true" data-tab="bfs" id="tab-btn-bfs" aria-controls="tab-bfs">Berufsfachschule</button>
+      <button role="tab" class="tab-btn" aria-selected="false" data-tab="gym" id="tab-btn-gym" aria-controls="tab-gym">Gymnasium / FMS</button>
+      <button role="tab" class="tab-btn" aria-selected="false" data-tab="ph" id="tab-btn-ph" aria-controls="tab-ph">PH / Hochschule</button>
     </div>
-
-    <div class="praxis-panel active reveal" id="tab-bfs" role="tabpanel" aria-labelledby="tab-btn-bfs">
-      <img src="asset/illust-arbeitsblatt.png" alt="Illustration: Arbeitsblatt auf drei Niveaus" loading="lazy">
-      <div>
-        <h3>Arbeitsblatt auf 3 Niveaus</h3>
-        <p class="praxis-desc">Du hast eine EBA-Klasse mit DaZ-Anteil. KI differenziert dein Arbeitsblatt auf drei Niveaus. Du prüfst. Was stimmt sprachlich? Was fehlt fachlich? Was übernimmst du?</p>
-        <p class="praxis-desc" style="font-weight:500;opacity:0.9;">KI schreibt «Chef» statt «Berufsbildner:in» und vergisst Sprachstützen für DaZ-Lernende. Du weisst das sofort. Du korrigierst es in 8 Minuten.</p>
-        <a href="beispiel/prototyp-praxis.html#wt-berufsschule" class="cta_blue_fill" style="margin-top:0.5rem;">Walkthrough ansehen &rarr;</a>
-      </div>
+    <div class="tab-panel active reveal" id="tab-bfs" role="tabpanel" aria-labelledby="tab-btn-bfs">
+      <img src="asset/illust-arbeitsblatt.webp" alt="Illustration: Arbeitsblatt auf drei Niveaus" loading="lazy">
+      <div><h3>Arbeitsblatt auf 3 Niveaus</h3><p class="tab-teaser">KI schreibt «Chef» statt «Berufsbildner:in» und vergisst Sprachstützen für DaZ-Lernende. Du weisst das sofort. Du korrigierst es in 8 Minuten.</p><p class="tab-desc">Du hast eine EBA-Klasse mit DaZ-Anteil. KI differenziert dein Arbeitsblatt auf drei Niveaus. Du prüfst: Was stimmt sprachlich? Was fehlt fachlich? Was übernimmst du?</p><a href="beispiel/prototyp-praxis.html#wt-berufsschule" class="btn-primary">Walkthrough ansehen &rarr;</a></div>
     </div>
-
-    <div class="praxis-panel" id="tab-gym" role="tabpanel" aria-labelledby="tab-btn-gym">
-      <img src="asset/illust-vergleich.png" alt="Illustration: Zwei Dokumente im Vergleich" loading="lazy">
-      <div>
-        <h3>Prüfung mit Prozessfokus</h3>
-        <p class="praxis-desc">KI-generierte Texte als Prüfungsgrundlage. Lernende vergleichen, urteilen, begründen. ChatGPT kann die Aufgabe nicht lösen, weil das eigene Urteil verlangt ist.</p>
-        <a href="beispiel/prototyp-praxis.html#wt-gymnasium" class="cta_blue_fill" style="margin-top:0.5rem;">Walkthrough ansehen &rarr;</a>
-      </div>
+    <div class="tab-panel" id="tab-gym" role="tabpanel" aria-labelledby="tab-btn-gym">
+      <img src="asset/illust-vergleich.webp" alt="Illustration: Zwei Dokumente im Vergleich" loading="lazy">
+      <div><h3>Prüfung mit Prozessfokus</h3><p class="tab-teaser">Eine Prüfung die ChatGPT nicht lösen kann — weil eigenes Urteil verlangt ist. Der Denkprozess zählt, nicht das Produkt.</p><p class="tab-desc">Du baust eine Prüfung, bei der zwei Texte verglichen werden. Lernende begründen ihr Urteil. Das Produkt ist zweitrangig. Der Denkprozess zählt.</p><a href="beispiel/prototyp-praxis.html#wt-gymnasium" class="btn-primary">Walkthrough ansehen &rarr;</a></div>
     </div>
-
-    <div class="praxis-panel" id="tab-ph" role="tabpanel" aria-labelledby="tab-btn-ph">
-      <img src="asset/illust-laptop-feedback.png" alt="Illustration: KI-Feedback wird aktiv bearbeitet" loading="lazy">
-      <div>
-        <h3>KI-Feedback auf Fallanalyse</h3>
-        <p class="praxis-desc">Von 4 KI-Feedbackpunkten: 1 übernommen, 2 verworfen, 1 selbst ergänzt. Das ist KI-Urteilskompetenz. Nicht Misstrauen, sondern Einordnung.</p>
-        <a href="beispiel/prototyp-praxis.html#wt-hochschule" class="cta_blue_fill" style="margin-top:0.5rem;">Walkthrough ansehen &rarr;</a>
-      </div>
+    <div class="tab-panel" id="tab-ph" role="tabpanel" aria-labelledby="tab-btn-ph">
+      <img src="asset/illust-laptop-feedback.webp" alt="Illustration: KI-Feedback wird aktiv bearbeitet" loading="lazy">
+      <div><h3>KI-Feedback auf Fallanalyse</h3><p class="tab-teaser">Von 4 KI-Feedbackpunkten: 1 übernommen, 2 verworfen, 1 selbst ergänzt. Das ist KI-Urteilskompetenz.</p><p class="tab-desc">Studierende lassen sich von ChatGPT Feedback geben. Du zeigst, wie sie dieses Feedback prüfen, einordnen und daraus lernen.</p><a href="beispiel/prototyp-praxis.html#wt-hochschule" class="btn-primary">Walkthrough ansehen &rarr;</a></div>
     </div>
+    <div class="bruecke reveal"><p>Überzeugt? Zeig das deiner Schulleitung.</p><a href="#schulleitungen" class="btn-outline">Infos für Schulleitungen &rarr;</a></div>
   </div>
-
-  <!-- Brücke LP → SL -->
-  <div class="section-inner reveal" style="margin-top:var(--space-section);text-align:center;">
-    <p style="font-size:18px;font-weight:400;opacity:0.8;">Überzeugt? Zeig das deiner Schulleitung.</p>
-    <a href="#schulleitungen" class="cta_ghost_blue" style="margin-top:1rem;">Infos für Schulleitungen &rarr;</a>
-  </div>
-
 </section>
-
-<!-- ═══════════════════════════════════════
-     5. SCHULLEITUNGEN  [C1: #3881F1, white fill button, no scalloped]
-     ═══════════════════════════════════════ -->
-<div class="sl-section" id="schulleitungen">
-  <div class="sl-inner">
-    <h2 class="reveal">Für Schulleitungen und<br>Abteilungsleitungen</h2>
-    <p class="reveal">KI-Urteilskompetenz ist in sechs Rahmenwerken verbindlich verankert, vom nRLP bis zum EU AI Act. KIalog macht das für Ihr Team greifbar. Praxisnah, an Ihrem Material, an einem halben Tag.</p>
+<section class="sl-section" id="schulleitungen">
+  <div class="section-inner">
+    <h2 class="reveal">Für Schulleitungen und <br>Abteilungsleitungen</h2>
+    <p class="reveal">KI-Urteilskompetenz ist in sechs Rahmenwerken verbindlich verankert — vom nRLP bis zum EU AI Act. KIalog macht das für Ihr Team greifbar: praxisnah, an Ihrem Material, an einem halben Tag.</p>
     <p class="reveal">Alle Formate sind als SCHILW buchbar. Im Kanton Bern können Kosten über die BKD rückerstattet werden.</p>
-
     <div class="sl-benefits reveal">
       <h3>Was Ihr Team nach einem Halbtag hat</h3>
       <p>Eine gemeinsame Methode. Fertige Bausteine für den nächsten Unterrichtstag. Das Wissen, welche Tools an Ihrer Schule datenschutzkonform funktionieren.</p>
-      <p style="margin-top:0.75rem;">Geeignet für Fachgruppen und Abteilungen von 6 bis 16 Personen.</p>
+      <p style="margin-top:.75rem">Geeignet für Fachgruppen und Abteilungen von 6 bis 16 Personen.</p>
     </div>
-
-    <p class="reveal" style="font-size:16px;opacity:0.85;margin-top:2rem;max-width:600px;">Ein CAS-Programm kostet CHF 9'900 pro Person. KIalog bringt Ihr ganzes Team für einen Bruchteil weiter. An einem halben Tag, mit Ihrem Material.</p>
-
-    <a href="#kontakt" class="cta_white_fill reveal" style="margin-top:1.5rem;">Jetzt anfragen</a>
-    <p class="reveal" style="font-size:13px;opacity:0.6;margin-top:0.75rem;">Ich melde mich innert 48 Stunden mit einem unverbindlichen Vorschlag.</p>
+    <p class="sl-roi reveal">Ein CAS-Programm kostet CHF 9'900 pro Person. KIalog bringt Ihr ganzes Team für einen Bruchteil weiter — an einem halben Tag, mit Ihrem Material.</p>
+    <a href="asset/KIalog_Starter_Dossier_Schulleitungen.pdf" class="btn-ghost-weiss reveal" style="margin-top:1.5rem" download>Starter-Dossier herunterladen (PDF)</a>
+    <p class="sl-hint reveal">Kostenlos. Kein Formular. Direkt nützlich.</p>
+    <p class="sl-nachklick reveal" style="margin-top:1.5rem"><a href="#kontakt" style="color:var(--farbe-beige);text-decoration:underline">Jetzt anfragen</a> — ich melde mich innert 48 Stunden mit einem unverbindlichen Vorschlag.</p>
   </div>
-</div>
-
-<!-- ═══════════════════════════════════════
-     6. WARUM ICH
-     ═══════════════════════════════════════ -->
+</section>
 <section id="ueber">
   <div class="section-inner">
-    <h2 class="section-title reveal">Ich unterrichte das,<br>was ich erforsche.</h2>
-
+    <h2 class="reveal">Ich unterrichte das, <br>was ich <span class="mit-underline">erforsche.<img src="asset/underline.svg" alt="" class="underline-deko" aria-hidden="true"></span></h2>
+    <p class="argument-satz reveal">Ich bin der Einzige in der Deutschschweiz, der KI-Didaktik gleichzeitig erforscht, in der Lehrerinnen- und Lehrerausbildung unterrichtet und täglich im eigenen Klassenzimmer anwendet.</p>
     <div class="about-layout">
       <div class="photo-wrap reveal">
-        <div class="photo-frame">
-          <img src="asset/manu2.webp" alt="Manuel Hirschi" loading="lazy">
-        </div>
+        <div class="photo-frame"><img src="asset/manu2.webp" alt="Manuel Hirschi" loading="lazy" width="254" height="254"></div>
         <div class="photo-caption">Manuel Hirschi &middot; Bern</div>
       </div>
       <div>
-        <p class="reveal" style="font-weight:300;max-width:520px;font-size:18px;margin-bottom:1.5rem;line-height:1.6;">An der gibb Bern begleite ich Lernende in Allgemeinbildung und Deutsch. Täglich, mit KI. An der PH FHNW doziere ich in den Berufspraktischen Studien. An der UZH forsche ich zu einer Frage. <strong>Wie lernt man, KI-Output selbst zu beurteilen?</strong></p>
-        <p class="reveal" style="font-size:18px;font-weight:400;max-width:520px;margin-bottom:1rem;line-height:1.5;">18 Jahre Unterricht, von der Primarschule bis zur Hochschule. Was ich erforsche, unterrichte ich. Was ich unterrichte, funktioniert.</p>
-        <p class="markensatz reveal">Wer mit KI arbeitet, führt einen Dialog. KIalog zeigt, wie man ihn gewinnt.</p>
-
-        <div class="referenz-slot reveal">
-          <blockquote>&laquo;...&raquo;</blockquote>
-          <cite>— Lehrperson, gibb Bern (Pilot Frühjahr 2026)</cite>
-        </div>
-        <div class="referenz-slot reveal" style="margin-top:1rem;">
-          <blockquote>&laquo;...&raquo;</blockquote>
-          <cite>— Dozierende, PH FHNW (Pilot Frühjahr 2026)</cite>
-        </div>
+        <p class="reveal" style="font-weight:300;max-width:520px;margin-bottom:1.5rem;line-height:1.75">An der gibb Bern begleite ich Lernende in Allgemeinbildung und Deutsch — täglich, mit KI. An der PH FHNW doziere ich in den Berufspraktischen Studien. An der UZH forsche ich zu einer Frage: <strong>Wie lernt man, KI-Output selbst zu beurteilen?</strong></p>
+        <p class="reveal" style="max-width:520px;margin-bottom:1rem;line-height:1.75">18 Jahre Unterricht, von der Primarschule bis zur Hochschule. Was ich erforsche, unterrichte ich. Was ich unterrichte, funktioniert.</p>
+        <p class="markensatz reveal">Wer mit KI arbeitet, führt einen Dialog. <br>KIalog zeigt, wie man ihn gewinnt.</p>
+        <div class="referenz-slot reveal" style="display:none"><blockquote>&laquo;...&raquo;</blockquote><cite>— Lehrperson, gibb Bern (Pilot Frühjahr 2026)</cite></div>
+        <div class="referenz-slot reveal" style="display:none;margin-top:1rem"><blockquote>&laquo;...&raquo;</blockquote><cite>— Dozierende, PH FHNW (Pilot Frühjahr 2026)</cite></div>
       </div>
-    </div>
-
-    <div style="margin-top:2.5rem;text-align:center;">
-      <a href="#kontakt" class="cta_green reveal">Jetzt anfragen</a>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════════
-     7. ANGEBOTE  [A3: dashed borders KEPT]
-     ═══════════════════════════════════════ -->
 <section id="angebote">
   <div class="section-inner">
-    <h2 class="section-title reveal">Einstieg. Tiefe. Dauer.<br>Du wählst.</h2>
-    <p class="reveal" style="font-size:15px;font-weight:400;opacity:0.65;max-width:520px;margin-bottom:0.5rem;">Alle Formate werden von der Schule gebucht und bezahlt. Du bringst die Idee, deine Schulleitung den Auftrag.</p>
-
+    <h2 class="reveal">Einstieg. Tiefe. Dauer. <br>Du wählst.</h2>
+    <p class="reveal content-w" style="margin-bottom:1rem">Alle Formate werden von der Schule gebucht und bezahlt. Du bringst die Idee — deine Schulleitung den Auftrag.</p>
     <div class="format-grid">
-      <div class="format-card reveal">
-        <div class="format-label">Empfohlener Einstieg</div>
-        <h3>Impuls</h3>
-        <p>60–90 Minuten &middot; Weiterbildungstag, Konferenz oder Teamtag. Kein Vortrag. Eine Demonstration mit echtem Material.</p>
-        <div class="format-price">CHF 800</div>
-        <div class="format-detail">Für das ganze Team</div>
-        <div class="format-includes">Inkl. Vorbereitung, Durchführung, Folien</div>
-      </div>
-      <div class="format-card format-card--highlight reveal">
-        <div class="format-label">Die meisten Teams starten hier</div>
-        <h3>KIalog Workshop</h3>
-        <p>Halbtag oder Ganztag &middot; Inhouse, 6–16 Teilnehmende. Du arbeitest mit deinem Material. Du gehst mit fertigen Bausteinen und einer Checkliste raus.</p>
-        <div class="format-price">CHF 1'800 <span style="font-size:14px;font-weight:400;opacity:0.6;">Halbtag</span></div>
-        <div class="format-detail">CHF 3'000 Ganztag</div>
-        <div class="format-includes">Inkl. Vorbereitung, alle Materialien (digital + print), Durchführung</div>
-      </div>
-      <div class="format-card reveal">
-        <div class="format-label">Begleitung</div>
-        <h3>Fachbegleitung</h3>
-        <p>1 Semester &middot; Workshop, Training, Begleitung. Für Teams, die wollen, dass es bleibt. Ganze Fachgruppe oder Abteilung, ein Semester lang.</p>
-        <div class="format-price">CHF 9'000</div>
-        <div class="format-detail">Ein Semester, alles inklusive</div>
-        <div class="format-includes">Inkl. Workshop + Training + Begleitung + alle Materialien</div>
-      </div>
+      <div class="format-card reveal"><div class="format-label">Empfohlener Einstieg</div><h3>Impuls</h3><p>60–90 Minuten &middot; Weiterbildungstag, Konferenz oder Teamtag. Kein Vortrag. Eine Demonstration mit echtem Material.</p><div class="format-price">CHF 800</div><div class="format-detail">Für das ganze Team</div><div class="format-includes">Inkl. Vorbereitung, Durchführung, Folien</div></div>
+      <div class="format-card format-card--highlight reveal"><div class="format-label">Die meisten Teams starten hier</div><h3>KIalog Workshop</h3><p>Halbtag oder Ganztag &middot; Inhouse, 6–16 Teilnehmende. Du arbeitest mit deinem Material. Du gehst mit fertigen Bausteinen und einer Checkliste raus.</p><div class="format-price">CHF 1'800 <span style="font-size:14px;font-weight:400;opacity:.6">Halbtag</span></div><div class="format-detail">CHF 3'000 Ganztag</div><div class="format-includes">Inkl. Vorbereitung, alle Materialien (digital + print), Durchführung</div></div>
+      <div class="format-card reveal"><div class="format-label">Begleitung</div><h3>Fachbegleitung</h3><p>1 Semester &middot; Workshop, Training, Begleitung. Für Teams, die wollen, dass es bleibt.</p><div class="format-price">CHF 9'000</div><div class="format-detail">Ein Semester, alles inklusive</div><div class="format-includes">Inkl. Workshop + Training + Begleitung + alle Materialien</div></div>
     </div>
-
-    <div class="reveal" style="margin-top:2.5rem;text-align:center;">
-      <a href="#kontakt" class="cta_green">Jetzt anfragen</a>
-      <p style="font-size:13px;color:var(--muted);max-width:420px;margin:1rem auto 0;">Alle Formate als SCHILW buchbar. Reisekosten nach Aufwand.</p>
+    <div class="angebote-cta reveal">
+      <a href="#kontakt" class="btn-primary">Jetzt anfragen</a>
+      <p class="meta" style="max-width:420px;margin:1rem auto 0">Alle Formate als SCHILW buchbar. Reisekosten nach Aufwand.</p>
+      <p class="meta" style="max-width:420px;margin:.5rem auto 0">Ich antworte persönlich innert 48 Stunden.</p>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════════
-     8. FAQ  [A3: solid borders, C3: separator between groups]
-     ═══════════════════════════════════════ -->
-<section class="faq-section" id="faq">
+<section id="faq">
   <div class="section-inner">
-    <h2 class="section-title reveal" style="font-size:clamp(1.75rem, 3.5vw, 2.5rem);">Häufige Fragen</h2>
-
+    <h2 class="reveal">Häufige Fragen</h2>
     <div class="faq-group-title reveal">Für Lehrpersonen</div>
-
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Muss ich KI schon kennen?</button>
-      <div class="faq-answer"><p>Nein. Du musst nicht mal KI mögen. Du musst einmal sehen, was mit deinem eigenen Material möglich ist. Der Rest kommt von selbst.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Für welche Stufen ist KIalog geeignet?</button>
-      <div class="faq-answer"><p>Gesamte Sek II. Berufsfachschulen, Gymnasien, FMS, Brückenangebote und Pädagogische Hochschulen. Die Beispiele im Workshop passen wir an deine Stufe und dein Fach an.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Ich unterrichte kein Deutsch. Ist das trotzdem relevant?</button>
-      <div class="faq-answer"><p>Ja. Überall wo Texte entstehen, gelesen oder beurteilt werden, braucht es KI-Urteilskompetenz. Das betrifft fast jedes Fach.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Was ist NotebookLM und warum setzt du das ein?</button>
-      <div class="faq-answer"><p>NotebookLM ist ein KI-Tool von Google. Du lädst dein eigenes Material hoch und bekommst Antworten, die sich direkt auf deine Quellen stützen. Nichts Erfundenes. Du siehst immer, woher der Output kommt. KIalog funktioniert aber auch mit Claude oder ChatGPT.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Was ist mit Datenschutz?</button>
-      <div class="faq-answer"><p>Daten von Lernenden kommen nie in KI-Tools. Wir arbeiten mit deinem eigenen Material oder anonymisierten Beispielen. Auf Wunsch zeige ich lokale Lösungen, die komplett offline funktionieren.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Wie erstelle ich Prüfungen, die mit KI funktionieren?</button>
-      <div class="faq-answer"><p>Eine gute Prüfung verlangt, was KI nicht zuverlässig kann. Persönlichen Bezug, lokalen Kontext, mündliche Begründung, Prozessdokumentation. Im Workshop lernst du, solche Aufgaben zu formulieren.</p></div>
-    </div>
-
-    <!-- C3: Visuelle Trennung -->
+    <details class="faq-item reveal"><summary>Muss ich KI schon kennen?</summary><div class="faq-answer"><p>Nein. Du musst nicht mal KI mögen. Du musst einmal sehen, was mit deinem eigenen Material möglich ist. Der Rest kommt von selbst.</p></div></details>
+    <details class="faq-item reveal"><summary>Für welche Stufen ist KIalog geeignet?</summary><div class="faq-answer"><p>Gesamte Sek II. Berufsfachschulen, Gymnasien, FMS, Brückenangebote und Pädagogische Hochschulen. Die Beispiele im Workshop passen wir an deine Stufe und dein Fach an.</p></div></details>
+    <details class="faq-item reveal"><summary>Ich unterrichte kein Deutsch. Ist das trotzdem relevant?</summary><div class="faq-answer"><p>Ja. Überall wo Texte entstehen, gelesen oder beurteilt werden, braucht es KI-Urteilskompetenz. Das betrifft fast jedes Fach.</p></div></details>
+    <details class="faq-item reveal"><summary>Was ist NotebookLM und warum setzt du das ein?</summary><div class="faq-answer"><p>NotebookLM ist ein KI-Tool von Google. Du lädst dein eigenes Material hoch und bekommst Antworten, die sich direkt auf deine Quellen stützen. Nichts Erfundenes. Du siehst immer, woher der Output kommt. KIalog funktioniert aber auch mit Claude oder ChatGPT.</p></div></details>
+    <details class="faq-item reveal"><summary>Was ist mit Datenschutz?</summary><div class="faq-answer"><p>Daten von Lernenden kommen nie in KI-Tools. Wir arbeiten mit deinem eigenen Material oder anonymisierten Beispielen. Auf Wunsch zeige ich lokale Lösungen, die komplett offline funktionieren.</p></div></details>
+    <details class="faq-item reveal"><summary>Wie erstelle ich Prüfungen, die mit KI funktionieren?</summary><div class="faq-answer"><p>Eine gute Prüfung verlangt, was KI nicht zuverlässig kann. Persönlichen Bezug, lokalen Kontext, mündliche Begründung, Prozessdokumentation. Im Workshop lernst du, solche Aufgaben zu formulieren.</p></div></details>
     <hr class="faq-separator">
-
     <div class="faq-group-title reveal">Für Schulleitungen</div>
-
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Was kostet KIalog und was bekommt mein Team dafür?</button>
-      <div class="faq-answer"><p>Einstieg ab CHF 800 für einen Impuls-Slot am Weiterbildungstag. Halbtag CHF 1'800. Ein Semester Begleitung CHF 9'000. Nach einem Halbtag hat Ihr Team eine gemeinsame Methode und fertige Bausteine für den nächsten Unterrichtstag.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Kann ich das über den Kanton abrechnen?</button>
-      <div class="faq-answer"><p>Im Kanton Bern können Schulen Kosten über die BKD rückerstatten lassen. Alle Formate sind als SCHILW buchbar.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Warum ist das lehrplankonform?</button>
-      <div class="faq-answer"><p>KI-Urteilskompetenz ist in sechs Rahmenwerken verbindlich verankert. nRLP ABU, LP21, OECD, UNESCO, EU AI Act, LCH. KIalog macht genau das greifbar.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Was unterscheidet KIalog von anderen KI-Kursen?</button>
-      <div class="faq-answer"><p>Andere Kurse schulen Tools. KIalog schult das Urteil. Mit dem Material, das Ihre Lehrpersonen schon haben. Kein Fremdmaterial, keine Theorie ohne Praxisbezug.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Wie viel Zeit braucht mein Team?</button>
-      <div class="faq-answer"><p>Impuls, 60–90 Minuten. Workshop, ein halber oder ganzer Tag. Danach keine Pflicht zur Weiterarbeit. Wer will, kann.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-question" aria-expanded="false">Wer steckt hinter KIalog?</button>
-      <div class="faq-answer"><p>Manuel Hirschi. Lehrperson, Dozent und Forscher. 18 Jahre Unterrichtserfahrung von der Primarschule bis zur Hochschule. Aktuell Lernbegleitung Deutsch (gibb Bern), Dozent BpSt (PH FHNW), Doktorand (Universität Zürich).</p></div>
+    <details class="faq-item reveal"><summary>Was kostet KIalog und was bekommt mein Team dafür?</summary><div class="faq-answer"><p>Einstieg ab CHF 800 für einen Impuls-Slot am Weiterbildungstag. Halbtag CHF 1'800. Ein Semester Begleitung CHF 9'000. Nach einem Halbtag hat Ihr Team eine gemeinsame Methode und fertige Bausteine für den nächsten Unterrichtstag.</p></div></details>
+    <details class="faq-item reveal"><summary>Kann ich das über den Kanton abrechnen?</summary><div class="faq-answer"><p>Im Kanton Bern können Schulen Kosten über die BKD rückerstatten lassen. Alle Formate sind als SCHILW buchbar.</p></div></details>
+    <details class="faq-item reveal"><summary>Warum ist das lehrplankonform?</summary><div class="faq-answer"><p>KI-Urteilskompetenz ist in sechs Rahmenwerken verbindlich verankert. nRLP ABU, LP21, OECD, UNESCO, EU AI Act, LCH. KIalog macht genau das greifbar.</p></div></details>
+    <details class="faq-item reveal"><summary>Was unterscheidet KIalog von anderen KI-Kursen?</summary><div class="faq-answer"><p>Andere Kurse schulen Tools. KIalog schult das Urteil. Mit dem Material, das Ihre Lehrpersonen schon haben. Kein Fremdmaterial, keine Theorie ohne Praxisbezug.</p></div></details>
+    <details class="faq-item reveal"><summary>Wie viel Zeit braucht mein Team?</summary><div class="faq-answer"><p>Impuls, 60–90 Minuten. Workshop, ein halber oder ganzer Tag. Danach keine Pflicht zur Weiterarbeit. Wer will, kann.</p></div></details>
+    <details class="faq-item reveal"><summary>Wer steckt hinter KIalog?</summary><div class="faq-answer"><p>Manuel Hirschi. Lehrperson, Dozent und Forscher. 18 Jahre Unterrichtserfahrung von der Primarschule bis zur Hochschule. Aktuell Lernbegleitung Deutsch (gibb Bern), Dozent BpSt (PH FHNW), Doktorand (Universität Zürich).</p></div></details>
+  </div>
+</section>
+<section class="sl-section" id="kontakt" style="padding-bottom:0">
+  <div class="section-inner">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-claim reveal">Ein Satz reicht. <br><em>Ich antworte.</em></div>
+        <p class="footer-sub reveal">Sag mir, was dich beschäftigt. Ich antworte persönlich innert 48 Stunden. Auch wenn du noch nicht weisst, ob das etwas für dich ist.</p>
+        <div class="footer-contacts reveal">
+          <a href="mailto:info@kialog.ch?subject=KIalog%20anfragen" class="btn-ghost-weiss">info@kialog.ch</a>
+          <a href="https://wa.me/41763862207?text=Hallo%20Manuel%2C%20ich%20interessiere%20mich%20f%C3%BCr%20KIalog." class="btn-ghost-weiss" target="_blank" rel="noopener" style="gap:8px"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+        </div>
+      </div>
+      <img src="asset/illust-smartphone.webp" alt="Illustration: Hand tippt Nachricht auf Smartphone" loading="lazy" class="footer-illustration reveal">
     </div>
   </div>
 </section>
-
 </main>
-
-<!-- ═══════════════════════════════════════
-     9. KONTAKT / FOOTER  [A2: scalloped kept, B: placeholder, D1+D2]
-     ═══════════════════════════════════════ -->
-<footer class="footer-blue" id="kontakt">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-claim reveal">Ein Satz reicht.<br><em>Ich antworte.</em></div>
-      <p class="footer-sub reveal">Sag mir, was dich beschäftigt. Ich antworte persönlich innert 48 Stunden. Auch wenn du noch nicht weisst, ob das etwas für dich ist.</p>
-      <div class="reveal" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-        <a href="mailto:info@kialog.ch?subject=KIalog%20anfragen" class="cta_ghost_white">info@kialog.ch</a>
-        <a href="https://wa.me/41763862207?text=Hallo%20Manuel%2C%20ich%20interessiere%20mich%20f%C3%BCr%20KIalog." class="cta_ghost_white" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
-      </div>
-    </div>
-    <img src="asset/illust-smartphone.png" alt="Illustration: Hand tippt Nachricht auf Smartphone" loading="lazy" class="reveal" style="max-width:260px;width:100%;flex-shrink:0;">
-  </div>
-
-  <!-- D2: Footer-Reihenfolge -->
+<footer class="footer-blue">
   <div class="footer-bottom">
-    <p style="font-size:15px;font-weight:500;opacity:0.9;">KIalog &middot; Manuel Hirschi</p>
-    <nav class="footer-nav">
-      <a href="#werkstatt">Methode</a> &middot;
-      <a href="#praxis">Praxis</a> &middot;
-      <a href="#angebote">Angebote</a> &middot;
-      <a href="#ueber">Warum ich</a> &middot;
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-    <p style="font-size:13px;opacity:0.6;margin-top:0.5rem;">info@kialog.ch &middot; Moserstrasse 27, 3014 Bern</p>
+    <p class="footer-brand">KIalog &middot; Manuel Hirschi</p>
+    <nav class="footer-nav" aria-label="Footer-Navigation"><a href="#werkstatt">Methode</a> &middot; <a href="#praxis">Praxis</a> &middot; <a href="#angebote">Angebote</a> &middot; <a href="#ueber">Warum ich</a> &middot; <a href="#kontakt">Kontakt</a></nav>
+    <p class="footer-address">info@kialog.ch &middot; Moserstrasse 27, 3014 Bern</p>
     <p class="footer-privacy">Es werden keine personenbezogenen Daten erhoben. Kein Tracking, keine Cookies.</p>
     <p class="footer-copyright">&copy; 2026 Manuel Hirschi</p>
   </div>
 </footer>
-
-<!-- ═══════════════════════���═══════════════
-     SCRIPTS
-     ═══════════════════════════════════════ -->
 <script>
-// ── Scroll Reveal ──
-const revealEls = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
-  });
-}, { threshold: 0.1, rootMargin: '-20px 0px' });
-revealEls.forEach(el => revealObs.observe(el));
-
-// ── FAQ Toggle ──
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.parentElement;
-    item.classList.toggle('open');
-    btn.setAttribute('aria-expanded', item.classList.contains('open'));
-  });
-});
-
-// ── Praxis Tabs ──
-document.querySelectorAll('.praxis-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.praxis-tab').forEach(t => {
-      t.classList.remove('active');
-      t.setAttribute('aria-selected', 'false');
-    });
-    document.querySelectorAll('.praxis-panel').forEach(p => p.classList.remove('active'));
-    tab.classList.add('active');
-    tab.setAttribute('aria-selected', 'true');
-    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
-  });
-});
-
-// ── Mobile Nav ──
-const navToggle = document.querySelector('.nav-hamburger');
-const navLinks = document.getElementById('navLinks');
-const navBar = document.querySelector('.navBar');
-function closeNav() {
-  navLinks.classList.remove('open');
-  navBar.classList.remove('menu-open');
-  navToggle.setAttribute('aria-expanded', 'false');
-  navToggle.setAttribute('aria-label', 'Menü öffnen');
-}
-function openNav() {
-  navLinks.classList.add('open');
-  navBar.classList.add('menu-open');
-  navToggle.setAttribute('aria-expanded', 'true');
-  navToggle.setAttribute('aria-label', 'Menü schliessen');
-}
-navToggle.addEventListener('click', () => {
-  navLinks.classList.contains('open') ? closeNav() : openNav();
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && navLinks.classList.contains('open')) closeNav();
-});
-
-// ── Smooth Scroll + Close Mobile Nav ──
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    closeNav();
-  });
-});
+const revealObs=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add('visible'),revealObs.unobserve(e.target))})},{threshold:.1,rootMargin:'0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+document.querySelectorAll('.tab-btn').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(t=>t.setAttribute('aria-selected','false'));document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));tab.setAttribute('aria-selected','true');const p=document.getElementById('tab-'+tab.dataset.tab);if(p)p.classList.add('active')})});
+const navToggle=document.querySelector('.nav-hamburger'),navLinks=document.getElementById('navLinks'),navEl=document.querySelector('.nav');
+function closeNav(){navLinks.classList.remove('open');navEl.classList.remove('menu-open');navToggle.setAttribute('aria-expanded','false');navToggle.setAttribute('aria-label','Menü öffnen')}
+function openNav(){navLinks.classList.add('open');navEl.classList.add('menu-open');navToggle.setAttribute('aria-expanded','true');navToggle.setAttribute('aria-label','Menü schliessen')}
+navToggle.addEventListener('click',()=>navLinks.classList.contains('open')?closeNav():openNav());
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&navLinks.classList.contains('open'))closeNav()});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});closeNav()})});
+const counterObs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){const el=e.target,target=parseInt(el.dataset.target),prefix=el.dataset.prefix||'';let start=0;const step=target/(800/16),timer=setInterval(()=>{start+=step;if(start>=target){el.textContent=prefix+target+' %';clearInterval(timer);return}el.textContent=prefix+Math.floor(start)+' %'},16);counterObs.unobserve(el)}})},{threshold:.3});
+document.querySelectorAll('.stat-counter').forEach(el=>counterObs.observe(el));
 </script>
-
-<!-- ═══ SCHEMA.ORG ═══ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://kialog.ch/#person",
-  "name": "Manuel Hirschi",
-  "description": "Manuel Hirschi. Lehrperson (gibb Bern), Dozent (PH FHNW), Doktorand (UZH). Weiterbildung für Schulen: Lerne, KI-Output zu beurteilen.",
-  "url": "https://kialog.ch",
-  "email": "info@kialog.ch",
-  "image": "https://kialog.ch/asset/manu2.webp",
-  "knowsAbout": ["KI-Didaktik","Evaluative Judgement","Beurteilungskompetenz","KI-Output beurteilen","Sek II","Pädagogische Hochschule","Berufsfachschule","Gymnasium"],
-  "worksFor": [
-    {"@type": "Organization", "name": "gibb Bern"},
-    {"@type": "Organization", "name": "PH FHNW"},
-    {"@type": "Organization", "name": "Universität Zürich"}
-  ],
-  "alumniOf": [
-    {"@type": "EducationalOrganization", "name": "Universität Zürich"},
-    {"@type": "EducationalOrganization", "name": "PH FHNW"}
-  ],
-  "jobTitle": "Lehrperson, Dozent und Forscher",
-  "address": {"@type": "PostalAddress", "addressLocality": "Bern", "addressCountry": "CH"}
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "KIalog — KI-Didaktik für Lehrpersonen und Dozierende",
-  "url": "https://kialog.ch",
-  "description": "KI ist im Unterricht. KIalog zeigt Lehrpersonen, wie sie KI-Output prüfen, urteilen und belegen. Praxisnah, forschungsbasiert, sofort einsetzbar.",
-  "author": {"@id": "https://kialog.ch/#person"}
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "KIalog",
-  "description": "Weiterbildung für Schulen. Lerne, KI-Output zu beurteilen. Für Lehrpersonen und Schulleitungen an Berufsfachschulen, Gymnasien und Hochschulen.",
-  "provider": {"@id": "https://kialog.ch/#person"},
-  "areaServed": {"@type": "Country", "name": "Schweiz"},
-  "serviceType": "Weiterbildung"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "Muss ich KI schon kennen?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Du musst nicht mal KI mögen. Du musst einmal sehen, was mit deinem eigenen Material möglich ist. Der Rest kommt von selbst."}},
-    {"@type": "Question", "name": "Für welche Stufen ist KIalog geeignet?", "acceptedAnswer": {"@type": "Answer", "text": "Gesamte Sek II. Berufsfachschulen, Gymnasien, FMS, Brückenangebote und Pädagogische Hochschulen."}},
-    {"@type": "Question", "name": "Ich unterrichte kein Deutsch. Ist das trotzdem relevant?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Überall wo Texte entstehen, gelesen oder beurteilt werden, braucht es KI-Urteilskompetenz. Das betrifft fast jedes Fach."}},
-    {"@type": "Question", "name": "Was ist NotebookLM und warum setzt du das ein?", "acceptedAnswer": {"@type": "Answer", "text": "NotebookLM ist ein KI-Tool von Google. Du lädst dein eigenes Material hoch und bekommst Antworten, die sich direkt auf deine Quellen stützen. KIalog funktioniert aber auch mit Claude oder ChatGPT."}},
-    {"@type": "Question", "name": "Was ist mit Datenschutz?", "acceptedAnswer": {"@type": "Answer", "text": "Daten von Lernenden kommen nie in KI-Tools. Wir arbeiten mit deinem eigenen Material oder anonymisierten Beispielen. Auf Wunsch zeige ich lokale Lösungen, die komplett offline funktionieren."}},
-    {"@type": "Question", "name": "Wie erstelle ich Prüfungen, die mit KI funktionieren?", "acceptedAnswer": {"@type": "Answer", "text": "Eine gute Prüfung verlangt, was KI nicht zuverlässig kann. Persönlichen Bezug, lokalen Kontext, mündliche Begründung, Prozessdokumentation."}},
-    {"@type": "Question", "name": "Was kostet KIalog und was bekommt mein Team dafür?", "acceptedAnswer": {"@type": "Answer", "text": "Einstieg ab CHF 800. Halbtag CHF 1'800. Ein Semester Begleitung CHF 9'000. Nach einem Halbtag hat Ihr Team eine gemeinsame Methode und fertige Bausteine."}},
-    {"@type": "Question", "name": "Kann ich das über den Kanton abrechnen?", "acceptedAnswer": {"@type": "Answer", "text": "Im Kanton Bern können Schulen Kosten über die BKD rückerstatten lassen. Alle Formate sind als SCHILW buchbar."}},
-    {"@type": "Question", "name": "Warum ist das lehrplankonform?", "acceptedAnswer": {"@type": "Answer", "text": "KI-Urteilskompetenz ist in sechs Rahmenwerken verbindlich verankert. nRLP ABU, LP21, OECD, UNESCO, EU AI Act, LCH."}},
-    {"@type": "Question", "name": "Was unterscheidet KIalog von anderen KI-Kursen?", "acceptedAnswer": {"@type": "Answer", "text": "Andere Kurse schulen Tools. KIalog schult das Urteil. Mit dem Material, das Ihre Lehrpersonen schon haben."}},
-    {"@type": "Question", "name": "Wie viel Zeit braucht mein Team?", "acceptedAnswer": {"@type": "Answer", "text": "Impuls, 60–90 Minuten. Workshop, ein halber oder ganzer Tag. Danach keine Pflicht zur Weiterarbeit."}},
-    {"@type": "Question", "name": "Wer steckt hinter KIalog?", "acceptedAnswer": {"@type": "Answer", "text": "Manuel Hirschi. Lehrperson, Dozent und Forscher. 18 Jahre Unterrichtserfahrung. Aktuell gibb Bern, PH FHNW, Universität Zürich."}}
-  ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://kialog.ch/#person","name":"Manuel Hirschi","description":"Manuel Hirschi. Lehrperson (gibb Bern), Dozent (PH FHNW), Doktorand (UZH). Weiterbildung für Schulen: Lerne, KI-Output zu beurteilen.","url":"https://kialog.ch","email":"info@kialog.ch","image":"https://kialog.ch/asset/manu2.webp","knowsAbout":["KI-Didaktik","Evaluative Judgement","Beurteilungskompetenz","KI-Output beurteilen","Sek II","Pädagogische Hochschule","Berufsfachschule","Gymnasium"],"worksFor":[{"@type":"Organization","name":"gibb Bern"},{"@type":"Organization","name":"PH FHNW"},{"@type":"Organization","name":"Universität Zürich"}],"alumniOf":[{"@type":"EducationalOrganization","name":"Universität Zürich"},{"@type":"EducationalOrganization","name":"PH FHNW"}],"jobTitle":"Lehrperson, Dozent und Forscher","address":{"@type":"PostalAddress","addressLocality":"Bern","addressCountry":"CH"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"KIalog — KI-Didaktik für Lehrpersonen und Dozierende","url":"https://kialog.ch","description":"KI ist im Unterricht. KIalog zeigt Lehrpersonen, wie sie KI-Output prüfen, urteilen und belegen. Praxisnah, forschungsbasiert, sofort einsetzbar.","author":{"@id":"https://kialog.ch/#person"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"KIalog","description":"Weiterbildung für Schulen. Lerne, KI-Output zu beurteilen. Für Lehrpersonen und Schulleitungen an Berufsfachschulen, Gymnasien und Hochschulen.","provider":{"@id":"https://kialog.ch/#person"},"areaServed":{"@type":"Country","name":"Schweiz"},"serviceType":"Weiterbildung"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Muss ich KI schon kennen?","acceptedAnswer":{"@type":"Answer","text":"Nein. Du musst nicht mal KI mögen. Du musst einmal sehen, was mit deinem eigenen Material möglich ist. Der Rest kommt von selbst."}},{"@type":"Question","name":"Für welche Stufen ist KIalog geeignet?","acceptedAnswer":{"@type":"Answer","text":"Gesamte Sek II. Berufsfachschulen, Gymnasien, FMS, Brückenangebote und Pädagogische Hochschulen."}},{"@type":"Question","name":"Ich unterrichte kein Deutsch. Ist das trotzdem relevant?","acceptedAnswer":{"@type":"Answer","text":"Ja. Überall wo Texte entstehen, gelesen oder beurteilt werden, braucht es KI-Urteilskompetenz. Das betrifft fast jedes Fach."}},{"@type":"Question","name":"Was ist NotebookLM und warum setzt du das ein?","acceptedAnswer":{"@type":"Answer","text":"NotebookLM ist ein KI-Tool von Google. Du lädst dein eigenes Material hoch und bekommst Antworten, die sich direkt auf deine Quellen stützen. KIalog funktioniert aber auch mit Claude oder ChatGPT."}},{"@type":"Question","name":"Was ist mit Datenschutz?","acceptedAnswer":{"@type":"Answer","text":"Daten von Lernenden kommen nie in KI-Tools. Wir arbeiten mit deinem eigenen Material oder anonymisierten Beispielen. Auf Wunsch zeige ich lokale Lösungen, die komplett offline funktionieren."}},{"@type":"Question","name":"Wie erstelle ich Prüfungen, die mit KI funktionieren?","acceptedAnswer":{"@type":"Answer","text":"Eine gute Prüfung verlangt, was KI nicht zuverlässig kann. Persönlichen Bezug, lokalen Kontext, mündliche Begründung, Prozessdokumentation."}},{"@type":"Question","name":"Was kostet KIalog und was bekommt mein Team dafür?","acceptedAnswer":{"@type":"Answer","text":"Einstieg ab CHF 800. Halbtag CHF 1'800. Ein Semester Begleitung CHF 9'000. Nach einem Halbtag hat Ihr Team eine gemeinsame Methode und fertige Bausteine."}},{"@type":"Question","name":"Kann ich das über den Kanton abrechnen?","acceptedAnswer":{"@type":"Answer","text":"Im Kanton Bern können Schulen Kosten über die BKD rückerstatten lassen. Alle Formate sind als SCHILW buchbar."}},{"@type":"Question","name":"Warum ist das lehrplankonform?","acceptedAnswer":{"@type":"Answer","text":"KI-Urteilskompetenz ist in sechs Rahmenwerken verbindlich verankert. nRLP ABU, LP21, OECD, UNESCO, EU AI Act, LCH."}},{"@type":"Question","name":"Was unterscheidet KIalog von anderen KI-Kursen?","acceptedAnswer":{"@type":"Answer","text":"Andere Kurse schulen Tools. KIalog schult das Urteil. Mit dem Material, das Ihre Lehrpersonen schon haben."}},{"@type":"Question","name":"Wie viel Zeit braucht mein Team?","acceptedAnswer":{"@type":"Answer","text":"Impuls, 60–90 Minuten. Workshop, ein halber oder ganzer Tag. Danach keine Pflicht zur Weiterarbeit."}},{"@type":"Question","name":"Wer steckt hinter KIalog?","acceptedAnswer":{"@type":"Answer","text":"Manuel Hirschi. Lehrperson, Dozent und Forscher. 18 Jahre Unterrichtserfahrung. Aktuell gibb Bern, PH FHNW, Universität Zürich."}}]}</script>
 </body>
 </html>
