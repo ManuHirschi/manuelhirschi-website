@@ -1,0 +1,12 @@
+{
+  "name": "KIalog — KI-Urteilskompetenz für Lehrpersonen",
+  "short_name": "KIalog",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F4",
+  "theme_color": "#006B77",
+  "icons": [
+    { "src": "asset/logo/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "asset/logo/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
