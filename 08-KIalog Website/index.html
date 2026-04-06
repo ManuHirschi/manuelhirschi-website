@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KIalog · KI-Urteilskompetenz für Lehrpersonen | Manuel Hirschi</title>
-  <meta name="description" content="KIalog ist ein didaktisches Verfahren. Kein Tool-Kurs. Ich zeige live, wie ich selbst mit KI arbeite. Praxistaugliches KI-Verfahren für Lehrpersonen an Sek II und PH. Prüfen, Urteilen, Belegen.">
+  <meta name="description" content="KIalog ist ein praxistaugliches KI-Verfahren für Lehrpersonen. Kein Tool-Kurs. Prüfen, Urteilen, Belegen — mit deinem eigenen Material.">
   <meta property="og:title" content="KIalog · KI-Urteilskompetenz für Lehrpersonen">
   <meta property="og:description" content="Kein Tool-Kurs. Ein didaktisches Verfahren. Ich zeige live, wie ich selbst mit KI arbeite.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kialog.ch">
   <meta property="og:locale" content="de_CH">
+  <meta property="og:image" content="https://kialog.ch/asset/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <link rel="canonical" href="https://kialog.ch">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -33,7 +36,7 @@
     body.nav-open { overflow: hidden; }
     .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--px); }
     .wrap--wide { max-width: 1100px; }
-    .eyebrow { display: block; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.9rem; }
+    .eyebrow { display: block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.9rem; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; background: var(--teal); color: var(--white); padding: 0.85rem 1.8rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--teal); cursor: pointer; transition: background 0.2s, color 0.2s; }
     .btn:hover { background: #005260; border-color: #005260; }
     .btn--outline { background: transparent; color: var(--teal); }
@@ -85,7 +88,7 @@
 
     /* HERO */
     .hero { padding-block: 6rem 5rem; border-bottom: 1px solid var(--light); }
-    .hero__kicker { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.4rem; }
+    .hero__kicker { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.4rem; }
     .hero h1 { margin-bottom: 1.6rem; }
     .hero h1 em { color: var(--teal); }
     .hero__lead { font-size: 1.05rem; line-height: 1.75; color: #3A3A35; max-width: 54ch; margin-bottom: 2rem; }
@@ -109,9 +112,9 @@
     .stat-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 1.25rem 1.1rem; }
     .stat-box__num { font-family: var(--serif); font-size: 2.2rem; font-weight: 500; color: var(--white); line-height: 1; margin-bottom: 0.4rem; }
     .stat-box__label { font-size: 0.85rem; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.5; }
-    .stat-box__source { font-size: 0.72rem; color: rgba(255,255,255,0.55); margin-top: 0.5rem; }
+    .stat-box__source { font-size: 0.75rem; color: rgba(255,255,255,0.65); margin-top: 0.5rem; }
     .schere { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; margin-top: 2rem; }
-    .schere__label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.75rem; font-weight: 500; }
+    .schere__label { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.75rem; font-weight: 500; }
     .schere__text { font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.65; }
 
     /* STEPS */
@@ -129,7 +132,7 @@
     .praxis-card__title { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--dark); margin-bottom: 0.75rem; }
     .praxis-card__text { font-size: 0.9rem; color: #4A4A44; line-height: 1.75; }
     .praxis-card__text p + p { margin-top: 0.8em; }
-    .praxis-card__tag { display: inline-block; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); background: var(--teal-bg); padding: 0.25rem 0.6rem; margin-bottom: 0.9rem; }
+    .praxis-card__tag { display: inline-block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); background: var(--teal-bg); padding: 0.25rem 0.6rem; margin-bottom: 0.9rem; }
 
     /* VERGLEICHEN HIGHLIGHT */
     .vergleichen-highlight { padding: 2.5rem 0; margin-top: 2.5rem; border-top: 2px solid var(--teal); }
@@ -157,20 +160,20 @@
     .warum__photo { width: 100%; max-width: 340px; aspect-ratio: 3/4; object-fit: cover; object-position: top; }
     .warum__roles { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
     .warum__role { display: flex; flex-direction: column; padding: 1rem 1.25rem; border-left: 2px solid var(--teal); }
-    .warum__role-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.2rem; }
+    .warum__role-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.2rem; }
     .warum__role-text { font-family: var(--serif); font-size: 1.05rem; color: var(--dark); }
     .warum__markensatz { font-family: var(--serif); font-size: 1.1rem; font-style: italic; color: var(--teal); line-height: 1.5; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--light); }
     /* ANGEBOTE */
     .angebote-grid { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2.5rem; }
     .angebot { background: var(--warm); border: 1px solid var(--light); padding: 1.75rem; position: relative; }
     .angebot--featured { border-color: var(--teal); }
-    .angebot__badge { position: absolute; top: -1px; right: 1.5rem; background: var(--teal); color: var(--white); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.7rem; }
+    .angebot__badge { position: absolute; top: -1px; right: 1.5rem; background: var(--teal); color: var(--white); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.7rem; }
     .angebot__title { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; margin-bottom: 0.25rem; }
     .angebot__price { font-size: 1.4rem; font-weight: 500; color: var(--teal); margin-bottom: 1rem; }
     .angebot__price span { font-size: 0.8rem; color: var(--mid); font-weight: 400; }
-    .angebot__text { font-size: 0.88rem; color: #4A4A44; line-height: 1.7; }
-    .angebot__incl { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--light); font-size: 0.78rem; color: var(--mid); }
-    .angebot__schilw { display: inline-block; margin-top: 0.6rem; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+    .angebot__text { font-size: 0.92rem; color: #4A4A44; line-height: 1.7; }
+    .angebot__incl { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--light); font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
+    .angebot__schilw { display: inline-block; margin-top: 0.6rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
     @media (min-width: 768px) { .angebote-grid { flex-direction: row; align-items: stretch; } .angebot { flex: 1; } }
 
     /* KONTAKT */
@@ -185,9 +188,9 @@
     footer .logo { color: var(--white); display: inline-block; }
     footer .logo span { color: var(--teal-l); }
     .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; list-style: none; }
-    .footer-links a { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-links a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: rgba(255,255,255,0.85); }
-    .footer-copy { margin-top: 1.25rem; font-size: 0.72rem; color: rgba(255,255,255,0.55); }
+    .footer-copy { margin-top: 1.25rem; font-size: 0.75rem; color: rgba(255,255,255,0.65); }
 
     /* ── MOBILE FIRST DEFAULTS (375px) ── */
     .hero { padding-block: 4rem 3.5rem; }
@@ -435,14 +438,14 @@
         <span class="praxis-card__tag">Wissensarchitektur</span>
         <div class="praxis-card__title">Prompts als sichtbares Fachwissen</div>
         <div class="praxis-card__text">
-          <p>Ein guter Prompt macht Fachwissen sichtbar: Rolle, Kontext, Aufgabe, Format, Qualitätskriterien. Wer dieses Schema versteht, baut sein eigenes Werkzeug. Auch wenn nächstes Jahr ein anderes Tool kommt.</p>
+          <p>Ein guter Prompt macht Fachwissen sichtbar: Rolle, Kontext, Aufgabe, Format, Qualitätskriterien. Wer dieses Schema versteht, baut sein eigenes Werkzeug. Auch wenn nächstes Jahr ein anderes kommt.</p>
         </div>
       </div>
       <div class="praxis-card reveal">
         <span class="praxis-card__tag">Datenschutz</span>
         <div class="praxis-card__title">Was lokal bleiben muss, bleibt lokal</div>
         <div class="praxis-card__text">
-          <p>Nicht alles gehört in die Cloud. Ich zeige, wie lokale KI-Modelle für sensible Daten eingesetzt werden: Prüfungsfragen, Lernendendaten, interne Materialien.</p>
+          <p>Nicht alles gehört in die Cloud. Ich zeige, wie lokale KI-Modelle für sensible Daten eingesetzt werden: Prüfungsfragen, Daten von Lernenden, interne Materialien.</p>
         </div>
       </div>
     </div>
@@ -465,7 +468,7 @@
     <h2 style="color: var(--white);">Neun Fähigkeiten.<br><em class="teal">Eine Grundlage.</em></h2>
     <div class="gf-list">
       <div class="gf-item"><div class="gf-num">01</div><div><div class="gf-title">Quellenarchitektur</div><div class="gf-sub">Du bestimmst, woraus die KI schöpft.</div></div></div>
-      <div class="gf-item"><div class="gf-num">02</div><div><div class="gf-title">Kodifizierte Fachkompetenz</div><div class="gf-sub">Deine Berufserfahrung wird reproduzierbar.</div></div></div>
+      <div class="gf-item"><div class="gf-num">02</div><div><div class="gf-title">Fachwissen wirksam machen</div><div class="gf-sub">Deine Berufserfahrung wird reproduzierbar.</div></div></div>
       <div class="gf-item"><div class="gf-num">03</div><div><div class="gf-title">Fachlich wach bleiben</div><div class="gf-sub">Du erkennst, wenn die KI falsch liegt.</div></div></div>
       <div class="gf-item"><div class="gf-num">04</div><div><div class="gf-title">KI als Denkpartner</div><div class="gf-sub">Denken statt Produzieren.</div></div></div>
       <div class="gf-item"><div class="gf-num">05</div><div><div class="gf-title">Adaptive Differenzierung</div><div class="gf-sub">Drei Zugangspunkte statt drei Niveaus.</div></div></div>
@@ -506,7 +509,7 @@
         <p class="body-text" style="max-width: none;">Praxis, Ausbildung und Forschung greifen hier direkt ineinander. KI-Urteilskompetenz erforschen, in der Lehrpersonenausbildung unterrichten und täglich im eigenen Klassenzimmer anwenden.</p>
         <div class="warum__roles">
           <div class="warum__role"><span class="warum__role-label">Praxis</span><span class="warum__role-text">Lernbegleitung Deutsch · gibb Bern · EBA-Klassen</span></div>
-          <div class="warum__role"><span class="warum__role-label">Ausbildung</span><span class="warum__role-text">Dozent Berufspraktische Studien · PH FHNW</span></div>
+          <div class="warum__role"><span class="warum__role-label">Ausbildung</span><span class="warum__role-text">Dozent Berufspraktische Studien · KI-Experte im FHNW-Selbstlernkurs · PH FHNW</span></div>
           <div class="warum__role"><span class="warum__role-label">Forschung</span><span class="warum__role-text">Doktorand · Evaluative Judgement (KI-Output beurteilen) · UZH</span></div>
         </div>
         <p class="body-text" style="max-width: none; color: #4A4A44;">Was ich erforsche, unterrichte ich. Was ich unterrichte, funktioniert. Nicht weil ich es behaupte, sondern weil ich es täglich ausprobiere und anpasse.</p>
@@ -520,9 +523,9 @@
 <section id="schulleitungen" class="s-teal">
   <div class="wrap reveal">
     <span class="eyebrow" style="color: rgba(255,255,255,0.8);">Für Schulleitungen</span>
-    <h2 style="color: var(--white);">Ihr Team arbeitet einen Halbtag<br><em style="font-style:italic; color: rgba(255,255,255,0.75);">mit dem eigenen Material.</em></h2>
+    <h2 style="color: var(--white);">Im Workshop arbeitet Ihr Team einen Halbtag<br><em style="font-style:italic; color: rgba(255,255,255,0.75);">mit dem eigenen Material.</em></h2>
     <div class="body-text" style="color: rgba(255,255,255,0.8); margin-top: 1.75rem; max-width: none;">
-      <p>Der ABU-Rahmenlehrplan und fünf weitere Rahmenwerke fordern den kompetenten Umgang mit KI. Ihr Team lernt ein gemeinsames Verfahren kennen, erprobt es am eigenen Material und nimmt erste einsetzbare Bausteine mit. Dazu eine Orientierung, welche Tools im schulischen Kontext datenschutzbewusst eingesetzt werden können. Gebaut mit Ihrem Material, nicht mit Theorie-Folien.</p>
+      <p>Der ABU-Rahmenlehrplan und fünf weitere Rahmenwerke fordern den kompetenten Umgang mit KI. Ihr Team lernt ein gemeinsames Verfahren kennen, erprobt es am eigenen Material und nimmt erste einsetzbare Bausteine mit. Dazu eine Orientierung, welche Tools im schulischen Kontext datenschutzbewusst eingesetzt werden können. </p>
     </div>
     <div style="display: flex; flex-direction: column; gap: 0.75rem; margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
       <div style="font-size: 0.82rem; color: rgba(255,255,255,0.9);">✓ &nbsp;SCHILW-buchbar</div>
@@ -564,9 +567,12 @@
       <div class="angebot reveal">
         <div class="angebot__title">Fachbegleitung</div>
         <div class="angebot__price">CHF 9'000 <span>/ Semester</span></div>
-        <p class="angebot__text">Workshop, Fachbegleitung und Nachbereitung über ein Semester. Für Teams, die wollen, dass es bleibt. Verankerung im Schulalltag, nicht ein Halbtag und dann Vergessen.</p>
-        <div class="angebot__incl">Workshop + Fachbegleitung + Nachbereitung + alle Materialien</div>
+        <p class="angebot__text">Für Teams, die das Verfahren nicht nur kennenlernen, sondern im Schulalltag verankern wollen.</p>
+        <div class="angebot__incl">Kick-off-Workshop · 2–3 Begleitsitzungen · Schärfung von Material und Kriterien · Pilotierung im Unterricht · Auswertung · alle Materialien digital</div>
       </div>
+    </div>
+    <div style="text-align: center; margin-top: 2.5rem;">
+      <a href="#kontakt" class="btn">Format besprechen</a>
     </div>
   </div>
 </section>
@@ -580,7 +586,7 @@
       <div class="step"><div class="step__num">01</div><div><div class="step__title">Kurzes Vorgespräch</div><p class="step__text">Wir klären Ziel, Teamgrösse und passendes Format.</p></div></div>
       <div class="step"><div class="step__num">02</div><div><div class="step__title">Material vorbereiten</div><p class="step__text">Sie schicken Material im Voraus oder bringen es direkt mit.</p></div></div>
       <div class="step"><div class="step__num">03</div><div><div class="step__title">Durchführung vor Ort</div><p class="step__text">Ihr Team arbeitet mit eigenem Material, nicht mit Demo-Beispielen.</p></div></div>
-      <div class="step"><div class="step__num">04</div><div><div class="step__title">Konkrete Ergebnisse mitnehmen</div><p class="step__text">Sie gehen mit einsetzbaren Bausteinen, Kriterien und einer klaren Methode raus.</p></div></div>
+      <div class="step"><div class="step__num">04</div><div><div class="step__title">Konkrete Ergebnisse mitnehmen</div><p class="step__text">Sie gehen mit einsetzbaren Bausteinen, Kriterien und einem klaren Vorgehen raus.</p></div></div>
     </div>
   </div>
 </section>
@@ -589,7 +595,7 @@
 <section class="s-white">
   <div class="wrap reveal">
     <span class="eyebrow">Häufige Fragen</span>
-    <h2>Drei Antworten.<br><em class="teal">Vorab.</em></h2>
+    <h2>Vier Antworten.<br><em class="teal">Vorab.</em></h2>
     <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 0;">
       <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--light);">
         <h3 style="margin-bottom: 0.5rem;">Braucht unser Team Vorkenntnisse?</h3>
@@ -597,11 +603,15 @@
       </div>
       <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--light);">
         <h3 style="margin-bottom: 0.5rem;">Müssen wir bereits ein Tool gewählt haben?</h3>
-        <p class="body-text">Nein. KIalog ist kein Kurs für ein einzelnes Tool. Im Zentrum steht ein Verfahren, das sich auf verschiedene Werkzeuge übertragen lässt.</p>
+        <p class="body-text">Nein. KIalog ist kein Kurs für ein einzelnes Tool. Im Zentrum steht ein Verfahren, das mit verschiedenen Tools funktioniert.</p>
       </div>
-      <div style="padding: 1.5rem 0;">
+      <div style="padding: 1.5rem 0; border-bottom: 1px solid var(--light);">
         <h3 style="margin-bottom: 0.5rem;">Können wir mit eigenem Material arbeiten?</h3>
         <p class="body-text">Ja. Genau darum geht es. Lehrplan, Lehrmittel, Aufgabenstellungen und vorhandene Unterlagen bilden die Grundlage der Arbeit.</p>
+      </div>
+      <div style="padding: 1.5rem 0;">
+        <h3 style="margin-bottom: 0.5rem;">Wie viel Zeit muss unser Team investieren?</h3>
+        <p class="body-text">Der Workshop ist so angelegt, dass das Team im gemeinsamen Zeitfenster arbeitet und mit konkreten Ergebnissen rausgeht. Für die Fachbegleitung kommen wenige zusätzliche Termine dazu, die im Voraus geplant werden.</p>
       </div>
     </div>
   </div>
@@ -637,6 +647,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://kialog.ch/#person","name":"Manuel Hirschi","jobTitle":"Lehrperson, Dozent und Forscher","url":"https://kialog.ch","email":"info@kialog.ch","worksFor":[{"@type":"Organization","name":"gibb Bern"},{"@type":"Organization","name":"PH FHNW"},{"@type":"Organization","name":"Universität Zürich"}],"knowsAbout":["KI-Didaktik","Evaluative Judgement","KI-Urteilskompetenz","Berufsbildung","DaZ"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"KIalog","description":"Praxistaugliches Verfahren für Lehrpersonen. KI-Output prüfen, Material differenzieren, mit eigenem Material sicher arbeiten.","provider":{"@id":"https://kialog.ch/#person"},"areaServed":{"@type":"Country","name":"Schweiz"},"serviceType":"Weiterbildung"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Braucht unser Team Vorkenntnisse?","acceptedAnswer":{"@type":"Answer","text":"Nein. KIalog ist so aufgebaut, dass auch Teams ohne Vorerfahrung einsteigen können. Entscheidend ist nicht Technikaffinität, sondern die Bereitschaft, mit dem eigenen Material zu arbeiten."}},{"@type":"Question","name":"Müssen wir bereits ein Tool gewählt haben?","acceptedAnswer":{"@type":"Answer","text":"Nein. KIalog ist kein Kurs für ein einzelnes Tool. Im Zentrum steht ein Verfahren, das mit verschiedenen Tools funktioniert."}},{"@type":"Question","name":"Können wir mit eigenem Material arbeiten?","acceptedAnswer":{"@type":"Answer","text":"Ja. Genau darum geht es. Lehrplan, Lehrmittel, Aufgabenstellungen und vorhandene Unterlagen bilden die Grundlage der Arbeit."}},{"@type":"Question","name":"Wie viel Zeit muss unser Team investieren?","acceptedAnswer":{"@type":"Answer","text":"Der Workshop ist so angelegt, dass das Team im gemeinsamen Zeitfenster arbeitet und mit konkreten Ergebnissen rausgeht. Für die Fachbegleitung kommen wenige zusätzliche Termine dazu, die im Voraus geplant werden."}}]}</script>
 
 <script>
   const burger = document.getElementById('burger');
