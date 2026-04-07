@@ -80,7 +80,8 @@
     h2 { font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
     h3 { font-family: var(--serif); font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 500; line-height: 1.2; }
     em.teal { color: var(--teal); font-style: italic; font-family: var(--serif); }
-    .s-teal em.teal, .s-dark em.teal { color: rgba(255,255,255,0.7); }
+    .s-dark em.teal { color: rgba(255,255,255,0.7); }
+    .s-teal em.teal { color: rgba(255,255,255,0.88); }
     .body-text { font-size: 1rem; line-height: 1.75; color: inherit; max-width: 60ch; }
     .body-text p + p { margin-top: 1.1em; }
     .body-text strong { font-weight: 500; }
@@ -167,7 +168,7 @@
     .angebote-grid { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2.5rem; }
     .angebot { background: var(--warm); border: 1px solid var(--light); padding: 1.75rem; position: relative; }
     .angebot--featured { border-color: var(--teal); }
-    .angebot__badge { position: absolute; top: -1px; right: 1.5rem; background: var(--teal); color: var(--white); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.7rem; }
+    .angebot__badge { position: absolute; top: -1px; right: 1.5rem; background: var(--teal); color: var(--white); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.7rem; }
     .angebot__title { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; margin-bottom: 0.25rem; }
     .angebot__price { font-size: 1.4rem; font-weight: 500; color: var(--teal); margin-bottom: 1rem; }
     .angebot__price span { font-size: 0.8rem; color: var(--mid); font-weight: 400; }
@@ -523,7 +524,7 @@
 <section id="schulleitungen" class="s-teal">
   <div class="wrap reveal">
     <span class="eyebrow" style="color: rgba(255,255,255,0.8);">Für Schulleitungen</span>
-    <h2 style="color: var(--white);">Im Workshop arbeitet Ihr Team einen Halbtag<br><em style="font-style:italic; color: rgba(255,255,255,0.75);">mit dem eigenen Material.</em></h2>
+    <h2 style="color: var(--white);">Im Workshop arbeitet Ihr Team einen Halbtag<br><em style="font-style:italic; color: rgba(255,255,255,0.88);">mit dem eigenen Material.</em></h2>
     <div class="body-text" style="color: rgba(255,255,255,0.8); margin-top: 1.75rem; max-width: none;">
       <p>Der ABU-Rahmenlehrplan und fünf weitere Rahmenwerke fordern den kompetenten Umgang mit KI. Ihr Team lernt ein gemeinsames Verfahren kennen, erprobt es am eigenen Material und nimmt erste einsetzbare Bausteine mit. Dazu eine Orientierung, welche Tools im schulischen Kontext datenschutzbewusst eingesetzt werden können. </p>
     </div>
@@ -533,13 +534,13 @@
       <div style="font-size: 0.82rem; color: rgba(255,255,255,0.9);">✓ &nbsp;6 bis 16 Teilnehmende</div>
       <div style="font-size: 0.82rem; color: rgba(255,255,255,0.9);">✓ &nbsp;Inhouse, mit Ihrem Material</div>
     </div>
-    <p style="font-size: 0.88rem; color: rgba(255,255,255,0.65); margin-bottom: 2rem;">Ein CAS-Programm kostet CHF 9'900 pro Person. KIalog bringt Ihr ganzes Team für einen Bruchteil weiter.</p>
+    <p style="font-size: 0.88rem; color: rgba(255,255,255,0.88); margin-bottom: 2rem;">Ein CAS-Programm kostet CHF 9'900 pro Person. KIalog bringt Ihr ganzes Team für einen Bruchteil weiter.</p>
     <div style="padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.12); border-left: 2px solid rgba(255,255,255,0.5); margin-bottom: 2rem;">
       <p style="font-size: 0.82rem; font-weight: 500; color: var(--white);">Pilot April/Mai 2026 · gibb Bern</p>
-      <p style="font-size: 0.82rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem;">50% reduziert. Gegenleistung ist schriftliches Feedback.</p>
+      <p style="font-size: 0.82rem; color: rgba(255,255,255,0.88); margin-top: 0.3rem;">50% reduziert. Gegenleistung ist schriftliches Feedback.</p>
     </div>
     <a href="#kontakt" class="btn btn--white">Pilot anfragen</a>
-    <p style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.75rem;">Ich melde mich innert 48 Stunden.</p>
+    <p style="font-size: 0.78rem; color: rgba(255,255,255,0.88); margin-top: 0.75rem;">Ich melde mich innert 48 Stunden.</p>
   </div>
 </section>
 
@@ -645,9 +646,84 @@
   <p class="footer-copy">© 2026 Manuel Hirschi · kialog.ch</p>
 </footer>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://kialog.ch/#person","name":"Manuel Hirschi","jobTitle":"Lehrperson, Dozent und Forscher","url":"https://kialog.ch","email":"info@kialog.ch","worksFor":[{"@type":"Organization","name":"gibb Bern"},{"@type":"Organization","name":"PH FHNW"},{"@type":"Organization","name":"Universität Zürich"}],"knowsAbout":["KI-Didaktik","Evaluative Judgement","KI-Urteilskompetenz","Berufsbildung","DaZ"]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"KIalog","description":"Praxistaugliches Verfahren für Lehrpersonen. KI-Output prüfen, Material differenzieren, mit eigenem Material sicher arbeiten.","provider":{"@id":"https://kialog.ch/#person"},"areaServed":{"@type":"Country","name":"Schweiz"},"serviceType":"Weiterbildung"}</script>
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "@id":"https://kialog.ch/#person",
+  "name":"Manuel Hirschi",
+  "jobTitle":"Lehrperson, Dozent und Forscher",
+  "url":"https://kialog.ch",
+  "email":"info@kialog.ch",
+  "image":"https://kialog.ch/asset/manu2.webp",
+  "sameAs":["https://www.linkedin.com/in/manuelhirschi"],
+  "alumniOf":{"@type":"EducationalOrganization","name":"Universität Zürich"},
+  "hasCredential":[
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"Lehrdiplom","educationalLevel":"Sekundarstufe II"},
+    {"@type":"EducationalOccupationalCredential","credentialCategory":"Doktorand","educationalLevel":"Doctoral","recognizedBy":{"@type":"EducationalOrganization","name":"Universität Zürich"}}
+  ],
+  "worksFor":[
+    {"@type":"EducationalOrganization","name":"gibb Bern","description":"Gewerblich-Industrielle Berufsschule Bern"},
+    {"@type":"EducationalOrganization","name":"PH FHNW","description":"Pädagogische Hochschule, Institut Primarstufe"},
+    {"@type":"EducationalOrganization","name":"Universität Zürich","description":"Institut für Erziehungswissenschaft"}
+  ],
+  "knowsAbout":["KI-Didaktik","Evaluative Judgement","KI-Urteilskompetenz","Berufsbildung","DaZ","KI-Feedback","Allgemeinbildender Unterricht"],
+  "hasOccupation":[
+    {"@type":"Occupation","name":"Lehrperson ABU","occupationLocation":{"@type":"City","name":"Bern"},"educationalLevel":"Sekundarstufe II"},
+    {"@type":"Occupation","name":"Dozent Berufspraktische Studien","occupationLocation":{"@type":"City","name":"Brugg-Windisch"}},
+    {"@type":"Occupation","name":"Doktorand Erziehungswissenschaft","occupationLocation":{"@type":"City","name":"Zürich"}}
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "@id":"https://kialog.ch/#service",
+  "name":"KIalog",
+  "description":"Praxistaugliches Verfahren für Lehrpersonen und Dozierende. KI-Output prüfen, urteilen, belegen. Mit eigenem Material, an der eigenen Institution.",
+  "provider":{"@id":"https://kialog.ch/#person"},
+  "areaServed":{"@type":"Country","name":"Schweiz"},
+  "serviceType":"Weiterbildung",
+  "audience":{"@type":"EducationalAudience","educationalRole":"teacher","audienceType":"Lehrpersonen und Dozierende Sekundarstufe II und Hochschule"},
+  "hasOfferCatalog":{
+    "@type":"OfferCatalog",
+    "name":"KIalog Formate",
+    "itemListElement":[
+      {"@type":"Offer","name":"KIalog Workshop","description":"2×90 Minuten, live mit eigenem Material","price":"800","priceCurrency":"CHF","eligibleQuantity":{"@type":"QuantitativeValue","maxValue":12,"unitText":"Teilnehmende"}},
+      {"@type":"Offer","name":"KIalog Fachbegleitung","description":"1 Semester, Kick-off + Begleitsitzungen + Pilotierung","price":"3000","priceCurrency":"CHF"},
+      {"@type":"Offer","name":"KIalog Impuls","description":"60 Minuten, Einführung für Konferenzen und Teamtage"}
+    ]
+  }
+}</script>
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "@id":"https://kialog.ch/#website",
+  "name":"KIalog",
+  "url":"https://kialog.ch",
+  "description":"KI-Urteilskompetenz für Lehrpersonen und Dozierende. Prüfen, Urteilen, Belegen.",
+  "inLanguage":"de-CH",
+  "author":{"@id":"https://kialog.ch/#person"},
+  "speakable":{
+    "@type":"SpeakableSpecification",
+    "cssSelector":[".hero h1",".hero__lead",".kern__quote",".step__title",".step__text"]
+  }
+}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Braucht unser Team Vorkenntnisse?","acceptedAnswer":{"@type":"Answer","text":"Nein. KIalog ist so aufgebaut, dass auch Teams ohne Vorerfahrung einsteigen können. Entscheidend ist nicht Technikaffinität, sondern die Bereitschaft, mit dem eigenen Material zu arbeiten."}},{"@type":"Question","name":"Müssen wir bereits ein Tool gewählt haben?","acceptedAnswer":{"@type":"Answer","text":"Nein. KIalog ist kein Kurs für ein einzelnes Tool. Im Zentrum steht ein Verfahren, das mit verschiedenen Tools funktioniert."}},{"@type":"Question","name":"Können wir mit eigenem Material arbeiten?","acceptedAnswer":{"@type":"Answer","text":"Ja. Genau darum geht es. Lehrplan, Lehrmittel, Aufgabenstellungen und vorhandene Unterlagen bilden die Grundlage der Arbeit."}},{"@type":"Question","name":"Wie viel Zeit muss unser Team investieren?","acceptedAnswer":{"@type":"Answer","text":"Der Workshop ist so angelegt, dass das Team im gemeinsamen Zeitfenster arbeitet und mit konkreten Ergebnissen rausgeht. Für die Fachbegleitung kommen wenige zusätzliche Termine dazu, die im Voraus geplant werden."}}]}</script>
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"KI-Output mit dem KIalog-Verfahren beurteilen",
+  "description":"In drei Schritten lernen Lehrpersonen, KI-generierten Output systematisch zu prüfen, einzuschätzen und mit eigenen Quellen zu belegen.",
+  "step":[
+    {"@type":"HowToStep","position":1,"name":"Prüfen","text":"KI-Output mit dem eigenen Lehrplan, Lehrmittel und Aufgabenstellungen abgleichen. Stimmen Fakten, Niveau und Kontext?"},
+    {"@type":"HowToStep","position":2,"name":"Urteilen","text":"Übernehmen, anpassen oder verwerfen. Die eigene Einschätzung der Output-Qualität entwickeln (Evaluative Judgement)."},
+    {"@type":"HowToStep","position":3,"name":"Belegen","text":"Entscheidungen mit konkreten Quellen und Kriterien begründen. Nachvollziehbar dokumentieren, warum etwas übernommen oder verworfen wurde."}
+  ],
+  "tool":[
+    {"@type":"HowToTool","name":"Eigenes Lehrmaterial (Lehrplan, Lehrmittel, Aufgaben)"},
+    {"@type":"HowToTool","name":"Ein beliebiges KI-Tool (toolunabhängig)"}
+  ],
+  "totalTime":"PT90M"
+}</script>
 
 <script>
   const burger = document.getElementById('burger');
