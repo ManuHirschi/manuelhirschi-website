@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 68" role="img" aria-labelledby="logo-title-v6">
+  <title id="logo-title-v6">KIalog — Manuel Hirschi</title>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&amp;family=JetBrains+Mono:wght@300&amp;display=swap');
+      .logo-ki   { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700; fill: #BEFF00; }
+      .logo-alog { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 300; fill: #F2F2EE; }
+      .logo-sub  { font-family: 'JetBrains Mono', monospace; font-weight: 300; fill: rgba(255,255,255,0.45); letter-spacing: 0.2em; text-transform: uppercase; }
+    </style>
+  </defs>
+  <text x="4" y="40" font-size="44">
+    <tspan class="logo-ki">KI</tspan><tspan class="logo-alog">alog</tspan>
+  </text>
+  <!-- HIRSCHI unten links, leicht schräg — wie v5 aber mit Monospace-Bruch -->
+  <text x="5" y="60" font-size="11" class="logo-sub" transform="rotate(-3, 5, 60)">Hirschi</text>
+</svg>
