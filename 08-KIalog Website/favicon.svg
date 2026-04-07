@@ -1,13 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="KIalog">
-  <!-- Teal square background -->
-  <rect width="32" height="32" rx="4" fill="#006B77"/>
-  <!-- "KI" white, compact, system sans -->
+  <rect width="32" height="32" rx="6" fill="#0B0B0B"/>
   <text
     x="16" y="22"
-    font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+    font-family="Outfit, system-ui, -apple-system, 'Segoe UI', sans-serif"
     font-size="15"
     font-weight="700"
-    fill="#FAF8F4"
+    fill="#BEFF00"
     text-anchor="middle"
     letter-spacing="-0.5"
   >KI</text>

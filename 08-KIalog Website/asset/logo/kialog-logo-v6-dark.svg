@@ -2,9 +2,9 @@
   <title id="logo-title-v6d">KIalog — Manuel Hirschi</title>
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&amp;family=JetBrains+Mono:wght@300&amp;display=swap');
-      .logo-ki   { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700; fill: #BEFF00; }
-      .logo-alog { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 300; fill: #1A1A1A; }
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;700&amp;family=JetBrains+Mono:wght@300&amp;display=swap');
+      .logo-ki   { font-family: 'Outfit', system-ui, sans-serif; font-weight: 700; fill: #BEFF00; }
+      .logo-alog { font-family: 'Outfit', system-ui, sans-serif; font-weight: 300; fill: #1A1A1A; }
       .logo-sub  { font-family: 'JetBrains Mono', monospace; font-weight: 300; fill: rgba(0,0,0,0.35); letter-spacing: 0.2em; text-transform: uppercase; }
     </style>
   </defs>
