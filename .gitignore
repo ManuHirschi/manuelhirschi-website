@@ -9,3 +9,4 @@
 
 # Netlify-Ordner überall ignorieren
 .netlify/
+.compact-snapshots/
