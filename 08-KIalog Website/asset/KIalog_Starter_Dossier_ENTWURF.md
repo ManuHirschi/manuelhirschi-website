@@ -88,7 +88,7 @@ Workshop, Training und Begleitung über ein Semester. Für Teams, die wollen, da
 CHF 9'000 · Ein Semester, alles inklusive
 
 Alle Formate sind als SCHILW buchbar.
-Im Kanton Bern können Schulen Kosten über die BKD rückerstatten lassen.
+Ob Kosten über den Kanton rückerstattet werden können, hängt vom Schultyp und Kanton ab.
 Reisekosten nach Aufwand.
 
 **ROI-SATZ (hervorgehoben, Blockquote oder fett):**

@@ -21,100 +21,142 @@ Drei Perspektiven:
 
 ### Hero
 
-KI ist im Unterricht. Was jetzt?
+KI-Output beurteilen. Nicht blind übernehmen.
 
-Lernende nutzen sie. Lehrpersonen auch. Was fehlt, ist die Methode — nicht ein weiteres Tool.
+Deine Lernenden schreiben Texte mit KI. Sie holen sich Feedback. Sie generieren, was früher Arbeit war. Die Frage ist nicht mehr ob, sondern wie du und dein Team damit professionell umgehen.
+
+KIalog gibt dir und deinem Team das Handwerk. Prüfen, urteilen, belegen. Mit eigenem Material. Sofort einsetzbar.
+
+Besonders passend für ABU, Lernbegleitung Deutsch, DaZ und andere textbasierte Fächer an Berufsfachschulen.
 
 Zwei Einstiege: Lehrpersonen und Schulleitungen.
 
-### Realität
+### Der Kern
 
-KI verbieten? Das ist nicht mehr die Frage.
+Jede Korrektur am KI-Output ist eine Fachentscheidung, die du vorher im Kopf getroffen hast, ohne sie zu artikulieren. KI zwingt dich, dein Urteil auszusprechen.
 
-Lernende generieren Texte in Sekunden. Lehrpersonen differenzieren Material, entwerfen Prüfungen, bereiten Lektionen vor — schneller als je zuvor. Das ist nicht das Problem. Das Problem ist: Wer prüft, was zurückkommt?
+Das ist Professionalisierung, nicht Automatisierung.
 
-- 93% der Schweizer Jugendlichen haben KI-Tools ausprobiert (Latzer & Festic 2024, UZH)
-- >23% der Aussagen in KI-generierten Texten sind fachlich nicht gedeckt (Jia et al. 2024, EDM)
+### nRLP-Box
+
+Neuer ABU-Rahmenlehrplan, Einführung August 2026. KIalog deckt verbindliche Kompetenzbereiche des nRLP ab:
+
+- Quellenkritik mit KI-Anwendungen
+- Interaktion mit KI-Tools
+- Chancen und Risiken von KI analysieren
+- KI im Qualifikationsverfahren
+
+Kantonale Schullehrpläne werden derzeit erarbeitet. Jetzt vorbereiten.
+
+### Ausgangslage
+
+KI verbieten ist nicht mehr die Frage.
+
+KI ist im Unterricht angekommen. Viele Lehrpersonen nutzen sie bereits, aber ohne klares Verfahren. Sie bekommen Antworten und wissen nicht sicher, ob sie ihnen vertrauen können.
+
+Rahmenwerke wie nRLP, LP21 und EU AI Act fordern den kompetenten Umgang mit KI. Die Frage ist nicht ob, sondern wie.
+
+- 93% der 16- bis 29-Jährigen in der Schweiz haben KI-Tools ausprobiert (Latzer & Festic 2024, UZH)
+- >23% der Aussagen in KI-Texten sind fachlich nicht gedeckt (Jia et al. 2024, EDM)
+
+OECD Digital Education Outlook 2026: KI kann sichtbare Leistung kurzfristig steigern. Ohne didaktische Begleitung leidet oft das nachhaltige Lernen. Das zeigt sich spätestens dann, wenn die KI wegfällt.
 
 ### Methode — Du kennst dein Material. Das ist dein Vorteil.
 
-KIalog ist kein Kurs über KI. Es ist eine Methode, die mit dem anfängt, was du schon hast. Du lädst dein Unterrichtsmaterial. KI skaliert, differenziert, entwirft. Du weisst, was darin steht — und merkst sofort, wenn etwas nicht stimmt. Genau das ist KI-Urteilskompetenz. Und genau das fordern sechs Rahmenwerke heute schon.
+Ich öffne ChatGPT, NotebookLM, Claude. Live, vor dir, ohne Skript. Ich mache Fehler. Ich korrigiere. Du siehst meinen Denkprozess, nicht nur das Resultat.
 
-**Schritt 1: Prüfen.** Stimmt das fachlich? Fehlt etwas? Wo hat die KI vereinfacht, was nicht vereinfacht werden darf?
+Das Ziel ist, dass du mit einer Methode rausgehst. Nicht mit Antworten.
 
-**Schritt 2: Urteilen.** Übernehmen, anpassen oder verwerfen. Nicht die KI entscheidet über Qualität. Du entscheidest.
+**Schritt 1: Prüfen.** Stimmt das fachlich? Fehlt etwas? Wo hat die KI vereinfacht, was nicht vereinfacht werden darf? Dein Fachwissen ist der Filter. Die KI hat keinen.
 
-**Schritt 3: Belegen.** Warum hast du was geändert? Dein Denkprozess wird sichtbar — für dich, für deine Lernenden, für dein Team.
+**Schritt 2: Urteilen.** Übernehmen, anpassen oder verwerfen. Die Fähigkeit, die Qualität von Output selbst einzuschätzen, heisst in der Forschung Evaluative Judgement (Sadler 1989; Tai et al. 2018; Bearman 2024). Sie ist erlernbar. Und im KI-Zeitalter die entscheidende Kompetenz.
 
-Dieselbe Methode. Egal ob Arbeitsblatt, Prüfung oder Feedback.
+**Schritt 3: Belegen.** Warum hast du was geändert? Zwei Sätze. Wenn du dein Urteil aufschreibst, lernst du daraus. Dein Team lernt von dir. Aus individueller Praxis wird geteiltes Wissen.
 
-### Praxis — So sieht das aus.
+Dieselbe Methode. Egal ob Unterrichtsmaterial, Prüfung oder Feedback.
 
-Kein Theoriebeispiel. Echtes Material, echte Entscheidung.
+### Praxis — Was ich zeige. Nicht Theorie. Meine Praxis.
 
-1. **Berufsfachschule — Arbeitsblatt auf 3 Niveaus.** Du hast eine EBA-Klasse mit DaZ-Anteil. KI differenziert dein Arbeitsblatt auf drei Niveaus. Du prüfst: Was stimmt sprachlich? Was fehlt fachlich? Was übernimmst du? → Walkthrough: https://kialog.ch/beispiel/prototyp-praxis.html#wt-berufsschule
+KI ist Sprache. Wer Sprache unterrichtet, hat den natürlichen Vorteil. Du erkennst Stil, Präzision, Niveau, Fachlichkeit.
 
-2. **Gymnasium / FMS — Prüfung mit Prozessfokus.** Du baust eine Prüfung, bei der zwei Texte verglichen werden. Lernende begründen ihr Urteil. Das Produkt ist zweitrangig. Der Denkprozess zählt. → Walkthrough: https://kialog.ch/beispiel/prototyp-praxis.html#wt-gymnasium
+1. **Vorbereitung: Eigenes Material in Minuten differenziert.** Du lädst deinen Lehrplan, dein Lehrmittel, deine Aufgabenstellung in NotebookLM. Nur deine Quellen. Die KI antwortet aus deinen Dokumenten statt aus dem offenen Internet. In kurzer Zeit entstehen mehrere differenzierte Versionen. Die Geschwindigkeit kommt von der KI. Die Qualität kommt von dir.
 
-3. **PH / Hochschule — KI-Feedback auf Fallanalyse.** Studierende lassen sich von ChatGPT Feedback geben. Du zeigst, wie sie dieses Feedback prüfen, einordnen und daraus lernen. → Walkthrough: https://kialog.ch/beispiel/prototyp-praxis.html#wt-hochschule
+2. **Live im Unterricht: KI offen zeigen, nicht verstecken.** Ich öffne ChatGPT vor der Klasse. Ich denke laut. Ich zeige, wo die Antwort falsch ist. Meine Lernenden sehen nicht, was KI kann. Sie sehen, wie ich mit KI spreche. Das löst etwas aus. Lernende beginnen selbst zu prüfen.
+
+3. **Datenschutz: Was lokal bleiben muss, bleibt lokal.** Nicht alles gehört in die Cloud. Ich zeige, wie lokale KI-Modelle für sensible Daten eingesetzt werden. Prüfungsfragen, Daten von Lernenden, interne Materialien.
+
+Der entscheidende Schritt ist nicht das Generieren. Es ist das Vergleichen. KI-generierten Text gegen die eigene Quelle halten. Was wurde übernommen, verändert, erfunden? Daraus entsteht auch das stärkste Prüfungsformat.
+
+### Nach dem Workshop
+
+Kein Handout. Erste Werkzeuge.
+
+1. Ein eingerichtetes NotebookLM-Notebook mit deinem eigenen Material
+2. Einen funktionierenden Prompt mit deinen Fachkriterien
+3. Ein differenziertes Unterrichtsmaterial, das du nächste Woche einsetzt
+4. Dazu eine Checkliste zum Prüfen von KI-Output in drei Schritten
+5. Und eine Belegvorlage zu deinem eigenen Baustein
+
+Die am Montag funktionieren. Nicht in der Schublade landen.
+
+### Warum ich
+
+Praxis × Ausbildung × Forschung.
+
+- **Praxis:** Lernbegleitung Deutsch, gibb Bern, EBA-Klassen
+- **Ausbildung:** Dozent Berufspraktische Studien, KI-Experte im FHNW-Selbstlernkurs, PH FHNW
+- **Forschung:** Doktorand, Evaluative Judgement (KI-Output beurteilen), UZH
+
+Was ich erforsche, unterrichte ich. Was ich unterrichte, funktioniert. Nicht weil ich es behaupte, sondern weil ich es täglich ausprobiere und anpasse.
+
+Wer mit KI arbeitet, führt einen Dialog. KIalog zeigt, wie er gelingt.
 
 ### Für Schulleitungen und Abteilungsleitungen
 
-KI-Urteilskompetenz ist in sechs Rahmenwerken verbindlich verankert — vom nRLP bis zum EU AI Act. KIalog macht das für Ihr Team greifbar: praxisnah, an Ihrem Material, an einem halben Tag. Alle Formate sind als SCHILW buchbar. Im Kanton Bern können Kosten über die BKD rückerstattet werden.
+Im Workshop arbeitet Ihr Team einen Halbtag mit dem eigenen Material.
 
-Was Ihr Team nach einem Halbtag hat: Eine gemeinsame Methode. Fertige Bausteine für den nächsten Unterrichtstag. Das Wissen, welche Tools an Ihrer Schule datenschutzkonform funktionieren.
+Ihr Team lernt ein gemeinsames Verfahren kennen, erprobt es direkt und nimmt erste einsetzbare Bausteine mit. Dazu eine Orientierung, welche Tools im schulischen Kontext datenschutzbewusst eingesetzt werden können.
 
-### Warum ich — Ich unterrichte das, was ich erforsche.
+- SCHILW-buchbar
+- Kostenübernahme je nach Kanton und Schultyp möglich
+- 6 bis 16 Teilnehmende
+- Inhouse, mit Ihrem Material
 
-An der gibb Bern begleite ich Lernende in Allgemeinbildung und Deutsch — täglich, mit KI. An der PH FHNW doziere ich in den Berufspraktischen Studien. An der UZH forsche ich zu einer Frage: Wie lernt man, KI-Output selbst zu beurteilen?
-
-18 Jahre Unterricht, von der Primarschule bis zur Hochschule. Was ich erforsche, unterrichte ich. Was ich unterrichte, funktioniert.
-
-Wer mit KI arbeitet, führt einen Dialog. KIalog zeigt, wie man ihn gewinnt.
+Ein CAS-Programm kostet CHF 9'900 pro Person. KIalog bringt Ihr ganzes Team für einen Bruchteil weiter.
 
 ### Drei Formate. Klare Preise.
 
-**Impuls** — 60–90 Minuten · Weiterbildungstag, Konferenz oder Teamtag. Kein Vortrag. Eine Demonstration mit echtem Material. CHF 800.
+**Impuls** — 60 bis 90 Minuten. Weiterbildungstag, Konferenz oder Teamtag. Kein Vortrag. Eine Demonstration mit echtem Material. CHF 800. Für Schulleitungen. Überblick in einer Stunde.
 
-**KIalog Workshop (empfohlen)** — Halbtag oder Ganztag · Inhouse, 6–16 Teilnehmende. Du arbeitest mit deinem Material. Du gehst mit fertigen Bausteinen und einer Checkliste raus. CHF 1'800 Halbtag / CHF 3'000 Ganztag.
+**KIalog Workshop (empfohlen)** — Halbtag oder Ganztag. Inhouse, 6 bis 16 Teilnehmende. Das Team arbeitet mit eigenem Material und geht mit ersten Bausteinen raus. CHF 1'800 Halbtag / CHF 3'000 Ganztag. SCHILW-buchbar. Für LP-Teams. Sofort einsetzbar im eigenen Unterricht.
 
-**Fachbegleitung** — 1 Semester · Workshop, Training, Begleitung. Für Teams, die wollen, dass es bleibt. CHF 9'000. Ganze Fachgruppe oder Abteilung.
+**Fachbegleitung** — 1 Semester. Für Teams, die das Verfahren nicht nur kennenlernen, sondern im Schulalltag verankern wollen. Kick-off-Workshop, 2 bis 3 Begleitsitzungen, Schärfung von Material und Kriterien, Pilotierung im Unterricht, Auswertung, alle Materialien digital. CHF 9'000. Für Fachgruppen. Strukturierte Begleitung über ein Semester.
 
 Alle Formate als schulinterne Weiterbildung (SCHILW) buchbar. Reisekosten nach Aufwand.
 
-### FAQ — Für Lehrpersonen
+### So läuft es ab
 
-**Muss ich KI schon kennen?** Nein. Du musst nicht mal KI mögen. Du musst einmal sehen, was mit deinem eigenen Material möglich ist. Der Rest kommt von selbst.
+1. Kurzes Vorgespräch. Wir klären Ziel, Teamgrösse und passendes Format.
+2. Material vorbereiten. Du schickst Material im Voraus oder bringst es direkt mit.
+3. Durchführung vor Ort. Das Team arbeitet mit echten Unterlagen, nicht mit Demo-Beispielen.
+4. Konkrete Ergebnisse mitnehmen. Ihr geht mit einsetzbaren Bausteinen, Kriterien und einem klaren Vorgehen raus.
 
-**Für welche Stufen ist KIalog geeignet?** Gesamte Sek II — Berufsfachschulen, Gymnasien, FMS, Brückenangebote — und Pädagogische Hochschulen.
+### FAQ — Häufige Fragen
 
-**Ich unterrichte kein Deutsch. Ist das trotzdem relevant?** Ja. Überall wo Texte entstehen, gelesen oder beurteilt werden, braucht es KI-Urteilskompetenz. Das betrifft fast jedes Fach.
+**Muss ich mich mit KI auskennen?** Nein. KIalog ist kein App-Kurs und kein ChatGPT-Training. Im Zentrum steht ein didaktisches Verfahren, das mit jedem Tool funktioniert. Entscheidend ist dein Fachwissen als Lehrperson, nicht dein Technikwissen.
 
-**Was ist NotebookLM und warum setzt du das ein?** NotebookLM ist ein KI-Tool von Google. Du lädst dein eigenes Material hoch und bekommst Antworten, die sich direkt auf deine Quellen stützen. KIalog funktioniert aber auch mit Claude oder ChatGPT.
+**Meine Lehrpersonen nutzen KI sowieso. Warum schulen?** Genau deshalb. Lehrpersonen, die KI nutzen, ohne sie beurteilen zu können, verlieren mittelfristig Autorität im Unterricht. Der neue ABU-Rahmenlehrplan fordert ab August 2026 explizit KI-Urteilskompetenz. KIalog gibt Ihrem Team das Handwerk dazu.
 
-**Was ist mit Datenschutz?** Daten von Lernenden kommen nie in KI-Tools. Wir arbeiten mit deinem eigenen Material oder anonymisierten Beispielen. Auf Wunsch zeige ich lokale Lösungen, die komplett offline funktionieren.
+**Können wir mit eigenem Material arbeiten?** Ja. Genau darum geht es. Lehrplan, Lehrmittel, Aufgabenstellungen und vorhandene Unterlagen bilden die Grundlage der Arbeit.
 
-**Wie erstelle ich Prüfungen, die mit KI funktionieren?** Eine gute Prüfung verlangt, was KI nicht zuverlässig kann: persönlichen Bezug, lokalen Kontext, mündliche Begründung, Prozessdokumentation.
-
-### FAQ — Für Schulleitungen
-
-**Was kostet KIalog und was bekommt mein Team dafür?** Einstieg ab CHF 800 für einen Impuls-Slot. Halbtag CHF 1'800. Ein Semester Begleitung CHF 9'000. Nach einem Halbtag hat Ihr Team eine gemeinsame Methode und fertige Bausteine.
-
-**Kann ich das über den Kanton abrechnen?** Im Kanton Bern können Schulen Kosten über die BKD rückerstatten lassen. Alle Formate sind als SCHILW buchbar.
-
-**Warum ist das lehrplankonform?** KI-Urteilskompetenz ist in sechs Rahmenwerken verbindlich verankert — nRLP ABU, LP21, OECD, UNESCO, EU AI Act, LCH.
-
-**Was unterscheidet KIalog von anderen KI-Kursen?** Andere Kurse schulen Tools. KIalog schult das Urteil — mit dem Material, das Ihre Lehrpersonen schon haben.
-
-**Wie viel Zeit braucht mein Team?** Impuls: 60–90 Minuten. Workshop: ein halber oder ganzer Tag. Danach keine Pflicht zur Weiterarbeit.
-
-**Wer steckt hinter KIalog?** Manuel Hirschi. Lehrperson, Dozent und Forscher. 18 Jahre Unterrichtserfahrung. Aktuell Lernbegleitung Deutsch (gibb Bern), Dozent BpSt (PH FHNW), Doktorand (Universität Zürich).
+**Wie viel Zeit muss unser Team investieren?** Der Workshop ist so angelegt, dass das Team im gemeinsamen Zeitfenster arbeitet und mit konkreten Ergebnissen rausgeht. Für die Fachbegleitung kommen wenige zusätzliche Termine dazu, die im Voraus geplant werden.
 
 ### Kontakt
 
-Ein Satz reicht. Ich antworte persönlich innert 48 Stunden — auch wenn du noch nicht weisst, ob das etwas für dich ist.
+Ein Satz reicht. Ich antworte. Direkt. Ohne Formular.
 
 - E-Mail: info@kialog.ch
+- Telefon: 076 386 22 07
 - WhatsApp: https://wa.me/41763862207
 
 ---
@@ -146,14 +188,16 @@ Standalone-Beispiel eines differenzierten Arbeitsblatts. Drei Niveaus (EBA/DaZ, 
 
 ### Theoretische Grundlagen
 
+- Sadler, D. R. (1989). Formative assessment and the design of instructional systems. *Instructional Science, 18*(2), 119–144.
 - Tai, J., Ajjawi, R., Boud, D., Dawson, P., & Panadero, E. (2018). Developing evaluative judgement. *Higher Education, 76*(3), 467–481.
+- Bearman, M. (2024). Evaluative judgement for an AI world. Preprint.
 - Carless, D., & Boud, D. (2018). The development of student feedback literacy. *Assessment & Evaluation in Higher Education, 43*(8), 1315–1325.
 
 ### Rahmenwerke
 
 - SBFI (2025). Rahmenlehrplan ABU. In Kraft seit 1.1.2026.
 - D-EDK (2014). Lehrplan 21, Modul Medien und Informatik.
-- OECD & EC (2025). AI Literacy Framework (Review Draft).
+- OECD (2026). Digital Education Outlook 2026.
 - UNESCO (2024). AI Competency Framework for Teachers.
 - EU (2024). AI Act, Art. 4 (Verordnung 2024/1689). In Kraft seit 2.2.2025.
 - LCH (2024). Positionspapier «KI in der Schule».

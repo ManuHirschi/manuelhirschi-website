@@ -21,7 +21,7 @@ KIalog ist KI-Didaktik für Sek II und Hochschulen in der Schweiz. Methode: Prü
 - Forschungsbasiert: Evaluative Judgement (Tai et al., 2018), Feedback Literacy (Carless & Boud, 2018)
 - 93% der Schweizer Jugendlichen haben KI-Tools ausprobiert (Latzer & Festic 2024, UZH)
 - >23% der Sätze in KI-Feedback sind nicht durch den Text gedeckt (Jia et al. 2024)
-- 6 Lehrpläne, Frameworks und Gesetze fordern KI-Urteilskompetenz
+- Vom nRLP über den LP21 bis zum EU AI Act fordern Rahmenwerke KI-Urteilskompetenz
 
 ## Formate
 

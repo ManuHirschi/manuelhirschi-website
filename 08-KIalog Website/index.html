@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KIalog · KI-Urteilskompetenz für Lehrpersonen | Manuel Hirschi</title>
-  <meta name="description" content="KIalog ist ein praxistaugliches KI-Verfahren für Lehrpersonen. Kein Tool-Kurs. Prüfen, Urteilen, Belegen — mit deinem eigenen Material.">
+  <meta name="description" content="KIalog ist ein praxistaugliches KI-Verfahren für Lehrpersonen. Kein Tool-Kurs. Prüfen, Urteilen, Belegen. Mit deinem eigenen Material.">
   <meta property="og:title" content="KIalog · KI-Urteilskompetenz für Lehrpersonen">
   <meta property="og:description" content="Kein Tool-Kurs. Ein didaktisches Verfahren. Ich zeige live, wie ich selbst mit KI arbeite.">
   <meta property="og:type" content="website">
@@ -35,7 +35,7 @@
       --mono: 'JetBrains Mono', monospace;
       --nav-h: 72px; --px: 1.25rem; --max: 760px;
     }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 1rem); }
     body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     body.nav-open { overflow: hidden; }
     .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--px); }
@@ -45,7 +45,7 @@
     .eyebrow { display: inline-block; font-family: var(--mono); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lime); margin-bottom: 1.2rem; padding: 0.3rem 0.6rem; border: 1px solid rgba(190,255,0,0.25); }
 
     /* ── BUTTONS ── */
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--lime); color: var(--bg); padding: 0.9rem 2rem; font-family: var(--display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--lime); cursor: pointer; transition: all 0.25s; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--lime); color: var(--bg); padding: 0.9rem 2rem; font-family: var(--display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--lime); cursor: pointer; transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); }
     .btn:hover { background: transparent; color: var(--lime); }
     .btn--outline { background: transparent; color: var(--lime); }
     .btn--outline:hover { background: var(--lime); color: var(--bg); }
@@ -78,12 +78,12 @@
     /* ── TYPOGRAPHY ── */
     main { padding-top: var(--nav-h); }
     section { padding-block: 5rem; }
-    h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: 0.95; letter-spacing: -0.03em; text-transform: uppercase; }
-    h2 { font-family: var(--display); font-weight: 600; font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; }
-    h3 { font-family: var(--display); font-weight: 500; font-size: clamp(1.1rem, 2.5vw, 1.4rem); line-height: 1.25; letter-spacing: -0.01em; }
+    h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: 0.95; letter-spacing: -0.03em; text-transform: uppercase; text-wrap: balance; }
+    h2 { font-family: var(--display); font-weight: 600; font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; }
+    h3 { font-family: var(--display); font-weight: 500; font-size: clamp(1.1rem, 2.5vw, 1.4rem); line-height: 1.25; letter-spacing: -0.01em; text-wrap: balance; }
     .accent { color: var(--lime); }
     .dim { color: var(--text-dim); }
-    .body-text { font-size: 1rem; line-height: 1.8; color: inherit; max-width: 58ch; }
+    .body-text { font-size: 1rem; line-height: 1.8; color: inherit; max-width: 58ch; text-wrap: pretty; }
     .body-text p + p { margin-top: 1.2em; }
 
     /* ── SECTIONS ── */
@@ -116,7 +116,7 @@
     .stat-box::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--lime); }
     .stat-box__num { font-family: var(--display); font-size: 2.5rem; font-weight: 700; color: var(--lime); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
     .stat-box__label { font-size: 0.88rem; color: var(--text-dim); line-height: 1.5; }
-    .stat-box__source { font-family: var(--mono); font-size: 0.68rem; color: rgba(255,255,255,0.35); margin-top: 0.6rem; letter-spacing: 0.02em; }
+    .stat-box__source { font-family: var(--mono); font-size: 0.68rem; color: rgba(255,255,255,0.45); margin-top: 0.6rem; letter-spacing: 0.02em; }
     .schere { border: 1px solid var(--border); padding: 1.75rem; margin-top: 2rem; }
     .schere__label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.9rem; }
     .schere__text { font-size: 0.95rem; color: var(--text-dim); line-height: 1.7; }
@@ -141,18 +141,11 @@
     .praxis-card__text p + p { margin-top: 0.8em; }
 
     /* ── VERGLEICHEN ── */
-    .vergleichen-highlight { padding: 2.5rem 0; margin-top: 2.5rem; border-top: 2px solid var(--lime); }
-    .vergleichen-highlight__title { font-family: var(--display); font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 600; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.01em; }
-    .vergleichen-highlight__text { font-size: 0.95rem; color: var(--text-dim); line-height: 1.8; max-width: 60ch; }
+    .vergleichen-highlight { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; padding: 2.5rem 0; margin-top: 2.5rem; border-top: 2px solid var(--lime); }
+    .vergleichen-highlight__title { font-family: var(--display); font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+    .vergleichen-highlight__text { font-size: 0.95rem; color: var(--text-dim); line-height: 1.8; }
     .vergleichen-highlight__text p + p { margin-top: 0.8em; }
-
-    /* ── GF LIST ── */
-    .gf-list { display: flex; flex-direction: column; margin-top: 2.5rem; }
-    .gf-item { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: baseline; padding: 1.2rem 0; border-bottom: 1px solid var(--border); }
-    .gf-item:last-child { border-bottom: none; }
-    .gf-num { font-family: var(--mono); font-size: 0.75rem; color: var(--lime); opacity: 0.5; }
-    .gf-title { font-family: var(--display); font-size: 1rem; font-weight: 500; color: var(--text); }
-    .gf-sub { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.15rem; }
+    @media (max-width: 640px) { .vergleichen-highlight { grid-template-columns: 1fr; gap: 1.5rem; } }
 
     /* ── DANACH ── */
     .danach-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 2rem; }
@@ -204,16 +197,7 @@
     .footer-contact a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
     .footer-contact a:hover { color: var(--lime); }
     .footer-contact span { color: rgba(255,255,255,0.2); }
-    .footer-copy { margin-top: 1.25rem; font-size: 0.72rem; color: rgba(255,255,255,0.3); }
-
-    /* ── TRUST BAND ── */
-    .trust-band { padding-block: 3rem; border-bottom: 1px solid var(--border); }
-    .trust-band__label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); text-align: center; margin-bottom: 1.75rem; }
-    .trust-band__logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.5rem 3rem; }
-    .trust-logo { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; text-decoration: none; }
-    .trust-logo__name { font-family: var(--display); font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.55); letter-spacing: -0.01em; transition: color 0.2s; }
-    .trust-logo__sub { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
-    .trust-logo:hover .trust-logo__name { color: var(--lime); }
+    .footer-copy { margin-top: 1.25rem; font-size: 0.72rem; color: rgba(255,255,255,0.45); }
 
     /* ── nRLP BOX ── */
     .nrlp-box { border: 1px solid rgba(190,255,0,0.2); background: rgba(190,255,0,0.04); padding: 2rem; margin-top: 3rem; }
@@ -300,7 +284,7 @@
     .kontakt-link { min-height: 44px; display: flex; align-items: center; justify-content: center; }
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+    @media (prefers-reduced-motion: reduce) { .reveal { transform: none; transition: opacity 0.4s ease; } .btn, .float-btn, .trust-logo__name, .nav-links a, .kontakt-link { transition-duration: 0.01s; } }
     .skip-nav:focus { position: fixed !important; left: 1rem !important; top: 1rem !important; width: auto !important; height: auto !important; overflow: visible !important; background: var(--lime); color: var(--bg); padding: 0.75rem 1.5rem; font-family: var(--display); font-size: 0.85rem; font-weight: 600; z-index: 999 !important; }
   </style>
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
@@ -343,9 +327,9 @@
       </div>
     </div>
     <span class="hero__kicker">KI-Urteilskompetenz für Lehrpersonen</span>
-    <h1>Deine LP<br>beurteilen<br><span class="accent">KI-Output.</span></h1>
-    <p class="hero__lead">Deine Lernenden schreiben Texte mit KI. Sie holen sich Feedback. Sie generieren, was früher Arbeit war. Die Frage ist nicht mehr ob — sondern wie du und dein Team damit professionell umgehen.</p>
-    <p class="hero__sub">KIalog gibt deinem Team das Handwerk: KI-Output prüfen, urteilen, belegen. <strong>Mit eigenem Material. Sofort einsetzbar.</strong></p>
+    <h1>KI-Output<br>beurteilen.<br><span class="accent">Nicht blind übernehmen.</span></h1>
+    <p class="hero__lead">Deine Lernenden schreiben Texte mit KI. Sie holen sich Feedback. Sie generieren, was früher Arbeit war. Die Frage ist nicht mehr ob, sondern wie du und dein Team damit professionell umgehen.</p>
+    <p class="hero__sub">KIalog gibt dir und deinem Team das Handwerk. Prüfen, urteilen, belegen. <strong>Mit eigenem Material. Sofort einsetzbar.</strong></p>
     <p style="font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); margin-bottom: 2.5rem; letter-spacing: 0.03em;">Besonders passend für ABU, Lernbegleitung Deutsch, DaZ und andere textbasierte Fächer an Berufsfachschulen.</p>
     <div class="hero__btns">
       <a href="#methode" class="btn">Ich bin Lehrperson</a>
@@ -362,36 +346,20 @@
       <p class="kern__quote">Jede Korrektur am KI-Output ist eine Fachentscheidung, die du vorher im Kopf getroffen hast, ohne sie zu artikulieren. KI zwingt dich, dein Urteil auszusprechen.</p>
       <p class="kern__tagline">Das ist Professionalisierung, nicht Automatisierung.</p>
     </div>
-    <p class="body-text" style="margin-top: 2.5rem; font-size: 0.95rem; color: var(--text-dim);">KIalog führt an deiner Schule ein praxistaugliches Verfahren ein, mit dem Lehrpersonen KI-Output prüfen, Material differenzieren und mit eigenem Material sicher arbeiten können.</p>
   </div>
 </section>
 
-<!-- TRUST BAND -->
-<section class="trust-band s-dark reveal">
+<!-- nRLP -->
+<section class="s-dark" style="padding-block: 3rem; border-bottom: 1px solid var(--border);">
   <div class="wrap">
-    <p class="trust-band__label">Pilotstandort · Lehrauftrag · Forschungsbasis</p>
-    <div class="trust-band__logos">
-      <div class="trust-logo">
-        <span class="trust-logo__name">gibb Bern</span>
-        <span class="trust-logo__sub">Pilotstandort</span>
-      </div>
-      <div class="trust-logo">
-        <span class="trust-logo__name">PH FHNW</span>
-        <span class="trust-logo__sub">Lehrauftrag</span>
-      </div>
-      <div class="trust-logo">
-        <span class="trust-logo__name">UZH</span>
-        <span class="trust-logo__sub">Forschung</span>
-      </div>
-    </div>
     <div class="nrlp-box reveal">
-      <span class="nrlp-box__label">Neuer ABU-Rahmenlehrplan — Einführung August 2026</span>
-      <div class="nrlp-box__title">KIalog deckt 4 verbindliche Kompetenzbereiche des nRLP ab.</div>
+      <span class="nrlp-box__label">Neuer ABU-Rahmenlehrplan · Einführung August 2026</span>
+      <div class="nrlp-box__title">KIalog deckt verbindliche Kompetenzbereiche des nRLP ab.</div>
       <div class="nrlp-list">
-        <div class="nrlp-item">Quellenkritik mit KI-Anwendungen (Kap. 3.2.1) — Schlüsselkompetenz</div>
-        <div class="nrlp-item">Mit KI-Tools interagieren (Kap. 4.2.3.3) — Sprache & Kommunikation</div>
-        <div class="nrlp-item">Chancen und Risiken von KI analysieren (Kap. 5.2.7.2) — Gesellschaft</div>
-        <div class="nrlp-item">KI im Qualifikationsverfahren regulieren (Kap. 7.1) — Prüfungsordnung</div>
+        <div class="nrlp-item">Quellenkritik mit KI-Anwendungen</div>
+        <div class="nrlp-item">Interaktion mit KI-Tools</div>
+        <div class="nrlp-item">Chancen und Risiken von KI analysieren</div>
+        <div class="nrlp-item">KI im Qualifikationsverfahren</div>
       </div>
       <p class="nrlp-box__urgency">Kantonale Schullehrpläne werden derzeit erarbeitet. Jetzt vorbereiten.</p>
     </div>
@@ -404,8 +372,8 @@
     <span class="eyebrow">Die Ausgangslage</span>
     <h2>KI verbieten ist nicht mehr <span class="accent">die Frage.</span></h2>
     <div class="body-text" style="color: var(--text-dim); margin-top: 1.5rem;">
-      <p>Die meisten Lehrpersonen wissen, dass KI da ist. Viele haben keine Workflows, keine Grundlagen, keine Zeit. Sie öffnen ChatGPT, tippen eine Frage, bekommen eine Antwort. Und wissen nicht, ob sie ihr vertrauen können.</p>
-      <p>Der neue ABU-Rahmenlehrplan nennt KI an fünf Stellen und fordert den kritischen Umgang mit KI-Anwendungen. Fünf weitere Rahmenwerke zeigen dieselbe Richtung. Die Frage ist nicht ob, sondern wie.</p>
+      <p>KI ist im Unterricht angekommen. Viele Lehrpersonen nutzen sie bereits, aber ohne klares Verfahren. Sie bekommen Antworten und wissen nicht sicher, ob sie ihnen vertrauen können.</p>
+      <p>Rahmenwerke wie <strong style="color: var(--text);">nRLP, LP21 und EU AI Act</strong> fordern den kompetenten Umgang mit KI. Die Frage ist nicht ob, sondern wie.</p>
     </div>
     <div class="stats-row">
       <div class="stat-box">
@@ -421,7 +389,7 @@
     </div>
     <div class="schere reveal">
       <div class="schere__label">OECD Digital Education Outlook 2026</div>
-      <p class="schere__text">KI ohne didaktische Begleitung steigert sichtbare Leistung um 48%. Nachhaltiges Lernen verschlechtert sich um 17%. Die Schere öffnet sich, solange die Resultate gut aussehen. Der Moment, in dem KI wegfällt, zeigt das Ausmass.</p>
+      <p class="schere__text">KI kann sichtbare Leistung kurzfristig steigern. Ohne didaktische Begleitung leidet oft das nachhaltige Lernen. Das zeigt sich spätestens dann, wenn die KI wegfällt.</p>
     </div>
   </div>
 </section>
@@ -432,13 +400,12 @@
     <span class="eyebrow">Die Methode</span>
     <h2>Du kennst dein Material.<br><span class="accent">Das ist dein Vorteil.</span></h2>
     <div class="body-text" style="margin-top: 1.5rem; color: var(--text-dim);">
-      <p>In einem Tool-Kurs lernst du, wie ChatGPT funktioniert. Drei Monate später ist das Tool anders. Dein Wissen ist veraltet.</p>
-      <p>KIalog arbeitet anders. Ich öffne ChatGPT, NotebookLM, Claude. Live, vor dir, ohne Skript. Ich mache Fehler. Ich korrigiere. <strong style="color: var(--text);">Du siehst meinen Denkprozess, nicht nur das Resultat.</strong></p>
+      <p>Ich öffne ChatGPT, NotebookLM, Claude. Live, vor dir, ohne Skript. Ich mache Fehler. Ich korrigiere. <strong style="color: var(--text);">Du siehst meinen Denkprozess, nicht nur das Resultat.</strong></p>
       <p>Das Ziel ist, dass du mit einer Methode rausgehst. Nicht mit Antworten.</p>
     </div>
     <div class="steps" style="margin-top: 3rem;">
       <div class="step"><div class="step__num">01</div><div><div class="step__title">Prüfen</div><p class="step__text">Stimmt das fachlich? Fehlt etwas? Wo hat die KI vereinfacht, was nicht vereinfacht werden darf? Dein Fachwissen ist der Filter. Die KI hat keinen.</p></div></div>
-      <div class="step"><div class="step__num">02</div><div><div class="step__title">Urteilen</div><p class="step__text">Übernehmen, anpassen oder verwerfen. Die Fähigkeit, die Qualität von Output selbst einzuschätzen, heisst in der Forschung Evaluative Judgement (Sadler 1989; Tai et al. 2018; Bearman 2024). Sie ist erlernbar — und im KI-Zeitalter die entscheidende Kompetenz.</p></div></div>
+      <div class="step"><div class="step__num">02</div><div><div class="step__title">Urteilen</div><p class="step__text">Übernehmen, anpassen oder verwerfen. Die Fähigkeit, die Qualität von Output selbst einzuschätzen, heisst in der Forschung Evaluative Judgement (Sadler 1989; Tai et al. 2018; Bearman 2024). Sie ist erlernbar. Und im KI-Zeitalter die entscheidende Kompetenz.</p></div></div>
       <div class="step"><div class="step__num">03</div><div><div class="step__title">Belegen</div><p class="step__text">Warum hast du was geändert? Zwei Sätze. Wenn du dein Urteil aufschreibst, lernst du daraus. Dein Team lernt von dir. Aus individueller Praxis wird geteiltes Wissen.</p></div></div>
     </div>
     <p style="margin-top: 2.5rem; font-family: var(--display); font-size: 1rem; font-weight: 300; font-style: italic; color: var(--lime); opacity: 0.7;">Dieselbe Methode. Egal ob Unterrichtsmaterial, Prüfung oder Feedback.</p>
@@ -455,7 +422,7 @@
     <span class="eyebrow">Was ich zeige</span>
     <h2>Nicht Theorie.<br><span class="accent">Meine Praxis.</span></h2>
     <div class="body-text" style="margin-top: 1.5rem; color: var(--text-dim);">
-      <p>KI ist Sprache. Wer Sprache unterrichtet, hat den natürlichen Vorteil. Du erkennst Stil, Präzision, Niveau, Fachlichkeit. Du merkst, wenn etwas nicht stimmt. Weil du das Fach kennst, nicht weil du die KI kennst.</p>
+      <p>KI ist Sprache. Wer Sprache unterrichtet, hat den natürlichen Vorteil. Du erkennst Stil, Präzision, Niveau, Fachlichkeit.</p>
     </div>
 
     <div class="praxis-grid">
@@ -476,17 +443,10 @@
         </div>
       </div>
       <div class="praxis-card reveal">
-        <span class="praxis-card__tag">Wissensarchitektur</span>
-        <div class="praxis-card__title">Prompts als sichtbares Fachwissen</div>
-        <div class="praxis-card__text">
-          <p>Ein guter Prompt macht Fachwissen sichtbar: Rolle, Kontext, Aufgabe, Format, Qualitätskriterien. Wer dieses Schema versteht, baut sein eigenes Werkzeug. Auch wenn nächstes Jahr ein anderes kommt.</p>
-        </div>
-      </div>
-      <div class="praxis-card reveal">
         <span class="praxis-card__tag">Datenschutz</span>
         <div class="praxis-card__title">Was lokal bleiben muss, bleibt lokal</div>
         <div class="praxis-card__text">
-          <p>Nicht alles gehört in die Cloud. Ich zeige, wie lokale KI-Modelle für sensible Daten eingesetzt werden: Prüfungsfragen, Daten von Lernenden, interne Materialien.</p>
+          <p>Nicht alles gehört in die Cloud. Ich zeige, wie lokale KI-Modelle für sensible Daten eingesetzt werden. Prüfungsfragen, Daten von Lernenden, interne Materialien.</p>
         </div>
       </div>
     </div>
@@ -494,30 +454,10 @@
     <div class="vergleichen-highlight reveal">
       <div class="vergleichen-highlight__title">Der entscheidende Schritt ist nicht das Generieren. Es ist das Vergleichen.</div>
       <div class="vergleichen-highlight__text">
-        <p>KI-generierten Text gegen die eigene Quelle halten. Was hat die KI übernommen? Was verändert? Was erfunden? Das ist der Kern des Verfahrens.</p>
-        <p>Und gleichzeitig das stärkste Prüfungsformat. Du gibst Lernenden einen KI-generierten Text und eine Quelle. Aufgabe: Vergleiche, begründe, entscheide. Dieses Format testet, was nicht automatisierbar ist. Eigenes Urteil. Eine EBA-Lernende mit einem Lehrvertragstext. Eine PH-Studierende mit einer Fallanalyse. Dasselbe Prinzip, angepasst ans Niveau.</p>
+        <p>KI-generierten Text gegen die eigene Quelle halten. Was wurde übernommen, verändert, erfunden?</p>
+        <p>Daraus entsteht auch das stärkste Prüfungsformat. Lernende vergleichen KI-Text und Quelle, begründen und entscheiden. Das testet, was nicht automatisierbar ist.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- 9 GRUNDFÄHIGKEITEN -->
-<section id="grundfaehigkeiten" class="s-dark">
-  <div class="wrap reveal">
-    <span class="eyebrow">Was der Workshop anlegt</span>
-    <h2>Neun Fähigkeiten.<br><span class="accent">Eine Grundlage.</span></h2>
-    <div class="gf-list">
-      <div class="gf-item"><div class="gf-num">01</div><div><div class="gf-title">Quellenarchitektur</div><div class="gf-sub">Du bestimmst, woraus die KI schöpft.</div></div></div>
-      <div class="gf-item"><div class="gf-num">02</div><div><div class="gf-title">Fachwissen wirksam machen</div><div class="gf-sub">Deine Berufserfahrung wird reproduzierbar.</div></div></div>
-      <div class="gf-item"><div class="gf-num">03</div><div><div class="gf-title">Fachlich wach bleiben</div><div class="gf-sub">Du erkennst, wenn die KI falsch liegt.</div></div></div>
-      <div class="gf-item"><div class="gf-num">04</div><div><div class="gf-title">KI als Denkpartner</div><div class="gf-sub">Denken statt Produzieren.</div></div></div>
-      <div class="gf-item"><div class="gf-num">05</div><div><div class="gf-title">Adaptive Differenzierung</div><div class="gf-sub">Drei Zugangspunkte statt drei Niveaus.</div></div></div>
-      <div class="gf-item"><div class="gf-num">06</div><div><div class="gf-title">Transparente Verfahren</div><div class="gf-sub">Denkprozesse sichtbar machen.</div></div></div>
-      <div class="gf-item"><div class="gf-num">07</div><div><div class="gf-title">Autonomie statt Abhängigkeit</div><div class="gf-sub">Du bekommst das Schema, nicht das Ergebnis.</div></div></div>
-      <div class="gf-item"><div class="gf-num">08</div><div><div class="gf-title">Kritische Entscheidungskompetenz</div><div class="gf-sub">Wissen, wann KI keinen Sinn ergibt.</div></div></div>
-      <div class="gf-item"><div class="gf-num">09</div><div><div class="gf-title">Lernende befähigen</div><div class="gf-sub">Dasselbe Prinzip, angepasst ans Niveau. Von EBA bis Master.</div></div></div>
-    </div>
-    <p style="margin-top: 2rem; font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); font-style: italic; letter-spacing: 0.02em;">Der Workshop führt ein und erprobt. Die Fachbegleitung vertieft und verankert.</p>
   </div>
 </section>
 
@@ -530,8 +470,8 @@
       <div class="danach-item"><span class="danach-num">01</span><span class="danach-text">Ein eingerichtetes NotebookLM-Notebook mit deinem eigenen Material</span></div>
       <div class="danach-item"><span class="danach-num">02</span><span class="danach-text">Einen funktionierenden Prompt mit deinen Fachkriterien</span></div>
       <div class="danach-item"><span class="danach-num">03</span><span class="danach-text">Ein differenziertes Unterrichtsmaterial, das du nächste Woche einsetzt</span></div>
-      <div class="danach-item"><span class="danach-num">04</span><span class="danach-text">Eine Checkliste zum Prüfen von KI-Output in drei Schritten</span></div>
-      <div class="danach-item"><span class="danach-num">05</span><span class="danach-text">Eine Belegvorlage zu deinem eigenen Baustein</span></div>
+      <div class="danach-item"><span class="danach-num">04</span><span class="danach-text">Dazu eine Checkliste zum Prüfen von KI-Output in drei Schritten</span></div>
+      <div class="danach-item"><span class="danach-num">05</span><span class="danach-text">Und eine Belegvorlage zu deinem eigenen Baustein</span></div>
     </div>
     <p style="margin-top: 1.5rem; font-size: 0.88rem; font-style: italic; color: var(--text-dim);">Die am Montag funktionieren. Nicht in der Schublade landen.</p>
     <a href="#kontakt" class="btn" style="margin-top: 2rem;">Workshop anfragen</a>
@@ -546,14 +486,12 @@
     <div class="warum" style="margin-top: 2.5rem;">
       <img src="asset/manu2.webp" alt="Manuel Hirschi" class="warum__photo" width="340" height="453" loading="lazy">
       <div class="warum__text">
-        <p class="body-text" style="max-width: none; color: var(--text-dim);">Praxis, Ausbildung und Forschung greifen hier direkt ineinander. KI-Urteilskompetenz erforschen, in der Lehrpersonenausbildung unterrichten und täglich im eigenen Klassenzimmer anwenden.</p>
         <div class="warum__roles">
           <div class="warum__role"><span class="warum__role-label">Praxis</span><span class="warum__role-text">Lernbegleitung Deutsch · gibb Bern · EBA-Klassen</span></div>
           <div class="warum__role"><span class="warum__role-label">Ausbildung</span><span class="warum__role-text">Dozent Berufspraktische Studien · KI-Experte im FHNW-Selbstlernkurs · PH FHNW</span></div>
           <div class="warum__role"><span class="warum__role-label">Forschung</span><span class="warum__role-text">Doktorand · Evaluative Judgement (KI-Output beurteilen) · UZH</span></div>
         </div>
         <p class="body-text" style="max-width: none; color: var(--text-dim);">Was ich erforsche, unterrichte ich. Was ich unterrichte, funktioniert. Nicht weil ich es behaupte, sondern weil ich es täglich ausprobiere und anpasse.</p>
-        <p class="body-text" style="max-width: none; color: var(--text-dim); margin-top: 1.2em;">Die Methode basiert auf Evaluative Judgement (Sadler 1989; Nicol &amp; Macfarlane-Dick 2006; Bearman 2024) — einer Forschungstradition, die zeigt: Urteilskompetenz entsteht nicht durch Belehrung, sondern durch eigenes Prüfen und Vergleichen.</p>
         <p class="warum__markensatz">Wer mit KI arbeitet, führt einen Dialog.<br>KIalog zeigt, wie er gelingt.</p>
       </div>
     </div>
@@ -566,11 +504,11 @@
     <span class="eyebrow">Für Schulleitungen</span>
     <h2>Im Workshop arbeitet Ihr Team einen Halbtag<br><span class="dim">mit dem eigenen Material.</span></h2>
     <div class="body-text" style="color: var(--text-dim); margin-top: 1.75rem; max-width: none;">
-      <p>Der ABU-Rahmenlehrplan und fünf weitere Rahmenwerke fordern den kompetenten Umgang mit KI. Ihr Team lernt ein gemeinsames Verfahren kennen, erprobt es am eigenen Material und nimmt erste einsetzbare Bausteine mit. Dazu eine Orientierung, welche Tools im schulischen Kontext datenschutzbewusst eingesetzt werden können.</p>
+      <p>Ihr Team lernt ein gemeinsames Verfahren kennen, erprobt es direkt und nimmt erste einsetzbare Bausteine mit. Dazu eine Orientierung, welche Tools im schulischen Kontext datenschutzbewusst eingesetzt werden können.</p>
     </div>
     <div style="display: flex; flex-direction: column; gap: 0.75rem; margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.04); border: 1px solid var(--border);">
       <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.02em;">✓ &nbsp;SCHILW-buchbar</div>
-      <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.02em;">✓ &nbsp;Im Kanton Bern BKD-rückvergütbar</div>
+      <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.02em;">✓ &nbsp;Kostenübernahme je nach Kanton und Schultyp möglich</div>
       <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.02em;">✓ &nbsp;6 bis 16 Teilnehmende</div>
       <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.02em;">✓ &nbsp;Inhouse, mit Ihrem Material</div>
     </div>
@@ -596,7 +534,7 @@
         <div class="angebot__price">CHF 800 <span>/ Einheit</span></div>
         <p class="angebot__text">60 bis 90 Minuten. Weiterbildungstag, Konferenz oder Teamtag. Kein Vortrag. Eine Demonstration mit echtem Material.</p>
         <div class="angebot__incl">Vorbereitung · Durchführung · Folien</div>
-        <div class="angebot__persona">Für Schulleitungen: Überblick in einer Stunde.</div>
+        <div class="angebot__persona">Für Schulleitungen. Überblick in einer Stunde.</div>
       </div>
       <div class="angebot angebot--featured reveal">
         <div class="angebot__badge">Empfohlen</div>
@@ -604,15 +542,15 @@
         <div class="angebot__price">CHF 1'800 <span>/ Halbtag</span></div>
         <p class="angebot__text">Inhouse, 6 bis 16 Teilnehmende. Das Team arbeitet mit eigenem Material und geht mit ersten Bausteinen raus. Ganztag CHF 3'000.</p>
         <div class="angebot__incl">Vorbereitung · Materialien digital &amp; print · Durchführung</div>
-        <span class="angebot__schilw">SCHILW-buchbar · BKD-rückvergütbar</span>
-        <div class="angebot__persona">Für LP-Teams: Sofort einsetzbar im eigenen Unterricht.</div>
+        <span class="angebot__schilw">SCHILW-buchbar</span>
+        <div class="angebot__persona">Für LP-Teams. Sofort einsetzbar im eigenen Unterricht.</div>
       </div>
       <div class="angebot reveal">
         <div class="angebot__title">Fachbegleitung</div>
         <div class="angebot__price">CHF 9'000 <span>/ Semester</span></div>
         <p class="angebot__text">Für Teams, die das Verfahren nicht nur kennenlernen, sondern im Schulalltag verankern wollen.</p>
         <div class="angebot__incl">Kick-off-Workshop · 2–3 Begleitsitzungen · Schärfung von Material und Kriterien · Pilotierung im Unterricht · Auswertung · alle Materialien digital</div>
-        <div class="angebot__persona">Für Fachgruppen: Strukturierte Begleitung über ein Semester.</div>
+        <div class="angebot__persona">Für Fachgruppen. Strukturierte Begleitung über ein Semester.</div>
       </div>
     </div>
     <div style="text-align: center; margin-top: 3rem;">
@@ -629,8 +567,8 @@
     <div class="steps" style="margin-top: 2rem;">
       <div class="step"><div class="step__num">01</div><div><div class="step__title">Kurzes Vorgespräch</div><p class="step__text">Wir klären Ziel, Teamgrösse und passendes Format.</p></div></div>
       <div class="step"><div class="step__num">02</div><div><div class="step__title">Material vorbereiten</div><p class="step__text">Du schickst Material im Voraus oder bringst es direkt mit.</p></div></div>
-      <div class="step"><div class="step__num">03</div><div><div class="step__title">Durchführung vor Ort</div><p class="step__text">Dein Team arbeitet mit eigenem Material, nicht mit Demo-Beispielen.</p></div></div>
-      <div class="step"><div class="step__num">04</div><div><div class="step__title">Konkrete Ergebnisse mitnehmen</div><p class="step__text">Du gehst mit einsetzbaren Bausteinen, Kriterien und einem klaren Vorgehen raus.</p></div></div>
+      <div class="step"><div class="step__num">03</div><div><div class="step__title">Durchführung vor Ort</div><p class="step__text">Das Team arbeitet mit echten Unterlagen, nicht mit Demo-Beispielen.</p></div></div>
+      <div class="step"><div class="step__num">04</div><div><div class="step__title">Konkrete Ergebnisse mitnehmen</div><p class="step__text">Ihr geht mit einsetzbaren Bausteinen, Kriterien und einem klaren Vorgehen raus.</p></div></div>
     </div>
   </div>
 </section>
@@ -639,27 +577,15 @@
 <section class="s-dark" style="border-top: 1px solid var(--border);">
   <div class="wrap reveal">
     <span class="eyebrow">Häufige Fragen</span>
-    <h2>Sieben Antworten.<br><span class="accent">Vorab.</span></h2>
+    <h2>Vier Antworten.<br><span class="accent">Vorab.</span></h2>
     <div style="margin-top: 2rem; display: flex; flex-direction: column;">
       <div style="padding: 1.75rem 0; border-bottom: 1px solid var(--border);">
         <h3 style="margin-bottom: 0.5rem;">Muss ich mich mit KI auskennen?</h3>
-        <p class="body-text" style="color: var(--text-dim);">Nein. KIalog lehrt das Beurteilen von KI-Output — nicht das Bedienen von KI-Tools. Kein technisches Vorwissen nötig. Entscheidend ist dein Fachwissen als Lehrperson, nicht dein Technikwissen.</p>
+        <p class="body-text" style="color: var(--text-dim);">Nein. KIalog ist kein App-Kurs und kein ChatGPT-Training. Im Zentrum steht ein didaktisches Verfahren, das mit jedem Tool funktioniert. Entscheidend ist dein Fachwissen als Lehrperson, nicht dein Technikwissen.</p>
       </div>
       <div style="padding: 1.75rem 0; border-bottom: 1px solid var(--border);">
-        <h3 style="margin-bottom: 0.5rem;">Ist das ein Tool-Kurs?</h3>
-        <p class="body-text" style="color: var(--text-dim);">Nein. KIalog ist kein App-Kurs und kein ChatGPT-Training. Im Zentrum steht ein didaktisches Verfahren, das mit jedem Tool funktioniert — und das auch dann noch gilt, wenn das nächste Tool kommt.</p>
-      </div>
-      <div style="padding: 1.75rem 0; border-bottom: 1px solid var(--border);">
-        <h3 style="margin-bottom: 0.5rem;">Meine Lehrpersonen nutzen KI sowieso — warum schulen?</h3>
+        <h3 style="margin-bottom: 0.5rem;">Meine Lehrpersonen nutzen KI sowieso. Warum schulen?</h3>
         <p class="body-text" style="color: var(--text-dim);">Genau deshalb. Lehrpersonen, die KI nutzen, ohne sie beurteilen zu können, verlieren mittelfristig Autorität im Unterricht. Der neue ABU-Rahmenlehrplan fordert ab August 2026 explizit KI-Urteilskompetenz. KIalog gibt Ihrem Team das Handwerk dazu.</p>
-      </div>
-      <div style="padding: 1.75rem 0; border-bottom: 1px solid var(--border);">
-        <h3 style="margin-bottom: 0.5rem;">Braucht unser Team Vorkenntnisse?</h3>
-        <p class="body-text" style="color: var(--text-dim);">Nein. KIalog ist so aufgebaut, dass auch Teams ohne Vorerfahrung einsteigen können. Entscheidend ist nicht Technikaffinität, sondern die Bereitschaft, mit dem eigenen Material zu arbeiten.</p>
-      </div>
-      <div style="padding: 1.75rem 0; border-bottom: 1px solid var(--border);">
-        <h3 style="margin-bottom: 0.5rem;">Müssen wir bereits ein Tool gewählt haben?</h3>
-        <p class="body-text" style="color: var(--text-dim);">Nein. KIalog ist kein Kurs für ein einzelnes Tool. Im Zentrum steht ein Verfahren, das mit verschiedenen Tools funktioniert.</p>
       </div>
       <div style="padding: 1.75rem 0; border-bottom: 1px solid var(--border);">
         <h3 style="margin-bottom: 0.5rem;">Können wir mit eigenem Material arbeiten?</h3>
@@ -729,7 +655,7 @@
   "url":"https://kialog.ch",
   "email":"info@kialog.ch",
   "image":"https://kialog.ch/asset/manu2.webp",
-  "sameAs":["https://www.linkedin.com/in/manuelhirschi","https://www.ph-fhnw.ch","https://www.uzh.ch","https://www.gibb.ch"],
+  "sameAs":["https://www.linkedin.com/in/manuelhirschi"],
   "alumniOf":{"@type":"EducationalOrganization","name":"Universität Zürich"},
   "hasCredential":[
     {"@type":"EducationalOccupationalCredential","credentialCategory":"Lehrdiplom","educationalLevel":"Sekundarstufe II"},
@@ -769,7 +695,7 @@
 }</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
   {"@type":"Course","@id":"https://kialog.ch/#impuls","name":"KIalog Impuls","description":"60 bis 90 Minuten KI-Urteilskompetenz für Lehrpersonen. Demonstration mit echtem Unterrichtsmaterial. Kein Tool-Kurs.","provider":{"@id":"https://kialog.ch/#person"},"educationalLevel":"Sekundarstufe II","teaches":"KI-Output beurteilen, Evaluative Judgement, Prompt-Qualität einschätzen","timeRequired":"PT90M","offers":{"@type":"Offer","price":"800","priceCurrency":"CHF","availability":"https://schema.org/InStock","validFrom":"2026-01-01"}},
-  {"@type":"Course","@id":"https://kialog.ch/#workshop","name":"KIalog Workshop","description":"2×90 Minuten Inhouse-Workshop für Lehrpersonen-Teams. KI-Urteilskompetenz mit eigenem Schulmaterial entwickeln. SCHILW-buchbar, im Kanton Bern BKD-rückvergütbar.","provider":{"@id":"https://kialog.ch/#person"},"educationalLevel":"Sekundarstufe II","teaches":"Evaluative Judgement, KI-Output prüfen und beurteilen, Differenzierung mit KI, KI-Prüfungsformate","timeRequired":"PT180M","offers":{"@type":"Offer","price":"1800","priceCurrency":"CHF","availability":"https://schema.org/InStock","validFrom":"2026-01-01"}},
+  {"@type":"Course","@id":"https://kialog.ch/#workshop","name":"KIalog Workshop","description":"2×90 Minuten Inhouse-Workshop für Lehrpersonen-Teams. KI-Urteilskompetenz mit eigenem Schulmaterial entwickeln. Als SCHILW buchbar.","provider":{"@id":"https://kialog.ch/#person"},"educationalLevel":"Sekundarstufe II","teaches":"Evaluative Judgement, KI-Output prüfen und beurteilen, Differenzierung mit KI, KI-Prüfungsformate","timeRequired":"PT180M","offers":{"@type":"Offer","price":"1800","priceCurrency":"CHF","availability":"https://schema.org/InStock","validFrom":"2026-01-01"}},
   {"@type":"Course","@id":"https://kialog.ch/#fachbegleitung","name":"KIalog Fachbegleitung","description":"Semesterbegleitung für Fachgruppen an Berufsfachschulen. KI-Urteilskompetenz verankern, Prüfungsformate entwickeln, KI-Feedback beurteilen lernen.","provider":{"@id":"https://kialog.ch/#person"},"educationalLevel":"Sekundarstufe II","teaches":"Evaluative Judgement, KI-Prüfungsformate, Fachgruppen-Coaching KI","timeRequired":"P6M","offers":{"@type":"Offer","price":"9000","priceCurrency":"CHF","availability":"https://schema.org/InStock","validFrom":"2026-01-01"}}
 ]}</script>
 <script type="application/ld+json">{
@@ -787,11 +713,8 @@
   }
 }</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"Muss ich mich mit KI auskennen?","acceptedAnswer":{"@type":"Answer","text":"Nein. KIalog lehrt das Beurteilen von KI-Output — nicht das Bedienen von KI-Tools. Kein technisches Vorwissen nötig. Entscheidend ist das Fachwissen als Lehrperson, nicht das Technikwissen."}},
-  {"@type":"Question","name":"Ist das ein Tool-Kurs?","acceptedAnswer":{"@type":"Answer","text":"Nein. KIalog ist kein App-Kurs und kein ChatGPT-Training. Im Zentrum steht ein didaktisches Verfahren, das mit jedem Tool funktioniert — und das auch dann noch gilt, wenn das nächste Tool kommt."}},
-  {"@type":"Question","name":"Meine Lehrpersonen nutzen KI sowieso — warum schulen?","acceptedAnswer":{"@type":"Answer","text":"Genau deshalb. Lehrpersonen, die KI nutzen, ohne sie beurteilen zu können, verlieren mittelfristig Autorität im Unterricht. Der neue ABU-Rahmenlehrplan fordert ab August 2026 explizit KI-Urteilskompetenz. KIalog gibt dem Team das Handwerk dazu."}},
-  {"@type":"Question","name":"Braucht unser Team Vorkenntnisse?","acceptedAnswer":{"@type":"Answer","text":"Nein. KIalog ist so aufgebaut, dass auch Teams ohne Vorerfahrung einsteigen können. Entscheidend ist nicht Technikaffinität, sondern die Bereitschaft, mit dem eigenen Material zu arbeiten."}},
-  {"@type":"Question","name":"Müssen wir bereits ein Tool gewählt haben?","acceptedAnswer":{"@type":"Answer","text":"Nein. KIalog ist kein Kurs für ein einzelnes Tool. Im Zentrum steht ein Verfahren, das mit verschiedenen Tools funktioniert."}},
+  {"@type":"Question","name":"Muss ich mich mit KI auskennen?","acceptedAnswer":{"@type":"Answer","text":"Nein. KIalog ist kein App-Kurs und kein ChatGPT-Training. Im Zentrum steht ein didaktisches Verfahren, das mit jedem Tool funktioniert. Entscheidend ist dein Fachwissen als Lehrperson, nicht dein Technikwissen."}},
+  {"@type":"Question","name":"Meine Lehrpersonen nutzen KI sowieso. Warum schulen?","acceptedAnswer":{"@type":"Answer","text":"Genau deshalb. Lehrpersonen, die KI nutzen, ohne sie beurteilen zu können, verlieren mittelfristig Autorität im Unterricht. Der neue ABU-Rahmenlehrplan fordert ab August 2026 explizit KI-Urteilskompetenz. KIalog gibt Ihrem Team das Handwerk dazu."}},
   {"@type":"Question","name":"Können wir mit eigenem Material arbeiten?","acceptedAnswer":{"@type":"Answer","text":"Ja. Genau darum geht es. Lehrplan, Lehrmittel, Aufgabenstellungen und vorhandene Unterlagen bilden die Grundlage der Arbeit."}},
   {"@type":"Question","name":"Wie viel Zeit muss unser Team investieren?","acceptedAnswer":{"@type":"Answer","text":"Der Workshop ist so angelegt, dass das Team im gemeinsamen Zeitfenster arbeitet und mit konkreten Ergebnissen rausgeht. Für die Fachbegleitung kommen wenige zusätzliche Termine dazu, die im Voraus geplant werden."}}
 ]}</script>
@@ -809,7 +732,7 @@
     {"@type":"HowToTool","name":"Eigenes Lehrmaterial (Lehrplan, Lehrmittel, Aufgaben)"},
     {"@type":"HowToTool","name":"Ein beliebiges KI-Tool (toolunabhängig)"}
   ],
-  "totalTime":"PT90M"
+  "totalTime":"PT180M"
 }</script>
 
 <script>
