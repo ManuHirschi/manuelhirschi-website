@@ -1,6 +1,6 @@
 # Manuel Hirschi — KIalog
 
-> KI-Didaktik für Lehrpersonen und Dozierende an Sek II und Hochschulen in der Schweiz. Vollständiger Seiteninhalt aller Seiten auf kialog.ch.
+> KI-Weiterbildung für Lehrpersonen und Kollegien an Sek II und Hochschulen in der Schweiz. Vollständiger Seiteninhalt aller Seiten auf kialog.ch.
 
 ## Wer
 
@@ -21,11 +21,13 @@ Drei Perspektiven:
 
 ### Hero
 
+Differenzieren. Feedback. Prüfungen — in Minuten statt Stunden.
+
 KI-Output beurteilen. Nicht blind übernehmen.
 
 Deine Lernenden schreiben Texte mit KI. Sie holen sich Feedback. Sie generieren, was früher Arbeit war. Die Frage ist nicht mehr ob, sondern wie du und dein Team damit professionell umgehen.
 
-KIalog gibt dir und deinem Team das Handwerk. Prüfen, urteilen, belegen. Mit eigenem Material. Sofort einsetzbar.
+Dein Lehrplan, drei Niveaus, fertig differenziert. Dein Feedback, 20 Lernende, in Minuten. Mit deinem Material, nicht mit Demo-Beispielen.
 
 Besonders passend für ABU, Lernbegleitung Deutsch, DaZ und andere textbasierte Fächer an Berufsfachschulen.
 
@@ -39,12 +41,12 @@ Das ist Professionalisierung, nicht Automatisierung.
 
 ### nRLP-Box
 
-Neuer ABU-Rahmenlehrplan, Einführung August 2026. KIalog deckt verbindliche Kompetenzbereiche des nRLP ab:
+nRLP ABU, SBFI 2025, verbindlich ab August 2026. KI-Output beurteilen wird Pflicht.
 
-- Quellenkritik mit KI-Anwendungen
-- Interaktion mit KI-Tools
-- Chancen und Risiken von KI analysieren
-- KI im Qualifikationsverfahren
+- Kap. 3.2.1: Quellen und Inhalte bewerten «inklusive Anwendungen der künstlichen Intelligenz»
+- Kap. 4.2.3.3: «Mit Tools der künstlichen Intelligenz interagieren»
+- Kap. 5.2.7.2: «Chancen und Risiken von künstlicher Intelligenz» analysieren, inkl. Falschinformation
+- Kap. 7.1: Schullehrpläne regeln «insbesondere den Umgang mit künstlicher Intelligenz»
 
 Kantonale Schullehrpläne werden derzeit erarbeitet. Jetzt vorbereiten.
 
@@ -58,6 +60,7 @@ Rahmenwerke wie nRLP, LP21 und EU AI Act fordern den kompetenten Umgang mit KI. 
 
 - 93% der 16- bis 29-Jährigen in der Schweiz haben KI-Tools ausprobiert (Latzer & Festic 2024, UZH)
 - >23% der Aussagen in KI-Texten sind fachlich nicht gedeckt (Jia et al. 2024, EDM)
+- 75% der Lehrpersonen fühlen sich unzureichend auf den KI-Einsatz vorbereitet (TALIS 2024, OECD)
 
 OECD Digital Education Outlook 2026: KI kann sichtbare Leistung kurzfristig steigern. Ohne didaktische Begleitung leidet oft das nachhaltige Lernen. Das zeigt sich spätestens dann, wenn die KI wegfällt.
 
@@ -73,11 +76,11 @@ Das Ziel ist, dass du mit einer Methode rausgehst. Nicht mit Antworten.
 
 **Schritt 3: Belegen.** Warum hast du was geändert? Zwei Sätze. Wenn du dein Urteil aufschreibst, lernst du daraus. Dein Team lernt von dir. Aus individueller Praxis wird geteiltes Wissen.
 
-Dieselbe Methode. Egal ob Unterrichtsmaterial, Prüfung oder Feedback.
+In der Forschung heisst diese Fähigkeit Evaluative Judgement. Die eigene Urteilsfähigkeit über die Qualität von Arbeit entwickeln und anwenden. (Sadler 1989, Tai et al. 2018, Bearman et al. 2024)
 
-### Praxis — Was ich zeige. Nicht Theorie. Meine Praxis.
+### Im Workshop — Nicht Theorie. Meine Praxis.
 
-KI ist Sprache. Wer Sprache unterrichtet, hat den natürlichen Vorteil. Du erkennst Stil, Präzision, Niveau, Fachlichkeit.
+Ich zeige live, wie ich selbst mit KI arbeite. Keine Folien. Du siehst meinen Bildschirm, meine Fehler, meine Korrekturen. Das machst du danach mit deinem Material.
 
 1. **Vorbereitung: Eigenes Material in Minuten differenziert.** Du lädst deinen Lehrplan, dein Lehrmittel, deine Aufgabenstellung in NotebookLM. Nur deine Quellen. Die KI antwortet aus deinen Dokumenten statt aus dem offenen Internet. In kurzer Zeit entstehen mehrere differenzierte Versionen. Die Geschwindigkeit kommt von der KI. Die Qualität kommt von dir.
 
@@ -89,15 +92,13 @@ Der entscheidende Schritt ist nicht das Generieren. Es ist das Vergleichen. KI-g
 
 ### Nach dem Workshop
 
-Kein Handout. Erste Werkzeuge.
+Kein Handout. Erste Werkzeuge. Fünf konkrete Ergebnisse, die am Montag funktionieren.
 
 1. Ein eingerichtetes NotebookLM-Notebook mit deinem eigenen Material
 2. Einen funktionierenden Prompt mit deinen Fachkriterien
 3. Ein differenziertes Unterrichtsmaterial, das du nächste Woche einsetzt
 4. Dazu eine Checkliste zum Prüfen von KI-Output in drei Schritten
 5. Und eine Belegvorlage zu deinem eigenen Baustein
-
-Die am Montag funktionieren. Nicht in der Schublade landen.
 
 ### Warum ich
 
@@ -111,18 +112,21 @@ Was ich erforsche, unterrichte ich. Was ich unterrichte, funktioniert. Nicht wei
 
 Wer mit KI arbeitet, führt einen Dialog. KIalog zeigt, wie er gelingt.
 
-### Für Schulleitungen und Abteilungsleitungen
+### Für Schulleitungen
 
-Im Workshop arbeitet Ihr Team einen Halbtag mit dem eigenen Material.
+Im Workshop arbeitet Ihr Kollegium einen Halbtag mit dem eigenen Material.
 
-Ihr Team lernt ein gemeinsames Verfahren kennen, erprobt es direkt und nimmt erste einsetzbare Bausteine mit. Dazu eine Orientierung, welche Tools im schulischen Kontext datenschutzbewusst eingesetzt werden können.
+Ihr Kollegium lernt ein gemeinsames Verfahren kennen, erprobt es direkt und nimmt erste einsetzbare Bausteine mit. Dazu eine Orientierung, welche Tools im schulischen Kontext datenschutzbewusst eingesetzt werden können.
 
-- SCHILW-buchbar
-- Kostenübernahme je nach Kanton und Schultyp möglich
+- Als SCHILW buchbar
 - 6 bis 16 Teilnehmende
 - Inhouse, mit Ihrem Material
 
-Ein CAS-Programm kostet CHF 9'900 pro Person. KIalog bringt Ihr ganzes Team für einen Bruchteil weiter.
+**Kostenübernahme Kanton Bern:**
+- Berufsfachschulen: Die Schulleitung entscheidet über die Kostenübernahme auf Basis des «dienstlichen Interesses» (Art. 72 Abs. 5 LAV). Der nRLP macht KI-Kompetenz ab August 2026 verbindlich.
+- Volksschulen: Der Workshop (CHF 1'800) liegt innerhalb des SCHILW-Budgets und unter der Rückzahlungsschwelle von CHF 3'000. Keine Bindungsklausel.
+
+Ein CAS-Programm kostet CHF 9'900 pro Person. Der KIalog Workshop bringt Ihr Kollegium (6 bis 16 Personen) für CHF 1'800 weiter. Pro Kopf: CHF 112 bis 300.
 
 ### Drei Formate. Klare Preise.
 
@@ -132,9 +136,11 @@ Ein CAS-Programm kostet CHF 9'900 pro Person. KIalog bringt Ihr ganzes Team für
 
 **Fachbegleitung** — 1 Semester. Für Teams, die das Verfahren nicht nur kennenlernen, sondern im Schulalltag verankern wollen. Kick-off-Workshop, 2 bis 3 Begleitsitzungen, Schärfung von Material und Kriterien, Pilotierung im Unterricht, Auswertung, alle Materialien digital. CHF 9'000. Für Fachgruppen. Strukturierte Begleitung über ein Semester.
 
-Alle Formate als schulinterne Weiterbildung (SCHILW) buchbar. Reisekosten nach Aufwand.
+Alle Formate von der Schule gebucht und bezahlt. Lehrpersonen bringen die Idee. Die Schulleitung den Auftrag.
 
 ### So läuft es ab
+
+Vier Schritte. Kein Overhead. Von der Anfrage bis zum fertigen Workshop.
 
 1. Kurzes Vorgespräch. Wir klären Ziel, Teamgrösse und passendes Format.
 2. Material vorbereiten. Du schickst Material im Voraus oder bringst es direkt mit.
@@ -145,7 +151,7 @@ Alle Formate als schulinterne Weiterbildung (SCHILW) buchbar. Reisekosten nach A
 
 **Muss ich mich mit KI auskennen?** Nein. KIalog ist kein App-Kurs und kein ChatGPT-Training. Im Zentrum steht ein didaktisches Verfahren, das mit jedem Tool funktioniert. Entscheidend ist dein Fachwissen als Lehrperson, nicht dein Technikwissen.
 
-**Meine Lehrpersonen nutzen KI sowieso. Warum schulen?** Genau deshalb. Lehrpersonen, die KI nutzen, ohne sie beurteilen zu können, verlieren mittelfristig Autorität im Unterricht. Der neue ABU-Rahmenlehrplan fordert ab August 2026 explizit KI-Urteilskompetenz. KIalog gibt Ihrem Team das Handwerk dazu.
+**Meine Lehrpersonen nutzen KI sowieso. Warum schulen?** Genau deshalb. Lehrpersonen, die KI nutzen, ohne sie beurteilen zu können, verlieren mittelfristig Autorität im Unterricht. Der neue ABU-Rahmenlehrplan (SBFI 2025) fordert unter anderem, Quellen «inklusive Anwendungen der künstlichen Intelligenz» zu bewerten (Kap. 3.2.1) und «Chancen und Risiken von künstlicher Intelligenz» zu analysieren (Kap. 5.2.7.2). KIalog gibt Ihrem Kollegium das Handwerk dazu.
 
 **Können wir mit eigenem Material arbeiten?** Ja. Genau darum geht es. Lehrplan, Lehrmittel, Aufgabenstellungen und vorhandene Unterlagen bilden die Grundlage der Arbeit.
 
@@ -158,6 +164,8 @@ Ein Satz reicht. Ich antworte. Direkt. Ohne Formular.
 - E-Mail: info@kialog.ch
 - Telefon: 076 386 22 07
 - WhatsApp: https://wa.me/41763862207
+
+Kein Tracking. Keine Cookies. Kein Kontaktformular. Stand April 2026.
 
 ---
 
@@ -185,17 +193,18 @@ Standalone-Beispiel eines differenzierten Arbeitsblatts. Drei Niveaus (EBA/DaZ, 
 
 - Latzer, M. & Festic, N. (2024). *Künstliche Intelligenz in der Schweiz 2024*. Universität Zürich. → 93% der jüngsten Altersgruppe haben KI-Tools ausprobiert.
 - Jia, Q. et al. (2024). On assessing the faithfulness of LLM-generated feedback. *Proceedings of EDM 2024*, 491–499. → >23% nicht quellengetreue Sätze.
+- OECD (2024). *TALIS 2024 Results*. → 75% der Lehrpersonen fühlen sich unzureichend auf den KI-Einsatz vorbereitet.
 
 ### Theoretische Grundlagen
 
 - Sadler, D. R. (1989). Formative assessment and the design of instructional systems. *Instructional Science, 18*(2), 119–144.
 - Tai, J., Ajjawi, R., Boud, D., Dawson, P., & Panadero, E. (2018). Developing evaluative judgement. *Higher Education, 76*(3), 467–481.
-- Bearman, M. (2024). Evaluative judgement for an AI world. Preprint.
+- Bearman, M. et al. (2024). Evaluative judgement for an AI world. Preprint.
 - Carless, D., & Boud, D. (2018). The development of student feedback literacy. *Assessment & Evaluation in Higher Education, 43*(8), 1315–1325.
 
 ### Rahmenwerke
 
-- SBFI (2025). Rahmenlehrplan ABU. In Kraft seit 1.1.2026.
+- SBFI (2025). Rahmenlehrplan ABU (nRLP). Verbindlich ab August 2026.
 - D-EDK (2014). Lehrplan 21, Modul Medien und Informatik.
 - OECD (2026). Digital Education Outlook 2026.
 - UNESCO (2024). AI Competency Framework for Teachers.

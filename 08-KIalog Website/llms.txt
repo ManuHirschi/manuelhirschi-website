@@ -1,6 +1,6 @@
 # Manuel Hirschi — KIalog
 
-> KI-Didaktik für Lehrpersonen und Dozierende. Drei Schritte zum eigenen Urteil.
+> KI-Weiterbildung für Lehrpersonen und Kollegien. Differenzieren, Feedback, Prüfungen — in Minuten statt Stunden.
 
 ## Wer
 
@@ -11,17 +11,18 @@ Manuel Hirschi. Lehrperson, Dozent und Forscher. 18 Jahre Unterrichtserfahrung, 
 
 ## Was
 
-KIalog ist KI-Didaktik für Sek II und Hochschulen in der Schweiz. Methode: Prüfen → Urteilen → Belegen. Du lernst es zuerst selbst, dann gibst du es weiter. Toolunabhängig (NotebookLM, Claude, ChatGPT).
+KIalog ist KI-Didaktik für Sek II und Hochschulen in der Schweiz. Methode: Prüfen, Urteilen, Belegen. Du lernst es zuerst selbst, dann gibst du es weiter. Toolunabhängig (NotebookLM, Claude, ChatGPT).
 
 ## Kernaussagen
 
 - Drei Schritte: Prüfen, Urteilen, Belegen. Der Mechanismus funktioniert von EBA bis Hochschule.
 - Drei Prinzipien: Fundiert / Deine Unterlagen / Sofort einsetzbar
 - Drei Szenarien: Material differenzieren / KI-Feedback beurteilen / KI-gerecht prüfen
-- Forschungsbasiert: Evaluative Judgement (Tai et al., 2018), Feedback Literacy (Carless & Boud, 2018)
+- Forschungsbasiert: Evaluative Judgement (Sadler 1989; Tai et al. 2018; Bearman et al. 2024)
 - 93% der Schweizer Jugendlichen haben KI-Tools ausprobiert (Latzer & Festic 2024, UZH)
 - >23% der Sätze in KI-Feedback sind nicht durch den Text gedeckt (Jia et al. 2024)
-- Vom nRLP über den LP21 bis zum EU AI Act fordern Rahmenwerke KI-Urteilskompetenz
+- 75% der Lehrpersonen fühlen sich unzureichend auf den KI-Einsatz vorbereitet (TALIS 2024)
+- nRLP ABU (SBFI 2025): KI-Output beurteilen wird Pflicht ab August 2026
 
 ## Formate
 
