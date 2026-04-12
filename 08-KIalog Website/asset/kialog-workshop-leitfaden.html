@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIalog Workshop-Leitfaden</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm 20mm 16mm;
+  }
+
+  :root {
+    --dark: #1A1916;
+    --light: #F4F4F1;
+    --lime: #BEFF00;
+    --green: #2F5E00;
+    --text: #1A1916;
+    --text-dim: #52524E;
+    --text-meta: #87877F;
+    --border: #DDDDD8;
+    --card: #FFFFFF;
+    --display: 'Space Grotesk', system-ui, sans-serif;
+    --body: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--body);
+    font-size: 9.5pt;
+    line-height: 1.6;
+    color: var(--text);
+    background: white;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* COVER */
+  .cover {
+    background: var(--dark);
+    color: var(--light);
+    padding: 3.5rem 2.5rem 2.5rem;
+    page-break-after: always;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cover-top { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .cover-eyebrow {
+    font-family: var(--mono);
+    font-size: 7pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lime);
+    border: 1px solid rgba(190,255,0,0.3);
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 2rem;
+  }
+  .cover h1 {
+    font-family: var(--display);
+    font-size: 32pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .cover h1 span { color: var(--lime); }
+  .cover-lead {
+    font-size: 11pt;
+    color: #A0A09A;
+    max-width: 420px;
+    line-height: 1.6;
+  }
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cover-meta {
+    font-family: var(--mono);
+    font-size: 7pt;
+    color: #6B6B65;
+    letter-spacing: 0.04em;
+    line-height: 1.8;
+  }
+
+  /* PAGE LAYOUT */
+  .page {
+    padding: 0;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* SECTION HEADERS */
+  .section-head {
+    background: var(--dark);
+    color: var(--light);
+    padding: 1.2rem 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-num {
+    font-family: var(--display);
+    font-size: 24pt;
+    font-weight: 700;
+    color: var(--lime);
+    line-height: 1;
+  }
+  .section-title {
+    font-family: var(--display);
+    font-size: 14pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .section-sub {
+    font-size: 8.5pt;
+    color: #A0A09A;
+    margin-top: 0.15rem;
+  }
+
+  /* CONTENT */
+  .content { padding: 0 2rem; }
+  h3 {
+    font-family: var(--display);
+    font-size: 11pt;
+    font-weight: 600;
+    color: var(--text);
+    margin: 1.5rem 0 0.5rem;
+  }
+  h3:first-child { margin-top: 0; }
+  p { margin-bottom: 0.6rem; color: var(--text-dim); }
+  strong { color: var(--text); font-weight: 500; }
+
+  /* TIMELINE */
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 0.6rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .timeline-row:last-child { border-bottom: none; }
+  .tl-time {
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    color: var(--text-meta);
+    padding-top: 0.1rem;
+  }
+  .tl-title {
+    font-family: var(--display);
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.15rem;
+  }
+  .tl-desc {
+    font-size: 8.5pt;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .tl-output {
+    font-family: var(--mono);
+    font-size: 7pt;
+    color: var(--green);
+    background: rgba(47,94,0,0.06);
+    display: inline-block;
+    padding: 0.1rem 0.35rem;
+    margin-top: 0.25rem;
+  }
+
+  /* MATERIAL BOX */
+  .mat-box {
+    background: var(--dark);
+    color: var(--light);
+    padding: 0.8rem 1rem;
+    margin-top: 1rem;
+  }
+  .mat-box-title {
+    font-family: var(--mono);
+    font-size: 7pt;
+    color: var(--lime);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .mat-box ul { list-style: none; }
+  .mat-box li {
+    font-size: 8pt;
+    color: #C0C0BA;
+    padding: 0.1rem 0 0.1rem 1rem;
+    position: relative;
+  }
+  .mat-box li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--lime);
+  }
+
+  /* VORLAGE */
+  .vorlage {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+  }
+  .vorlage-title {
+    font-family: var(--display);
+    font-size: 9pt;
+    font-weight: 600;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.6rem;
+  }
+  .vorlage pre {
+    font-family: var(--mono);
+    font-size: 8pt;
+    color: var(--text-dim);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* MATRIX */
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.8rem 0;
+    font-size: 8.5pt;
+  }
+  .matrix th {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--green);
+    text-align: left;
+    padding: 0.5rem 0.6rem;
+    border-bottom: 2px solid var(--green);
+  }
+  .matrix td {
+    padding: 0.45rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+    vertical-align: top;
+  }
+  .matrix td:first-child {
+    font-weight: 500;
+    color: var(--text);
+    width: 22%;
+  }
+
+  /* TAKE HOME */
+  .takehome-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.8rem;
+  }
+  .th-col h4 {
+    font-family: var(--display);
+    font-size: 9pt;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .th-col ul { list-style: none; }
+  .th-col li {
+    font-size: 8.5pt;
+    color: var(--text-dim);
+    padding: 0.15rem 0 0.15rem 1rem;
+    position: relative;
+  }
+  .th-col li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  /* METHOD STRIP */
+  .method-strip {
+    background: var(--dark);
+    color: var(--light);
+    padding: 1.2rem 2rem;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    text-align: center;
+  }
+  .method-step { }
+  .method-num {
+    font-family: var(--display);
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--lime);
+    line-height: 1;
+  }
+  .method-name {
+    font-family: var(--display);
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+  .method-ref {
+    font-family: var(--mono);
+    font-size: 6.5pt;
+    color: #6B6B65;
+  }
+
+  /* FOOTER */
+  .page-footer {
+    margin-top: 2rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 7pt;
+    color: var(--text-meta);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* LEITFRAGEN */
+  .leitfrage {
+    border-left: 2px solid var(--green);
+    padding: 0.5rem 0.8rem;
+    margin: 0.5rem 0;
+    background: rgba(47,94,0,0.04);
+  }
+  .leitfrage-num {
+    font-family: var(--display);
+    font-size: 8pt;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 0.15rem;
+  }
+  .leitfrage p {
+    font-size: 9pt;
+    color: var(--text);
+    margin: 0;
+    font-weight: 400;
+  }
+  .leitfrage .hint {
+    font-size: 8pt;
+    color: var(--text-dim);
+    font-style: italic;
+    margin-top: 0.15rem;
+  }
+
+  /* BELEGVORLAGE */
+  .beleg {
+    border: 1px solid var(--border);
+    padding: 0.6rem 0.8rem;
+    margin: 0.3rem 0;
+  }
+  .beleg-label {
+    font-family: var(--mono);
+    font-size: 7pt;
+    color: var(--green);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .beleg-line {
+    border-bottom: 1px solid var(--border);
+    padding: 0.25rem 0;
+    font-size: 8.5pt;
+    color: var(--text-meta);
+    min-height: 1.2rem;
+  }
+
+  @media print {
+    body { font-size: 9pt; }
+    .cover { min-height: auto; height: 100vh; }
+    .page { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-eyebrow">Workshop-Leitfaden</div>
+    <h1>KIalog<br><span>Werkstatt.</span></h1>
+    <p class="cover-lead">KI-Output beurteilen. Nicht blind übernehmen. Ein Workshop, in dem dein Kollegium mit eigenem Material arbeitet und mit einer Methode rausgeht. Nicht mit Antworten.</p>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      Manuel Hirschi<br>
+      Lehrperson · Dozent · Forscher<br>
+      gibb Bern · PH FHNW · UZH
+    </div>
+    <div class="cover-meta" style="text-align: right;">
+      kialog.ch<br>
+      info@kialog.ch<br>
+      076 386 22 07
+    </div>
+  </div>
+</div>
+
+<!-- SEITE 1: ÜBERBLICK -->
+<div class="page">
+  <div class="section-head">
+    <div class="section-num">00</div>
+    <div>
+      <div class="section-title">Auf einen Blick</div>
+      <div class="section-sub">Halbtag (3–4 Std.) · Ganztag (7 Std.) · oder 3 Abende à 90 Min</div>
+    </div>
+  </div>
+  <div class="content">
+    <p>Deine Lernenden generieren mit KI, was früher Arbeit war. Die Frage ist nicht mehr ob KI, sondern wie du und dein Kollegium damit professionell umgehen.</p>
+    <p>In diesem Workshop baust du mit deinem eigenen Material einen Unterrichtsbaustein. Und du lernst ein Verfahren, mit dem du jeden KI-Output beurteilen kannst — egal welches Tool.</p>
+
+    <h3>Was du mitbringst</h3>
+    <p>Dein Lehrmittel, dein Dossier, deine Aufgabenstellungen. Digital, auf dem Laptop. Keine Demo-Beispiele. Dein Material.</p>
+
+    <h3>Was du mitnimmst</h3>
+    <div class="takehome-grid">
+      <div class="th-col">
+        <h4>Eigene Produkte</h4>
+        <ul>
+          <li>Eigene KI-Konfiguration</li>
+          <li>1 fertiger Unterrichtsbaustein</li>
+          <li>3 dokumentierte Entscheide</li>
+          <li>1 Lernenden-Promptkarte</li>
+        </ul>
+      </div>
+      <div class="th-col">
+        <h4>Handouts</h4>
+        <ul>
+          <li>Promptkarten (LP + Lernende)</li>
+          <li>Urteilsmatrix (5 Kriterien)</li>
+          <li>Belegvorlage</li>
+          <li>KIalog-Protokoll (1 Seite)</li>
+          <li>Kurz-Check-Bank (15 Varianten)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="method-strip">
+      <div class="method-step"><div class="method-num">01</div><div class="method-name">Prüfen</div><div class="method-ref">Block 1</div></div>
+      <div class="method-step"><div class="method-num">02</div><div class="method-name">Urteilen</div><div class="method-ref">Block 2</div></div>
+      <div class="method-step"><div class="method-num">03</div><div class="method-name">Belegen</div><div class="method-ref">Block 2</div></div>
+    </div>
+    <p style="font-size: 8pt; color: var(--text-meta); text-align: center; margin-top: 0.5rem;">Der Einstieg (KI konfigurieren) und das Generieren sind Workshop-Phasen, nicht Verfahrensschritte.</p>
+  </div>
+</div>
+
+<!-- SEITE 2: EINSTIEG -->
+<div class="page">
+  <div class="section-head">
+    <div class="section-num">01</div>
+    <div>
+      <div class="section-title">Was soll die KI über dich wissen?</div>
+      <div class="section-sub">Einstieg · 45 Minuten</div>
+    </div>
+  </div>
+  <div class="content">
+    <p>Bevor du KI-Output prüfst, kläre zuerst, wer die KI für dich ist. Nicht technisch — als Entscheidung.</p>
+
+    <div class="timeline-row">
+      <div class="tl-time">10 Min</div>
+      <div>
+        <div class="tl-title">Input</div>
+        <div class="tl-desc">Ich zeige mein eigenes System. "Hier steht, dass meine KI nie 'Gute Frage!' sagen soll. Hier steht, dass sie Schweizer Rechtschreibung nutzt. Hier, dass sie bei Unsicherheit fragt statt rät. Das sind keine Einstellungen. Das sind Entscheidungen."</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">25 Min</div>
+      <div>
+        <div class="tl-title">Schreibübung</div>
+        <div class="tl-desc">Jede:r schreibt eine eigene KI-Konfiguration. 4 Leitfragen. Auf Papier, im Texteditor, egal wo. Vorlagen werden verteilt.</div>
+        <div class="tl-output">→ Eigene KI-Konfiguration</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">10 Min</div>
+      <div>
+        <div class="tl-title">Austausch</div>
+        <div class="tl-desc">2–3 Beispiele vorlesen. Wo unterscheiden sich die Entscheidungen? Die Unterschiede zeigen: KI-Nutzung ist kein Technikthema. Es ist ein Urteilsthema.</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 1.5rem;">Die 4 Leitfragen</h3>
+
+    <div class="leitfrage">
+      <div class="leitfrage-num">1 — Ton</div>
+      <p>Wie soll dein KI-Assistent mit dir reden?</p>
+      <p class="hint">Duzen oder Siezen? Knapp oder ausführlich? Direkt oder vorsichtig?</p>
+    </div>
+    <div class="leitfrage">
+      <div class="leitfrage-num">2 — Kontext</div>
+      <p>Was weiss er über dich?</p>
+      <p class="hint">Stufe, Fach, Schultyp, Erfahrung. Was braucht er, um nützlich zu sein?</p>
+    </div>
+    <div class="leitfrage">
+      <div class="leitfrage-num">3 — Grenzen</div>
+      <p>Was darf er nie tun?</p>
+      <p class="hint">Noten vorschlagen? Elternmails formulieren? Inhalte erfinden?</p>
+    </div>
+    <div class="leitfrage">
+      <div class="leitfrage-num">4 — Haltung</div>
+      <p>Wann soll er stoppen und fragen?</p>
+      <p class="hint">Bei Unsicherheit? Bei externen Aktionen? Oder einfach machen?</p>
+    </div>
+
+    <div class="mat-box">
+      <div class="mat-box-title">Dein Material</div>
+      <ul>
+        <li>Dein eigenes System als Live-Demo</li>
+        <li>Handout mit 4 Leitfragen</li>
+        <li>5 Vorlagen (generisch, BFS-ABU, Gymnasium, PH-Dozent:in, Kurzversion)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SEITE 3: BLOCK 1a -->
+<div class="page">
+  <div class="section-head">
+    <div class="section-num">02</div>
+    <div>
+      <div class="section-title">Generieren</div>
+      <div class="section-sub">Block 1a · 90 Minuten · Aus eigenem Material Bausteine bauen</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="vorlage" style="margin-bottom: 1.5rem;">
+      <div class="vorlage-title">Warum NotebookLM?</div>
+      <pre style="font-family: var(--body); font-size: 8.5pt; line-height: 1.6;">NotebookLM ist ein kostenloses Google-Tool. Du lädst eigene Dokumente hoch — Lehrmittel, Dossier, Lehrplan — und die KI antwortet nur aus diesen Quellen. Nicht aus dem Internet. Jede Antwort hat nummerierte Belege, die du in deinem Material nachschlagen kannst.
+
+<strong>Vorteile gegenüber ChatGPT/Claude:</strong>
+• Antwortet nur aus deinen Dokumenten — keine Halluzinationen aus dem Internet
+• Jede Aussage hat eine Textstelle als Beleg
+• Kostenlos, nur Google-Account nötig
+• Upload, Frage stellen, Antwort lesen
+
+<strong>Datenschutz:</strong>
+• Keine Personendaten hochladen (No-PII-Regel: keine Namen, Noten, Diagnosen)
+• Nur Unterrichtsdokumente: Arbeitsblätter, Aufträge, Raster, anonymisierte Texte
+• Google verarbeitet die Daten auf Servern in der EU/USA
+• Für sensible Daten: lokale KI-Modelle (wird im Workshop gezeigt)
+
+NotebookLM ist das Werkzeug im Workshop. Die Methode (Prüfen → Urteilen → Belegen) funktioniert mit jedem Tool.</pre>
+    </div>
+
+    <div class="timeline-row">
+      <div class="tl-time">10 Min</div>
+      <div>
+        <div class="tl-title">Problemframe</div>
+        <div class="tl-desc">Heterogenität, DaZ, Offloading, Zeitdruck. "Ihr macht das alles von Hand. Es geht auch anders." Das Versprechen: Entlastung.</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">15 Min</div>
+      <div>
+        <div class="tl-title">Quellenpaket vorbereiten</div>
+        <div class="tl-desc">Rollenmodell erklären (LP-zentriert vs. Lernende als Viewer). No-PII-Regel: keine Personendaten. TN bereiten 3–5 eigene Dokumente vor.</div>
+        <div class="tl-output">→ Upload-bereit</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">20 Min</div>
+      <div>
+        <div class="tl-title">NotebookLM Setup + Quick-Win</div>
+        <div class="tl-desc">Notebook erstellen, Quellen hochladen. Erste Zusammenfassung generieren. 3 Belege prüfen: Stimmt das mit der Quelle überein? Beispiel-Baustein "Lehrvertrag" als Demo.</div>
+        <div class="tl-output">→ A4-Übersicht aus eigenem Material</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">25 Min</div>
+      <div>
+        <div class="tl-title">DaZ-Output generieren</div>
+        <div class="tl-desc">Wortschatz + Satzstarter generieren. 2-Stufen-Logik anwenden: Stufe 1 (EBA/DaZ) ist Pflicht, Stufe 2 (EFZ) optional. TN prüfen gegen Quelle.</div>
+        <div class="tl-output">→ Wortschatzblatt</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">20 Min</div>
+      <div>
+        <div class="tl-title">Baustein-Rohbau</div>
+        <div class="tl-desc">1-Seiten-Baustein bauen: Zusammenfassung, Aufgaben A/B/C auf 2 Stufen, Kurz-Check, Belegpflicht. Vorlage wird verteilt.</div>
+        <div class="tl-output">→ Rohbau v1</div>
+      </div>
+    </div>
+
+    <div class="mat-box">
+      <div class="mat-box-title">Dein Material</div>
+      <ul>
+        <li>Demo-Notebook "Lehrvertrag ABU" in NotebookLM</li>
+        <li>Beispiel-Baustein "Lehrvertrag" (ausgedruckt, 1 pro TN)</li>
+        <li>Vorlagenpaket + Promptkarten (LP + Lernende)</li>
+        <li>Upload-Checkliste (No-PII)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SEITE 4: BLOCK 1b -->
+<div class="page">
+  <div class="section-head">
+    <div class="section-num">03</div>
+    <div>
+      <div class="section-title">Verfeinern</div>
+      <div class="section-sub">Block 1b · 90 Minuten · Baustein finalisieren + Einsatz planen</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="timeline-row">
+      <div class="tl-time">10 Min</div>
+      <div>
+        <div class="tl-title">Warmstart</div>
+        <div class="tl-desc">3 Nutzenpunkte wiederholen. 1 TN-Beispiel aus Block 1a zeigen.</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">25 Min</div>
+      <div>
+        <div class="tl-title">Anti-Offloading</div>
+        <div class="tl-desc">Belegpflicht schärfen: Jede Antwort braucht einen Nachweis. Kurz-Checks ohne Tool designen (aus 15 Varianten). Mini-Rubrik bauen (4 Häkchen).</div>
+        <div class="tl-output">→ Kontrolllogik</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">40 Min</div>
+      <div>
+        <div class="tl-title">Baustein finalisieren</div>
+        <div class="tl-desc">Auf eigenes Lehrmittel ausrichten. Stufe 2 optional ergänzen. Fehlerbank anlegen. Peer-Check: TN tauschen Bausteine und prüfen gegenseitig.</div>
+        <div class="tl-output">→ Fertiger Baustein v1</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">15 Min</div>
+      <div>
+        <div class="tl-title">Transferplan</div>
+        <div class="tl-desc">12-Minuten-Trainingsroutine für den Unterricht. Plan B ohne Tool. Lernenden-Promptkarte fertigstellen.</div>
+        <div class="tl-output">→ Einsatzplan + Promptkarte</div>
+      </div>
+    </div>
+
+    <div class="mat-box">
+      <div class="mat-box-title">Dein Material</div>
+      <ul>
+        <li>Kurz-Check-Bank (15 Varianten zum Auswählen)</li>
+        <li>Mini-Rubrik-Vorlage</li>
+        <li>Lernenden-Promptkarte (Template)</li>
+      </ul>
+    </div>
+
+    <h3 style="margin-top: 2rem;">Zwischenstand nach Block 1</h3>
+    <p>Jede Lehrperson hat einen fertigen Baustein mit eigenem Material, eigenen Aufgaben, Belegpflicht und Kurz-Checks. Das funktioniert am Montag im Unterricht.</p>
+    <p><strong>Aber:</strong> Der Baustein wurde gegen die Quelle geprüft. Nicht gegen das Fachurteil. Dafür kommt Block 2.</p>
+  </div>
+</div>
+
+<!-- SEITE 5: BLOCK 2 -->
+<div class="page">
+  <div class="section-head">
+    <div class="section-num">04</div>
+    <div>
+      <div class="section-title">Urteilen + Belegen</div>
+      <div class="section-sub">Block 2 · 90 Minuten · Wenn der Output stimmt, aber trotzdem nicht taugt</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="timeline-row">
+      <div class="tl-time">5 Min</div>
+      <div>
+        <div class="tl-title">Ankommen</div>
+        <div class="tl-desc">"Ihr habt geprüft, ob es stimmt. Heute: Taugt es auch?"</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">10 Min</div>
+      <div>
+        <div class="tl-title">Irritation — Fallbeispiel "Lehrvertrag"</div>
+        <div class="tl-desc">Gemeinsam einen Output durchgehen, der faktisch korrekt ist, aber pädagogisch Schwächen hat. Frage 3 ist unbeantwortbar (steht nicht im Dossier). Die Satzstarter klingen wie eine Drohung. Stufe 2 greift auf KI-Trainingswissen zurück. Die Aufgaben prüfen nur Leseverständnis. "Alles richtig. Würdest du das morgen so einsetzen?"</div>
+        <div class="tl-output">→ Unbehagen, Diskussion</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">20 Min</div>
+      <div>
+        <div class="tl-title">Urteilsrunde</div>
+        <div class="tl-desc">Eigenen Baustein mit der Urteilsmatrix prüfen (5 Kriterien). Erst allein (5 Min), dann mit Partner:in vergleichen (15 Min): Wo urteilt ihr gleich? Wo anders? Warum?</div>
+        <div class="tl-output">→ Ausgefüllte Matrix</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">20 Min</div>
+      <div>
+        <div class="tl-title">Social Moderation</div>
+        <div class="tl-desc">Gruppen à 3–4. Jede Person hat 2 Minuten für ihr Urteil, dann Diskussion. Ziel: Begründung sichtbar machen, nicht Konsens.</div>
+        <div class="tl-output">→ Gruppenurteil mit Begründungen</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">15 Min</div>
+      <div>
+        <div class="tl-title">Belegen</div>
+        <div class="tl-desc">3 Entscheide dokumentieren: Was ändere ich? Warum? Je 2 Zeilen. Dann Baustein direkt überarbeiten.</div>
+        <div class="tl-output">→ Überarbeiteter Baustein + 3 Entscheide</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">10 Min</div>
+      <div>
+        <div class="tl-title">Transfer</div>
+        <div class="tl-desc">3 Faustregeln für den Alltag sammeln. Jede:r wählt 1 persönliche Leitlinie.</div>
+        <div class="tl-output">→ 3 Faustregeln</div>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-time">10 Min</div>
+      <div>
+        <div class="tl-title">Abschluss</div>
+        <div class="tl-desc">KIalog-Protokoll zeigen (3 Schritte, 1 Seite). "Das habt ihr gerade gemacht." Evaluation (3 Fragen).</div>
+        <div class="tl-output">→ Protokoll-Handout</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEITE 6: URTEILSMATRIX + BELEG -->
+<div class="page">
+  <div class="section-head">
+    <div class="section-num">05</div>
+    <div>
+      <div class="section-title">Werkzeuge</div>
+      <div class="section-sub">Urteilsmatrix + Belegvorlage — zum Mitnehmen</div>
+    </div>
+  </div>
+  <div class="content">
+    <h3>Urteilsmatrix</h3>
+    <p>Diese 5 Fragen stellst du an jeden KI-Output. Nicht nur im Workshop — jedes Mal.</p>
+
+    <table class="matrix">
+      <tr><th>Prüfpunkt</th><th>Frage</th><th style="width: 20%;">Urteil</th></tr>
+      <tr><td>Niveau</td><td>Passt die Sprache und Komplexität zu meiner Klasse? Nicht allgemein "EBA" — sondern diese konkreten Lernenden?</td><td>☐ Passt  ☐ Zu einfach  ☐ Zu schwer</td></tr>
+      <tr><td>Beantwortbarkeit</td><td>Können die Lernenden die Aufgabe mit dem vorhandenen Material lösen? Oder brauchen sie Wissen, das nicht in der Quelle steht?</td><td>☐ Lösbar  ☐ Teilweise  ☐ Nicht lösbar</td></tr>
+      <tr><td>Kulturelle Passung</td><td>Gibt es Formulierungen, die bei DaZ-Lernenden Missverständnisse auslösen? Implizite Annahmen?</td><td>☐ Ok  ☐ Prüfen  ☐ Ändern</td></tr>
+      <tr><td>Lernwirksamkeit</td><td>Trainiert die Aufgabe etwas, das die Lernenden noch nicht können? Oder beschäftigt sie nur?</td><td>☐ Wirksam  ☐ Beschäftigung  ☐ Unklar</td></tr>
+      <tr><td>Quellengrenze</td><td>Greift die KI irgendwo auf Wissen zurück, das nicht aus meinem Material stammt?</td><td>☐ Alles Quelle  ☐ Teilweise extern  ☐ Unklar</td></tr>
+    </table>
+
+    <h3 style="margin-top: 2rem;">Belegvorlage</h3>
+    <p>Für jeden Entscheid 2 Zeilen. Nicht mehr. Die Kürze zwingt zur Klarheit.</p>
+
+    <div class="beleg">
+      <div class="beleg-label">Entscheid 1</div>
+      <div class="beleg-line">Was ändere ich? _______________________________________________</div>
+      <div class="beleg-line">Warum? _______________________________________________</div>
+    </div>
+    <div class="beleg">
+      <div class="beleg-label">Entscheid 2</div>
+      <div class="beleg-line">Was ändere ich? _______________________________________________</div>
+      <div class="beleg-line">Warum? _______________________________________________</div>
+    </div>
+    <div class="beleg">
+      <div class="beleg-label">Entscheid 3</div>
+      <div class="beleg-line">Was ändere ich? _______________________________________________</div>
+      <div class="beleg-line">Warum? _______________________________________________</div>
+    </div>
+
+    <h3 style="margin-top: 2rem;">Beispiel (ausgefüllt)</h3>
+    <div class="vorlage">
+      <pre>ENTSCHEID 1
+Was ändere ich?  Frage 3 bei Stufe 1 streichen.
+Warum?           Antwort steht nicht im Dossier. DaZ-Lernende scheitern daran.
+
+ENTSCHEID 2
+Was ändere ich?  Stufe 2 um Textvergleich ergänzen (S. 4 im Dossier).
+Warum?           KI hat auf Trainingswissen zugegriffen. Jetzt ist alles belegbar.
+
+ENTSCHEID 3
+Was ändere ich?  Aufgabe B um eine Urteilsfrage ergänzen: "Ist dieser Vertrag fair?"
+Warum?           Bisherige Aufgaben prüfen nur Leseverständnis, nicht Einschätzung.</pre>
+    </div>
+
+    <div class="page-footer">
+      <span>kialog.ch · Manuel Hirschi</span>
+      <span>Workshop-Leitfaden · April 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- SEITE 7: FORMATE + CTA -->
+<div class="page">
+  <div class="section-head">
+    <div class="section-num">06</div>
+    <div>
+      <div class="section-title">Formate und Preise</div>
+      <div class="section-sub">Alle Formate werden von der Schule gebucht. Inhouse, mit eurem Material.</div>
+    </div>
+  </div>
+  <div class="content">
+
+    <table class="matrix">
+      <tr><th>Format</th><th>Dauer</th><th>Preis</th><th>Passt wenn</th></tr>
+      <tr><td>Impuls</td><td>60–90 Min</td><td>CHF 800</td><td>Überblick am Teamtag oder Konvent. Kein Vortrag — eine Live-Demonstration.</td></tr>
+      <tr><td style="font-weight: 600; color: var(--green);">KIalog Workshop</td><td>Halbtag 3–4 Std.</td><td style="font-weight: 600;">CHF 1'800</td><td>Das Kollegium arbeitet mit eigenem Material und nimmt erste Bausteine mit. Am Montag im Unterricht nutzbar.</td></tr>
+      <tr><td></td><td>Ganztag 7 Std.</td><td>CHF 3'000</td><td>Alle 3 Blöcke an einem Tag. Einstieg, Generieren, Urteilen und Belegen.</td></tr>
+      <tr><td>Fachbegleitung</td><td>1 Semester</td><td>CHF 9'000</td><td>Eine Fachgruppe verankert das Verfahren im Schulalltag. Kick-off + 2–3 Begleitsitzungen + Pilotierung.</td></tr>
+    </table>
+
+    <div class="vorlage" style="margin-top: 1.5rem;">
+      <div class="vorlage-title">Gut zu wissen</div>
+      <pre style="font-family: var(--body); font-size: 8.5pt; line-height: 1.7;">• SCHILW-buchbar (Workshop liegt unter der Rückzahlungsschwelle von CHF 3'000)
+• 6 bis 16 Teilnehmende
+• Infrastruktur: Beamer, WLAN, Teilnehmende bringen Laptops mit
+• Reisekosten: nach Aufwand (ab Bern)
+• Vorbereitung und alle Materialien (digital + print) im Preis enthalten</pre>
+    </div>
+
+    <div style="margin-top: 2.5rem; padding: 1.5rem; background: var(--dark); color: var(--light); text-align: center;">
+      <p style="font-family: var(--display); font-size: 14pt; font-weight: 600; margin-bottom: 0.3rem; color: var(--lime);">Termin anfragen</p>
+      <p style="font-size: 9pt; color: #A0A09A; margin-bottom: 1rem;">Ein Satz reicht. Ich antworte innert 48 Stunden.</p>
+      <p style="font-family: var(--mono); font-size: 9pt; color: var(--light); letter-spacing: 0.03em;">
+        info@kialog.ch · 076 386 22 07
+      </p>
+      <p style="font-family: var(--mono); font-size: 8pt; color: #6B6B65; margin-top: 0.5rem;">kialog.ch</p>
+    </div>
+
+    <div class="page-footer">
+      <span>Manuel Hirschi · Lehrperson, Dozent und Forscher</span>
+      <span>kialog.ch · April 2026</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
