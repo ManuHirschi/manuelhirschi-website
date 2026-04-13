@@ -1,0 +1,33 @@
+STYLE — BOLD HAND-DRAWN, THERAPYIN.LONDON INSPIRED:
+
+Line weight: 3.5–4px ink outlines, bold and confident. NOT thin, NOT delicate. The outline is the dominant element.
+
+Line quality: Strokes are NOT ruler-straight. They wobble slightly, overshoot corners by 2–3px, curves are imperfect ovals not perfect arcs. This is intentional character — the mark of a real hand.
+
+Color fills: FULLY SATURATED. Not pastel, not tinted, not transparent. Use full-strength colors directly:
+  Primary blue: #3881F1 (full strength as fill color)
+  Primary orange: #F6612E (full strength as fill color)
+  Accent green (only for plants): #22C55E
+  Neutral fill: warm off-white #F5F0E8
+  Black for outlines: #1A1A1A
+
+Color bleeding: The fill color extends OUTSIDE the ink outline by 5–8 pixels on at least 1–2 sides of each colored shape. This is the key effect. It looks like coloring outside the lines with a thick marker — intentional, not a mistake. The overflow is always slightly too large, never too small.
+
+Background: SOLID FLAT COLOR #EDEAE1. No gradient, no texture, no shadow, no glow. The entire background must be exactly this color so the illustration blends seamlessly with the webpage.
+
+DO NOT: use gradients, drop shadows, digital smoothing, thin lines, pastel colors, or geometric perfection.
+
+SCENE:
+A teacher sits at a wooden desk, viewed from a 3/4 angle. The desk has simple, mid-century modern legs — thin, angled, like the furniture in therapyin.london illustrations.
+
+ON THE DESK:
+An open laptop. The laptop body is filled with BOLD BLUE (#3881F1). The screen shows a text document — visible white rectangle with 3–4 horizontal lines representing text. ONE line on the screen is highlighted: a thick orange stroke (#F6612E) drawn over it, like a highlighter mark. Bold, bleeds slightly.
+
+THE TEACHER:
+Body visible from shoulders down — no face needed. Wearing a simple shirt or cardigan. ONE hand holds a thick marker pen, the pen is ORANGE (#F6612E). The hand is mid-movement — caught in the act of marking something on a notebook beside the laptop. The notebook is open, a few rough lines visible inside.
+
+BACKGROUND ELEMENT:
+A small plant in the background — simple pot, 3–4 leaves in bold green (#22C55E), outline in #1A1A1A. Leaves slightly imperfect, organic.
+
+COMPOSITION:
+Horizontal, approximately 3:2 ratio. Figure fills 75% of frame. Generous #EDEAE1 space on all sides. The scene reads instantly: teacher, laptop, active work.

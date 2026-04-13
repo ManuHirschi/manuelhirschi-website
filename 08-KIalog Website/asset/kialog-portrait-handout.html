@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manuel Hirschi — KIalog Portrait</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0B0B0B; --bg-el: #141414; --lime: #BEFF00; --lime-dim: rgba(190,255,0,0.15);
+      --text: #F2F2EE; --text-dim: #B8B8B2; --border: rgba(255,255,255,0.08);
+      --display: 'Space Grotesk', system-ui, sans-serif;
+      --body: 'Inter', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 14px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .page { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 3rem 3.5rem; position: relative; overflow: hidden; }
+    @media print { .page { padding: 2.5rem 3rem; } }
+
+    /* Header */
+    .header { display: flex; align-items: flex-start; justify-content: space-between; padding-bottom: 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
+    .logo { font-family: 'Outfit', system-ui, sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+    .logo-ki { color: var(--lime); }
+    .logo-alog { color: var(--text); font-weight: 300; }
+    .logo-sub { display: block; font-family: var(--mono); font-size: 0.6rem; color: var(--text-dim); letter-spacing: 0.2em; text-transform: uppercase; transform: rotate(-3deg); transform-origin: left; margin-top: -0.9rem; }
+    .header-right { text-align: right; font-family: var(--mono); font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.04em; line-height: 1.8; }
+
+    /* Hero */
+    .hero { display: flex; gap: 2.5rem; align-items: flex-start; margin-bottom: 2.5rem; }
+    .hero-photo { width: 140px; height: 175px; object-fit: cover; object-position: top; flex-shrink: 0; border: 1px solid var(--border); }
+    .hero-text h1 { font-family: var(--display); font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.6rem; }
+    .hero-text h1 .accent { color: var(--lime); }
+    .hero-kicker { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime); margin-bottom: 0.8rem; display: inline-block; padding: 0.2rem 0.5rem; border: 1px solid rgba(190,255,0,0.25); }
+    .hero-lead { font-size: 0.92rem; color: var(--text-dim); line-height: 1.7; max-width: 48ch; }
+
+    /* Roles */
+    .roles { display: flex; gap: 1rem; margin-bottom: 2.5rem; }
+    .role { flex: 1; padding: 1rem 1.25rem; border-left: 2px solid var(--lime); background: var(--bg-el); }
+    .role-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime); margin-bottom: 0.25rem; }
+    .role-text { font-family: var(--display); font-size: 0.82rem; font-weight: 400; color: var(--text); line-height: 1.4; }
+
+    /* Sections */
+    .section { margin-bottom: 2rem; }
+    .section-title { font-family: var(--display); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    .section-title .accent { color: var(--lime); }
+
+    /* Methode Steps */
+    .steps { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .step { flex: 1; padding: 1rem; border: 1px solid var(--border); }
+    .step-num { font-family: var(--display); font-size: 1.8rem; font-weight: 700; color: var(--lime); opacity: 0.3; line-height: 1; margin-bottom: 0.4rem; }
+    .step-title { font-family: var(--display); font-size: 0.88rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .step-text { font-size: 0.75rem; color: var(--text-dim); line-height: 1.6; }
+
+    /* Grid */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+    /* Stats */
+    .stat { padding: 1rem; border: 1px solid var(--border); position: relative; }
+    .stat::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--lime); }
+    .stat-num { font-family: var(--display); font-size: 1.8rem; font-weight: 700; color: var(--lime); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-size: 0.75rem; color: var(--text-dim); line-height: 1.5; }
+    .stat-source { font-family: var(--mono); font-size: 0.58rem; color: rgba(255,255,255,0.3); margin-top: 0.3rem; }
+
+    /* Angebote */
+    .angebote { display: flex; gap: 1rem; }
+    .angebot { flex: 1; padding: 1.25rem; border: 1px solid var(--border); background: var(--bg-el); }
+    .angebot--featured { border-color: var(--lime); }
+    .angebot-title { font-family: var(--display); font-size: 0.92rem; font-weight: 600; margin-bottom: 0.15rem; }
+    .angebot-price { font-family: var(--display); font-size: 1.1rem; font-weight: 700; color: var(--lime); margin-bottom: 0.6rem; }
+    .angebot-price span { font-size: 0.68rem; color: var(--text-dim); font-weight: 400; }
+    .angebot-text { font-size: 0.72rem; color: var(--text-dim); line-height: 1.6; }
+
+    /* Kern Quote */
+    .kern { border-left: 2px solid var(--lime); padding-left: 1.5rem; margin-bottom: 2rem; }
+    .kern-quote { font-family: var(--display); font-size: 1rem; font-weight: 300; line-height: 1.55; color: var(--text); }
+    .kern-tag { font-family: var(--mono); font-size: 0.7rem; color: var(--lime); margin-top: 0.75rem; letter-spacing: 0.06em; }
+
+    /* Footer */
+    .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .footer-left { font-family: var(--mono); font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.04em; line-height: 1.8; }
+    .footer-right { font-family: var(--display); font-size: 0.75rem; color: var(--text-dim); text-align: right; }
+    .footer-right strong { color: var(--lime); font-weight: 600; }
+
+    /* Markensatz */
+    .markensatz { font-family: var(--display); font-size: 0.92rem; font-weight: 300; font-style: italic; color: var(--text-dim); margin-top: 1rem; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="logo"><span class="logo-ki">KI</span><span class="logo-alog">alog</span></div>
+      <span class="logo-sub">Hirschi</span>
+    </div>
+    <div class="header-right">
+      info@kialog.ch<br>
+      kialog.ch<br>
+      076 386 22 07
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="/Users/myh/Library/CloudStorage/GoogleDrive-manuel.hirschi@gmail.com/Meine Ablage/_COWORK/08-KIalog Website/asset/manu2.webp" alt="Manuel Hirschi" class="hero-photo">
+    <div class="hero-text">
+      <span class="hero-kicker">KI-Urteilskompetenz für Lehrpersonen</span>
+      <h1>Manuel<br>Hirschi</h1>
+      <p class="hero-lead">Lehrperson, Dozent und Forscher. Entwickelt und erprobt ein praxistaugliches Verfahren, mit dem Lehrpersonen KI-Output prüfen, Material differenzieren und mit eigenem Material sicher arbeiten können.</p>
+    </div>
+  </div>
+
+  <!-- DREIFACHPROFIL -->
+  <div class="roles">
+    <div class="role">
+      <div class="role-label">Praxis</div>
+      <div class="role-text">Lernbegleitung Deutsch<br>gibb Bern, EBA-Klassen</div>
+    </div>
+    <div class="role">
+      <div class="role-label">Ausbildung</div>
+      <div class="role-text">Dozent BpSt + KI-Experte<br>PH FHNW</div>
+    </div>
+    <div class="role">
+      <div class="role-label">Forschung</div>
+      <div class="role-text">Doktorand, Evaluative Judgement<br>Universität Zürich</div>
+    </div>
+  </div>
+
+  <!-- KERN -->
+  <div class="kern">
+    <p class="kern-quote">Jede Korrektur am KI-Output ist eine Fachentscheidung, die du vorher im Kopf getroffen hast, ohne sie zu artikulieren. KI zwingt dich, dein Urteil auszusprechen.</p>
+    <p class="kern-tag">Das ist Professionalisierung, nicht Automatisierung.</p>
+  </div>
+
+  <!-- METHODE -->
+  <div class="section">
+    <div class="section-title">Die Methode <span class="accent">in 3 Schritten</span></div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Prüfen</div>
+        <p class="step-text">Stimmt das fachlich? Wo hat die KI vereinfacht, was nicht vereinfacht werden darf?</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Urteilen</div>
+        <p class="step-text">Übernehmen, anpassen oder verwerfen. Die eigene Einschätzung entwickeln (Evaluative Judgement).</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Belegen</div>
+        <p class="step-text">Warum hast du was geändert? Zwei Sätze. Dein Team lernt von dir.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ZAHLEN -->
+  <div class="section">
+    <div class="section-title">Ausgangslage</div>
+    <div class="two-col">
+      <div class="stat">
+        <div class="stat-num">93%</div>
+        <div class="stat-label">der 16- bis 29-Jährigen in der Schweiz haben KI-Tools ausprobiert</div>
+        <div class="stat-source">Latzer &amp; Festic 2024, UZH</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">&gt;23%</div>
+        <div class="stat-label">der Aussagen in KI-Texten sind fachlich nicht gedeckt</div>
+        <div class="stat-source">Jia et al. 2024, EDM</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANGEBOTE -->
+  <div class="section">
+    <div class="section-title">Formate <span class="accent">&amp; Preise</span></div>
+    <div class="angebote">
+      <div class="angebot">
+        <div class="angebot-title">Impuls</div>
+        <div class="angebot-price">CHF 800 <span>/ Einheit</span></div>
+        <p class="angebot-text">60–90 Min. Konferenz, Teamtag. Demonstration mit echtem Material.</p>
+      </div>
+      <div class="angebot angebot--featured">
+        <div class="angebot-title">KIalog Workshop</div>
+        <div class="angebot-price">CHF 1'800 <span>/ Halbtag</span></div>
+        <p class="angebot-text">Inhouse, 6–16 TN. Eigenes Material. Ganztag CHF 3'000. SCHILW-buchbar.</p>
+      </div>
+      <div class="angebot">
+        <div class="angebot-title">Fachbegleitung</div>
+        <div class="angebot-price">CHF 9'000 <span>/ Semester</span></div>
+        <p class="angebot-text">Verfahren im Schulalltag verankern. Kick-off + Begleitung + Pilotierung.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="markensatz">Wer mit KI arbeitet, führt einen Dialog. KIalog zeigt, wie er gelingt.</p>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">
+      info@kialog.ch<br>
+      kialog.ch<br>
+      076 386 22 07
+    </div>
+    <div class="footer-right">
+      <strong>KIalog</strong> · Manuel Hirschi<br>
+      Lehrperson, Dozent und Forscher
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIalog — 10 Grundfähigkeiten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF8;
+  --surface: #F0EFEB;
+  --border: #D4D3CE;
+  --text: #1A1A1A;
+  --text-muted: #4A4A4A;
+  --accent: #2563EB;
+  --accent-dim: rgba(37,99,235,.06);
+  --warm: #E05A1A;
+  --warm-dim: rgba(224,90,26,.06);
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--accent); color: #fff; }
+
+.wrap { max-width: 1340px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 3rem); }
+
+/* ── NAV ── */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,250,248,.88);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: .75rem 0;
+}
+.topbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar-logo {
+  font-family: var(--mono); font-size: 14px; font-weight: 700;
+  color: var(--accent); text-decoration: none; letter-spacing: .05em;
+}
+.topbar-sub { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+
+/* ── HERO ── */
+.hero {
+  padding: clamp(4rem, 12vw, 10rem) 0 clamp(3rem, 8vw, 6rem);
+  border-bottom: 1px solid var(--border);
+}
+.hero-kicker {
+  font-family: var(--mono); font-size: 13px; font-weight: 500;
+  color: var(--accent); letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1.0;
+  max-width: 800px;
+}
+.hero h1 span { color: var(--accent); }
+.hero-lead {
+  margin-top: 2rem;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ── KERN ── */
+.kern {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.kern-inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.kern-label {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--warm); text-transform: uppercase; letter-spacing: .08em;
+  padding-top: .3rem;
+}
+.kern-text { max-width: 640px; }
+.kern-text p { font-size: 1.15rem; font-weight: 400; line-height: 1.8; color: var(--text); }
+.kern-text p + p { margin-top: 1rem; }
+.kern-text strong { color: var(--text); font-weight: 500; }
+.kern-text em { color: var(--accent); font-style: normal; font-weight: 500; }
+.kern-quote {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--accent-dim);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.6;
+}
+
+/* ── SKILLS ── */
+.skills-section { padding: clamp(3rem, 6vw, 5rem) 0; }
+.skills-header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.skills-label {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--accent); text-transform: uppercase; letter-spacing: .08em;
+  padding-top: .3rem;
+}
+.skills-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+.skill-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+  align-items: start;
+}
+.skill-meta {}
+.skill-number {
+  font-family: var(--mono);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: var(--border);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.skill-tag {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--accent); text-transform: uppercase; letter-spacing: .08em;
+  margin-top: .75rem;
+}
+.skill-item:nth-child(even) .skill-tag { color: var(--warm); }
+.skill-body { max-width: 800px; }
+.skill-name {
+  font-size: 1.5rem; font-weight: 700; letter-spacing: -.5px; margin-bottom: .25rem;
+}
+.skill-sub {
+  font-size: 1rem; font-weight: 400; color: var(--text-muted); margin-bottom: 1rem;
+}
+.skill-desc {
+  font-size: 1.05rem; font-weight: 400; color: var(--text); line-height: 1.8; opacity: .85;
+}
+.skill-desc strong { color: var(--text); font-weight: 500; }
+.skill-outcome {
+  margin-top: 1.25rem;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  line-height: 1.6;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
+}
+.skill-item:nth-child(even) .skill-outcome {
+  color: var(--warm);
+  border-left-color: var(--warm);
+}
+
+/* ── URGENCY ── */
+.urgency {
+  padding: clamp(3rem, 6vw, 4rem) 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.urgency-inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.urgency-label {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: #DC2626; text-transform: uppercase; letter-spacing: .08em;
+  padding-top: .3rem;
+}
+.urgency-content { max-width: 800px; }
+.urgency-stats {
+  display: flex; gap: 3rem; margin-bottom: 1.5rem;
+}
+.urgency-stat { text-align: left; }
+.urgency-num {
+  font-family: var(--mono);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: var(--accent);
+  display: block;
+}
+.urgency-stat--warn .urgency-num { color: #DC2626; }
+.urgency-desc {
+  font-size: .85rem; font-weight: 400; color: var(--text-muted);
+  display: block; margin-top: .25rem;
+}
+.urgency-text {
+  font-size: 1.05rem; font-weight: 400; color: var(--text);
+  line-height: 1.7; opacity: .85;
+}
+.urgency-text strong { font-weight: 600; opacity: 1; }
+
+/* ── TAKEAWAY ── */
+.takeaway {
+  padding: clamp(3rem, 6vw, 4rem) 0;
+  border-top: 1px solid var(--border);
+}
+.takeaway-inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.takeaway-label {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--accent); text-transform: uppercase; letter-spacing: .08em;
+  padding-top: .3rem;
+}
+.takeaway-content { max-width: 800px; }
+.takeaway-grid {
+  display: flex; flex-direction: column; gap: .75rem;
+}
+.takeaway-item {
+  display: flex; align-items: baseline; gap: 1rem;
+  font-size: 1.05rem; font-weight: 400; color: var(--text); line-height: 1.5;
+}
+.takeaway-icon {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  color: var(--accent); flex-shrink: 0; width: 24px;
+}
+.takeaway-closing {
+  margin-top: 1.5rem;
+  font-size: 1rem; font-weight: 500; color: var(--accent);
+  font-style: italic;
+}
+
+/* ── RAHMENWERKE ── */
+.rahmenwerke {
+  margin-top: 2rem;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: .03em;
+  text-align: center;
+}
+
+/* ── SHIFTS ── */
+.shifts {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-top: 1px solid var(--border);
+}
+.shifts-header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+.shift-row {
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.shift-before {
+  font-size: 1rem; font-weight: 400; color: var(--text-muted);
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border-radius: 8px;
+  text-align: right;
+}
+.shift-arrow {
+  text-align: center;
+  font-family: var(--mono); font-size: 1.2rem; color: var(--accent);
+}
+.shift-after {
+  font-size: 1rem; font-weight: 500; color: var(--text);
+  padding: 1rem 1.25rem;
+  background: var(--accent-dim);
+  border-radius: 8px;
+  border: 1px solid rgba(37,99,235,.15);
+}
+
+/* ── ZUKUNFT ── */
+.zukunft {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-top: 1px solid var(--border);
+}
+.zukunft-header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+.zukunft-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.zukunft-cell {
+  background: var(--surface);
+  padding: 1.5rem;
+}
+.zukunft-cell-label {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: var(--warm); margin-bottom: .75rem;
+}
+.zukunft-cell h3 {
+  font-size: .95rem; font-weight: 600; letter-spacing: -.3px;
+  margin-bottom: .5rem; line-height: 1.3;
+}
+.zukunft-cell p {
+  font-size: .8rem; font-weight: 300; color: var(--text-muted); line-height: 1.5;
+}
+
+/* ── PRODUKT ── */
+.produkt {
+  padding: clamp(4rem, 8vw, 6rem) 0 0;
+  border-top: 1px solid var(--border);
+  background: #3881F1;
+  color: #fff;
+  overflow: hidden;
+}
+.produkt-text {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -.5px;
+  color: #fff;
+  text-align: center;
+}
+.produkt-text strong { font-weight: 700; color: #fff; }
+.produkt-cta {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 14px 36px;
+  background: #fff;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: .2s;
+}
+.produkt-cta:hover { background: rgba(255,255,255,.85); transform: translateY(-2px); }
+
+/* ── HERO SPLIT ── */
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-content {}
+.hero-visual img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  mix-blend-mode: multiply;
+  filter: none;
+}
+.hero-profil {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 2.5rem;
+}
+.hero-avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+}
+.hero-name { font-size: 17px; font-weight: 600; line-height: 1.3; }
+.hero-roles { font-size: 14px; font-weight: 400; color: var(--text-muted); }
+
+/* ── SKILL ILLUST ── */
+.skill-illust {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  mix-blend-mode: multiply;
+  filter: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* ── PRODUKT HANDY ── */
+.produkt-handy-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+.produkt-handy {
+  width: 280px;
+  height: auto;
+  filter: none;
+  border: none;
+  border-radius: 0;
+}
+
+/* ── TOPBAR LOGO IMG ── */
+.topbar-logo img { height: 72px; width: auto; display: block; }
+
+/* ── BRAND QUOTE ── */
+.brand-quote {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.brand-quote p {
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: -1px;
+  line-height: 1.3;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--text);
+}
+.brand-quote strong {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ── FOOTER ── */
+.foot {
+  padding: 2rem 0;
+  background: #3272d6;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: rgba(255,255,255,.6);
+}
+.foot-quote {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,.75);
+  text-align: center;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  line-height: 1.5;
+}
+.foot-inner { text-align: center; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .kern-inner, .skills-header, .skill-item, .shifts-header, .zukunft-header,
+  .urgency-inner, .takeaway-inner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .urgency-stats { flex-direction: column; gap: 1.5rem; }
+  .hero-split { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-visual { order: -1; max-width: 280px; }
+  .hero-profil { justify-content: flex-start; }
+  .produkt-handy { width: 200px; }
+  .skill-number { font-size: 2.5rem; }
+  .shift-row { grid-template-columns: 1fr; gap: .5rem; }
+  .shift-before { text-align: left; }
+  .shift-arrow { transform: rotate(90deg); }
+  .zukunft-grid { grid-template-columns: 1fr 1fr; }
+  .foot-inner { flex-direction: column; gap: .5rem; }
+}
+@media (max-width: 480px) {
+  .zukunft-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="#" class="topbar-logo"><img src="../asset/logo/kialog-final-blau.svg" alt="KIalog" height="40"></a>
+    <span class="topbar-sub">Strategische Grundlage &middot; April 2026</span>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-split">
+      <div class="hero-content">
+        <div class="hero-kicker">// Was ich Schulen wirklich bringe</div>
+        <h1>Nicht Tools.<br>Nicht Prompts.<br><span>Professionelles Urteil.</span></h1>
+        <p class="hero-lead">10 Grundfähigkeiten, mit denen Lehrpersonen professionell mit KI arbeiten — und dabei besser werden statt abhängig.</p>
+        <div class="hero-profil">
+          <img src="../asset/manu2.webp" alt="Manuel Hirschi" class="hero-avatar">
+          <div>
+            <div class="hero-name">Manuel Hirschi</div>
+            <div class="hero-roles">gibb Bern &middot; PH FHNW &middot; UZH</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="../asset/hero-lehrperson.webp" alt="Lehrperson prüft KI-Output">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kern">
+  <div class="wrap">
+    <div class="kern-inner">
+      <div class="kern-label">// Der Kern</div>
+      <div class="kern-text">
+        <p>Die Angst jeder Lehrperson. <em>KI macht mich überflüssig.</em> Oder <em>KI macht meine Lernenden dümmer.</em></p>
+        <p>Was ich zeige. KI macht dein Fachwissen <strong>sichtbar</strong>. Jede Korrektur am KI-Output ist eine Fachentscheidung, die du vorher im Kopf getroffen hast, ohne sie zu artikulieren. KI zwingt dich, dein Urteil auszusprechen.</p>
+        <div class="kern-quote">Das ist Professionalisierung, nicht Automatisierung.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="urgency">
+  <div class="wrap">
+    <div class="urgency-inner">
+      <div class="urgency-label">// Was passiert, wenn nichts passiert</div>
+      <div class="urgency-content">
+        <div class="urgency-stats">
+          <div class="urgency-stat">
+            <span class="urgency-num">+48 %</span>
+            <span class="urgency-desc">Aufgabenleistung mit KI</span>
+          </div>
+          <div class="urgency-stat urgency-stat--warn">
+            <span class="urgency-num">−17 %</span>
+            <span class="urgency-desc">Prüfungsleistung ohne KI</span>
+          </div>
+        </div>
+        <p class="urgency-text">Der Krücken-Effekt (OECD 2026). KI ohne pädagogische Begleitung macht Lernende <strong>kurzfristig produktiver und langfristig schwächer</strong>. DaZ-Lernende trifft es zuerst. Sie können KI-Fehler am wenigsten selbst erkennen. Ab August 2027 stuft der EU AI Act KI in der Bildung als hochriskant ein. Die Frage ist nicht, ob Schulen handeln, sondern wann.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section">
+  <div class="wrap">
+    <div class="skills-header">
+      <div class="skills-label">// Grundfähigkeiten</div>
+      <h2 class="skills-title">Was Lehrpersonen nach einem Halbtag können</h2>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <div class="skill-number">01</div>
+        <div class="skill-tag">Epistemik</div>
+      </div>
+      <div class="skill-body">
+        <h3 class="skill-name">Quellenarchitektur</h3>
+        <p class="skill-sub">Du bestimmst, woraus die KI schöpft.</p>
+        <p class="skill-desc">Nicht «ich frage ChatGPT und hoffe». Sondern ein System, in dem die KI <strong>nur aus meinem Material</strong> antworten kann. Lehrplan, Reader, Aufgabenstellung rein, alles andere gesperrt. Keine Halluzination möglich. Keine Tool-Kenntnis, sondern eine <strong>epistemische Designentscheidung</strong>.</p>
+        <div class="skill-outcome">→ Jede Fachgruppe richtet in 20 Min. ein eigenes quellengesichertes System ein. Kein Datenschutzproblem. Keine generischen Antworten.</div>
+
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <div class="skill-number">02</div>
+        <div class="skill-tag">Wissen</div>
+      </div>
+      <div class="skill-body">
+        <h3 class="skill-name">Kodifizierte Fachkompetenz</h3>
+        <p class="skill-sub">Dein Wissen wird skalierbar.</p>
+        <p class="skill-desc">Ein guter Prompt ist <strong>externalisiertes Expertenwissen</strong>. 35 Kriterien, Niveaustufen, Negativbeispiele. Das ist nicht Prompt Engineering, das ist Wissensarchitektur. Du machst Berufserfahrung reproduzierbar. Die KI ist die Laufzeitumgebung deines Fachwissens.</p>
+        <div class="skill-outcome">→ Rolle + Kontext + Aufgabe + Format + Qualitätskriterien. System statt Glücksspiel.</div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <div class="skill-number">03</div>
+        <div class="skill-tag">Urteil</div>
+      </div>
+      <div class="skill-body">
+        <h3 class="skill-name">Epistemische Wachsamkeit</h3>
+        <p class="skill-sub">Du erkennst, wenn die KI falsch liegt.</p>
+        <p class="skill-desc">23% der KI-Aussagen sind fachlich nicht gedeckt, <strong>sehen aber professionell aus</strong> (Jia et al., 2024). Das zu erkennen erfordert gleichzeitig Fachwissen und KI-Verständnis. «Chef» statt «Berufsbildner:in». Fehlende DaZ-Scaffolds. Schweizer Recht vs. deutsches BGB.</p>
+        <div class="skill-outcome">→ KI-Output nicht als Ganzes annehmen oder ablehnen. Punkt für Punkt gegen Quelle, Fach und Kontext prüfen.</div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <div class="skill-number">04</div>
+        <div class="skill-tag">Denken</div>
+      </div>
+      <div class="skill-body">
+        <h3 class="skill-name">KI als Denkpartner</h3>
+        <p class="skill-sub">Denken statt Produzieren.</p>
+        <p class="skill-desc">Gängige Nutzung. KI generiert, ich spare Zeit. Meine Nutzung. KI hilft <strong>denken</strong>. Muster erkennen in 11 Berichten gleichzeitig. Blinde Flecken aufdecken. Gespräche simulieren im Voice-Mode. Zweite Perspektive einholen. <strong>Augmentiertes Denken</strong>, nicht Produktion.</p>
+        <div class="skill-outcome">→ KI für Reflexion, Analyse, Simulation, Entscheidungsvorbereitung. Eine andere Nutzungsklasse.</div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <div class="skill-number">05</div>
+        <div class="skill-tag">Praxis</div>
+      </div>
+      <div class="skill-body">
+        <h3 class="skill-name">Adaptive Differenzierung</h3>
+        <p class="skill-sub">Heterogenität als Ausgangspunkt.</p>
+        <p class="skill-desc">Nicht drei Niveaus, sondern <strong>Zugangspunkte</strong>. Ein Dossier für alle, aber mit Lebensweltanknüpfung, Openbook-Prinzip, klarer Sprache. KI differenziert in 90 Sekunden, ich korrigiere in 8 Minuten. <strong>Die Geschwindigkeit kommt von der KI. Die Qualität kommt von mir.</strong></p>
+        <div class="skill-outcome">→ Heterogene Klassen mit EBA, EFZ und DaZ. Angepasst in Minuten statt Stunden.</div>
+
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <div class="skill-number">06</div>
+        <div class="skill-tag">Transparenz</div>
+      </div>
+      <div class="skill-body">
+        <h3 class="skill-name">Transparente Verfahren</h3>
+        <p class="skill-sub">Denkprozesse sichtbar machen.</p>
+        <p class="skill-desc">«Was habe ich geändert? Warum?» Zwei Zeilen pro Entscheidung. Nicht Bürokratie, sondern <strong>Professionalisierung</strong>. Wenn du dein Urteil aufschreibst, lernst du daraus. Dein Team lernt von dir. Checklisten, reproduzierbare Abläufe, diagnostisches Denken, externalisiert.</p>
+        <div class="skill-outcome">→ Fachentscheidungen werden sichtbar. Für dich, Kolleg:innen, Schulleitungen. Individuelle Praxis wird geteiltes Wissen.</div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <div class="skill-number">07</div>
+        <div class="skill-tag">Autonomie</div>
+      </div>
+      <div class="skill-body">
+        <h3 class="skill-name">Autonomie statt Abhängigkeit</h3>
+        <p class="skill-sub">Du baust dein eigenes Werkzeug.</p>
+        <p class="skill-desc">Ich gebe das <strong>Schema</strong>, nicht das Ergebnis. Studierende bauen ihren eigenen Recherche-Prompt. Lehrpersonen ihre eigenen Bausteine. Nach dem Workshop sind sie <strong>nicht von mir abhängig</strong>. Sie haben ein Werkzeug verstanden, nicht eines kopiert.</p>
+        <div class="skill-outcome">→ Teams bauen nach einem Halbtag selbstständig neue Prompts. Auch wenn nächstes Jahr ein neues Tool kommt.</div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <div class="skill-number">08</div>
+        <div class="skill-tag">Urteil</div>
+      </div>
+      <div class="skill-body">
+        <h3 class="skill-name">Kritische Entscheidungskompetenz</h3>
+        <p class="skill-sub">Wissen, wann KI keinen Sinn ergibt.</p>
+        <p class="skill-desc">Die unterschätzteste Fähigkeit. <strong>Wann reicht ein Textmarker?</strong> Wann ist ein Gespräch besser? Laut OECD (2026) steigert KI ohne Begleitung die sichtbare Leistung um 48% und verschlechtert nachhaltiges Lernen um 17%. Die Entscheidung «nutze ich KI hier?» verhindert den Krücken-Effekt.</p>
+        <div class="skill-outcome">→ Lehrpersonen, die KI bewusst einsetzen und bewusst darauf verzichten. Professionelles Urteil, nicht Hype.</div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <div class="skill-number">09</div>
+        <div class="skill-tag">Transfer</div>
+      </div>
+      <div class="skill-body">
+        <h3 class="skill-name">Lernende befähigen, KI selbst zu beurteilen</h3>
+        <p class="skill-sub">Vom eigenen Urteil zum Urteil der Klasse.</p>
+        <p class="skill-desc">Die ersten acht Fähigkeiten handeln davon, was du als Lehrperson kannst. Diese handelt davon, wie du es <strong>weitergibst</strong>. 16-jährige EBA-Lernende vergleichen KI-Output mit dem Original und fragen «Was fehlt?». PH-Studierende prüfen 4 Feedbackpunkte und verwerfen 2. <strong>Dasselbe Prinzip, angepasst an jedes Niveau.</strong> Von DaZ bis Master.</p>
+        <div class="skill-outcome">→ Lehrpersonen lernen nicht nur selbst KI-Output zu beurteilen, sondern ihre Lernenden dazu zu befähigen. Das ist die didaktische Schliessung.</div>
+
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <div class="skill-number">10</div>
+        <div class="skill-tag">Dialog</div>
+      </div>
+      <div class="skill-body">
+        <h3 class="skill-name">Dialogische Verfeinerung</h3>
+        <p class="skill-sub">Das «alog» in KIalog.</p>
+        <p class="skill-desc">Die meisten arbeiten transaktional. Ein Prompt, ein Output, fertig. <strong>Dialogisch arbeiten</strong> heisst Prompt, Output, Bewertung, geschärfter Prompt, besserer Output, erneute Bewertung. Jede Runde wird präziser. KI ist kein Automat, sondern ein Gesprächspartner, dem du widersprichst, den du korrigierst, den du lenkst. <strong>Dein Denken schärft sich dabei mit.</strong></p>
+        <div class="skill-outcome">→ Nicht den perfekten Prompt beim ersten Mal. Sondern einen Dialog führen, in dem das Ergebnis und das eigene Denken schrittweise besser werden.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="takeaway">
+  <div class="wrap">
+    <div class="takeaway-inner">
+      <div class="takeaway-label">// Was du danach in der Hand hast</div>
+      <div class="takeaway-content">
+        <div class="takeaway-grid">
+          <div class="takeaway-item"><span class="takeaway-icon">01</span>Ein eingerichtetes NotebookLM-Notebook mit deinem eigenen Material</div>
+          <div class="takeaway-item"><span class="takeaway-icon">02</span>Einen funktionierenden Prompt mit deinen Fachkriterien</div>
+          <div class="takeaway-item"><span class="takeaway-icon">03</span>Ein differenziertes Arbeitsblatt, das du nächste Woche einsetzt</div>
+          <div class="takeaway-item"><span class="takeaway-icon">04</span>Eine Checkliste zum Prüfen von KI-Output in drei Schritten</div>
+          <div class="takeaway-item"><span class="takeaway-icon">05</span>Eine ausgefüllte Belegvorlage zu deinem eigenen Baustein</div>
+        </div>
+        <p class="takeaway-closing">Kein Handout, das in der Schublade landet. Fertige Werkzeuge, die am Montag funktionieren.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shifts">
+  <div class="wrap">
+    <div class="shifts-header">
+      <div class="skills-label">// Was daran neu ist</div>
+      <h2 class="skills-title">Nicht die Fähigkeiten sind neu. Die Verschränkung mit KI ist neu.</h2>
+    </div>
+
+    <div class="shift-row">
+      <div class="shift-before">Ich korrigiere ein Arbeitsblatt.</div>
+      <div class="shift-arrow">→</div>
+      <div class="shift-after">Ich korrigiere KI-Output und mache dabei explizit, welche Fachentscheidungen ich treffe.</div>
+    </div>
+    <div class="shift-row">
+      <div class="shift-before">Ich nutze Quellen im Unterricht.</div>
+      <div class="shift-arrow">→</div>
+      <div class="shift-after">Ich baue eine Quellenarchitektur, in der die KI nur aus meinen Quellen antworten kann.</div>
+    </div>
+    <div class="shift-row">
+      <div class="shift-before">Ich reflektiere meinen Unterricht.</div>
+      <div class="shift-arrow">→</div>
+      <div class="shift-after">KI analysiert 11 Berichte gleichzeitig. Ich entscheide, welche Muster relevant sind.</div>
+    </div>
+    <div class="shift-row">
+      <div class="shift-before">Ich differenziere für DaZ.</div>
+      <div class="shift-arrow">→</div>
+      <div class="shift-after">KI differenziert in 90 Sekunden. Ich korrigiere in 8 Minuten. 5× schneller, aber nur mit meinem Urteil.</div>
+    </div>
+  </div>
+</section>
+
+<section class="zukunft">
+  <div class="wrap">
+    <div class="zukunft-header">
+      <div class="skills-label">// Warum jetzt</div>
+      <h2 class="skills-title">Vier Entwicklungen, die in diese Richtung laufen</h2>
+    </div>
+    <div class="zukunft-grid">
+      <div class="zukunft-cell">
+        <div class="zukunft-cell-label">Regulierung</div>
+        <h3>EU AI Act</h3>
+        <p>Ab Aug. 2027. KI in Bildung = hochriskant. Schulen brauchen nachweisbare KI-Kompetenz. «Belegen» ist Compliance.</p>
+      </div>
+      <div class="zukunft-cell">
+        <div class="zukunft-cell-label">Assessment</div>
+        <h3>PISA 2029</h3>
+        <p>AI Literacy wird globaler Benchmark. Lernende werden gemessen, ob sie KI-Output beurteilen können.</p>
+      </div>
+      <div class="zukunft-cell">
+        <div class="zukunft-cell-label">Automatisierung</div>
+        <h3>Prompts sterben</h3>
+        <p>Tool-Bedienung wird commodifiziert. KI promptet sich selbst. Was bleibt: das professionelle Urteil.</p>
+      </div>
+      <div class="zukunft-cell">
+        <div class="zukunft-cell-label">Forschung</div>
+        <h3>Metakognition &gt; Tech</h3>
+        <p>Fortune/NeuroLeadership 2026: Erfolgsfaktor ist nicht Technikaffinität, sondern Metakognition.</p>
+      </div>
+    </div>
+    <p class="rahmenwerke">Verankert in: nRLP ABU &middot; LP21 &middot; OECD AI Principles &middot; UNESCO KI-Kompetenzen &middot; EU AI Act &middot; LCH</p>
+  </div>
+</section>
+
+<section class="produkt">
+  <div class="wrap">
+    <div style="text-align:center">
+      <p class="produkt-text">Wer mit KI arbeitet, führt einen Dialog.<br><strong>KIalog zeigt, wie er gelingt.</strong></p>
+      <a href="https://kialog.ch#kontakt" class="produkt-cta">Jetzt anfragen</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-inner">
+      <span>KIalog &middot; Manuel Hirschi &middot; 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

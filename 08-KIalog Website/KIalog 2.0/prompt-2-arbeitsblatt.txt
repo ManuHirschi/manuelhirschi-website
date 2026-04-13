@@ -1,0 +1,44 @@
+STYLE — BOLD HAND-DRAWN, THERAPYIN.LONDON INSPIRED:
+
+Line weight: 3.5–4px ink outlines, bold and confident. NOT thin, NOT delicate. The outline is the dominant element.
+
+Line quality: Strokes are NOT ruler-straight. They wobble slightly, overshoot corners by 2–3px, curves are imperfect ovals not perfect arcs. This is intentional character — the mark of a real hand.
+
+Color fills: FULLY SATURATED. Not pastel, not tinted, not transparent. Use full-strength colors directly:
+  Primary blue: #3881F1 (full strength as fill color)
+  Primary orange: #F6612E (full strength as fill color)
+  Neutral fill: warm off-white #F5F0E8
+  Black for outlines: #1A1A1A
+
+Color bleeding: The fill color extends OUTSIDE the ink outline by 5–8 pixels on at least 1–2 sides of each colored shape. This is the key effect. It looks like coloring outside the lines with a thick marker — intentional, not a mistake.
+
+Background: SOLID FLAT COLOR #EDEAE1. No gradient, no texture, no shadow, no glow.
+
+DO NOT: use gradients, drop shadows, digital smoothing, thin lines, pastel colors, or geometric perfection.
+
+SCENE:
+A single worksheet / Arbeitsblatt, seen from above, slight tilt.
+
+PAPER:
+Rectangle with slightly uneven edges — not a perfect shape. Fill: warm off-white (#F5F0E8). Outline: bold #1A1A1A, 4px. Top-right corner has a dog-ear fold. The fold is filled with a slightly darker beige (#DDD8CF).
+
+THREE COLUMNS:
+Two bold vertical lines dividing the paper into 3 equal columns. Lines are slightly wobbly, not ruler-straight.
+
+COLUMN HEADERS (top of each column):
+Large bold letters: A  B  C
+Letter A: filled with ORANGE (#F6612E) — bold, slightly overflows its own letterform
+Letter B: filled with BLUE (#3881F1) — same treatment
+Letter C: outlined only, no fill, #1A1A1A
+
+TEXT LINES (in each column):
+3–4 horizontal wavy strokes per column, representing text. Strokes: 2px, #1A1A1A, irregular length, genuine hand-drawn wobble.
+
+CHECKMARK (in column B only):
+A large, bold checkmark drawn in ORANGE (#F6612E), 4px stroke. The checkmark is the most prominent element on the worksheet. It overshoots its expected bounds slightly — authentic hand-drawn feel.
+
+PENCIL (bottom-right corner of paper):
+Simple pencil shape, 45-degree angle. Body: ORANGE (#F6612E) fill. Tip: small dark triangle. Bold outline.
+
+COMPOSITION:
+Square format. Worksheet fills 65% of frame. Generous #EDEAE1 margin on all sides.

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIalog — 10 Grundfähigkeiten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #EDEAE1;
+  --ink: #2A2A2A;
+  --muted: #5A5A5A;
+  --blue: #3881F1;
+  --green: #01C476;
+  --orange: #F6612E;
+  --lilac: #D7BCED;
+  --line: rgba(56,129,241,.12);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Figtree, system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+::selection { background: var(--ink); color: var(--bg); }
+
+/* ── NOTEBOOK LINES ── */
+body::before {
+  content: '';
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0; pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 49px,
+    var(--line) 49px,
+    var(--line) 50px
+  );
+}
+
+.wrap { max-width: 1400px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 3rem); position: relative; z-index: 1; }
+
+/* ── NAV ── */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(237,234,225,.92);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(56,129,241,.2);
+  padding: 8px clamp(1.5rem, 4vw, 3rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar-logo-link {
+  display: flex; align-items: center; gap: 0; text-decoration: none;
+}
+.topbar-logo img { height: 64px; width: auto; display: block; }
+.topbar-hirschi {
+  font-size: 28px; font-weight: 600; color: var(--blue);
+  letter-spacing: -1px;
+  margin-left: -2px;
+}
+
+/* ── PULL QUOTES ── */
+.pull-quote {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  text-align: center;
+}
+.pull-quote p {
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pull-quote .pq-muted { color: var(--muted); font-weight: 400; }
+.pull-quote .pq-blue { color: var(--blue); }
+.pull-quote .pq-green { color: var(--green); }
+.pull-quote .pq-stat {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: -3px;
+  display: block;
+  margin-bottom: .25rem;
+}
+.pull-quote cite {
+  display: block;
+  font-size: .85rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+.topbar-cta {
+  font-family: Figtree, sans-serif; font-size: 14px; font-weight: 500;
+  color: var(--ink); text-decoration: none;
+  border: 2px solid var(--ink); border-radius: 30px;
+  padding: 8px 18px; transition: .2s;
+}
+.topbar-cta:hover { background: var(--ink); color: var(--bg); }
+
+/* ── HERO ── */
+.hero {
+  padding: clamp(4rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
+}
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 4rem;
+  align-items: end;
+}
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -3px;
+  line-height: .95;
+}
+.hero h1 .underline-wrap {
+  position: relative;
+  display: inline;
+}
+.hero h1 .sketch-underline {
+  position: absolute;
+  bottom: -6px; left: -4px;
+  width: 105%; height: 18px;
+  background: var(--green);
+  border-radius: 4px 8px 4px 6px;
+  transform: rotate(-.5deg);
+  z-index: -1;
+  opacity: .7;
+}
+.hero-lead {
+  margin-top: 2rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 560px;
+  color: var(--ink);
+}
+.hero-profil {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 2.5rem;
+}
+.hero-avatar {
+  width: 72px; height: 72px; border-radius: 50%;
+  object-fit: cover; border: 3px solid rgba(56,129,241,.2);
+}
+.hero-name { font-size: 16px; font-weight: 600; }
+.hero-roles { font-size: 14px; font-weight: 400; color: var(--muted); }
+.hero-visual img {
+  width: 100%; height: auto;
+  mix-blend-mode: multiply;
+}
+
+/* ── KERN ── */
+.kern {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+.kern p {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 700px;
+  color: var(--ink);
+}
+.kern p + p { margin-top: 1.25rem; }
+.kern strong { font-weight: 600; }
+.kern em { font-style: italic; color: var(--blue); }
+.kern-quote {
+  margin-top: 2rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -1px;
+  max-width: 600px;
+  position: relative;
+  padding-left: 1.5rem;
+}
+.kern-quote::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--green);
+  border-radius: 2px;
+}
+
+/* ── SKILLS ── */
+.skills-section {
+  padding: clamp(2rem, 4vw, 3rem) 0;
+}
+.skills-header {
+  margin-bottom: 3rem;
+}
+.skills-header h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -2px;
+  line-height: 1.05;
+}
+
+.skill-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 3rem;
+  padding: 2.5rem 0;
+  border-top: 2px solid var(--ink);
+  align-items: start;
+}
+.skill-number {
+  font-size: clamp(3.5rem, 7vw, 5rem);
+  font-weight: 800;
+  font-style: italic;
+  line-height: .9;
+  letter-spacing: -3px;
+  color: rgba(56,129,241,.15);
+}
+.skill-item:nth-child(even) .skill-number { color: rgba(246,97,46,.15); }
+.skill-body {}
+.skill-name {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: .15rem;
+}
+.skill-sub {
+  font-size: 1.1rem; font-weight: 400; color: #3a3a3a;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+.skill-desc {
+  font-size: 1.15rem; font-weight: 400; color: var(--ink);
+  line-height: 1.75; max-width: 800px; opacity: .85;
+}
+.skill-desc strong { font-weight: 600; opacity: 1; }
+.skill-outcome {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--blue);
+  padding-left: 1rem;
+  border-left: 3px solid var(--green);
+  max-width: 600px;
+}
+.skill-item:nth-child(even) .skill-outcome {
+  color: var(--orange);
+  border-left-color: var(--orange);
+}
+
+/* ── SHIFTS ── */
+.shifts {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+.shifts h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -1.5px;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+}
+.shift-row {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+.shift-before {
+  font-size: .95rem; font-weight: 300; color: var(--muted);
+  text-align: right;
+}
+.shift-arrow {
+  text-align: center; font-size: 1.5rem; color: var(--green); font-weight: 700;
+}
+.shift-after {
+  font-size: .95rem; font-weight: 500; color: var(--ink);
+  padding: .75rem 1rem;
+  background: rgba(1,196,118,.08);
+  border-radius: 8px;
+  border-left: 3px solid var(--green);
+}
+
+/* ── ZUKUNFT ── */
+.zukunft {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+.zukunft h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -1.5px;
+  margin-bottom: 2rem;
+}
+.zukunft-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.zukunft-cell {
+  border-top: 3px solid var(--ink);
+  padding-top: 1.25rem;
+}
+.zukunft-cell-label {
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: var(--orange); margin-bottom: .5rem;
+}
+.zukunft-cell h3 {
+  font-size: 1.1rem; font-weight: 700; letter-spacing: -.5px;
+  margin-bottom: .4rem;
+}
+.zukunft-cell p {
+  font-size: .85rem; font-weight: 300; color: var(--muted); line-height: 1.5;
+}
+
+/* ── PRODUKT ── */
+.produkt {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background: var(--blue);
+  color: #fff;
+  position: relative;
+}
+.produkt::before {
+  content: '';
+  position: absolute; top: -24px; left: 0; right: 0; height: 26px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='30' cy='26' rx='30' ry='26' fill='%233881F1'/%3E%3C/svg%3E") repeat-x;
+  background-size: 60px 26px;
+}
+.produkt-text {
+  max-width: 700px;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -.5px;
+}
+.produkt-text strong { font-weight: 700; }
+
+/* ── FOOTER ── */
+.foot {
+  background: var(--blue);
+  padding: 2rem clamp(1.5rem, 4vw, 3rem);
+  color: rgba(237,234,225,.6);
+  font-size: 14px;
+}
+.foot-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-split { grid-template-columns: 1fr; }
+  .hero-visual { max-width: 300px; order: -1; }
+}
+@media (max-width: 768px) {
+  .skill-item { grid-template-columns: 60px 1fr; gap: 1rem; }
+  .skill-number { font-size: 3rem; }
+  .shift-row { grid-template-columns: 1fr; gap: .5rem; }
+  .shift-before { text-align: left; }
+  .shift-arrow { transform: rotate(90deg); }
+  .zukunft-grid { grid-template-columns: 1fr 1fr; }
+  .foot-inner { flex-direction: column; gap: .5rem; }
+}
+@media (max-width: 480px) {
+  .zukunft-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="#" class="topbar-logo-link"><img src="../asset/logo/kialog-final-blau.svg" alt="KIalog" class="topbar-logo"></a>
+  <a href="#kontakt" class="topbar-cta">Kontakt</a>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-split">
+      <div>
+        <h1>Nicht Tools.<br>Nicht Prompts.<br><span class="underline-wrap">Professionelles<span class="sketch-underline"></span></span> Urteil.</h1>
+        <p class="hero-lead">10 Grundfähigkeiten, mit denen Lehrpersonen professionell mit KI arbeiten — und dabei besser werden statt abhängig.</p>
+        <div class="hero-profil">
+          <img src="../asset/manu2.webp" alt="Manuel Hirschi" class="hero-avatar">
+          <div>
+            <div class="hero-name">Manuel Hirschi</div>
+            <div class="hero-roles">gibb Bern &middot; PH FHNW &middot; UZH</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="../asset/hero-lehrperson.webp" alt="Lehrperson prüft KI-Output">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kern">
+  <div class="wrap">
+    <p>Die Angst jeder Lehrperson: <em>KI macht mich überflüssig.</em> Oder: <em>KI macht meine Lernenden dümmer.</em></p>
+    <p>Was ich zeige: KI macht dein Fachwissen <strong>sichtbar</strong>. Jede Korrektur am KI-Output ist eine Fachentscheidung, die du vorher im Kopf getroffen hast, ohne sie zu artikulieren.</p>
+    <p class="kern-quote">Das ist Professionalisierung, nicht Automatisierung.</p>
+  </div>
+</section>
+
+<section class="pull-quote" style="padding-bottom:0">
+  <div class="wrap" style="display:flex;gap:clamp(2rem,6vw,5rem);justify-content:center;flex-wrap:wrap">
+    <div style="text-align:center"><p><span class="pq-stat pq-blue">93 %</span></p><cite>der Schweizer Jugendlichen haben KI-Tools ausprobiert. — Latzer &amp; Festic 2024, UZH</cite></div>
+    <div style="text-align:center"><p><span class="pq-stat" style="color:var(--orange)">&gt; 23 %</span></p><cite>der Aussagen in KI-Texten sind fachlich nicht gedeckt. — Jia et al. 2024, EDM</cite></div>
+  </div>
+</section>
+
+<section class="skills-section">
+  <div class="wrap">
+    <div class="skills-header">
+      <h2>Was Lehrpersonen nach einem Halbtag können.</h2>
+    </div>
+
+    <div class="skill-item"><div class="skill-number">01</div><div class="skill-body"><h3 class="skill-name">Quellenarchitektur</h3><p class="skill-sub">Du bestimmst, woraus die KI schöpft.</p><p class="skill-desc">Nicht "ich frage ChatGPT und hoffe". Sondern: Ich baue ein System, in dem die KI <strong>nur aus meinem Material</strong> antworten kann. Lehrplan, Reader, Aufgabenstellung rein — alles andere gesperrt. Keine Halluzination möglich.</p><div class="skill-outcome">→ Jede Fachgruppe richtet in 20 Min. ein eigenes quellengesichertes System ein.</div></div></div>
+
+    <div class="skill-item"><div class="skill-number">02</div><div class="skill-body"><h3 class="skill-name">Kodifizierte Fachkompetenz</h3><p class="skill-sub">Dein Wissen wird skalierbar.</p><p class="skill-desc">Ein guter Prompt ist <strong>externalisiertes Expertenwissen</strong>. 35 Kriterien, Niveaustufen, Negativbeispiele — das ist Wissensarchitektur. Die KI ist die Laufzeitumgebung deines Fachwissens.</p><div class="skill-outcome">→ Rolle + Kontext + Aufgabe + Format + Qualitätskriterien. System statt Glücksspiel.</div></div></div>
+
+    <div class="skill-item"><div class="skill-number">03</div><div class="skill-body"><h3 class="skill-name">Epistemische Wachsamkeit</h3><p class="skill-sub">Du erkennst, wenn die KI falsch liegt.</p><p class="skill-desc">23% der KI-Aussagen sind fachlich nicht gedeckt, <strong>sehen aber professionell aus</strong>. «Chef» statt «Berufsbildner:in». Fehlende DaZ-Scaffolds. Schweizer Recht vs. deutsches BGB.</p><div class="skill-outcome">→ Punkt für Punkt gegen Quelle, Fach und Kontext prüfen.</div></div></div>
+
+    <div class="pull-quote"><p><span class="pq-muted">Das ist kein Tool-Problem.</span><br>Das ist eine <span class="pq-blue">Kompetenzfrage.</span></p></div>
+
+    <div class="skill-item"><div class="skill-number">04</div><div class="skill-body"><h3 class="skill-name">KI als Denkpartner</h3><p class="skill-sub">Denken statt Produzieren.</p><p class="skill-desc">Muster erkennen in 11 Berichten gleichzeitig. Blinde Flecken aufdecken. Gespräche simulieren im Voice-Mode. <strong>Augmentiertes Denken</strong>, nicht Produktion.</p><div class="skill-outcome">→ KI für Reflexion, Analyse, Simulation, Entscheidungsvorbereitung.</div></div></div>
+
+    <div class="skill-item"><div class="skill-number">05</div><div class="skill-body"><h3 class="skill-name">Adaptive Differenzierung</h3><p class="skill-sub">Heterogenität als Ausgangspunkt.</p><p class="skill-desc">Nicht drei Niveaus, sondern <strong>Zugangspunkte</strong>. KI differenziert in 90 Sekunden, ich korrigiere in 8 Minuten. Die Geschwindigkeit kommt von der KI. <strong>Die Qualität kommt von mir.</strong></p><div class="skill-outcome">→ Heterogene Klassen: angepasst in Minuten statt Stunden.</div></div></div>
+
+    <div class="skill-item"><div class="skill-number">06</div><div class="skill-body"><h3 class="skill-name">Transparente Verfahren</h3><p class="skill-sub">Denkprozesse sichtbar machen.</p><p class="skill-desc">«Was habe ich geändert? Warum?» Zwei Zeilen pro Entscheidung. Nicht Bürokratie, sondern <strong>Professionalisierung</strong>. Wenn du dein Urteil aufschreibst, lernst du daraus.</p><div class="skill-outcome">→ Individuelle Praxis wird geteiltes Wissen.</div></div></div>
+
+    <div class="pull-quote"><p><span class="pq-stat pq-blue">8 Minuten statt 45.</span>Aber nur mit <span class="pq-green">deinem Urteil.</span></p></div>
+
+    <div class="skill-item"><div class="skill-number">07</div><div class="skill-body"><h3 class="skill-name">Autonomie statt Abhängigkeit</h3><p class="skill-sub">Du baust dein eigenes Werkzeug.</p><p class="skill-desc">Ich gebe das <strong>Schema</strong>, nicht das Ergebnis. Nach dem Workshop sind sie nicht von mir abhängig. Sie haben ein Werkzeug verstanden, nicht eines kopiert.</p><div class="skill-outcome">→ Teams bauen selbstständig neue Prompts — auch wenn nächstes Jahr ein neues Tool kommt.</div></div></div>
+
+    <div class="skill-item"><div class="skill-number">08</div><div class="skill-body"><h3 class="skill-name">Kritische Entscheidungskompetenz</h3><p class="skill-sub">Wissen, wann KI keinen Sinn ergibt.</p><p class="skill-desc"><strong>Wann reicht ein Textmarker?</strong> OECD 2026: KI ohne Begleitung steigert sichtbare Leistung um 48%, verschlechtert nachhaltiges Lernen um 17%.</p><div class="skill-outcome">→ Bewusst einsetzen und bewusst darauf verzichten.</div></div></div>
+
+    <div class="skill-item"><div class="skill-number">09</div><div class="skill-body"><h3 class="skill-name">Lernende befähigen, KI selbst zu beurteilen</h3><p class="skill-sub">Vom eigenen Urteil zum Urteil der Klasse.</p><p class="skill-desc">16-jährige EBA-Lernende vergleichen KI-Output mit dem Original. PH-Studierende prüfen 4 Feedbackpunkte und verwerfen 2. <strong>Dasselbe Prinzip, angepasst an jedes Niveau.</strong></p><div class="skill-outcome">→ Nicht nur selbst beurteilen. Lernende dazu befähigen. Didaktische Schliessung.</div></div></div>
+
+    <div class="pull-quote"><p>Wer mit KI arbeitet, führt einen <span class="pq-blue">Dialog.</span><br><span class="pq-muted">KIalog zeigt, wie man ihn gewinnt.</span></p></div>
+
+    <div class="skill-item"><div class="skill-number">10</div><div class="skill-body"><h3 class="skill-name">Dialogische Verfeinerung</h3><p class="skill-sub">Das «alog» in KIalog.</p><p class="skill-desc">Prompt → Output → Bewertung → geschärfter Prompt → besserer Output. Jede Runde wird präziser. KI ist kein Automat, sondern ein Gesprächspartner. <strong>Dein Denken schärft sich dabei mit.</strong></p><div class="skill-outcome">→ Nicht den perfekten Prompt beim ersten Mal. Einen Dialog führen.</div></div></div>
+  </div>
+</section>
+
+<section class="shifts">
+  <div class="wrap">
+    <h2>Nicht die Fähigkeiten sind neu. Die Verschränkung mit KI ist neu.</h2>
+    <div class="shift-row"><div class="shift-before">Ich korrigiere ein Arbeitsblatt.</div><div class="shift-arrow">→</div><div class="shift-after">Ich korrigiere KI-Output und mache dabei explizit, welche Fachentscheidungen ich treffe.</div></div>
+    <div class="shift-row"><div class="shift-before">Ich nutze Quellen im Unterricht.</div><div class="shift-arrow">→</div><div class="shift-after">Ich baue eine Quellenarchitektur, in der die KI nur aus meinen Quellen antworten kann.</div></div>
+    <div class="shift-row"><div class="shift-before">Ich reflektiere meinen Unterricht.</div><div class="shift-arrow">→</div><div class="shift-after">KI analysiert 11 Berichte gleichzeitig. Ich entscheide, welche Muster relevant sind.</div></div>
+    <div class="shift-row"><div class="shift-before">Ich differenziere für DaZ.</div><div class="shift-arrow">→</div><div class="shift-after">KI differenziert in 90 Sekunden. Ich korrigiere in 8 Minuten. 5× schneller — aber nur mit meinem Urteil.</div></div>
+  </div>
+</section>
+
+<section class="zukunft">
+  <div class="wrap">
+    <h2>Vier Entwicklungen, die in diese Richtung laufen.</h2>
+    <div class="zukunft-grid">
+      <div class="zukunft-cell"><div class="zukunft-cell-label">Regulierung</div><h3>EU AI Act</h3><p>Ab Aug. 2027. KI in Bildung = hochriskant. «Belegen» ist Compliance.</p></div>
+      <div class="zukunft-cell"><div class="zukunft-cell-label">Assessment</div><h3>PISA 2029</h3><p>AI Literacy wird globaler Benchmark. Lernende werden gemessen.</p></div>
+      <div class="zukunft-cell"><div class="zukunft-cell-label">Automatisierung</div><h3>Prompts sterben</h3><p>Tool-Bedienung wird commodifiziert. Was bleibt: das Urteil.</p></div>
+      <div class="zukunft-cell"><div class="zukunft-cell-label">Forschung</div><h3>Metakognition &gt; Tech</h3><p>Erfolgsfaktor ist nicht Technikaffinität, sondern Metakognition.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="produkt" id="kontakt">
+  <div class="wrap">
+    <p class="produkt-text">Ich bringe Schulen nicht bei, wie man KI benutzt. Ich bringe ihnen bei, wie man <strong>Lehrperson bleibt</strong>, während man KI benutzt. Was ich an einem Halbtag weitergebe, ist die Erfahrung, dass KI dein professionelles Urteil <strong>stärkt statt es zu ersetzen</strong>.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <span>KIalog &middot; Manuel Hirschi</span>
+    <span>April 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

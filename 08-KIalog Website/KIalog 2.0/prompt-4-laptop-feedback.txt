@@ -1,0 +1,36 @@
+STYLE — BOLD HAND-DRAWN, THERAPYIN.LONDON INSPIRED:
+
+Line weight: 3.5–4px ink outlines, bold and confident. NOT thin, NOT delicate. The outline is the dominant element.
+
+Line quality: Strokes are NOT ruler-straight. They wobble slightly, overshoot corners by 2–3px, curves are imperfect ovals not perfect arcs. This is intentional character — the mark of a real hand.
+
+Color fills: FULLY SATURATED. Not pastel, not tinted, not transparent. Use full-strength colors directly:
+  Primary blue: #3881F1 (full strength as fill color)
+  Primary orange: #F6612E (full strength as fill color)
+  Neutral fill: warm off-white #F5F0E8
+  Black for outlines: #1A1A1A
+
+Color bleeding: The fill color extends OUTSIDE the ink outline by 5–8 pixels on at least 1–2 sides of each colored shape. This is the key effect. It looks like coloring outside the lines with a thick marker — intentional, not a mistake.
+
+Background: SOLID FLAT COLOR #EDEAE1. No gradient, no texture, no shadow, no glow.
+
+DO NOT: use gradients, drop shadows, digital smoothing, thin lines, pastel colors, or geometric perfection.
+
+SCENE:
+An open laptop with a hand actively correcting something on the screen.
+
+LAPTOP:
+Seen from a 3/4 angle, open at approximately 100 degrees. Laptop body (base): filled with BLUE (#3881F1). Bold, saturated, bleeds outside outline slightly. Screen: lighter blue (#DBE4FF) fill as the screen area, outlined bold. Hinge: simple bold line, #1A1A1A.
+
+SCREEN CONTENT:
+4 horizontal wavy lines representing text.
+Line 1: normal (#1A1A1A wavy line)
+Line 2: STRUCK THROUGH — a bold ORANGE (#F6612E) horizontal line crossing through it. 4px, confident, bleeds at ends.
+Line 3: Represents a correction — shorter, slightly different position, drawn in BLUE (#3881F1) as if added by a pen.
+Line 4: normal
+
+HAND:
+Enters from the right side of the frame. Holds a thick marker/pen — the pen is ORANGE (#F6612E), bold. The hand is positioned as if it just made the strikethrough correction. Fingers visible, drawn in simple thick strokes, #1A1A1A outline, warm skin-tone fill (#FFD8A8). Only hand and pen visible — no arm, no body.
+
+COMPOSITION:
+Landscape format. Laptop occupies 60% of frame left-center. Hand enters from right edge, pen tip nearly touching the screen. The interaction is the story: human hand correcting machine output.

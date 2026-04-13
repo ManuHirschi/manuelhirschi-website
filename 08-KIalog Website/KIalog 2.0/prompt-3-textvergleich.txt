@@ -1,0 +1,32 @@
+STYLE — BOLD HAND-DRAWN, THERAPYIN.LONDON INSPIRED:
+
+Line weight: 3.5–4px ink outlines, bold and confident. NOT thin, NOT delicate. The outline is the dominant element.
+
+Line quality: Strokes are NOT ruler-straight. They wobble slightly, overshoot corners by 2–3px, curves are imperfect ovals not perfect arcs. This is intentional character — the mark of a real hand.
+
+Color fills: FULLY SATURATED. Not pastel, not tinted, not transparent. Use full-strength colors directly:
+  Primary blue: #3881F1 (full strength as fill color)
+  Primary orange: #F6612E (full strength as fill color)
+  Neutral fill: warm off-white #F5F0E8
+  Black for outlines: #1A1A1A
+
+Color bleeding: The fill color extends OUTSIDE the ink outline by 5–8 pixels on at least 1–2 sides of each colored shape. This is the key effect. It looks like coloring outside the lines with a thick marker — intentional, not a mistake.
+
+Background: SOLID FLAT COLOR #EDEAE1. No gradient, no texture, no shadow, no glow.
+
+DO NOT: use gradients, drop shadows, digital smoothing, thin lines, pastel colors, or geometric perfection.
+
+SCENE:
+Two documents side by side with a bold arrow between them.
+
+LEFT DOCUMENT:
+Rectangle, slightly imperfect edges. Fill: ORANGE (#F6612E) — the whole document body is orange. The fill bleeds outside the outline on the left and bottom. Outline: bold #1A1A1A, 4px. Inside: 3 horizontal wavy lines (representing text), color #1A1A1A. Top-right corner: a tiny simple robot icon — two square eyes, rectangular body, two small arms. Drawn in #1A1A1A, outline only, no fill. Small but clear.
+
+RIGHT DOCUMENT:
+Rectangle, same size as left, slightly imperfect. Fill: BLUE (#3881F1) — the whole document body is blue. Fill bleeds outside outline on right and top. Outline: bold #1A1A1A, 4px. Inside: 3 horizontal wavy lines, color #FFFFFF (white, for contrast on blue). Top-right corner: a bold checkmark in #FFFFFF. Large, confident, 4px stroke.
+
+ARROW BETWEEN THE DOCUMENTS:
+Bold curved arrow pointing from left document to right document. Color: #1A1A1A. Stroke: 4px. Arrowhead: solid, filled. The arrow is the center of attention — slightly oversized for the composition.
+
+COMPOSITION:
+Landscape format, 4:3 ratio. Both documents and arrow fill 80% of frame. Documents overlap the arrow slightly — they feel close together, in dialogue.

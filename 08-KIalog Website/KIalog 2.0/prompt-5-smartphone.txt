@@ -1,0 +1,30 @@
+STYLE — BOLD HAND-DRAWN FOR BLUE BACKGROUND:
+
+Same bold hand-drawn style. EXCEPTION: All ink outlines are WHITE (#FFFFFF) instead of #1A1A1A. This is because the illustration sits on a blue (#3881F1) background.
+
+Line weight: 3.5–4px white outlines, bold and confident.
+
+Line quality: Strokes are NOT ruler-straight. They wobble slightly, overshoot corners by 2–3px, curves are imperfect ovals not perfect arcs.
+
+Color fills: ORANGE (#F6612E) for the message text / accent. Warm off-white (#F5F0E8) for the phone body. Color bleeds outside outlines as usual: 5–8px.
+
+Background: SOLID FLAT COLOR #3881F1 — matches the blue website footer. No gradient, no texture, no shadow, no glow.
+
+DO NOT: use gradients, drop shadows, digital smoothing, thin lines, pastel colors, or geometric perfection.
+
+SCENE:
+A hand holds a smartphone upright.
+
+SMARTPHONE:
+Simple rounded rectangle shape, slightly imperfect corners. Phone body fill: warm off-white (#F5F0E8). Outline: bold white (#FFFFFF), 4px. Screen area: slightly lighter rectangle inside the phone body.
+
+SCREEN CONTENT:
+Simple chat interface:
+- Top 30%: one or two previous message bubbles — just rounded rectangles, white outline, no text. One bubble aligned left, one right.
+- Bottom area: a text input field (long rounded rectangle, white outline). Inside the input field: partial text "Hallo Manuel..." drawn as ORANGE (#F6612E) strokes/wiggles — representing typed characters. An orange blinking cursor at the end (simple vertical rectangle, orange).
+
+HAND:
+Holds the phone from below. Thumb positioned on the screen as if it just typed. Hand outline: white (#FFFFFF), 4px. Hand fill: warm skin tone (#FFD8A8). Only hand visible, no arm, no body.
+
+COMPOSITION:
+Portrait format, 2:3 ratio. Phone fills 55% of frame, centered. Hand visible at bottom, entering from below. Generous #3881F1 space above and to the sides. The mood: easy, approachable, one tap away.

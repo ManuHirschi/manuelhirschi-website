@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F: Hybrid Stone — kialog.ch Prototyp</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    /* Dark zone — warm dark */
+    --lime: #BEFF00;
+    --bg-dark: #1A1916; --bg-dark-el: #211F1B;
+    --text-light: #EAE7DF; --text-light-dim: #B5B0A5;
+    --border-dark: rgba(255,255,255,0.07);
+    /* Light zone — kühles Stone statt warmes Beige */
+    --bg-stone: #EDEDEB; --bg-stone-card: #FAFAF9;
+    --text-dark: #1E1E1E; --text-dark-dim: #5E5E5A;
+    --green: #3D6B00; --green-light: rgba(61,107,0,0.07); --green-border: rgba(61,107,0,0.2);
+    --border-stone: #D8D8D4;
+    /* Fonts */
+    --display: 'Space Grotesk', system-ui, sans-serif;
+    --body: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  body { font-family: var(--body); font-size: 16px; line-height: 1.7; margin: 0; }
+  .badge { position: fixed; top: 1rem; right: 1rem; background: var(--lime); color: #000; font-family: var(--mono); font-size: 0.7rem; padding: 0.4rem 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; z-index: 100; font-weight: 600; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 1.25rem; }
+  section { padding: 4.5rem 0; }
+
+  /* ── DARK ZONE ── */
+  .zone-dark { background: var(--bg-dark); color: var(--text-light); }
+  .hero { padding: 6rem 0 4rem; border-bottom: 1px solid var(--border-dark); }
+  .kicker { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime); margin-bottom: 1.5rem; display: block; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.4rem, 7vw, 4.5rem); line-height: 0.95; letter-spacing: -0.03em; text-transform: uppercase; }
+  .accent-d { color: var(--lime); }
+  .lead-d { font-size: 1rem; line-height: 1.8; color: var(--text-light-dim); max-width: 52ch; margin: 1.5rem 0; }
+  .btn-d { display: inline-flex; align-items: center; background: var(--lime); color: var(--bg-dark); padding: 0.85rem 1.8rem; font-family: var(--display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--lime); min-height: 48px; }
+  .btn-d--o { background: transparent; color: var(--lime); }
+  .kern { padding: 3.5rem 0; border-bottom: 1px solid var(--border-dark); }
+  .kern-inner { border-left: 2px solid var(--lime); padding-left: 1.5rem; }
+  .kern-quote { font-family: var(--display); font-size: clamp(1rem, 2.5vw, 1.35rem); font-weight: 300; line-height: 1.55; }
+  .kern-tag { margin-top: 1rem; font-family: var(--mono); font-size: 0.75rem; color: var(--lime); letter-spacing: 0.08em; }
+
+  /* ── TRANSITION: Architektonisch ── */
+  .divider { height: 4px; background: var(--lime); }
+
+  /* ── STONE ZONE ── */
+  .zone-stone { background: var(--bg-stone); color: var(--text-dark); }
+  .accent-s { color: var(--green); }
+  .eyebrow-s { display: inline-block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 1.2rem; padding: 0.3rem 0.6rem; border: 1px solid var(--green-border); background: var(--green-light); }
+  h2 { font-family: var(--display); font-weight: 600; font-size: clamp(1.6rem, 4vw, 2.5rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+
+  .step { padding: 1.75rem 0; border-bottom: 1px solid var(--border-stone); display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; }
+  .step:last-child { border-bottom: none; }
+  .step-num { font-family: var(--display); font-size: 2.8rem; font-weight: 700; color: var(--green); opacity: 0.25; line-height: 0.85; }
+  .step-title { font-family: var(--display); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-dark); }
+  .step-text { font-size: 0.9rem; color: var(--text-dark-dim); line-height: 1.75; }
+
+  .btn-s { display: inline-flex; align-items: center; background: var(--green); color: #fff; padding: 0.85rem 1.8rem; font-family: var(--display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--green); min-height: 48px; }
+
+  .angebote { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
+  .angebot { background: var(--bg-stone-card); border: 1px solid var(--border-stone); padding: 1.75rem; }
+  .angebot--featured { border-color: var(--green); border-width: 2px; }
+  .angebot-badge { background: var(--green); color: #fff; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.25rem 0.6rem; display: inline-block; margin-bottom: 0.75rem; }
+  .angebot-title { font-family: var(--display); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .angebot-price { font-family: var(--display); font-size: 1.4rem; font-weight: 700; color: var(--green); margin-bottom: 0.75rem; }
+  .angebot-price span { font-size: 0.75rem; color: var(--text-dark-dim); font-weight: 400; }
+  .angebot-text { font-size: 0.88rem; color: var(--text-dark-dim); line-height: 1.75; }
+
+  @media (min-width: 768px) {
+    .angebote { flex-direction: row; } .angebot { flex: 1; }
+    .hero { padding: 8rem 0 5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="badge">F: Hybrid Stone — kühl statt beige</div>
+
+<div class="zone-dark">
+  <section class="hero">
+    <div class="wrap">
+      <span class="kicker">KI-Urteilskompetenz für Lehrpersonen</span>
+      <h1>KI-Output<br>beurteilen.<br><span class="accent-d">Nicht blind übernehmen.</span></h1>
+      <p class="lead-d">Deine Lernenden schreiben Texte mit KI. Sie holen sich Feedback. Sie generieren, was früher Arbeit war. Die Frage ist nicht mehr ob, sondern wie du und dein Team damit professionell umgehen.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+        <a href="#" class="btn-d">Ich bin Lehrperson</a>
+        <a href="#" class="btn-d btn-d--o">Ich leite eine Schule</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="kern">
+    <div class="wrap">
+      <div class="kern-inner">
+        <p class="kern-quote">Jede Korrektur am KI-Output ist eine Fachentscheidung, die du vorher im Kopf getroffen hast, ohne sie zu artikulieren. KI zwingt dich, dein Urteil auszusprechen.</p>
+        <p class="kern-tag">Das ist Professionalisierung, nicht Automatisierung.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<div class="zone-stone">
+  <section style="border-bottom: 1px solid var(--border-stone);">
+    <div class="wrap">
+      <span class="eyebrow-s">Die Methode</span>
+      <h2>Du kennst dein Material.<br><span class="accent-s">Das ist dein Vorteil.</span></h2>
+      <div class="step"><div class="step-num">01</div><div><div class="step-title">Prüfen</div><p class="step-text">Stimmt das fachlich? Fehlt etwas? Wo hat die KI vereinfacht, was nicht vereinfacht werden darf?</p></div></div>
+      <div class="step"><div class="step-num">02</div><div><div class="step-title">Urteilen</div><p class="step-text">Übernehmen, anpassen oder verwerfen. Die Fähigkeit, die Qualität von Output selbst einzuschätzen, heisst Evaluative Judgement.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div><div class="step-title">Belegen</div><p class="step-text">Warum hast du was geändert? Zwei Sätze. Wenn du dein Urteil aufschreibst, lernst du daraus.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow-s">Formate &amp; Preise</span>
+      <h2>Einstieg. Tiefe. <span class="accent-s">Dauer.</span></h2>
+      <div class="angebote">
+        <div class="angebot">
+          <div class="angebot-title">Impuls</div>
+          <div class="angebot-price">CHF 800 <span>/ Einheit</span></div>
+          <p class="angebot-text">60 bis 90 Minuten. Kein Vortrag. Eine Demonstration mit echtem Material.</p>
+        </div>
+        <div class="angebot angebot--featured">
+          <div class="angebot-badge">Empfohlen</div>
+          <div class="angebot-title">KIalog Workshop</div>
+          <div class="angebot-price">CHF 1'800 <span>/ Halbtag</span></div>
+          <p class="angebot-text">Inhouse, 6 bis 16 Teilnehmende. Mit eigenem Material. Ganztag CHF 3'000.</p>
+        </div>
+        <div class="angebot">
+          <div class="angebot-title">Fachbegleitung</div>
+          <div class="angebot-price">CHF 9'000 <span>/ Semester</span></div>
+          <p class="angebot-text">Für Teams, die das Verfahren im Schulalltag verankern wollen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>

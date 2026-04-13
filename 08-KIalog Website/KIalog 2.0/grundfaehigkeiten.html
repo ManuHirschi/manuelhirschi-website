@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIalog — 8 Grundfähigkeiten</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+:root {
+  --bg: #EDEAE1;
+  --ink: #2A2A2A;
+  --muted: #5A5A5A;
+  --blue: #3881F1;
+  --orange: #F6612E;
+  --green: #01C476;
+  --lilac: #D7BCED;
+  --card-bg: #F5F2EB;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Figtree, system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--ink); color: var(--bg); }
+
+.page { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+/* Header */
+.page-header { margin-bottom: 3.5rem; }
+.kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: var(--blue); margin-bottom: 1rem; }
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 400; letter-spacing: -2px; line-height: 1.1; margin-bottom: 1.5rem; }
+h1 em { font-style: italic; }
+.lead { font-size: 1.15rem; font-weight: 300; line-height: 1.7; max-width: 680px; color: var(--muted); }
+.lead strong { font-weight: 500; color: var(--ink); }
+
+/* Kern-Box */
+.kern-box {
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  margin: 3rem 0;
+}
+.kern-box h2 { font-size: 1.1rem; font-weight: 600; letter-spacing: -.3px; margin-bottom: .75rem; color: var(--bg); }
+.kern-box p { font-size: 1rem; font-weight: 300; line-height: 1.7; opacity: .9; }
+.kern-box p + p { margin-top: .75rem; }
+.kern-box em { font-style: italic; color: var(--lilac); }
+
+/* Fähigkeiten */
+.skills { display: flex; flex-direction: column; gap: 2rem; margin: 3rem 0; }
+
+.skill {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+.skill-num {
+  width: 56px; height: 56px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.skill:nth-child(even) .skill-num { background: var(--orange); }
+.skill-body {}
+.skill-title { font-size: 1.2rem; font-weight: 600; letter-spacing: -.5px; margin-bottom: .25rem; }
+.skill-subtitle { font-size: .85rem; font-weight: 500; color: var(--blue); margin-bottom: .5rem; }
+.skill:nth-child(even) .skill-subtitle { color: var(--orange); }
+.skill-desc { font-size: .95rem; font-weight: 300; line-height: 1.7; color: var(--muted); }
+.skill-desc strong { font-weight: 500; color: var(--ink); }
+.skill-result {
+  margin-top: .75rem;
+  padding: .75rem 1rem;
+  background: var(--card-bg);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 8px 8px 0;
+  font-size: .9rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+.skill:nth-child(even) .skill-result { border-left-color: var(--orange); }
+
+/* Separator */
+.sep {
+  border: none;
+  border-top: 1px dashed var(--blue);
+  opacity: .25;
+  margin: 3rem 0;
+}
+
+/* Was ist neu */
+.shift-grid {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: .5rem;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+.shift-old, .shift-new {
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+.shift-old { background: var(--card-bg); color: var(--muted); }
+.shift-new { background: var(--blue); color: #fff; font-weight: 400; }
+.shift-arrow { text-align: center; font-size: 1.5rem; color: var(--blue); }
+
+/* Zukunft */
+.zukunft-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.zukunft-card {
+  padding: 1.25rem;
+  border: 1px dashed var(--blue);
+  border-radius: 12px;
+}
+.zukunft-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--orange); margin-bottom: .4rem; }
+.zukunft-card h3 { font-size: 1rem; font-weight: 600; letter-spacing: -.3px; margin-bottom: .4rem; }
+.zukunft-card p { font-size: .85rem; font-weight: 300; color: var(--muted); line-height: 1.5; }
+
+/* Produkt-Satz */
+.produkt-box {
+  margin: 3rem 0;
+  padding: 2rem 2.5rem;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 16px;
+}
+.produkt-box p { font-size: 1.1rem; font-weight: 300; line-height: 1.7; }
+.produkt-box strong { font-weight: 600; }
+
+/* Section headers */
+.section-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: var(--blue); margin-bottom: .75rem; }
+.section-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 400; letter-spacing: -1px; margin-bottom: 1rem; }
+
+@media (max-width: 640px) {
+  .skill { grid-template-columns: 44px 1fr; gap: 1rem; }
+  .skill-num { width: 44px; height: 44px; font-size: 15px; }
+  .shift-grid { grid-template-columns: 1fr; gap: .5rem; }
+  .shift-arrow { transform: rotate(90deg); }
+  .zukunft-grid { grid-template-columns: 1fr; }
+  .kern-box, .produkt-box { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="page-header">
+  <div class="kicker">KIalog &middot; Strategische Grundlage</div>
+  <h1>Was ich Schulen <em>wirklich</em> bringe</h1>
+  <p class="lead">Nicht Tools beibringen. Nicht Prompts kopieren. Sondern <strong>8 Grundfähigkeiten</strong>, mit denen Lehrpersonen professionell mit KI arbeiten — und dabei besser werden statt abhängig.</p>
+</header>
+
+<div class="kern-box">
+  <h2>Der Kern</h2>
+  <p>Die Angst jeder Lehrperson: <em>KI macht mich überflüssig.</em> Oder: <em>KI macht meine Lernenden dümmer.</em></p>
+  <p>Was ich zeige: KI macht dein Fachwissen <strong>sichtbar</strong>. Jede Korrektur am KI-Output ist eine Fachentscheidung, die du vorher im Kopf getroffen hast, ohne sie zu artikulieren. KI zwingt dich, dein Urteil auszusprechen.</p>
+  <p>Das ist Professionalisierung, nicht Automatisierung.</p>
+</div>
+
+<div class="section-label">8 Grundfähigkeiten</div>
+
+<div class="skills">
+
+  <div class="skill">
+    <div class="skill-num">1</div>
+    <div class="skill-body">
+      <div class="skill-title">Quellenarchitektur</div>
+      <div class="skill-subtitle">Du bestimmst, woraus die KI schöpft</div>
+      <p class="skill-desc">Nicht "ich gebe ChatGPT eine Frage und hoffe". Sondern: Ich baue ein System, in dem die KI <strong>nur aus meinem Material</strong> antworten kann. Lehrplan, Reader, Aufgabenstellung rein — alles andere gesperrt. Keine Halluzination möglich. Das ist kein Tool-Trick, das ist eine <strong>epistemische Designentscheidung</strong>.</p>
+      <div class="skill-result">→ Jede Fachgruppe kann in 20 Minuten ein eigenes quellengesichertes System einrichten. Kein Datenschutzproblem. Keine generischen Antworten.</div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-num">2</div>
+    <div class="skill-body">
+      <div class="skill-title">Kodifizierte Fachkompetenz</div>
+      <div class="skill-subtitle">Dein Wissen wird skalierbar</div>
+      <p class="skill-desc">Ein guter Prompt ist <strong>externalisiertes Expertenwissen</strong>. 35 Kriterien, Niveaustufen, Negativbeispiele — das ist nicht Prompt Engineering, das ist Wissensarchitektur. Du machst 18 Jahre Berufserfahrung reproduzierbar. Die KI ist die Laufzeitumgebung deines Fachwissens.</p>
+      <div class="skill-result">→ Lehrpersonen lernen das Schema: Rolle + Kontext + Aufgabe + Format + Qualitätskriterien. Ein System, kein Glücksspiel.</div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-num">3</div>
+    <div class="skill-body">
+      <div class="skill-title">Epistemische Wachsamkeit</div>
+      <div class="skill-subtitle">Du erkennst, wenn die KI falsch liegt</div>
+      <p class="skill-desc">23% der KI-Aussagen sind fachlich nicht gedeckt, <strong>sehen aber professionell aus</strong> (Jia et al., 2024). Das zu erkennen erfordert gleichzeitig Fachwissen und KI-Verständnis. «Chef» statt «Berufsbildner:in». Fehlende DaZ-Scaffolds. Schweizer Recht vs. deutsches BGB. Das ist professionelle Wachsamkeit, angewendet auf einen neuen Materialtyp.</p>
+      <div class="skill-result">→ KI-Output nicht als Ganzes annehmen oder ablehnen, sondern Punkt für Punkt gegen Quelle, Fach und Kontext prüfen.</div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-num">4</div>
+    <div class="skill-body">
+      <div class="skill-title">KI als Denkpartner</div>
+      <div class="skill-subtitle">Denken statt Produzieren</div>
+      <p class="skill-desc">Die gängige Nutzung: KI generiert, ich spare Zeit. Meine Nutzung: KI hilft mir <strong>denken</strong>. Muster erkennen in 11 Berichten gleichzeitig. Blinde Flecken aufdecken in meinem eigenen Material. Gespräche simulieren im Voice-Mode. Zweite Perspektive einholen. Das ist <strong>augmentiertes Denken</strong> — nicht Produktion.</p>
+      <div class="skill-result">→ Lehrpersonen entdecken eine komplett andere Nutzungsklasse: KI für Reflexion, Analyse, Simulation und Entscheidungsvorbereitung.</div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-num">5</div>
+    <div class="skill-body">
+      <div class="skill-title">Adaptive Differenzierung</div>
+      <div class="skill-subtitle">Heterogenität als Ausgangspunkt</div>
+      <p class="skill-desc">Nicht drei Niveaus, sondern <strong>Zugangspunkte</strong>. Ein Dossier für alle, aber mit Lebensweltanknüpfung, Openbook-Prinzip, klarer Sprache. KI differenziert in 90 Sekunden. Ich korrigiere in 8 Minuten. <strong>Die Geschwindigkeit kommt von der KI. Die Qualität kommt von mir.</strong> Ohne mein Urteil ist der Output für DaZ-Lernende unbrauchbar.</p>
+      <div class="skill-result">→ Lehrpersonen mit heterogenen Klassen (EBA, EFZ, DaZ gemischt) setzen KI als Differenzierungswerkzeug ein — und passen in Minuten an statt in Stunden.</div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-num">6</div>
+    <div class="skill-body">
+      <div class="skill-title">Transparente Verfahren</div>
+      <div class="skill-subtitle">Denkprozesse sichtbar machen</div>
+      <p class="skill-desc">«Was habe ich geändert? Warum?» Zwei Zeilen pro Entscheidung. Nicht Bürokratie, sondern <strong>Professionalisierung</strong>. Wenn du dein Urteil aufschreibst, lernst du daraus. Dein Team lernt von dir. Checklisten, reproduzierbare Abläufe, diagnostisches Denken — externalisiert in Verfahren, die jede:r nachvollziehen kann.</p>
+      <div class="skill-result">→ Fachentscheidungen werden sichtbar — für dich, für Kolleg:innen, für Schulleitungen. Individuelle Praxis wird geteiltes Wissen.</div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-num">7</div>
+    <div class="skill-body">
+      <div class="skill-title">Autonomie statt Abhängigkeit</div>
+      <div class="skill-subtitle">Du baust dein eigenes Werkzeug</div>
+      <p class="skill-desc">Ich gebe das <strong>Schema</strong>, nicht das Ergebnis. Studierende bauen ihren eigenen Recherche-Prompt. Lehrpersonen bauen ihre eigenen Bausteine. Nach dem Workshop sind sie <strong>nicht von mir abhängig</strong>. Sie haben ein Werkzeug verstanden, nicht eines kopiert. Wenn sich der Lehrplan ändert, können sie es anpassen.</p>
+      <div class="skill-result">→ Teams, die nach einem Halbtag selbstständig neue Prompts bauen — auch wenn nächstes Jahr ein komplett neues Tool kommt.</div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-num">8</div>
+    <div class="skill-body">
+      <div class="skill-title">Kritische Entscheidungskompetenz</div>
+      <div class="skill-subtitle">Wissen, wann KI keinen Sinn ergibt</div>
+      <p class="skill-desc">Die unterschätzteste Fähigkeit. <strong>Wann reicht ein Textmarker?</strong> Wann ist ein Gespräch besser? OECD (2026): KI ohne Begleitung steigert sichtbare Leistung um 48%, verschlechtert nachhaltiges Lernen um 17%. Der Krücken-Effekt. Die Entscheidung «nutze ich KI hier?» ist die Kompetenz, die das verhindert.</p>
+      <div class="skill-result">→ Lehrpersonen, die KI bewusst einsetzen und bewusst darauf verzichten. Professionelles Urteil statt Hype oder Verbot.</div>
+    </div>
+  </div>
+
+</div>
+
+<hr class="sep">
+
+<div class="section-label">Was daran neu ist</div>
+<p class="section-title">Nicht die Fähigkeiten sind neu. Die Verschränkung mit KI ist neu.</p>
+
+<div class="shift-grid">
+  <div class="shift-old">Ich korrigiere ein Arbeitsblatt.</div>
+  <div class="shift-arrow">&rarr;</div>
+  <div class="shift-new">Ich korrigiere ein KI-generiertes Arbeitsblatt und mache dabei explizit, welche Fachentscheidungen ich treffe.</div>
+</div>
+<div class="shift-grid">
+  <div class="shift-old">Ich nutze Quellen im Unterricht.</div>
+  <div class="shift-arrow">&rarr;</div>
+  <div class="shift-new">Ich baue eine Quellenarchitektur, in der die KI nur aus meinen Quellen antworten kann.</div>
+</div>
+<div class="shift-grid">
+  <div class="shift-old">Ich reflektiere meinen Unterricht.</div>
+  <div class="shift-arrow">&rarr;</div>
+  <div class="shift-new">KI analysiert 11 Berichte gleichzeitig. Ich entscheide, welche Muster relevant sind.</div>
+</div>
+<div class="shift-grid">
+  <div class="shift-old">Ich differenziere für DaZ.</div>
+  <div class="shift-arrow">&rarr;</div>
+  <div class="shift-new">KI differenziert in 90 Sekunden. Ich korrigiere in 8 Minuten. 5× schneller, aber nur mit meinem Urteil.</div>
+</div>
+
+<hr class="sep">
+
+<div class="section-label">Warum das jetzt zählt</div>
+<p class="section-title">Vier Entwicklungen, die in deine Richtung laufen</p>
+
+<div class="zukunft-grid">
+  <div class="zukunft-card">
+    <div class="zukunft-label">Regulierung</div>
+    <h3>EU AI Act (ab Aug. 2027)</h3>
+    <p>KI in Bildung wird als hochriskant eingestuft. Schulen brauchen nachweisbare KI-Kompetenz. Der «Belegen»-Schritt ist de facto Compliance-Dokumentation.</p>
+  </div>
+  <div class="zukunft-card">
+    <div class="zukunft-label">Assessment</div>
+    <h3>PISA 2029</h3>
+    <p>AI Literacy wird globaler Benchmark. Lernende werden gemessen, ob sie KI-Output beurteilen können. Genau das wird hier trainiert.</p>
+  </div>
+  <div class="zukunft-card">
+    <div class="zukunft-label">Automatisierung</div>
+    <h3>Prompt Engineering stirbt</h3>
+    <p>Stanford zeigt: Tool-Bedienung wird commodifiziert. KI promptet sich bald selbst. Was bleibt, ist das professionelle Urteil.</p>
+  </div>
+  <div class="zukunft-card">
+    <div class="zukunft-label">Forschung</div>
+    <h3>Metakognition &gt; Technikaffinität</h3>
+    <p>Fortune/NeuroLeadership (2026): Der Erfolgsfaktor für KI-Nutzung ist nicht Technikaffinität, sondern Metakognition. Evaluative Judgement in der Praxis.</p>
+  </div>
+</div>
+
+<div class="produkt-box">
+  <p>Ich bringe Schulen nicht bei, wie man KI benutzt. Ich bringe ihnen bei, wie man <strong>Lehrperson bleibt</strong>, während man KI benutzt.</p>
+  <p style="margin-top:.75rem">Fachkompetenz ist der Schlüssel zu guter KI-Nutzung — nicht umgekehrt. Was ich an einem Halbtag weitergebe, ist die Erfahrung, dass KI dein professionelles Urteil <strong>stärkt statt es zu ersetzen</strong> — und die konkreten Werkzeuge, um das ab Montag selbst zu tun.</p>
+</div>
+
+<p style="font-size: 13px; color: var(--muted); margin-top: 3rem;">KIalog &middot; Manuel Hirschi &middot; April 2026 &middot; Internes Strategiedokument</p>
+
+</div>
+</body>
+</html>
