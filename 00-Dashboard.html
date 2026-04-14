@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COWORK Dashboard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #1A1916; color: #EAE7DF; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+  h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 300; font-size: 2.5rem; color: #BEFF00; margin-bottom: 0.25rem; }
+  .subtitle { color: #B5B0A5; font-size: 0.85rem; margin-bottom: 1.5rem; font-family: 'JetBrains Mono', monospace; }
+
+  .stats-bar { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .count { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; color: #BEFF00; }
+  .count-label { color: #6B7280; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .main-tabs { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid #333; }
+  .main-tab { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.95rem; color: #6B7280; padding: 0.75rem 1.5rem; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color 0.2s, border-color 0.2s; user-select: none; }
+  .main-tab:hover { color: #B5B0A5; }
+  .main-tab.active { color: #BEFF00; border-bottom-color: #BEFF00; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+  .card { background: #222019; border-radius: 12px; padding: 1.5rem; border: 1px solid #333; }
+  .card-full { grid-column: 1 / -1; }
+  .card h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: #BEFF00; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; }
+  .card h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 400; color: #B5B0A5; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 1.25rem; margin-bottom: 0.5rem; padding-top: 0.75rem; border-top: 1px solid #2a2a25; }
+  .card h3:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+
+  .deadline-row { display: flex; align-items: center; padding: 0.55rem 0; border-bottom: 1px solid #2a2a25; gap: 0.75rem; }
+  .deadline-row:last-child { border-bottom: none; }
+  .deadline-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-red { background: #EF4444; } .dot-orange { background: #F59E0B; } .dot-yellow { background: #EAB308; } .dot-green { background: #22C55E; }
+  .deadline-date { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #6B7280; width: 55px; flex-shrink: 0; }
+  .deadline-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 4px; width: 80px; text-align: center; flex-shrink: 0; }
+  .badge-urgent { background: #EF444420; color: #EF4444; } .badge-soon { background: #F59E0B20; color: #F59E0B; } .badge-later { background: #22C55E20; color: #22C55E; }
+  .deadline-name { font-weight: 500; color: #EAE7DF; min-width: 200px; width: 200px; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .deadline-next { color: #6B7280; font-size: 0.83rem; flex: 1; min-width: 0; }
+
+  .fokus-row { display: flex; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid #2a2a25; gap: 1rem; }
+  .fokus-row:last-child { border-bottom: none; }
+  .fokus-name { font-weight: 600; color: #EAE7DF; min-width: 210px; width: 210px; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fokus-next { color: #B5B0A5; font-size: 0.85rem; flex: 1; }
+
+  .waiting-row { display: flex; padding: 0.45rem 0; border-bottom: 1px solid #2a2a25; gap: 0.75rem; align-items: baseline; }
+  .waiting-row:last-child { border-bottom: none; }
+  .waiting-project { color: #BEFF00; font-size: 0.78rem; font-family: 'JetBrains Mono', monospace; min-width: 160px; width: 160px; flex-shrink: 0; }
+  .waiting-text { color: #6B7280; font-size: 0.83rem; flex: 1; }
+
+  .projekt-tabs { display: flex; gap: 0; margin-bottom: 1rem; border-bottom: 1px solid #333; flex-wrap: wrap; }
+  .projekt-tab { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #6B7280; padding: 0.5rem 0.8rem; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; text-transform: uppercase; letter-spacing: 0.05em; user-select: none; }
+  .projekt-tab:hover { color: #B5B0A5; }
+  .projekt-tab.active { color: #BEFF00; border-bottom-color: #BEFF00; }
+  .projekt-panel { display: none; }
+  .projekt-panel.active { display: block; }
+
+  .project-row { display: flex; align-items: center; padding: 0.5rem 0; gap: 0.75rem; }
+  .prio-badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; width: 48px; text-align: center; flex-shrink: 0; }
+  .prio-high { background: #EF444420; color: #EF4444; } .prio-mid { background: #F59E0B20; color: #F59E0B; } .prio-low { background: #22C55E20; color: #22C55E; } .prio-ref { background: #6B728020; color: #6B7280; }
+  .project-name { width: 210px; min-width: 210px; flex-shrink: 0; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .project-next { color: #6B7280; font-size: 0.83rem; flex: 1; min-width: 0; }
+
+  .commit-row { padding: 0.35rem 0; font-size: 0.83rem; display: flex; gap: 0.75rem; border-bottom: 1px solid #2a2a25; }
+  .commit-row:last-child { border-bottom: none; }
+  .commit-hash { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #BEFF00; flex-shrink: 0; }
+  .commit-msg { color: #EAE7DF; flex: 1; }
+  .commit-time { color: #6B7280; font-size: 0.72rem; flex-shrink: 0; }
+
+  .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+  .tool-category { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #BEFF00; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .tool-row { padding: 0.25rem 0; font-size: 0.83rem; }
+  .tool-name { color: #EAE7DF; font-weight: 500; }
+  .tool-desc { color: #6B7280; font-size: 0.76rem; }
+  .cmd-name { color: #BEFF00; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; }
+  .cmd-desc { color: #6B7280; font-size: 0.76rem; }
+
+  .trading-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .meta-line { font-size: 0.76rem; color: #6B7280; margin-top: 0.75rem; }
+  .lehre-sub-label { font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+
+  .day-column { flex: 1; min-width: 0; }
+  .day-header { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.85rem; color: #BEFF00; padding: 0.5rem 0; border-bottom: 1px solid #333; margin-bottom: 0.5rem; }
+  .day-header.today { color: #BEFF00; }
+  .day-header.other { color: #B5B0A5; }
+  .cal-event { padding: 0.4rem 0.6rem; margin-bottom: 0.35rem; border-radius: 6px; font-size: 0.82rem; border-left: 3px solid; }
+  .cal-event.allday { background: #2F5E0020; border-color: #2F5E00; color: #B5B0A5; font-size: 0.78rem; }
+  .cal-event.timed { background: #222019; border-color: #BEFF00; }
+  .cal-time { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #6B7280; }
+  .cal-title { color: #EAE7DF; }
+  .cal-cal { color: #6B7280; font-size: 0.68rem; font-family: 'JetBrains Mono', monospace; }
+  .week-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; }
+
+  .mail-row { display: flex; padding: 0.5rem 0; border-bottom: 1px solid #2a2a25; gap: 0.75rem; align-items: baseline; }
+  .mail-row:last-child { border-bottom: none; }
+  .mail-account { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #BEFF00; min-width: 50px; flex-shrink: 0; text-transform: uppercase; }
+  .mail-sender { color: #EAE7DF; font-weight: 500; font-size: 0.83rem; min-width: 180px; max-width: 180px; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mail-subject { color: #6B7280; font-size: 0.83rem; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mail-date { color: #6B7280; font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; flex-shrink: 0; }
+
+  .empty-state { color: #6B7280; padding: 0.5rem 0; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<h1>COWORK</h1>
+<p class="subtitle">Stand 14.04.2026 18:27 &mdash; automatisch generiert bei /start</p>
+<div class="stats-bar">
+  <div class="stat"><div class="count">13</div><div class="count-label">Deadlines</div></div>
+  <div class="stat"><div class="count">8</div><div class="count-label">High Prio</div></div>
+  <div class="stat"><div class="count">5</div><div class="count-label">Wartend</div></div>
+  <div class="stat"><div class="count">25</div><div class="count-label">Aktiv</div></div>
+  <div class="stat"><div class="count">85</div><div class="count-label">Memories</div></div>
+  <div class="stat"><div class="count">0</div><div class="count-label">Inbox</div></div>
+</div>
+<div class="main-tabs">
+  <div class="main-tab active" data-tab="heute">Heute</div>
+  <div class="main-tab" data-tab="arbeit">Arbeit</div>
+  <div class="main-tab" data-tab="tooling">Tooling</div>
+  <div class="main-tab" data-tab="trading">Trading</div>
+</div>
+<div id="tab-heute" class="tab-panel active">
+<div class="grid">
+  <div class="card card-full">
+    <h2>Woche</h2>
+    <div class="week-grid">
+      <div class="day-column">
+        <div class="day-header other">Mo 13.</div>
+        <div class="empty-state">—</div>
+      </div>
+      <div class="day-column">
+        <div class="day-header today">→ Di 14.</div>
+        <div class="empty-state">—</div>
+      </div>
+      <div class="day-column">
+        <div class="day-header other">Mi 15.</div>
+        <div class="empty-state">—</div>
+      </div>
+      <div class="day-column">
+        <div class="day-header other">Do 16.</div>
+        <div class="empty-state">—</div>
+      </div>
+      <div class="day-column">
+        <div class="day-header other">Fr 17.</div>
+        <div class="empty-state">—</div>
+      </div>
+      <div class="day-column">
+        <div class="day-header other">Sa 18.</div>
+        <div class="empty-state">—</div>
+      </div>
+      <div class="day-column">
+        <div class="day-header other">So 19.</div>
+        <div class="empty-state">—</div>
+      </div>
+    </div>
+  </div>
+  <div class="card card-full">
+    <h2>Posteingang (9 ungelesen)</h2>
+    <div class="mail-row">
+      <div class="mail-account">fhnw</div>
+      <div class="mail-sender">Judith Silva Feijoo</div>
+      <div class="mail-subject">AW: Einladung zum Fotoshooting für das Personenprofil</div>
+      <div class="mail-date">10:51</div>
+    </div>
+    <div class="mail-row">
+      <div class="mail-account">me</div>
+      <div class="mail-sender">Suzushii Clothing</div>
+      <div class="mail-subject">Say Goodbye to Faded Tees!</div>
+      <div class="mail-date">18:06</div>
+    </div>
+    <div class="mail-row">
+      <div class="mail-account">me</div>
+      <div class="mail-sender">Eat Unique</div>
+      <div class="mail-subject">Manche Gerichte gibt es nur einmal im Jahr 🌿</div>
+      <div class="mail-date">17:13</div>
+    </div>
+    <div class="mail-row">
+      <div class="mail-account">me</div>
+      <div class="mail-sender">Galaxus Verifizierung</div>
+      <div class="mail-subject">Benachrichtigung  zu Ihrem Kundenkonto</div>
+      <div class="mail-date">12:26</div>
+    </div>
+    <div class="mail-row">
+      <div class="mail-account">gmail</div>
+      <div class="mail-sender">Simone Moser über LinkedIn</div>
+      <div class="mail-subject">Simone hat Ihre Einladung angenommen; erkunden Sie das Netzwerk Ihres neuen Kontakts</div>
+      <div class="mail-date">18:15</div>
+    </div>
+    <div class="mail-row">
+      <div class="mail-account">gmail</div>
+      <div class="mail-sender">Suzushii Clothing</div>
+      <div class="mail-subject">Say Goodbye to Faded Tees!</div>
+      <div class="mail-date">18:00</div>
+    </div>
+    <div class="mail-row">
+      <div class="mail-account">gmail</div>
+      <div class="mail-sender">Roger Mäder über LinkedIn</div>
+      <div class="mail-subject">Roger hat Ihre Einladung angenommen; erkunden Sie das Netzwerk Ihres neuen Kontakts</div>
+      <div class="mail-date">12:15</div>
+    </div>
+    <div class="mail-row">
+      <div class="mail-account">gmail</div>
+      <div class="mail-sender">LinkedIn</div>
+      <div class="mail-subject">Adrian Häfliger und Stefanie Schait möchten Ihrem Netzwerk beitreten</div>
+      <div class="mail-date">10:15</div>
+    </div>
+    <div class="mail-row">
+      <div class="mail-account">gmail</div>
+      <div class="mail-sender">CodePen</div>
+      <div class="mail-subject">CSS Ripples, Elastic Checkboxes, and Chunky Buttons</div>
+      <div class="mail-date">06:57</div>
+    </div>
+  </div>
+  <div class="card card-full">
+    <h2>Deadlines</h2>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-urgent">MORGEN</div>
+      <div class="deadline-date">15.04.</div>
+      <div class="fokus-name">FS26_Reflexionsseminar</div>
+      <div class="fokus-next">LNW-Abgabe 15.4., dann RS6</div>
+    </div>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-urgent">MORGEN</div>
+      <div class="deadline-date">15.04.</div>
+      <div class="fokus-name">03-PH FHNW</div>
+      <div class="fokus-next">LNW 15.4., G2 Start 17.4., Dozforum 20.4., H4 Abgabe 10.5., PS Auftakt 15.6.</div>
+    </div>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-soon">in 3d</div>
+      <div class="deadline-date">17.04.</div>
+      <div class="fokus-name">HS26_Mentorat G1</div>
+      <div class="fokus-next">G2 Sitzung 1 am 17.4.</div>
+    </div>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-soon">in 3d</div>
+      <div class="deadline-date">17.04.</div>
+      <div class="fokus-name">11-gibb Lernbegleitung</div>
+      <div class="fokus-next">Abstimmung Regine 16.4. Mittag, BV-Tag 17.4.</div>
+    </div>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-later">in 10d</div>
+      <div class="deadline-date">24.04.</div>
+      <div class="fokus-name">Webinarreihe_ZeigMirKI</div>
+      <div class="fokus-next">Zarah bestätigen 24.4., Sabine informieren, Webinare vorbereiten ab Sept.</div>
+    </div>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-later">in 12d</div>
+      <div class="deadline-date">26.04.</div>
+      <div class="fokus-name">09-KIalog Produkte</div>
+      <div class="fokus-next">Workshop-Pilot + dipFund-Skizze (26.4.)</div>
+    </div>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-later">in 12d</div>
+      <div class="deadline-date">26.04.</div>
+      <div class="fokus-name">dipFund</div>
+      <div class="fokus-next">Projektskizze bis 26.4., wartet auf Stefan</div>
+    </div>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-later">in 12d</div>
+      <div class="deadline-date">26.04.</div>
+      <div class="fokus-name">18-KIalog Startup</div>
+      <div class="fokus-next">Erste Schule anschreiben, LinkedIn-Start</div>
+    </div>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-later">in 13d</div>
+      <div class="deadline-date">27.04.</div>
+      <div class="fokus-name">MENTORAT SO</div>
+      <div class="fokus-next">H4 Abgabe 10.5., PS Teamsitzung 27.4., PS Auftakt 15.6.</div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="tab-arbeit" class="tab-panel">
+<div class="grid">
+  <div class="card card-full">
+    <h2>Fokus &mdash; Diese Woche</h2>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-urgent">MORGEN</div>
+      <div class="deadline-date">15.04.</div>
+      <div class="fokus-name">FS26_Reflexionsseminar</div>
+      <div class="fokus-next">LNW-Abgabe 15.4., dann RS6</div>
+    </div>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-urgent">MORGEN</div>
+      <div class="deadline-date">15.04.</div>
+      <div class="fokus-name">03-PH FHNW</div>
+      <div class="fokus-next">LNW 15.4., G2 Start 17.4., Dozforum 20.4., H4 Abgabe 10.5., PS Auftakt 15.6.</div>
+    </div>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-soon">in 3d</div>
+      <div class="deadline-date">17.04.</div>
+      <div class="fokus-name">HS26_Mentorat G1</div>
+      <div class="fokus-next">G2 Sitzung 1 am 17.4.</div>
+    </div>
+    <div class="fokus-row">
+      <div class="deadline-badge badge-soon">in 3d</div>
+      <div class="deadline-date">17.04.</div>
+      <div class="fokus-name">11-gibb Lernbegleitung</div>
+      <div class="fokus-next">Abstimmung Regine 16.4. Mittag, BV-Tag 17.4.</div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Wartend auf</h2>
+    <div class="waiting-row"><div class="waiting-project">01-UZH Exposee</div><div class="waiting-text">**Wartet auf Besprechung 30.4.** — v2 gesendet, Josh auf Konferenz bis 21.4.</div></div>
+    <div class="waiting-row"><div class="waiting-project">03-PH FHNW</div><div class="waiting-text">**PS Grenchen: Übergabetermin mit Regula** — wartet auf ihren Vorschlag</div></div>
+    <div class="waiting-row"><div class="waiting-project">03-PH FHNW</div><div class="waiting-text">Abwarten: Sabine meldet sich wegen Treffen (KI-Workshop)</div></div>
+    <div class="waiting-row"><div class="waiting-project">MENTORAT SO</div><div class="waiting-text">Übergabetermin mit Regula vereinbaren (wartet auf Regulas Vorschlag)</div></div>
+    <div class="waiting-row"><div class="waiting-project">Webinarreihe_ZeigMirKI</div><div class="waiting-text">**Terminplanung** mit Zarah (sie meldet sich nach Zusage)</div></div>
+  </div>
+  <div class="card">
+    <h2>Letzte Commits</h2>
+    <div class="commit-row"><span class="commit-hash">01bcba3</span><span class="commit-msg">Fix: netlify.toml wiederhergestellt — Seite war offline (404...</span><span class="commit-time">32 hours ago</span></div>
+    <div class="commit-row"><span class="commit-hash">71ef226</span><span class="commit-msg">Website: Prototypen, Research-Docs, LinkedIn-Banner, Handout...</span><span class="commit-time">2 days ago</span></div>
+    <div class="commit-row"><span class="commit-hash">bf95898</span><span class="commit-msg">Website: Session 15+16 — CSS extrahiert, /nrlp-ki/, Workshop...</span><span class="commit-time">2 days ago</span></div>
+    <div class="commit-row"><span class="commit-hash">5b733da</span><span class="commit-msg">Website: SEO-Schärfung (Title, Meta, Kicker, Schema auf Bern...</span><span class="commit-time">5 days ago</span></div>
+    <div class="commit-row"><span class="commit-hash">bb975ba</span><span class="commit-msg">Website: Mobile-Schriftgrössen angehoben (Body-Texte → 16px ...</span><span class="commit-time">5 days ago</span></div>
+  </div>
+  <div class="card card-full">
+    <h2>Alle Deadlines</h2>
+    <h3>Diese Woche (13.–19. April)</h3>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-red"></div>
+      <div class="deadline-date">15.04.</div>
+      <div class="deadline-name">FS26_Reflexionsseminar</div>
+      <div class="deadline-next">LNW-Abgabe 15.4., dann RS6</div>
+    </div>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-red"></div>
+      <div class="deadline-date">15.04.</div>
+      <div class="deadline-name">03-PH FHNW</div>
+      <div class="deadline-next">LNW 15.4., G2 Start 17.4., Dozforum 20.4., H4 Abgabe 10.5., PS Auftakt 15.6.</div>
+    </div>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-red"></div>
+      <div class="deadline-date">17.04.</div>
+      <div class="deadline-name">HS26_Mentorat G1</div>
+      <div class="deadline-next">G2 Sitzung 1 am 17.4.</div>
+    </div>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-red"></div>
+      <div class="deadline-date">17.04.</div>
+      <div class="deadline-name">11-gibb Lernbegleitung</div>
+      <div class="deadline-next">Abstimmung Regine 16.4. Mittag, BV-Tag 17.4.</div>
+    </div>
+    <h3>Ende April</h3>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-yellow"></div>
+      <div class="deadline-date">24.04.</div>
+      <div class="deadline-name">Webinarreihe_ZeigMirKI</div>
+      <div class="deadline-next">Zarah bestätigen 24.4., Sabine informieren, Webinare vorbereiten ab Sept.</div>
+    </div>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-yellow"></div>
+      <div class="deadline-date">26.04.</div>
+      <div class="deadline-name">09-KIalog Produkte</div>
+      <div class="deadline-next">Workshop-Pilot + dipFund-Skizze (26.4.)</div>
+    </div>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-yellow"></div>
+      <div class="deadline-date">26.04.</div>
+      <div class="deadline-name">dipFund</div>
+      <div class="deadline-next">Projektskizze bis 26.4., wartet auf Stefan</div>
+    </div>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-yellow"></div>
+      <div class="deadline-date">26.04.</div>
+      <div class="deadline-name">18-KIalog Startup</div>
+      <div class="deadline-next">Erste Schule anschreiben, LinkedIn-Start</div>
+    </div>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-yellow"></div>
+      <div class="deadline-date">27.04.</div>
+      <div class="deadline-name">MENTORAT SO</div>
+      <div class="deadline-next">H4 Abgabe 10.5., PS Teamsitzung 27.4., PS Auftakt 15.6.</div>
+    </div>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-green"></div>
+      <div class="deadline-date">30.04.</div>
+      <div class="deadline-name">01-UZH Exposee</div>
+      <div class="deadline-next">Exposé-Besprechung Josh 30.4.</div>
+    </div>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-green"></div>
+      <div class="deadline-date">30.04.</div>
+      <div class="deadline-name">Lehrauftrag</div>
+      <div class="deadline-next">Zarah bestätigen 24.4., Sabine informieren (Plato), PS Auftakt 15.6.</div>
+    </div>
+    <h3>May</h3>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-green"></div>
+      <div class="deadline-date">15.05.</div>
+      <div class="deadline-name">KIalog</div>
+      <div class="deadline-next">Pilot gibb April/Mai</div>
+    </div>
+    <h3>July +</h3>
+    <div class="deadline-row">
+      <div class="deadline-dot dot-green"></div>
+      <div class="deadline-date">31.07.</div>
+      <div class="deadline-name">04-BWZ Lyss</div>
+      <div class="deadline-next">Austritt 31.7.</div>
+    </div>
+  </div>
+  <div class="card card-full">
+    <h2>Projekte</h2>
+    <div class="projekt-tabs">
+      <div class="projekt-tab active" data-ptab="kialog">KIalog</div>
+      <div class="projekt-tab" data-ptab="lehre">Lehre</div>
+      <div class="projekt-tab" data-ptab="forschung">Forschung</div>
+      <div class="projekt-tab" data-ptab="privat">Privat</div>
+      <div class="projekt-tab" data-ptab="system">System</div>
+    </div>
+    <div id="ptab-kialog" class="projekt-panel active">
+      <div class="project-row"><span class="prio-badge prio-high">high</span><span class="project-name">08-KIalog Website</span><span class="project-next">/methode/ + /workshop/ bauen, Social Proof nach Pilot</span></div>
+      <div class="project-row"><span class="prio-badge prio-high">high</span><span class="project-name">09-KIalog Produkte</span><span class="project-next">Workshop-Pilot + dipFund-Skizze (26.4.)</span></div>
+      <div class="project-row"><span class="prio-badge prio-high">high</span><span class="project-name">dipFund</span><span class="project-next">Projektskizze bis 26.4., wartet auf Stefan</span></div>
+      <div class="project-row"><span class="prio-badge prio-high">high</span><span class="project-name">18-KIalog Startup</span><span class="project-next">Erste Schule anschreiben, LinkedIn-Start</span></div>
+      <div class="project-row"><span class="prio-badge prio-mid">mid</span><span class="project-name">KIalog</span><span class="project-next">Pilot gibb April/Mai</span></div>
+      <div class="project-row"><span class="prio-badge prio-low">low</span><span class="project-name">06-KI-Bildung-Monitor</span><span class="project-next">AInauten-Abo erneuern, wöchentliche Analyse</span></div>
+      <div class="project-row"><span class="prio-badge prio-low">low</span><span class="project-name">13-KIalog Wissensbasis</span><span class="project-next">Monitor + Evidenzbasis pflegen</span></div>
+    </div>
+    <div id="ptab-lehre" class="projekt-panel">
+      <div class="lehre-sub-label" style="color: #3881F1; margin-top: 0.75rem;">PH FHNW</div>
+      <div class="project-row"><span class="prio-badge prio-high">high</span><span class="project-name">FS26_Reflexionsseminar</span><span class="project-next">LNW-Abgabe 15.4., dann RS6</span></div>
+      <div class="project-row"><span class="prio-badge prio-high">high</span><span class="project-name">HS26_Mentorat G1</span><span class="project-next">G2 Sitzung 1 am 17.4.</span></div>
+      <div class="project-row"><span class="prio-badge prio-high">high</span><span class="project-name">03-PH FHNW</span><span class="project-next">LNW 15.4., G2 Start 17.4., Dozforum 20.4., H4 Abgabe 10.5., PS Auftakt 15.6.</span></div>
+      <div class="project-row"><span class="prio-badge prio-mid">mid</span><span class="project-name">Lehrauftrag</span><span class="project-next">Zarah bestätigen 24.4., Sabine informieren (Plato), PS Auftakt 15.6.</span></div>
+      <div class="project-row"><span class="prio-badge prio-mid">mid</span><span class="project-name">MENTORAT SO</span><span class="project-next">H4 Abgabe 10.5., PS Teamsitzung 27.4., PS Auftakt 15.6.</span></div>
+      <div class="project-row"><span class="prio-badge prio-mid">mid</span><span class="project-name">Webinarreihe_ZeigMirKI</span><span class="project-next">Zarah bestätigen 24.4., Sabine informieren, Webinare vorbereiten ab Sept.</span></div>
+      <div class="lehre-sub-label" style="color: #22D3EE; margin-top: 0.75rem;">gibb Bern</div>
+      <div class="project-row"><span class="prio-badge prio-mid">mid</span><span class="project-name">11-gibb Lernbegleitung</span><span class="project-next">Abstimmung Regine 16.4. Mittag, BV-Tag 17.4.</span></div>
+      <div class="lehre-sub-label" style="color: #A78BFA; margin-top: 0.75rem;">BWZ Lyss</div>
+      <div class="project-row"><span class="prio-badge prio-low">low</span><span class="project-name">04-BWZ Lyss</span><span class="project-next">Austritt 31.7.</span></div>
+    </div>
+    <div id="ptab-forschung" class="projekt-panel">
+      <div class="project-row"><span class="prio-badge prio-high">high</span><span class="project-name">01-UZH Exposee</span><span class="project-next">Exposé-Besprechung Josh 30.4.</span></div>
+      <div class="project-row"><span class="prio-badge prio-mid">mid</span><span class="project-name">19-KI-Feedback-und-Urteilsqualitaet</span><span class="project-next">SSOT fertigstellen, Lücken identifizieren</span></div>
+      <div class="project-row"><span class="prio-badge prio-ref">ref</span><span class="project-name">06-Philosophie</span><span class="project-next">Grenzform-Ontologie, Brücke zu EJ</span></div>
+    </div>
+    <div id="ptab-privat" class="projekt-panel">
+      <div class="project-row"><span class="prio-badge prio-low">low</span><span class="project-name">02-M&amp;K Trading Playbook</span><span class="project-next">Short aktiv, 0/16 Kern, Boden Okt 2026, Pi Cycle 1.54</span></div>
+      <div class="project-row"><span class="prio-badge prio-low">low</span><span class="project-name">07-Silbenfall</span><span class="project-next">3-Plattformen-Strategie, 2-Wochen-Zyklus</span></div>
+      <div class="project-row"><span class="prio-badge prio-ref">ref</span><span class="project-name">14-Haus-Erbschaft</span><span class="project-next">Hypothek 2028, EL-Anspruch klären</span></div>
+    </div>
+    <div id="ptab-system" class="projekt-panel">
+      <div class="project-row"><span class="prio-badge prio-low">low</span><span class="project-name">20-Teilen</span><span class="project-next">Kein offener Punkt</span></div>
+      <div class="project-row"><span class="prio-badge prio-ref">ref</span><span class="project-name">15-Organisation</span><span class="project-next">Remote-MCPs deaktivieren (Zapier, Canva, Gamma)</span></div>
+      <div class="project-row"><span class="prio-badge prio-ref">ref</span><span class="project-name">Systemaudit</span><span class="project-next">Nächster Audit bei Berührung</span></div>
+      <div class="project-row"><span class="prio-badge prio-ref"></span><span class="project-name">Vault Root</span><span class="project-next"></span></div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="tab-tooling" class="tab-panel">
+<div class="grid">
+  <div class="card card-full">
+    <h2>Skills (30)</h2>
+    <div class="tool-grid">
+      <div>
+        <div class="tool-category">Akademisch</div>
+        <div class="tool-row"><span class="tool-name">apa7-checker</span> <span class="tool-desc">&mdash; Prüft und korrigiert akademische Texte nach APA-7-Standard (...</span></div>
+        <div class="tool-row"><span class="tool-name">begriffskonsistenz</span> <span class="tool-desc">&mdash; Begriffskonsistenz-Prüfung für akademische Texte.</span></div>
+        <div class="tool-row"><span class="tool-name">design-kohaerenz</span> <span class="tool-desc">&mdash; Prüft die interne Kohärenz von Forschungsdesigns in akademis...</span></div>
+        <div class="tool-row"><span class="tool-name">expose-stil</span> <span class="tool-desc">&mdash; Akademischer Stilprüfer und Schreibassistent für deutschspra...</span></div>
+        <div class="tool-row"><span class="tool-name">kanoniker-check</span> <span class="tool-desc">&mdash; Systematischer Vollständigkeitscheck für akademische Bibliog...</span></div>
+        <div class="tool-row"><span class="tool-name">quellenaudit</span> <span class="tool-desc">&mdash; Inhaltliches Quellenaudit für akademische Texte.</span></div>
+      </div>
+      <div>
+        <div class="tool-category">KIalog / Website</div>
+        <div class="tool-row"><span class="tool-name">kialog-copywriter</span> <span class="tool-desc">&mdash; Conversion-Copywriter für kialog.</span></div>
+        <div class="tool-row"><span class="tool-name">website-audit</span> <span class="tool-desc">&mdash; 7+3-Dimensionen-Audit für kialog.</span></div>
+        <div class="tool-row"><span class="tool-name">hirschi-style</span> <span class="tool-desc">&mdash; Manuel Hirschis Editorial-Design-System für alle visuellen O...</span></div>
+        <div class="tool-row"><span class="tool-name">frontend-design</span> <span class="tool-desc">&mdash; Generiert produktionsreife Frontend-Interfaces (HTML/CSS/JS,...</span></div>
+      </div>
+      <div>
+        <div class="tool-category">Lehre</div>
+        <div class="tool-row"><span class="tool-name">abu-dossier-workflow</span> <span class="tool-desc">&mdash; Manuel Hirschis exakter Workflow für ABU-Dossiers, Arbeitsbl...</span></div>
+        <div class="tool-row"><span class="tool-name">bewertungspipeline</span> <span class="tool-desc">&mdash; Workflow für Portfolio- und Projektbewertungen an Berufsfach...</span></div>
+        <div class="tool-row"><span class="tool-name">gibb-abu-lernbegleitung</span> <span class="tool-desc">&mdash; Expertenrolle für ABU/DaZ-Unterricht und Lernbegleitung an B...</span></div>
+        <div class="tool-row"><span class="tool-name">ph-fhnw-dozent</span> <span class="tool-desc">&mdash; Expertenrolle für die Erstellung von Lern- und Arbeitsmateri...</span></div>
+      </div>
+      <div>
+        <div class="tool-category">Produktion</div>
+        <div class="tool-row"><span class="tool-name">docx</span> <span class="tool-desc">&mdash; Use this skill whenever the user wants to create, read, edit...</span></div>
+        <div class="tool-row"><span class="tool-name">pdf</span> <span class="tool-desc">&mdash; Use this skill whenever the user wants to do anything with P...</span></div>
+        <div class="tool-row"><span class="tool-name">pptx</span> <span class="tool-desc">&mdash; Use this skill any time a .</span></div>
+        <div class="tool-row"><span class="tool-name">xlsx</span> <span class="tool-desc">&mdash; Use this skill any time a spreadsheet file is the primary in...</span></div>
+        <div class="tool-row"><span class="tool-name">excalidraw-diagram</span> <span class="tool-desc">&mdash; Create Excalidraw diagram JSON files that make visual argume...</span></div>
+      </div>
+      <div>
+        <div class="tool-category">Stil & Qualität</div>
+        <div class="tool-row"><span class="tool-name">dozent-stilcheck</span> <span class="tool-desc">&mdash; KI-Detektor und Stilprüfer für nicht-akademische professione...</span></div>
+        <div class="tool-row"><span class="tool-name">prompt-science</span> <span class="tool-desc">&mdash; Wendet evidenzbasierte Prompt-Forschung auf bestehende Skill...</span></div>
+        <div class="tool-row"><span class="tool-name">skill-creator</span> <span class="tool-desc">&mdash; Creates new skills, modifies and improves existing skills, a...</span></div>
+        <div class="tool-row"><span class="tool-name">skill-improver</span> <span class="tool-desc">&mdash; Prüft und verbessert bestehende Skills nach den 7 Qualitätsr...</span></div>
+      </div>
+      <div>
+        <div class="tool-category">System</div>
+        <div class="tool-row"><span class="tool-name">browser-use</span> <span class="tool-desc">&mdash; Automates browser interactions for web testing, form filling...</span></div>
+        <div class="tool-row"><span class="tool-name">deep-research</span> <span class="tool-desc">&mdash; Execute autonomous multi-step research using Google Gemini D...</span></div>
+        <div class="tool-row"><span class="tool-name">notebooklm-to-vault</span> <span class="tool-desc">&mdash; Holt Wissen aus NotebookLM und legt es als vernetzte Obsidia...</span></div>
+        <div class="tool-row"><span class="tool-name">obsidian-sync</span> <span class="tool-desc">&mdash; Synchronisiert den COWORK Obsidian-Vault: findet neue/ungeta...</span></div>
+        <div class="tool-row"><span class="tool-name">trinity-load</span> <span class="tool-desc">&mdash; Erzeugt ein strukturiertes Expertise-Briefing + Arbeitskonte...</span></div>
+        <div class="tool-row"><span class="tool-name">experten</span> <span class="tool-desc">&mdash; Schneller Zugang zu NotebookLM-Experten mit 1'100+ Quellen.</span></div>
+        <div class="tool-row"><span class="tool-name">inbox</span> <span class="tool-desc">&mdash; Wissen einsammeln, bewerten und einsortieren.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Commands (16)</h2>
+    <div class="tool-row"><span class="cmd-name">/check</span> <span class="cmd-desc">&mdash; System-Check durchführen. Kombiniert Audit, Health...</span></div>
+    <div class="tool-row"><span class="cmd-name">/clean_gone</span> <span class="cmd-desc">&mdash; Cleans up all git branches marked as [gone] (branc...</span></div>
+    <div class="tool-row"><span class="cmd-name">/commit-push-pr</span> <span class="cmd-desc">&mdash; Commit, push, and open a PR</span></div>
+    <div class="tool-row"><span class="cmd-name">/commit</span> <span class="cmd-desc">&mdash; Create a git commit</span></div>
+    <div class="tool-row"><span class="cmd-name">/dashboard</span> <span class="cmd-desc">&mdash; Dashboard generieren und in Chrome öffnen.</span></div>
+    <div class="tool-row"><span class="cmd-name">/dossier</span> <span class="cmd-desc">&mdash; ABU-Dossier erstellen.</span></div>
+    <div class="tool-row"><span class="cmd-name">/ende</span> <span class="cmd-desc">&mdash; Session sauber beenden. Alle Schritte durchlaufen,...</span></div>
+    <div class="tool-row"><span class="cmd-name">/help</span> <span class="cmd-desc">&mdash; Zeige eine kontextabhängige Übersicht der verfügba...</span></div>
+    <div class="tool-row"><span class="cmd-name">/inbox</span> <span class="cmd-desc">&mdash; Lade den Skill `inbox` und führe ihn mit den überg...</span></div>
+    <div class="tool-row"><span class="cmd-name">/marktupdate</span> <span class="cmd-desc">&mdash; Neues M&amp;K Marktupdate, Weekly oder Cheat Sheet ein...</span></div>
+    <div class="tool-row"><span class="cmd-name">/neu</span> <span class="cmd-desc">&mdash; Neues Projekt anlegen. Erstellt die Grundstruktur ...</span></div>
+    <div class="tool-row"><span class="cmd-name">/preflight</span> <span class="cmd-desc">&mdash; Preflight-Check vor einer substantiellen Aufgabe.</span></div>
+    <div class="tool-row"><span class="cmd-name">/silbenfall</span> <span class="cmd-desc">&mdash; Nächste Silbenfall-Charge produzieren.</span></div>
+    <div class="tool-row"><span class="cmd-name">/start</span> <span class="cmd-desc">&mdash; Starte eine neue Arbeitssession. ALLE Schritte dur...</span></div>
+    <div class="tool-row"><span class="cmd-name">/stilcheck</span> <span class="cmd-desc">&mdash; Vollständiger Stilcheck auf akademischem Text — mi...</span></div>
+    <div class="tool-row"><span class="cmd-name">/website-check</span> <span class="cmd-desc">&mdash; Vollständiges Audit von kialog.ch.</span></div>
+  </div>
+  <div class="card">
+    <h2>Plugins &amp; Infrastruktur</h2>
+    <div class="tool-category" style="margin-top: 0;">Plugins (6)</div>
+    <div class="tool-row"><span class="tool-name">pr-review-toolkit</span> <span class="tool-desc">&mdash; 6 spezialisierte Review-Agenten</span></div>
+    <div class="tool-row"><span class="tool-name">codex</span> <span class="tool-desc">&mdash; GPT-5.4 Gegenprüfung</span></div>
+    <div class="tool-row"><span class="tool-name">frontend-design</span> <span class="tool-desc">&mdash; Design-qualitative Interfaces</span></div>
+    <div class="tool-row"><span class="tool-name">code-review</span> <span class="tool-desc">&mdash; PR Code-Review</span></div>
+    <div class="tool-row"><span class="tool-name">security-guidance</span> <span class="tool-desc">&mdash; Security Best Practices</span></div>
+    <div class="tool-row"><span class="tool-name">claude-mem</span> <span class="tool-desc">&mdash; Cross-Session Memory + AST-Suche</span></div>
+    <div class="tool-category" style="margin-top: 1rem;">Hooks (3)</div>
+    <div class="tool-row"><span class="tool-name">SessionStart</span> <span class="tool-desc">&mdash; </span></div>
+    <div class="tool-row"><span class="tool-name">PreToolUse</span> <span class="tool-desc">&mdash; </span></div>
+    <div class="tool-row"><span class="tool-name">PreCompact</span> <span class="tool-desc">&mdash; </span></div>
+    <div class="tool-category" style="margin-top: 1rem;">Rules (3 Dateien, 206 Zeilen)</div>
+    <div class="tool-row"><span class="tool-name">arbeitsregeln.md</span> <span class="tool-desc">(74)</span></div>
+    <div class="tool-row"><span class="tool-name">architektur.md</span> <span class="tool-desc">(81)</span></div>
+    <div class="tool-row"><span class="tool-name">soul.md</span> <span class="tool-desc">(51)</span></div>
+  </div>
+  <div class="card card-full">
+    <h2>MCP-Server (15)</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.25rem 2rem;">
+    <div class="tool-row"><span class="tool-name">ElevenLabs</span> <span class="tool-desc">&mdash; TTS, Voice Clone, Music</span></div>
+    <div class="tool-row"><span class="tool-name">Gemini</span> <span class="tool-desc">&mdash; Bild-Generierung</span></div>
+    <div class="tool-row"><span class="tool-name">Consensus</span> <span class="tool-desc">&mdash; Akademische Paper-Suche</span></div>
+    <div class="tool-row"><span class="tool-name">Excalidraw</span> <span class="tool-desc">&mdash; Diagramme</span></div>
+    <div class="tool-row"><span class="tool-name">Figma</span> <span class="tool-desc">&mdash; Design + Code Connect</span></div>
+    <div class="tool-row"><span class="tool-name">Gmail</span> <span class="tool-desc">&mdash; Mails lesen + Entwürfe</span></div>
+    <div class="tool-row"><span class="tool-name">Google Calendar</span> <span class="tool-desc">&mdash; Termine verwalten</span></div>
+    <div class="tool-row"><span class="tool-name">Netlify</span> <span class="tool-desc">&mdash; Deploy + Projekte</span></div>
+    <div class="tool-row"><span class="tool-name">computer-use</span> <span class="tool-desc">&mdash; Desktop-Steuerung</span></div>
+    <div class="tool-row"><span class="tool-name">context7</span> <span class="tool-desc">&mdash; Library-Dokumentation</span></div>
+    <div class="tool-row"><span class="tool-name">Lighthouse</span> <span class="tool-desc">&mdash; Performance-Audits</span></div>
+    <div class="tool-row"><span class="tool-name">NotebookLM</span> <span class="tool-desc">&mdash; Notebooks + Fragen</span></div>
+    <div class="tool-row"><span class="tool-name">Stitch</span> <span class="tool-desc">&mdash; Design-Systeme (Google)</span></div>
+    <div class="tool-row"><span class="tool-name">tldraw</span> <span class="tool-desc">&mdash; Canvas-Editor</span></div>
+    <div class="tool-row"><span class="tool-name">Scholar Gateway</span> <span class="tool-desc">&mdash; Semantische Suche</span></div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="tab-trading" class="tab-panel">
+<div class="trading-grid">
+  <div class="card">
+    <h2>BTC Short</h2>
+    <div id="trading-loading" style="color: #6B7280;">Lade Live-Daten...</div>
+    <div id="trading-data" style="display: none;">
+      <div class="stats-bar">
+        <div class="stat"><div class="count" id="btc-price" style="font-size: 1.6rem;">&mdash;</div><div class="count-label">BTC/USD</div></div>
+        <div class="stat"><div class="count" id="pnl-value" style="font-size: 1.6rem;">&mdash;</div><div class="count-label">P/L (USD)</div></div>
+        <div class="stat"><div class="count" id="roe-value" style="font-size: 1.4rem;">&mdash;</div><div class="count-label">ROE</div></div>
+      </div>
+      <div style="margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.82rem;">
+        <div><span style="color: #6B7280;">Entry:</span> <span style="color: #EAE7DF;">$73,748</span></div>
+        <div><span style="color: #6B7280;">Liquidation:</span> <span style="color: #EF4444;">$109,284</span></div>
+        <div><span style="color: #6B7280;">Size:</span> <span id="pos-size" style="color: #EAE7DF;">&mdash;</span></div>
+        <div><span style="color: #6B7280;">Margin:</span> <span id="pos-margin" style="color: #EAE7DF;">&mdash;</span></div>
+      </div>
+      <div id="lp-distance" class="meta-line"></div>
+    </div>
+    <div id="trading-error" style="display: none; color: #EF4444; font-size: 0.85rem;"></div>
+  </div>
+  <div class="card">
+    <h2>Zyklus-Status</h2>
+    <div style="display: flex; gap: 2rem; margin-bottom: 1rem;">
+      <div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: #EF4444;">0/16</div>
+        <div style="color: #6B7280; font-size: 0.8rem;">Kern</div>
+      </div>
+      <div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: #F59E0B;">3/14</div>
+        <div style="color: #6B7280; font-size: 0.8rem;">Sekundär</div>
+      </div>
+    </div>
+    <div style="font-size: 0.85rem; color: #EAE7DF; margin-bottom: 0.5rem;">Nur Short. Cash bleibt. Warten auf 4+ Kern-Indikatoren.</div>
+    <div style="font-size: 0.8rem; color: #6B7280; line-height: 1.6;">Short laufen lassen. Kapitulation über die Zeit. $80k Ceiling intakt = Short sicher. $60k muss brechen für nächste Range. Pi Cycle Oscillator bei 1.54 → steigt Richtung 2 (Bodensignal).</div>
+  </div>
+</div>
+</div>
+<script>
+document.querySelectorAll('.main-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+document.querySelectorAll('.projekt-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.projekt-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.projekt-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('ptab-' + tab.dataset.ptab).classList.add('active');
+  });
+});
+(async function() {
+  const wallet = "0x101d7e135bB0A7A780095057688378087f2c003F";
+  const entry = 73748;
+  const lp = 109284;
+  if (!wallet) { document.getElementById('trading-loading').textContent = 'Keine Wallet konfiguriert.'; return; }
+  try {
+    const priceRes = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+    const priceData = await priceRes.json();
+    const btcPrice = priceData.bitcoin.usd;
+    const hlRes = await fetch('https://api.hyperliquid.xyz/info', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'clearinghouseState', user: wallet })
+    });
+    const hlData = await hlRes.json();
+    const btcPos = hlData.assetPositions?.find(p => p.position?.coin === 'BTC');
+    const pos = btcPos?.position;
+    document.getElementById('btc-price').textContent = '$' + btcPrice.toLocaleString('de-CH');
+    if (pos) {
+      const pnl = parseFloat(pos.unrealizedPnl || 0);
+      const size = parseFloat(pos.szi || 0);
+      const margin = parseFloat(pos.marginUsed || 0);
+      const roe = margin > 0 ? (pnl / margin * 100) : 0;
+      const lpDist = ((lp - btcPrice) / btcPrice * 100);
+      document.getElementById('pnl-value').textContent = (pnl >= 0 ? '+' : '') + '$' + Math.round(pnl).toLocaleString('de-CH');
+      document.getElementById('pnl-value').style.color = pnl >= 0 ? '#22C55E' : '#EF4444';
+      document.getElementById('roe-value').textContent = (roe >= 0 ? '+' : '') + roe.toFixed(1) + '%';
+      document.getElementById('roe-value').style.color = roe >= 0 ? '#22C55E' : '#EF4444';
+      document.getElementById('pos-size').textContent = size.toFixed(5) + ' BTC';
+      document.getElementById('pos-margin').textContent = '$' + Math.round(margin).toLocaleString('de-CH');
+      document.getElementById('lp-distance').textContent = 'LP-Abstand: ' + lpDist.toFixed(1) + '% (' + (lpDist > 30 ? 'sicher' : lpDist > 15 ? 'ok' : 'ACHTUNG') + ')';
+      if (lpDist <= 15) document.getElementById('lp-distance').style.color = '#EF4444';
+      else if (lpDist <= 30) document.getElementById('lp-distance').style.color = '#F59E0B';
+      else document.getElementById('lp-distance').style.color = '#22C55E';
+    } else {
+      document.getElementById('pnl-value').textContent = 'keine Position';
+      document.getElementById('pnl-value').style.fontSize = '0.9rem';
+    }
+    document.getElementById('trading-loading').style.display = 'none';
+    document.getElementById('trading-data').style.display = 'block';
+  } catch (e) {
+    document.getElementById('trading-loading').style.display = 'none';
+    document.getElementById('trading-error').style.display = 'block';
+    document.getElementById('trading-error').textContent = 'API-Fehler: ' + e.message;
+  }
+})();
+</script>
+</body>
+</html>
