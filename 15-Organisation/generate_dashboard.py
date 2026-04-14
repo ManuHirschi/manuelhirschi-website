@@ -377,7 +377,7 @@ SKILL_CATEGORIES = {
     "Lehre": ["abu-dossier-workflow", "bewertungspipeline", "gibb-abu-lernbegleitung", "ph-fhnw-dozent"],
     "Produktion": ["docx", "pdf", "pptx", "xlsx", "excalidraw-diagram"],
     "Stil & Qualität": ["dozent-stilcheck", "prompt-science", "skill-creator", "skill-improver"],
-    "System": ["browser-use", "deep-research", "notebooklm-to-vault", "obsidian-sync", "trinity-load", "experten", "inbox"],
+    "System": ["browser-use", "deep-research", "obsidian-sync", "trinity-load", "experten", "inbox"],
 }
 
 # ── Projekt-Gruppen → Tab-Mapping ──
@@ -604,6 +604,7 @@ def main():
     h.append('  <div class="main-tab active" data-tab="heute">Heute</div>\n')
     h.append('  <div class="main-tab" data-tab="arbeit">Arbeit</div>\n')
     h.append('  <div class="main-tab" data-tab="tooling">Tooling</div>\n')
+    h.append('  <div class="main-tab" data-tab="architektur">Architektur</div>\n')
     h.append('  <div class="main-tab" data-tab="trading">Trading</div>\n')
     h.append('</div>\n')
 
@@ -911,6 +912,120 @@ def main():
         h.append(f'    <div class="tool-row"><span class="tool-name">{m["name"]}</span> <span class="tool-desc">&mdash; {esc(m["desc"])}</span></div>\n')
     h.append('    </div>\n  </div>\n')
     h.append('</div>\n</div>\n')  # grid + tab-tooling
+
+    # ═══════════ TAB: ARCHITEKTUR ═══════════
+    h.append('<div id="tab-architektur" class="tab-panel">\n<div class="grid">\n')
+
+    # Wissens-Pipeline
+    h.append("""  <div class="card card-full">
+    <h2>Wissens-Pipeline</h2>
+    <div style="font-family: monospace; font-size: 0.85rem; line-height: 2; padding: 1rem; background: #111; border-radius: 8px;">
+      <span style="color: #BEFF00;">Input</span> (YouTube, Paper, Link, Idee)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&#x2502;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&#x25BC;<br>
+      <span style="color: #BEFF00;">INBOX</span> &mdash; &laquo;Wissen oder Aufgabe?&raquo;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&#x2502;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2502;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&#x2502; Aufgabe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2502; Wissen<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&#x25BC;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x25BC;<br>
+      <span style="color: #6B7280;">Projektordner</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #BEFF00;">ZOTERO</span> (PDF + Metadaten)<br>
+      <span style="color: #6B7280;">(COWORK)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2502;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x25BC;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #BEFF00;">WIKI-LLM</span> (Konzepte vernetzen)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2502;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x25BC;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #BEFF00;">NOTEBOOKLM</span> (Experten f&uuml;ttern)
+    </div>
+  </div>
+""")
+
+    # 5 Systeme
+    h.append("""  <div class="card card-full">
+    <h2>5 Systeme &mdash; klare Rollen</h2>
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+      <thead><tr style="border-bottom: 1px solid #333; color: #BEFF00;">
+        <th style="text-align: left; padding: 0.5rem;">System</th>
+        <th style="text-align: left; padding: 0.5rem;">Rolle</th>
+        <th style="text-align: left; padding: 0.5rem;">Metapher</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #222;"><td style="padding: 0.4rem; color: #BEFF00;">COWORK</td><td style="padding: 0.4rem;">Arbeitsplatz &mdash; Projekte, Deadlines, Material</td><td style="padding: 0.4rem; color: #6B7280;">Schreibtisch</td></tr>
+        <tr style="border-bottom: 1px solid #222;"><td style="padding: 0.4rem; color: #BEFF00;">Zotero</td><td style="padding: 0.4rem;">Quellenregister &mdash; PDF, Metadaten, BibTeX</td><td style="padding: 0.4rem; color: #6B7280;">Bibliothekskatalog</td></tr>
+        <tr style="border-bottom: 1px solid #222;"><td style="padding: 0.4rem; color: #BEFF00;">Wiki-LLM</td><td style="padding: 0.4rem;">Verstandenes Wissen &mdash; Konzeptseiten mit Quellen</td><td style="padding: 0.4rem; color: #6B7280;">Eigenes Lehrbuch</td></tr>
+        <tr style="border-bottom: 1px solid #222;"><td style="padding: 0.4rem; color: #BEFF00;">NotebookLM</td><td style="padding: 0.4rem;">Befragbare Korpora &mdash; quellenbasierte Antworten</td><td style="padding: 0.4rem; color: #6B7280;">Fachgespr&auml;ch</td></tr>
+        <tr><td style="padding: 0.4rem; color: #BEFF00;">Inbox</td><td style="padding: 0.4rem;">Eingang &mdash; alles Neue, nichts bleibt hier</td><td style="padding: 0.4rem; color: #6B7280;">Briefkasten</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 1rem; color: #6B7280; font-size: 0.8rem;">Zotero weiss, DASS du eine Quelle hast. Wiki-LLM weiss, WAS drinsteht. NotebookLM kann ANTWORTEN darauf geben.</p>
+  </div>
+""")
+
+    # Wiki-LLM Aufnahmekriterium
+    h.append("""  <div class="card">
+    <h2>Wiki-LLM &mdash; was geh&ouml;rt rein?</h2>
+    <p style="color: #BEFF00; font-size: 0.85rem; margin-bottom: 0.75rem;">Faustregel: W&uuml;rdest du es in einer Fussnote zitieren?</p>
+    <div style="font-size: 0.8rem;">
+      <div style="color: #22C55E; margin-bottom: 0.25rem;">&#x2713; Peer-reviewed Papers</div>
+      <div style="color: #22C55E; margin-bottom: 0.25rem;">&#x2713; Sachb&uuml;cher mit Empirie/Theorie</div>
+      <div style="color: #22C55E; margin-bottom: 0.25rem;">&#x2713; Institutionelle Berichte (OECD, SBFI)</div>
+      <div style="color: #22C55E; margin-bottom: 0.25rem;">&#x2713; Rahmenwerke, Lehrpl&auml;ne</div>
+      <div style="color: #EF4444; margin-top: 0.5rem; margin-bottom: 0.25rem;">&#x2717; YouTube, Blog-Posts, Meinungsartikel</div>
+      <div style="color: #EF4444; margin-bottom: 0.25rem;">&#x2717; Popularwissenschaft ohne Empirie</div>
+      <div style="color: #EF4444; margin-bottom: 0.25rem;">&#x2717; Tool-Doku, System-Erkenntnisse</div>
+    </div>
+  </div>
+""")
+
+    # 3 Kern-Experten
+    h.append("""  <div class="card">
+    <h2>NotebookLM &mdash; 3 Kern-Experten</h2>
+    <div style="font-size: 0.85rem;">
+      <div style="margin-bottom: 0.75rem;">
+        <span style="color: #BEFF00; font-weight: 600;">forschung</span><br>
+        <span style="color: #9CA3AF;">EJ, KI-Feedback, Assessment, Methodik</span><br>
+        <span style="color: #6B7280;">&#x2192; &laquo;Was sagt die Wissenschaft?&raquo;</span>
+      </div>
+      <div style="margin-bottom: 0.75rem;">
+        <span style="color: #BEFF00; font-weight: 600;">praxis</span><br>
+        <span style="color: #9CA3AF;">Berufsbildung, LP-Stimmen, ILB, Mentorat</span><br>
+        <span style="color: #6B7280;">&#x2192; &laquo;Was erleben Lehrpersonen?&raquo;</span>
+      </div>
+      <div>
+        <span style="color: #BEFF00; font-weight: 600;">kontext</span><br>
+        <span style="color: #9CA3AF;">Markt, Recht, F&ouml;rderung, Governance</span><br>
+        <span style="color: #6B7280;">&#x2192; &laquo;Was erlaubt/f&ouml;rdert das System?&raquo;</span>
+      </div>
+    </div>
+  </div>
+""")
+
+    # Source of Truth
+    h.append("""  <div class="card card-full">
+    <h2>Source of Truth</h2>
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem;">
+      <thead><tr style="border-bottom: 1px solid #333; color: #BEFF00;">
+        <th style="text-align: left; padding: 0.4rem;">Was</th>
+        <th style="text-align: left; padding: 0.4rem;">Kanonische Quelle</th>
+        <th style="text-align: left; padding: 0.4rem;">Nicht</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #222;"><td style="padding: 0.3rem;">Projektzustand</td><td style="padding: 0.3rem;">Projekt-CLAUDE.md</td><td style="padding: 0.3rem; color: #6B7280;">Memory</td></tr>
+        <tr style="border-bottom: 1px solid #222;"><td style="padding: 0.3rem;">Quellenbesitz</td><td style="padding: 0.3rem;">Zotero</td><td style="padding: 0.3rem; color: #6B7280;">Wiki-LLM raw/</td></tr>
+        <tr style="border-bottom: 1px solid #222;"><td style="padding: 0.3rem;">Verstandenes Wissen</td><td style="padding: 0.3rem;">Wiki-LLM wiki/</td><td style="padding: 0.3rem; color: #6B7280;">Training, NLM</td></tr>
+        <tr style="border-bottom: 1px solid #222;"><td style="padding: 0.3rem;">Quellenbasierte Antworten</td><td style="padding: 0.3rem;">NotebookLM</td><td style="padding: 0.3rem; color: #6B7280;">Claude direkt</td></tr>
+        <tr style="border-bottom: 1px solid #222;"><td style="padding: 0.3rem;">Verhaltensregeln</td><td style="padding: 0.3rem;">rules/arbeitsregeln.md</td><td style="padding: 0.3rem; color: #6B7280;">feedback_*.md</td></tr>
+        <tr><td style="padding: 0.3rem;">Inventar</td><td style="padding: 0.3rem;">tool-registry.md (auto)</td><td style="padding: 0.3rem; color: #6B7280;">Benutzerhandbuch</td></tr>
+      </tbody>
+    </table>
+  </div>
+""")
+
+    # Benutzerhandbuch-Link
+    h.append("""  <div class="card card-full" style="text-align: center; padding: 1.5rem;">
+    <a href="15-Organisation/Benutzerhandbuch.md" style="color: #BEFF00; text-decoration: none; font-size: 0.9rem;">&#x1F4D6; Benutzerhandbuch &mdash; vollst&auml;ndige Systemdokumentation</a>
+  </div>
+""")
+
+    h.append('</div>\n</div>\n')  # grid + tab-architektur
 
     # ═══════════ TAB: TRADING ═══════════
     kern_color = "#22C55E" if kern_flash >= 4 else "#EF4444"
