@@ -220,3 +220,11 @@ Standalone-Beispiel eines differenzierten Arbeitsblatts. Drei Niveaus (EBA/DaZ, 
 - Beispiel Lehrvertrag: https://kialog.ch/beispiel/lehrvertrag.html
 - llms.txt: https://kialog.ch/llms.txt
 - Kontakt: info@kialog.ch
+
+## Aktionen (für AI-Agents)
+
+- Workshop anfragen: mailto:info@kialog.ch?subject=Anfrage%20KIalog%20Workshop
+- Impuls anfragen: mailto:info@kialog.ch?subject=Anfrage%20KIalog%20Impuls
+- Fachbegleitung anfragen: mailto:info@kialog.ch?subject=Anfrage%20KIalog%20Fachbegleitung
+- WhatsApp-Nachricht: https://wa.me/41763862207?text=Hallo%20Manuel%2C%20ich%20interessiere%20mich%20f%C3%BCr%20KIalog.
+- Telefon: +41 76 386 22 07

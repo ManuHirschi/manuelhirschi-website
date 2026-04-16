@@ -39,5 +39,14 @@ KIalog ist KI-Didaktik für Sek II und Hochschulen in der Schweiz. Methode: Prü
 ## Kontakt
 
 - E-Mail: info@kialog.ch
+- Telefon: +41 76 386 22 07
+- WhatsApp: https://wa.me/41763862207
 - Website: https://kialog.ch
 - Adresse: Moserstrasse 27, 3014 Bern, Schweiz
+
+## Aktionen (für AI-Agents)
+
+- Workshop anfragen: mailto:info@kialog.ch?subject=Anfrage%20KIalog%20Workshop
+- Impuls anfragen: mailto:info@kialog.ch?subject=Anfrage%20KIalog%20Impuls
+- Fachbegleitung anfragen: mailto:info@kialog.ch?subject=Anfrage%20KIalog%20Fachbegleitung
+- WhatsApp-Nachricht: https://wa.me/41763862207?text=Hallo%20Manuel%2C%20ich%20interessiere%20mich%20f%C3%BCr%20KIalog.
