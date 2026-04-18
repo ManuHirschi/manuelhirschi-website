@@ -18,6 +18,7 @@ tags: [moc, navigation]
 - [[08-KIalog Website/CLAUDE|Website kialog.ch]] — Marke, Vertrieb, Positionierung
 
 ## Produkte
+- [[10-werkraum/CLAUDE|Werkraum]] — Didaktische Brücke: Fachidee → Laufpaket → Coding-Agent, EJ-basiert
 - [[09-KIalog Produkte/Produktarchitektur_Entwurf|Produktarchitektur]] — 3-Schritt-Methode (Prüfen→Urteilen→Belegen), Stufenmodell
 - [[09-KIalog Produkte/KIalog/CLAUDE|KIalog Workshop]] — 2×90 Min, EJ-Workflow, Pilot gibb April 2026
 - [[09-KIalog Produkte/difflab/CLAUDE|KIalog diff]] — Next.js-Prototyp, archiviert
@@ -45,7 +46,7 @@ tags: [moc, navigation]
 
 > [!abstract] Evaluative Judgement — der rote Faden
 > [[01-UZH Exposee/CLAUDE|Forschung]] → [[09-KIalog Produkte/KIalog/CLAUDE|Workshop-Kern]] → [[13-KIalog Wissensbasis/CLAUDE|Geschäfts-USP]] → [[06-Philosophie/CLAUDE|Grenzform-Brücke]]
-> EJ ist Manuels einzigartiger Beitrag: Niemand sonst verschränkt KI-Didaktik + EJ im DACH-Raum.
+> EJ ist Manuels einzigartiger Beitrag: Niemand sonst verschränkt KI-Didaktik + EJ in der Deutschschweiz.
 
 > [!abstract] Berufsbildung Schweiz — drei Schulen, ein Feld
 > [[04-BWZ Lyss/CLAUDE|BWZ Lyss (ABU EFZ)]] + [[11-gibb Lernbegleitung/CLAUDE|gibb (ILB/EBA)]] + [[03-PH FHNW/Lehrauftrag/CLAUDE|PH FHNW (Ausbildung)]]
