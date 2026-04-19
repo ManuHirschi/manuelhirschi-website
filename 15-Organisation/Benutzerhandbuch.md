@@ -31,7 +31,7 @@ Themenwechsel:  /clear (statt /compact)
 | `/start website` | Bestimmtes Projekt | Zusätzlich: Projekt-CLAUDE.md + related + Personen laden |
 | `/ende` | Ende des Tages | CLAUDE.md aktualisieren, Memories nachführen, HOME prüfen, Backup |
 
-Memory-Konsolidierung läuft automatisch via **Auto Dream** (eingebautes Feature). Kein manueller Befehl nötig.
+Memory-Hygiene läuft als Teil von `/ende` (Schritt 2b): berührte Memories prüfen, Stale-Check wenn >7 Tage, Zählung im Report.
 
 **Projektnamen für /start:** exposé, trading, ph, bwz, philosophie, silbenfall, website, weiterbildung, ial, schule, haus, organisation
 
@@ -117,7 +117,7 @@ Git-Repo: github.com/ManuHirschi/claude-setup.git
 
 **Feedback-Autorität:** `arbeitsregeln.md` = Kurzregel (gewinnt immer). `feedback_*.md` = Kontext mit Why/How (bei Bedarf laden).
 
-**Hygiene:** Projekt-Memories >30 Tage ohne Abruf = Löschkandidat. `/start` prüft wöchentlich (max 5). Auto Dream konsolidiert automatisch.
+**Hygiene:** Projekt-Memories >30 Tage ohne Abruf = Löschkandidat. `/ende` prüft jede Session (berührte Memories + Stale-Check wenn >7 Tage). Konsolidierung manuell bei >55 Memories.
 
 ### Externe Dienste
 
@@ -227,8 +227,8 @@ Falls das System von Grund auf neu aufgebaut werden muss.
 
 | Was | Wann | Wie |
 |-----|------|-----|
-| Memory-Hygiene | Bei /start (wöchentlich) + /ende | Stale prüfen, aktualisieren, löschen |
-| Vault-Sync + Dream | Sonntags via /ende | Memory-Konsolidierung, Obsidian-Frontmatter |
+| Memory-Hygiene | Bei /ende (jede Session) | Berührte prüfen, Stale-Check (>7d), Zählung |
+| Vault-Sync | Sonntags via /ende | Obsidian-Frontmatter, HOME.md |
 | Rules-Gewicht | Bei /start (wöchentlich) | Warnung wenn >200 Zeilen |
 | Skill-Audit | Monatlich (1.–3.) bei /start | last_checked >30 Tage → Warnung |
 | System-Vollaudit | Bei Bedarf | `/check` |
@@ -239,6 +239,7 @@ Falls das System von Grund auf neu aufgebaut werden muss.
 - **API-Keys** gehören in `~/.zshrc`, nie in synchronisierte Dateien
 - **Security-Guard Hook** warnt bei Write/Edit auf SKILL.md, CLAUDE.md, settings.json
 - **Pre-Compact Hook** sichert Session-Stand automatisch vor Komprimierung
+- **Verifikations-Hook** (19.4., Scope abends erweitert) markiert Änderungen an 9 Systemdatei-Klassen (commands/*.md, skills/*/SKILL.md, hooks/*, rules/*.md, agents/*.md, references/*.md, scripts/*, settings.json, settings.local.json) als verifikationspflichtig. Blockiert `/compact`, wenn kein dokumentierter Pfadtest in `~/.claude/logs/verifikation-tests/` vorliegt. Erzwingt: Inhalt geprüft ≠ Vollzug geprüft.
 - **Extern vorsichtig:** Git Push, Mails, Commits — bestätigen lassen
 
 ---
