@@ -10,3 +10,8 @@
 # Netlify-Ordner überall ignorieren
 .netlify/
 .compact-snapshots/
+
+# Grosse Binärdateien nie tracken (auch im Website-Ordner)
+08-KIalog Website/**/*.mp4
+08-KIalog Website/**/*.mov
+08-KIalog Website/**/*.zip
