@@ -121,8 +121,8 @@ Git-Repo: github.com/ManuHirschi/claude-setup.git
 
 ### Externe Dienste
 
-**Lokale MCP-Server** (in mcp.json): context7, lighthouse, notebooklm, gemini, ollama
-**Konnektoren** (in claude.ai): Gmail, Google Calendar, Consensus, Excalidraw, Figma, Mermaid Chart, Netlify, Scholar Gateway, tldraw, ElevenLabs, Stitch, computer-use
+**Lokale MCP-Server** (in mcp.json + .claude.json): context7, lighthouse, notebooklm, gemini, ollama, zotero, **consensus** (seit 19.4. umverdrahtet — war claude.ai-Konnektor, ist jetzt user-scope HTTP-MCP gegen Pro-Konto)
+**Konnektoren** (in claude.ai): Gmail, Google Calendar, Excalidraw, Figma, Mermaid Chart, Netlify, Scholar Gateway, tldraw, ElevenLabs, Stitch, computer-use
 
 Aktuelles Inventar: `~/.claude/references/tool-registry.md`
 
