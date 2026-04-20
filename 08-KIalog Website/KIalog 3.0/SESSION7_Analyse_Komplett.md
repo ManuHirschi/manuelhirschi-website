@@ -269,7 +269,7 @@ Wichtig (10):
 
 ### BWZ Lyss (3 Dateien)
 - Dossier Risiko/Sicherheit (KI-Szenario Mediensprache)
-- generate_bewertungen.py (Bewertungspipeline)
+- generate_bewertungen.py (Script für individuelle Bewertungs-PDFs)
 - 30 individuelle Bewertungs-PDFs
 
 ### Website + Methode (6 Dateien)
