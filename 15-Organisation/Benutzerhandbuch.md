@@ -30,10 +30,13 @@ Themenwechsel:  /clear (statt /compact)
 | `/start` | Beginn jeder Session | Dashboard öffnen, Deadlines + Kontext laden, Git-Diff, HOME lesen, Fokus vorschlagen |
 | `/start website` | Bestimmtes Projekt | Zusätzlich: Projekt-CLAUDE.md + related + Personen laden |
 | `/ende` | Ende des Tages | CLAUDE.md aktualisieren, Memories nachführen, HOME prüfen, Backup |
+| `/check` | Bei Bedarf | System-Vollaudit: Audit, Healthcheck, Verifikation (inkl. 7-Schichten-Strukturaudit) |
+| `/quellenlage` | Bei Bedarf | Read-only Audit 5-System-Topologie (Zotero, Wiki-LLM, NotebookLM, COWORK, Inbox) gegen `quellenablage-v1.md` |
+| `/preflight`, `/neu`, `/inbox`, `/dashboard` | Bei Bedarf | Projekt-/Workflow-Commands (vollständige Liste: `~/.claude/commands/`) |
 
 Memory-Hygiene läuft als Teil von `/ende` (Schritt 2b): berührte Memories prüfen, Stale-Check wenn >7 Tage, Zählung im Report.
 
-**Projektnamen für /start:** exposé, trading, ph, bwz, philosophie, silbenfall, website, weiterbildung, ial, schule, haus, organisation
+**Projektnamen für /start:** exposé, trading, ph, bwz, philosophie, silbenfall, kialog (mehrdeutig: website/produkte/wissensbasis/startup — präzisieren), werkraum, gibb, haus, organisation, architekt, kifeedback, teilen
 
 ### Mehrere Terminals
 
@@ -84,11 +87,11 @@ Pflichtstruktur + Lifecycle-Regeln: `~/.claude/references/claude-md-template.md`
 ~/.claude/
 ├── CLAUDE.md              ← Globale Regeln (Sprache, Haltung)
 ├── rules/                 ← 3 Regeldateien (soul, arbeitsregeln, architektur)
-├── references/            ← Nachschlagewerke (claude-md-template, tool-registry, rollen, orchestrierung)
+├── references/            ← Nachschlagewerke (claude-md-template, tool-registry, rollen-und-kontexte, orchestrierte-gegenpruefung, architektur-details, memory-template, quellenablage-v1)
 ├── commands/              ← Slash-Commands (.md)
 ├── skills/                ← Skills (je Ordner mit SKILL.md)
 ├── plugins/               ← Plugins (extern, Marketplace)
-├── hooks/                 ← security-guard.sh, pre-compact-save.sh
+├── hooks/                 ← 11 Hook-Scripts: session-start, context-injection, security-guard, file-safety, pre-compact-save, write-edit-log, access-tracking, bestandspruefung, verifikation-guard, verifikation-pending, verifikation-pending-bash
 ├── mcp.json               ← Lokale MCP-Server (context7, lighthouse, notebooklm, gemini, ollama)
 ├── settings.json          ← Permissions, Hooks, Statusline
 └── projects/.../memory/   ← Memory-Dateien + MEMORY.md Index
@@ -96,28 +99,37 @@ Pflichtstruktur + Lifecycle-Regeln: `~/.claude/references/claude-md-template.md`
 
 Git-Repo: github.com/ManuHirschi/claude-setup.git
 
-**Regelhierarchie (bei Konflikten):**
+**Regelhierarchie (bei Konflikten — 7 Stufen, Source of Truth: `rules/architektur.md`):**
 1. `rules/soul.md` — Identität, nicht verhandelbar
-2. `rules/arbeitsregeln.md` — Alle Arbeitsregeln + Kurzfassungen der Feedback-Memories
-3. `rules/architektur.md` — Wie Navigation funktioniert, Session-Rituale
-4. Feedback-Memories (`feedback_*.md`) — Kontext (Why/How to apply)
-5. Projekt-CLAUDE.md — Projektspezifisch
+2. `rules/arbeitsregeln.md` — Kurzregel, gewinnt bei Konflikt
+3. `rules/architektur.md` — Navigation, Session-Rituale
+4. Projekt-CLAUDE.md — projektspezifisch (gilt nur im Projektkontext)
+5. Feedback-Memory (`feedback_*.md`) — Kontext, Why/How
+6. Projekt-Memory (`project_*.md`) — Schnellzugriff
+7. SKILL.md Body — Umsetzung, nicht Regel
+
+Bei Widerspruch: höhere Ebene gewinnt. Niedrigere Ebene aktualisieren.
 
 ### Schicht 3: Memory (Persistenz zwischen Sessions)
 
-**5 Typen:**
+**Schema (6 Einträge, nicht alle aktuell belegt):**
 
 | Typ | Zweck | Beispiel |
 |-----|-------|---------|
-| `user_*.md` | Wer Manuel ist | Rollen, Arbeitsweise, Kommunikation |
+| `user_*.md` | Wer Manuel ist | Rollen, Arbeitsweise, Kommunikation (Schema — aktuell nicht belegt, läuft über SessionStart-Kontext-Hook + `executive_summary.md`) |
 | `feedback_*.md` | Korrekturen + bestätigte Ansätze | "Redundanzen sofort fixen", "ADHS = Stärke" |
 | `project_*.md` | Projektstände (Schnappschüsse) | Expose-Stand, Website-Version, Trading-Position |
-| `reference_*.md` | Zeiger auf externe Systeme | NotebookLM CLI, Zotero, ElevenLabs |
+| `reference_*.md` | Zeiger auf externe Systeme | NotebookLM CLI, Zotero, ElevenLabs (Schema — aktuell nicht belegt, Referenzen leben in `~/.claude/references/` und Projekt-CLAUDE.md) |
+| `executive_summary.md` | Weltmodell (Sonderfall, immer geladen) | Rollen, Projekte, Entscheidungen, Deadlines |
 | `MEMORY.md` | Index aller Memories | Immer geladen, max 200 Zeilen |
 
 **Feedback-Autorität:** `arbeitsregeln.md` = Kurzregel (gewinnt immer). `feedback_*.md` = Kontext mit Why/How (bei Bedarf laden).
 
 **Hygiene:** Projekt-Memories >30 Tage ohne Abruf = Löschkandidat. `/ende` prüft jede Session (berührte Memories + Stale-Check wenn >7 Tage). Konsolidierung manuell bei >55 Memories.
+
+### Quellenablage (5-System-Topologie)
+
+Jeder neue Input → INBOX → eine Richtung (Aufgabe/Wissen). Normative Regel: `~/.claude/references/quellenablage-v1.md` (4 Kategorien, Ablage je Quellentyp, Buchkapitel-Ausnahme). Audit: `/quellenlage` (read-only). Rollen: COWORK (Arbeitsplatz) · Zotero (Quellenregister) · Wiki-LLM (verstandenes Wissen) · NotebookLM (befragbare Korpora) · Inbox (Transit).
 
 ### Externe Dienste
 
@@ -136,7 +148,7 @@ Aktuelles Inventar: `~/.claude/references/tool-registry.md`
 2. Deadlines mit Kontext laden (deadline + next + prio aus CLAUDE.md)
 3. Git-Diff (letzte 3 Tage)
 4. Bei Projekt-Argument: CLAUDE.md + related (1-Hop) + Personen (max 2) laden
-5. Memory-Hygiene (wöchentlich, max 5 Memories prüfen)
+5. Rules-Gewicht + Memory-Index-Warnung (Hook-basiert, nicht aktive Hygiene — Schreib-Hygiene läuft in /ende)
 6. HOME.md lesen
 7. Briefing ausgeben + Fokus vorschlagen
 8. Selbstwartung: Rules-Gewicht, Skill-Audit (monatlich)
@@ -190,9 +202,10 @@ Falls das System von Grund auf neu aufgebaut werden muss.
 1. Claude Code installieren
 2. `~/.claude/CLAUDE.md` anlegen (Sprache, Haltung)
 3. `~/.claude/rules/` anlegen: soul.md, arbeitsregeln.md, architektur.md
-4. `~/.claude/references/` anlegen: claude-md-template.md, tool-registry.md, rollen-und-kontexte.md, orchestrierte-gegenpruefung.md
+4. `~/.claude/references/` anlegen (7 Dateien): claude-md-template.md, tool-registry.md, rollen-und-kontexte.md, orchestrierte-gegenpruefung.md, architektur-details.md, memory-template.md, quellenablage-v1.md
 5. `~/.claude/settings.json` mit Permissions und Hooks
 6. `~/.claude/mcp.json` mit MCP-Server-Konfigurationen
+7. Zusatz-Ordner: `automations/` (Deadline, Backup), `mcp-servers/` (lokale MCPs), `scripts/` (Verifikation, Drift-Check), `logs/` (verifikation-tests, verifikation-offen.jsonl)
 
 ### Phase 2: Vault aufsetzen (1 Stunde)
 1. COWORK-Ordner mit `CLAUDE.md` (Router)
@@ -213,9 +226,16 @@ Falls das System von Grund auf neu aufgebaut werden muss.
 2. Weitere Commands nach Bedarf
 3. Skills nach Domäne (alle mit SKILL.md)
 
-### Phase 5: Hooks + Sicherheit (15 Min)
-1. Security-Guard Hook (warnt bei Write auf sensible Dateien)
-2. Pre-Compact Hook (sichert Session-Stand)
+### Phase 5: Hooks + Sicherheit (30 Min)
+1. `session-start.sh` — Dashboard + Kontext-Injektion beim /start
+2. `context-injection.sh` — User-Profil + Git-Log injizieren
+3. `security-guard.sh` — Warnt bei Write auf sensible Dateien
+4. `file-safety.sh` — Schutz vor destruktiven Writes
+5. `pre-compact-save.sh` — Sichert Session-Stand vor /compact
+6. `write-edit-log.sh` — Audit-Log aller Write/Edit
+7. `access-tracking.sh` — Memory-Access-Tracking (für Stale-Check)
+8. `bestandspruefung.sh` — Bestandsintegrität beim Sessionstart
+9. `verifikation-guard.sh` + `verifikation-pending.sh` (+ `-bash`-Variante) — Vollzugsnachweis erzwingen (Inhalt geprüft ≠ Vollzug geprüft)
 
 ### Git-Repos
 - `~/.claude/` → github.com/ManuHirschi/claude-setup.git
@@ -229,7 +249,7 @@ Falls das System von Grund auf neu aufgebaut werden muss.
 |-----|------|-----|
 | Memory-Hygiene | Bei /ende (jede Session) | Berührte prüfen, Stale-Check (>7d), Zählung |
 | Vault-Sync | Sonntags via /ende | Obsidian-Frontmatter, HOME.md |
-| Rules-Gewicht | Bei /start (wöchentlich) | Warnung wenn >200 Zeilen |
+| Rules-Gewicht | Bei /start (wöchentlich) | Warnung wenn einzelne rules/*.md >200 Zeilen (nicht summiert) |
 | Skill-Audit | Monatlich (1.–3.) bei /start | last_checked >30 Tage → Warnung |
 | System-Vollaudit | Bei Bedarf | `/check` |
 | Benutzerhandbuch + tool-registry | Bei /ende, wenn Systemdateien geändert | Automatische Warnung |
@@ -246,4 +266,4 @@ Falls das System von Grund auf neu aufgebaut werden muss.
 
 *Dieses Dokument beschreibt Architektur und Prinzipien. Für aktuelle Inventare (Skills, Commands, MCP-Server) siehe `~/.claude/references/tool-registry.md`.*
 
-*Zuletzt verifiziert: 14.04.2026*
+*Zuletzt verifiziert: 20.04.2026 (Audit-Fix + Codex-Gegencheck: Hooks 2→11 Scripts, References 4→7, Regelhierarchie 5→7 Stufen, Projektnamen aktualisiert, Memory-Schema auf 6 Einträge mit Ist-Bestand-Markierung, Quellenablage v1 ergänzt, Commands-Tabelle um /check und /quellenlage erweitert. /audit entfernt — Command existiert nicht.)*
